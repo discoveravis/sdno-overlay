@@ -161,16 +161,6 @@ public class ErrorCodeInfo {
     }
 
     /**
-     * Set objectName attribute.<br/>
-     * 
-     * @param objectName String Object
-     * @since SDNO 0.5
-     */
-    public void setObjectName(String objectName) {
-        this.objectName = objectName;
-    }
-
-    /**
      * Get objectName attribute.<br/>
      * 
      * @return objectName attribute
@@ -181,23 +171,13 @@ public class ErrorCodeInfo {
     }
 
     /**
-     * Get errorCode attribute.<br/>
+     * Set objectName attribute.<br/>
      * 
-     * @return errorCode attribute
+     * @param objectName String Object
      * @since SDNO 0.5
      */
-    public String getErrorCode() {
-        return errorCode;
-    }
-
-    /**
-     * Set errorCode attribute.<br/>
-     * 
-     * @param errorCode String Object
-     * @since SDNO 0.5
-     */
-    public void setErrorCode(String errorCode) {
-        this.errorCode = errorCode;
+    public void setObjectName(String objectName) {
+        this.objectName = objectName;
     }
 
     /**
@@ -218,6 +198,26 @@ public class ErrorCodeInfo {
      */
     public void setObject(Object object) {
         this.object = object;
+    }
+
+    /**
+     * Get errorCode attribute.<br/>
+     * 
+     * @return errorCode attribute
+     * @since SDNO 0.5
+     */
+    public String getErrorCode() {
+        return errorCode;
+    }
+
+    /**
+     * Set errorCode attribute.<br/>
+     * 
+     * @param errorCode String Object
+     * @since SDNO 0.5
+     */
+    public void setErrorCode(String errorCode) {
+        this.errorCode = errorCode;
     }
 
     /**

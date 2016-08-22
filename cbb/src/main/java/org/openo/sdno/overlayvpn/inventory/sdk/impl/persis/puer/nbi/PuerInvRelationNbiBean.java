@@ -44,7 +44,7 @@ import org.slf4j.LoggerFactory;
  */
 public class PuerInvRelationNbiBean extends PuerInvSuperNbiBean {
 
-    private static final String DBURL = "/openoapi/sdnomss/v1/buckets/{0}/resources/";
+    private static final String DBURL = "/rest/svc/mss/v2/buckets/{0}/resources/";
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PuerInvRelationNbiBean.class);
 

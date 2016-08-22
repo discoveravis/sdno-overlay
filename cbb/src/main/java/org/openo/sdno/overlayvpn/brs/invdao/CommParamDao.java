@@ -43,10 +43,9 @@ public class CommParamDao {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CommParamDao.class);
 
-    private static final String COMMPARAM_URL = "/openoapi/sdnobrs/v1/commparammgmt/access-objects/{0}/commparams";
+    private static final String COMMPARAM_URL = "/rest/brs/v1/commparammgmt/access-objects/{0}/commparams";
 
-    private static final String UPDATE_COMMPARAM_URL =
-            "/openoapi/sdnobrs/v1/commparammgmt/access-objects/{0}/commparams/{1}";
+    private static final String UPDATE_COMMPARAM_URL = "/rest/brs/v1/commparammgmt/access-objects/{0}/commparams/{1}";
 
     /**
      * Add CommParam Object.<br/>
@@ -65,9 +64,7 @@ public class CommParamDao {
     /**
      * Update CommParam Object.<br/>
      * 
-     * @param controllerId controller ID
-     * @param commParamMO commParamMO CommParam Object need to update
-     * @throws ServiceException when update failed
+     * @param commParamMO CommParam Object need to update
      * @since SDNO 0.5
      */
     public void updateMO(String controllerId, CommParamMO commParamMO) throws ServiceException {

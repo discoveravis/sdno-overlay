@@ -84,16 +84,6 @@ public class SiteMO extends BaseMO {
     }
 
     /**
-     * Set type attribute.<br/>
-     * 
-     * @param type String Object
-     * @since SDNO 0.5
-     */
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    /**
      * Get type attribute.<br/>
      * 
      * @return type attribute
@@ -104,23 +94,13 @@ public class SiteMO extends BaseMO {
     }
 
     /**
-     * Set location attribute.<br/>
+     * Set type attribute.<br/>
      * 
-     * @param location String Object
+     * @param type String Object
      * @since SDNO 0.5
      */
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    /**
-     * Get location attribute.<br/>
-     * 
-     * @return location attribute
-     * @since SDNO 0.5
-     */
-    public String getLocation() {
-        return location;
+    public void setType(String type) {
+        this.type = type;
     }
 
     /**
@@ -141,6 +121,26 @@ public class SiteMO extends BaseMO {
      */
     public void setTenantID(String tenantID) {
         this.tenantID = tenantID;
+    }
+
+    /**
+     * Get location attribute.<br/>
+     * 
+     * @return location attribute
+     * @since SDNO 0.5
+     */
+    public String getLocation() {
+        return location;
+    }
+
+    /**
+     * Set location attribute.<br/>
+     * 
+     * @param location String Object
+     * @since SDNO 0.5
+     */
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     /**

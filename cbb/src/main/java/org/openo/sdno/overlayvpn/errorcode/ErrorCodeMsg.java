@@ -58,23 +58,13 @@ public class ErrorCodeMsg {
     }
 
     /**
-     * Set smallErrorCodeList attribute.<br/>
+     * Get tatalErrorCode attribute.<br/>
      * 
-     * @param smallErrorCodeList List<ErrorCodeInfo> Object
+     * @return tatalErrorCode attribute
      * @since SDNO 0.5
      */
-    public void setSmallErrorCodeList(List<ErrorCodeInfo> smallErrorCodeList) {
-        this.smallErrorCodeList = smallErrorCodeList;
-    }
-
-    /**
-     * Get smallErrorCodeList attribute.<br/>
-     * 
-     * @return smallErrorCodeList attribute
-     * @since SDNO 0.5
-     */
-    public List<ErrorCodeInfo> getSmallErrorCodeList() {
-        return smallErrorCodeList;
+    public ErrorCodeInfo getTatalErrorCode() {
+        return tatalErrorCode;
     }
 
     /**
@@ -88,13 +78,23 @@ public class ErrorCodeMsg {
     }
 
     /**
-     * Get tatalErrorCode attribute.<br/>
+     * Get smallErrorCodeList attribute.<br/>
      * 
-     * @return tatalErrorCode attribute
+     * @return smallErrorCodeList attribute
      * @since SDNO 0.5
      */
-    public ErrorCodeInfo getTatalErrorCode() {
-        return tatalErrorCode;
+    public List<ErrorCodeInfo> getSmallErrorCodeList() {
+        return smallErrorCodeList;
+    }
+
+    /**
+     * Set smallErrorCodeList attribute.<br/>
+     * 
+     * @param smallErrorCodeList List<ErrorCodeInfo> Object
+     * @since SDNO 0.5
+     */
+    public void setSmallErrorCodeList(List<ErrorCodeInfo> smallErrorCodeList) {
+        this.smallErrorCodeList = smallErrorCodeList;
     }
 
 }

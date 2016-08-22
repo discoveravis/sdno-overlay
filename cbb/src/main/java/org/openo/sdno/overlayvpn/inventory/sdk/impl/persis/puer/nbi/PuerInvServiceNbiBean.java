@@ -53,7 +53,7 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PuerInvServiceNbiBean.class);
 
-    private static final String DBURL = "/openoapi/sdnomss/v1/buckets/{0}/resources/";
+    private static final String DBURL = "/rest/svc/mss/v2/buckets/{0}/resources/";
 
     /**
      * Add resources into database.<br/>
@@ -389,7 +389,10 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
         String url = MessageFormat.format(DBURL, DbOwerInfo.getBucketName()) + resType + "/objects";
 
         RestfulResponse response = RestfulProxy.delete(url, restfulParametes);
-        if(!HttpCode.isSucess(response.getStatus())) {
+        if(HttpCode.isSucess(response.getStatus())) {
+            // responseValue = ResponseUtils.transferResponse(response,
+            // InvRsp.class);
+        } else {
             LOGGER.warn("batchDelete fail!resType=" + resType + ",uuidList=" + uuidList);
             dealSvcException(response);
             throw new ServiceException(ErrorCode.DB_RETURN_ERROR);
@@ -503,18 +506,16 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
                 int size = values.size();
 
                 filterDsc.append('(');
-
                 for(Object obj : values) {
                     if(size == num) {
                         filterDsc.append(key).append("=':").append(key).append(num).append('\'');
                     } else {
-
                         filterDsc.append(key).append("=':").append(key).append(num).append("' or ");
                     }
 
                     entriyFilter.put(key + num, obj);
-                    num++;
 
+                    num++;
                 }
                 filterDsc.append(')');
 
@@ -527,10 +528,11 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
             batchQueryFileterEntity.setFilterData(JsonUtil.toJson(entriyFilter));
         } else {
             batchQueryFileterEntity.setFilterData("");
-
             batchQueryFileterEntity.setFilterDsc("");
         }
+
         restParametes.put("filter", JsonUtil.toJson(batchQueryFileterEntity));
+
         return restParametes;
     }
 
