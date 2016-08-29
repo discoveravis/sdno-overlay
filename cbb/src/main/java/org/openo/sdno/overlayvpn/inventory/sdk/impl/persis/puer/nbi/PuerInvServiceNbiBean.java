@@ -53,7 +53,7 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PuerInvServiceNbiBean.class);
 
-    private static final String DBURL = "/rest/svc/mss/v2/buckets/{0}/resources/";
+    private static final String DBURL = "/openoapi/sdnomss/v1/buckets/{0}/resources/";
 
     /**
      * Add resources into database.<br/>

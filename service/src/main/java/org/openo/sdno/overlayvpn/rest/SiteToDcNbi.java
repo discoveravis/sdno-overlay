@@ -24,13 +24,16 @@ package org.openo.sdno.overlayvpn.rest;
  */
 public class SiteToDcNbi {
 
-    // Name of SiteToDC
+    // Name of Site2DC
     String name;
 
-    // Name of the Site
+    // Description of Site2DC
+    String description;
+
+    // Site data
     SiteNbi site;
 
-    // Name of the VPC
+    // VPC data
     VpcNbi vpc;
 
     SiteToDcNbi() {
@@ -60,6 +63,14 @@ public class SiteToDcNbi {
 
     public void setVpc(VpcNbi vpc) {
         this.vpc = vpc;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return this.description;
     }
 
     static class SiteNbi {

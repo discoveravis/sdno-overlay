@@ -43,7 +43,7 @@ public class ControllerDao {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ControllerDao.class);
 
-    private static final String CONTROLLER_URL = "/rest/brs/v1/controller";
+    private static final String CONTROLLER_URL = "/openoapi/sdnobrs/v1/controller";
 
     /**
      * Add Controller Object.<br/>
@@ -56,7 +56,7 @@ public class ControllerDao {
     public String addMO(ControllerMO controllerMO) throws ServiceException {
         LOGGER.info("insert Controller begin,cur NE name:" + controllerMO.getName());
         RestfulResponse response = BrsRestconfProxy.post(CONTROLLER_URL, controllerMO.toJsonBody());
-        if(!HttpCode.isSucess(response.getStatus())|| StringUtils.isEmpty(response.getResponseContent())){
+        if(!HttpCode.isSucess(response.getStatus()) || StringUtils.isEmpty(response.getResponseContent())) {
             LOGGER.error("Add Controller Failed!!");
             throw new ServiceException("Add Controller Failed!!");
         }

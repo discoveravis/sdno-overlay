@@ -49,7 +49,7 @@ public class AllocIdResourceInvDao {
     private static final Logger LOGGER = LoggerFactory.getLogger(AllocIdResourceInvDao.class);
 
     private static final String RESOURCE_MSS_URL =
-            "/rest/svc/mss/v2/buckets/compositevpndb/resources/allocidresource/objects";
+            "/openoapi/sdnomss/v1/buckets/compositevpndb/resources/allocidresource/objects";
 
     private static final String OBJECTS_KEY = "objects";
 

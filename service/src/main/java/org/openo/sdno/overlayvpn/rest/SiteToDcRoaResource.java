@@ -33,6 +33,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.openo.baseservice.util.RestUtils;
 import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.framework.container.util.UuidUtils;
 import org.openo.sdno.overlayvpn.consts.HttpCode;
@@ -44,7 +45,6 @@ import org.openo.sdno.overlayvpn.service.inf.overlayvpn.ISiteToDC;
 import org.openo.sdno.overlayvpn.util.check.CheckStrUtil;
 import org.openo.sdno.overlayvpn.util.exception.ThrowOverlayVpnExcpt;
 import org.openo.sdno.overlayvpn.util.operation.SiteToDcUtil;
-import org.openo.sdno.rest.RequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
@@ -55,7 +55,7 @@ import org.springframework.util.StringUtils;
  * @author
  * @version SDNO 0.5 24-May-2016
  */
-@Path("/openoapi/sdnooverlayvpn/v1/site2dc-vpn")
+@Path("/sdnooverlayvpn/v1/site2dc-vpn")
 public class SiteToDcRoaResource {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SiteToDcRoaResource.class);
@@ -92,20 +92,20 @@ public class SiteToDcRoaResource {
         SiteToDcNbi oSite2DcNbi = JsonUtil.fromJson(s2Dc, SiteToDcNbi.class);
         SiteToDc siteToDC = convertFromNbi(oSite2DcNbi);
 
-        // 1. validate the input data
+        // Step 1. validate the input data
         // For create operation UUID should be null...
         if(StringUtils.hasLength(siteToDC.getUuid())) {
             ThrowOverlayVpnExcpt.throwParmaterInvalid("UUID", null);
         }
 
-        // 2. set a UUID from the resource pool
+        // Step 2. set a UUID from the resource pool
         siteToDC.setUuid(UuidUtils.createUuid());
 
-        // 3. call the service method to perform create operation
+        // Step 3. call the service method to perform create operation
         ResultRsp<SiteToDc> resultRsp = service.create(req, resp, siteToDC);
         LOGGER.debug("Exit create method. cost time = " + (System.currentTimeMillis() - infterEnterTime));
 
-        // 4. check the response for error code and throw an exception in case of failure
+        // Step 4. check the response for error code and throw an exception in case of failure
         ThrowOverlayVpnExcpt.checkRspThrowException(resultRsp);
 
         Map<String, String> res = new HashMap<String, String>();
@@ -138,17 +138,17 @@ public class SiteToDcRoaResource {
         long infterEnterTime = System.currentTimeMillis();
         LOGGER.debug("Enter query method. begin time = " + infterEnterTime);
 
-        // step 1. Validate the UUID
+        // Step 1. Validate the UUID
         CheckStrUtil.checkUuidStr(uuid);
 
-        // step 2. Get the tenant info from the context
+        // Step 2. Get the tenant info from the context
         String tenantIdFromToken = TokenDataHolder.getTenantID();
 
-        // step 3. Call the service query
+        // Step 3. Call the service query
         ResultRsp<SiteToDc> resultRsp = service.query(req, resp, uuid, tenantIdFromToken);
         LOGGER.debug("Exit query method. cost time = " + (System.currentTimeMillis() - infterEnterTime));
 
-        // step 4. validate the response
+        // Step 4. validate the response
         if(resultRsp.getData() == null) {
             ThrowOverlayVpnExcpt.throwResNotExistAsNotFound("Site to DC", uuid);
         }
@@ -180,23 +180,24 @@ public class SiteToDcRoaResource {
 
         Map<String, String> res = new HashMap<String, String>();
 
-        // step 1. Validate the UUID input
+        // Step 1. validate the UUID input
         CheckStrUtil.checkUuidStr(uuid);
-        // step 2. read the input stream and validate the body
-        String inputStr = RequestUtils.getHttpServletRequestBody(req);
+
+        // Step 2. read the input stream and validate the body
+        String inputStr = RestUtils.getRequestBody(req);
         if(!StringUtils.hasLength(inputStr)) {
             res.put("errorCode", ErrorCode.OVERLAYVPN_SUCCESS);
             return res;
         }
 
-        // step 5. build the complete siteToDC object from the old and new data put together
+        // Step 3. build the complete siteToDC object from the old and new data put together
         ResultRsp<SiteToDc> newSiteToDC = SiteToDcUtil.buildNewVpnByOldAndInputData(inputStr);
 
-        // step 6. call the service update
+        // Step 4. call the service update
         ResultRsp<SiteToDc> updateReslutRsp = service.update(req, resp, newSiteToDC.getData(), new SiteToDc(uuid));
         LOGGER.info("Exit update method. cost time = " + (System.currentTimeMillis() - infterEnterTime));
 
-        // step 7. validate the response and validate the final response
+        // Step 5. validate the response and validate the final response
         ThrowOverlayVpnExcpt.checkRspThrowException(updateReslutRsp);
 
         res.put("errorCode", newSiteToDC.getErrorCode());
@@ -232,15 +233,14 @@ public class SiteToDcRoaResource {
 
         CheckStrUtil.checkUuidStr(uuid);
 
-        ResultRsp<SiteToDc> cloudVpnRsp = service.query(req, resp, uuid, tenantIdFromToken);
-        SiteToDc queryedOverlayVpn = cloudVpnRsp.getData();
-        if(null == queryedOverlayVpn) {
+        ResultRsp<SiteToDc> overlayVpnRsp = service.query(req, resp, uuid, tenantIdFromToken);
+        SiteToDc siteToDc = overlayVpnRsp.getData();
+        if(null == siteToDc) {
             res.put("errorCode", ErrorCode.OVERLAYVPN_SUCCESS);
-
             return res;
         }
 
-        ResultRsp<String> resultRsp = service.delete(req, resp, queryedOverlayVpn);
+        ResultRsp<String> resultRsp = service.delete(req, resp, siteToDc);
         LOGGER.info("Exit delete method. cost time = " + (System.currentTimeMillis() - infterStartTime));
 
         ThrowOverlayVpnExcpt.checkRspThrowException(resultRsp);
@@ -255,6 +255,7 @@ public class SiteToDcRoaResource {
         SiteToDc oSiteToDc = new SiteToDc("");
 
         oSiteToDc.setName(oSite2DcNbi.getName());
+        oSiteToDc.setDescription(oSite2DcNbi.getDescription());
 
         if(null != oSiteToDc.getSite()) {
             oSiteToDc.getSite().setSiteTypeAddress(oSite2DcNbi.getSite().getCidr());
@@ -276,6 +277,7 @@ public class SiteToDcRoaResource {
         SiteToDcNbi oSiteToDcNbi = new SiteToDcNbi();
 
         oSiteToDcNbi.setName(oSite2Dc.getName());
+        oSiteToDcNbi.setDescription(oSite2Dc.getDescription());
 
         if(null != oSiteToDcNbi.getSite()) {
             oSiteToDcNbi.getSite().setCidr(oSite2Dc.getSite().getSiteTypeAddress());

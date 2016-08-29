@@ -28,14 +28,19 @@ package org.openo.sdno.overlayvpn.consts;
 public class UrlAdapterConst {
 
     /**
-     * URL of Query of WanSubInf
+     * Prefix URL of Ipsec Adapter Service
      */
-    public static final String QUERY_WAN_SUB_INTERFACE_WITH_IP = "/rest/svc/overlay-vpn/v1/localsitemgr/waninterface";
+    public static final String IPSEC_ADAPTER_BASE_URL = "/openoapi/sbi-ipsec";
 
     /**
-     * Prefix URL of Adapter Service
+     * Prefix URL of Ipsec Adapter Service
      */
-    public static final String ADAPTER_BASE_URL = "/rest/svc/sbiadp/controller/";
+    public static final String VXLAN_ADAPTER_BASE_URL = "/openoapi/sbi-vxlan";
+
+    /**
+     * Prefix URL of Ipsec Adapter Service
+     */
+    public static final String WAN_INTERFACE_ADAPTER_BASE_URL = "/openoapi/sbi-waninterface";
 
     /**
      * URL of Create PublicIP
@@ -101,16 +106,6 @@ public class UrlAdapterConst {
      * URL of Delete IPSEC connection in DC gateway
      */
     public static final String DELETE_DCGW_IPSEC_CONNECTION = "/v1/dc-gateway/ipsecs/{0}";
-
-    /**
-     * URL of Create SNAT
-     */
-    public static final String CREATE_SNAT = "/rest/svc/nat/v1/snat";
-
-    /**
-     * URL of Delete SNAT
-     */
-    public static final String DELETE_SNAT = "/rest/svc/nat/v1/snat/{0}";
 
     /**
      * URL of Create VxLan Tunnel

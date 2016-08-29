@@ -47,7 +47,7 @@ public class NetworkElementInvDao {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(NetworkElementInvDao.class);
 
-    private static final String NEURI = "/rest/brs/v1/managed-elements";
+    private static final String NEURI = "/openoapi/sdnobrs/v1/managed-elements";
 
     private static final String NES_KEY = "managedElements";
 

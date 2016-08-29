@@ -46,7 +46,7 @@ public class SiteInvDao {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SiteInvDao.class);
 
-    private static final String SITEURI = "/rest/brs/v1/sites";
+    private static final String SITEURI = "/openoapi/sdnobrs/v1/sites";
 
     private static final String SITES_KEY = "sites";
 

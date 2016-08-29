@@ -44,7 +44,7 @@ public class LogicalTernminationPointInvDao {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LogicalTernminationPointInvDao.class);
 
-    private static final String LTPURI = "/rest/brs/v1/logical-termination-points";
+    private static final String LTPURI = "/openoapi/sdnobrs/v1/logical-termination-points";
 
     private static final String LTP_KEY = "logicalTerminationPoint";
 

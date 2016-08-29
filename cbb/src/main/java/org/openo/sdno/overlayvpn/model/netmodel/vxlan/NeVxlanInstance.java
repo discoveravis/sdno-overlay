@@ -18,6 +18,7 @@ package org.openo.sdno.overlayvpn.model.netmodel.vxlan;
 
 import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
 import org.openo.sdno.overlayvpn.model.netmodel.BaseNetModel;
@@ -27,8 +28,6 @@ import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
 /**
  * Class of NeVxlanInstance Model.<br/>
- * <p>
- * </p>
  * 
  * @author
  * @version SDNO 0.5 Jun 6, 2016
@@ -37,7 +36,7 @@ import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 public class NeVxlanInstance extends BaseNetModel {
 
     /**
-     * VXLAN Network Identifier
+     * VxLAN Network Identifier
      */
     @AInt(require = true, min = 1, max = 16777215)
     private String vni;
@@ -64,12 +63,14 @@ public class NeVxlanInstance extends BaseNetModel {
      * Related VxLan Interfaces
      */
     @NONInvField
+    @JsonIgnore
     private List<String> vxlanInterfaces;
 
     /**
      * Related VxLan Tunnels
      */
     @NONInvField
+    @JsonIgnore
     private List<String> vxlanTunnels;
 
     @NONInvField
