@@ -55,7 +55,7 @@ import org.springframework.util.StringUtils;
  * @author
  * @version SDNO 0.5 24-May-2016
  */
-@Path("/sdnooverlayvpn/v1/site2dc-vpn")
+@Path("/sdnooverlay/v1/site2dc-vpn")
 public class SiteToDcRoaResource {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SiteToDcRoaResource.class);
