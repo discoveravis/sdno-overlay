@@ -2,7 +2,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.openo.sdno</groupId>
+        <groupId>org.openo.sdno.overlay</groupId>
         <artifactId>overlayvpnservice-root</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
@@ -12,21 +12,21 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.openo.sdno</groupId>
+            <groupId>org.openo.sdno.utils</groupId>
             <artifactId>org.openo.sdno.framework.base</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>org.openo.sdno</groupId>
+            <groupId>org.openo.sdno.utils</groupId>
             <artifactId>org.openo.sdno.common-cbb</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>org.openo.sdno</groupId>
+            <groupId>org.openo.sdno.utils</groupId>
             <artifactId>org.openo.sdno.frame</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <type>jar</type>
