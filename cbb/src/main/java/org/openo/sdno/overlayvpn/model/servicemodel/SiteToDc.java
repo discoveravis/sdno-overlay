@@ -16,14 +16,15 @@
 
 package org.openo.sdno.overlayvpn.model.servicemodel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.Valid;
 
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.annotate.JsonRootName;
 import org.openo.sdno.overlayvpn.brs.model.SiteMO;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
 import org.openo.sdno.overlayvpn.model.BaseServiceModel;
-import org.openo.sdno.overlayvpn.model.uuid.AbstUuidModel;
+import org.openo.sdno.overlayvpn.model.servicechain.ServicePathHop;
 import org.openo.sdno.overlayvpn.verify.annotation.AString;
 import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
@@ -53,6 +54,11 @@ public class SiteToDc extends BaseServiceModel {
     private Vpc vpc;
 
     /**
+     * Service function path
+     */
+    private Sfp sfp;
+
+    /**
      * Constructor<br/>
      * <p>
      * Empty constructor
@@ -78,6 +84,7 @@ public class SiteToDc extends BaseServiceModel {
         this.setUuid(uuid);
         site = new Site();
         vpc = new Vpc();
+        sfp = new Sfp();
     }
 
     /**
@@ -96,6 +103,7 @@ public class SiteToDc extends BaseServiceModel {
         this.setTenantId(tenantId);
         site = new Site();
         vpc = new Vpc();
+        sfp = new Sfp();
     }
 
     public Site getSite() {
@@ -134,6 +142,14 @@ public class SiteToDc extends BaseServiceModel {
 
     public void setVpc(Vpc vpc) {
         this.vpc = vpc;
+    }
+
+    public Sfp getSfp() {
+        return sfp;
+    }
+
+    public void setSfp(Sfp sfp) {
+        this.sfp = sfp;
     }
 
     /**
@@ -242,203 +258,33 @@ public class SiteToDc extends BaseServiceModel {
         }
     }
 
-    /**
-     * Class of SubNet Model.<br/>
-     * 
-     * @author
-     * @version SDNO 0.5 28-May-2016
-     */
-    public class SubNet {
+    public static class Sfp {
 
-        @JsonProperty(value = "id")
-        @AUuid
-        protected String uuid;
-
-        private String name;
-
-        private String description;
-
-        private String cidr;
-
-        private String vpcId;
-
-        public String getUuid() {
-            return uuid;
-        }
-
-        public void setUuid(String uuid) {
-            this.uuid = uuid;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getCidr() {
-            return cidr;
-        }
-
-        public void setCidr(String cidr) {
-            this.cidr = cidr;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-        public void setDescription(String description) {
-            this.description = description;
-        }
-
-        public String getVpcId() {
-            return vpcId;
-        }
-
-        public void setVpcId(String vpcId) {
-            this.vpcId = vpcId;
-        }
-    }
-
-    /**
-     * Class of VPC Model.<br/>
-     * 
-     * @author
-     * @version SDNO 0.5 28-May-2016
-     */
-    public class Vpc {
-
-        @JsonProperty(value = "id")
-        @AUuid
-        protected String uuid;
-
-        /**
-         * SiteToDC DC details: Vpc Name.
-         */
-        @AString(require = true)
-        private String name;
-
-        /**
-         * SiteToDC DC details: Vpc Description
-         */
-        @AString(require = false)
-        private String description;
-
-        /**
-         * SiteToDC DC details: Controller Id.
-         */
-        @AUuid(require = true)
-        private String osControllerId;
-
-        /**
-         * VPC external Ip address in v4.
-         */
-        @AString(require = true)
-        private String externalIp = null;
-
-        private UnderlayResources attributes = null;
-
-        /**
-         * SiteToDC DC details: DC Access subnet.
-         */
         @Valid
-        @AUuid(require = true)
-        private SubNet subnet;
+        @AString(require = true)
+        String scfNeId;
 
-        Vpc() {
-            subnet = new SubNet();
+        List<ServicePathHop> servicePathHop;
+
+        Sfp() {
+            servicePathHop = new ArrayList<ServicePathHop>();
         }
 
-        public String getName() {
-            return name;
+        public String getScfNeId() {
+            return scfNeId;
         }
 
-        public void setName(String name) {
-            this.name = name;
+        public void setScfNeId(String scfNeId) {
+            this.scfNeId = scfNeId;
         }
 
-        public String getDescription() {
-            return description;
+        public List<ServicePathHop> getServicePathHop() {
+            return servicePathHop;
         }
 
-        public void setDescription(String description) {
-            this.description = description;
-        }
-
-        public String getOsControllerId() {
-            return osControllerId;
-        }
-
-        public void setOsControllerId(String osControllerId) {
-            this.osControllerId = osControllerId;
-        }
-
-        public SubNet getSubnet() {
-            return subnet;
-        }
-
-        public void setSubnet(SubNet subnet) {
-            this.subnet = subnet;
-        }
-
-        public String getExternalIp() {
-            return this.externalIp;
-        }
-
-        public Vpc setExternalIp(String externalIp) {
-            this.externalIp = externalIp;
-            return this;
-        }
-
-        public UnderlayResources getAttributes() {
-            return this.attributes;
-        }
-
-        public void setAttributes(UnderlayResources attributes) {
-            this.attributes = attributes;
-        }
-
-        public String getUuid() {
-            return uuid;
-        }
-
-        public void setUuid(String uuid) {
-            this.uuid = uuid;
-        }
-
-        @JsonRootName(value = "underlay_resources")
-        public class UnderlayResources extends AbstUuidModel {
-
-            /**
-             * VPC uuid.
-             */
-            @AUuid(require = true)
-            private String parentId = null;
-
-            /**
-             * VPC router uuid.
-             */
-            @AUuid(require = true)
-            private String routerId = null;
-
-            public String getRouterId() {
-                return this.routerId;
-            }
-
-            public void setRouterId(String routerId) {
-                this.routerId = routerId;
-            }
-
-            public String getParentId() {
-                return this.parentId;
-            }
-
-            public void setParentId(String parentId) {
-                this.parentId = parentId;
-            }
+        public void setServicePathHop(List<ServicePathHop> servicePathHop) {
+            this.servicePathHop = servicePathHop;
         }
     }
+
 }

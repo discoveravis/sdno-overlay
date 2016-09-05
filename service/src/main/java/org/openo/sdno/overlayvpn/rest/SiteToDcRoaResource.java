@@ -267,7 +267,13 @@ public class SiteToDcRoaResource {
         if(null != oSiteToDc.getVpc()) {
             oSiteToDc.getVpc().getSubnet().setName(oSite2DcNbi.getVpc().getSite().getName());
             oSiteToDc.getVpc().getSubnet().setCidr(oSite2DcNbi.getVpc().getSite().getCidr());
+            oSiteToDc.getVpc().getSubnet().setVni(oSite2DcNbi.getVpc().getSite().getVni());
             oSiteToDc.getVpc().setName(oSite2DcNbi.getVpc().getName());
+        }
+
+        if(null != oSiteToDc.getSfp()) {
+            oSiteToDc.getSfp().setScfNeId(oSite2DcNbi.getSfp().getScfNeId());
+            oSiteToDc.getSfp().setServicePathHop(oSite2DcNbi.getSfp().getServicePathHop());
         }
 
         return oSiteToDc;
@@ -290,6 +296,12 @@ public class SiteToDcRoaResource {
             oSiteToDcNbi.getVpc().setName(oSite2Dc.getVpc().getName());
             oSiteToDcNbi.getVpc().getSite().setCidr(oSite2Dc.getVpc().getSubnet().getCidr());
             oSiteToDcNbi.getVpc().getSite().setName(oSite2Dc.getVpc().getSubnet().getName());
+            oSiteToDcNbi.getVpc().getSite().setVni(oSite2Dc.getVpc().getSubnet().getVni());
+        }
+
+        if(null != oSiteToDcNbi.getSfp()) {
+            oSiteToDcNbi.getSfp().setScfNeId(oSite2Dc.getSfp().getScfNeId());
+            oSiteToDcNbi.getSfp().setServicePathHop(oSite2Dc.getSfp().getServicePathHop());
         }
 
         return oSiteToDcNbi;

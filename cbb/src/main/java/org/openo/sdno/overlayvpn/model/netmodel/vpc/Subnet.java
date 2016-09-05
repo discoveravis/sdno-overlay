@@ -76,6 +76,12 @@ public class Subnet extends AbstUuidModel {
     private String cidr = null;
 
     /**
+     * Vxlan ID.
+     */
+    @AString(require = true)
+    private Integer vni;
+
+    /**
      * VPC uuid.
      */
     @AUuid(require = true)
@@ -158,6 +164,14 @@ public class Subnet extends AbstUuidModel {
     public Subnet setCidr(String cidr) {
         this.cidr = cidr;
         return this;
+    }
+
+    public Integer getVni() {
+        return vni;
+    }
+
+    public void setVni(Integer vni) {
+        this.vni = vni;
     }
 
     public String getVpcId() {

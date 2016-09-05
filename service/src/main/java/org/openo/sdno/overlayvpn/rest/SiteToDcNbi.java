@@ -16,6 +16,11 @@
 
 package org.openo.sdno.overlayvpn.rest;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openo.sdno.overlayvpn.model.servicechain.ServicePathHop;
+
 /**
  * NBI interface for Site to DC use case<br/>
  * 
@@ -36,9 +41,13 @@ public class SiteToDcNbi {
     // VPC data
     VpcNbi vpc;
 
+    // service function path data
+    SfpNbi sfp;
+
     SiteToDcNbi() {
         site = new SiteNbi();
         vpc = new VpcNbi();
+        sfp = new SfpNbi();
     }
 
     public String getName() {
@@ -63,6 +72,14 @@ public class SiteToDcNbi {
 
     public void setVpc(VpcNbi vpc) {
         this.vpc = vpc;
+    }
+
+    public SfpNbi getSfp() {
+        return sfp;
+    }
+
+    public void setSfp(SfpNbi sfp) {
+        this.sfp = sfp;
     }
 
     public void setDescription(String description) {
@@ -154,6 +171,8 @@ public class SiteToDcNbi {
 
         String cidr;
 
+        Integer vni;
+
         Subnet() {
 
         }
@@ -174,5 +193,39 @@ public class SiteToDcNbi {
             this.cidr = cidr;
         }
 
+        public Integer getVni() {
+            return vni;
+        }
+
+        public void setVni(Integer vni) {
+            this.vni = vni;
+        }
+    }
+
+    static class SfpNbi {
+
+        String scfNeId;
+
+        List<ServicePathHop> servicePathHop;
+
+        SfpNbi() {
+            servicePathHop = new ArrayList<ServicePathHop>();
+        }
+
+        public String getScfNeId() {
+            return scfNeId;
+        }
+
+        public void setScfNeId(String scfNeId) {
+            this.scfNeId = scfNeId;
+        }
+
+        public List<ServicePathHop> getServicePathHop() {
+            return servicePathHop;
+        }
+
+        public void setServicePathHop(List<ServicePathHop> servicePathHop) {
+            this.servicePathHop = servicePathHop;
+        }
     }
 }
