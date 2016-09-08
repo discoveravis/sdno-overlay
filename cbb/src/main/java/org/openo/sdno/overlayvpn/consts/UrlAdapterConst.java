@@ -43,6 +43,17 @@ public class UrlAdapterConst {
     public static final String WAN_INTERFACE_ADAPTER_BASE_URL = "/openoapi/sbi-waninterface";
 
     /**
+     * Prefix URL of Catalog Adapter Service
+     */
+    public static final String CATALOG_ADAPTER_BASE_URL = "/openoapi/catalog";
+
+    public static final String OVERLAY_BASE_URL = "/openoapi/sdnooverlay";
+
+    public static final String L3VPN_BASE_URL = "/openoapi/sdnol3vpn";
+
+    public static final String L2VPN_BASE_URL = "/openoapi/sdnol2vpn";
+
+    /**
      * URL of Create PublicIP
      */
     public static final String CREATE_PUBLIC_IP_URL = "/overlay/v1/publicip";
@@ -131,6 +142,23 @@ public class UrlAdapterConst {
      * URL of Query Vtep
      */
     public static final String QUERY_VTEP = "/v1/vxlan/device/{0}/vtep";
+
+    /**
+     * URL of Query Template Information
+     */
+    public static final String QUERY_TEMPLATE_INFORMATION = "/v1/servicetemplates/{0}";
+
+    public static final String CREATE_OVERLAY = "/v1/site2dc-vpn";
+
+    public static final String DELETE_OVERLAY = "/v1/site2dc-vpn/{0}";
+
+    public static final String CREATE_L3VPN = "/v1/l3vpns";
+
+    public static final String DELETE_L3VPN = "/v1/l3vpns/{0}";
+
+    public static final String CREATE_L2VPN = "/v1/l2vpns";
+
+    public static final String DELETE_L2VPN = "/v1/l2vpns/{0}";
 
     private UrlAdapterConst() {
 
