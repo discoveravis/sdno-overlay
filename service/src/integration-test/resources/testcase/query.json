@@ -1,0 +1,25 @@
+{
+	"request":
+	{
+		"uri": "/rest/api/overlayvpn/v1/site2dc-vpn/{objectId}",
+		"method": "get",
+		"headers":{"Content-Type":"application/json;charset=UTF-8"},
+		"json":
+		{
+			
+		}
+	},
+	"response":
+	{
+		"status":200,
+		"json":
+		{
+			"name": "[^\\s]",
+			"site":{
+			       "cidr": "[^\\s]",
+				   "cpe": "[^\\s]",
+				   "portVlan": "1"
+			}
+		}
+	}
+}
