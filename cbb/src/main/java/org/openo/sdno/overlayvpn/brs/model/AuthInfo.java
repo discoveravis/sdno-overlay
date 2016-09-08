@@ -16,6 +16,9 @@
 
 package org.openo.sdno.overlayvpn.brs.model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Authentication info class.<br/>
  * 
@@ -31,6 +34,8 @@ public class AuthInfo {
     private String port;
 
     private String transProtocol;
+
+    private Map<String, String> extra = new HashMap<>();
 
     public String getUserName() {
         return userName;
@@ -63,5 +68,13 @@ public class AuthInfo {
     public void setTransProtocol(String transProtocol) {
         this.transProtocol = transProtocol;
     }
+
+   public Map<String, String> getExtra() {
+      return extra;
+   }
+
+   public void setExtra(Map<String, String> extra) {
+      this.extra = extra;
+   }
 
 }
