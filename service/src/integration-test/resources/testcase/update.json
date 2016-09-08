@@ -1,0 +1,21 @@
+{
+	"request":
+	{
+		"uri": "/rest/api/overlayvpn/v1/site2dc-vpn/{objectId}",
+		"method": "put",
+		"headers":{"Content-Type":"application/json;charset=UTF-8"},
+		"json":
+		{
+			"name":"update overlayvpn",
+			"description": "updated description"
+		}
+	},
+	"response":
+	{
+		"status":200,
+		"json":
+		{
+			"errorCode":"overlayvpn.operation.success"
+		}
+	}
+}
