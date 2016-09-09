@@ -47,8 +47,6 @@ public class CheckGatewayUtil {
      * @since SDNO 0.5
      */
     public static void check(Gateway gateway) throws ServiceException {
-        // Check the model data
-        //checkModelData(gateway);
 
         // Check whether resource exists in database
         checkResourceInGateway(gateway);

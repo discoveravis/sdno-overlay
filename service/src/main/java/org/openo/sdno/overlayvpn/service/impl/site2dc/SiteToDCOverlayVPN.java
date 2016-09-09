@@ -34,12 +34,9 @@ import org.openo.sdno.overlayvpn.model.servicemodel.Connection;
 import org.openo.sdno.overlayvpn.model.servicemodel.EndpointGroup;
 import org.openo.sdno.overlayvpn.model.servicemodel.OverlayVpn;
 import org.openo.sdno.overlayvpn.model.servicemodel.SiteToDc;
-import org.openo.sdno.overlayvpn.model.servicemodel.SubNet;
 import org.openo.sdno.overlayvpn.model.servicemodel.Vpc;
 import org.openo.sdno.overlayvpn.osdriver.OSDriverConfigUtil;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
-import org.openo.sdno.overlayvpn.sbi.overlayvpn.VpcService;
-import org.openo.sdno.overlayvpn.sbi.overlayvpn.VpcSubnetService;
 import org.openo.sdno.overlayvpn.security.authentication.TokenDataHolder;
 import org.openo.sdno.overlayvpn.service.impl.overlayvpnsvc.connection.ConnectionSvcImpl;
 import org.openo.sdno.overlayvpn.service.impl.overlayvpnsvc.endpointgroup.EndPointGrpSvcImpl;
@@ -100,6 +97,7 @@ public class SiteToDCOverlayVPN {
          */
         OverlayVpn overlayVpn = new OverlayVpn(siteToDc.getUuid(), tenantIdFromToken);
         overlayVpn.setName(siteToDc.getName());
+        overlayVpn.setDescription(siteToDc.getDescription());
 
         /*
          * Create overlay VPN object in DB with state set to INACTIVE.
@@ -131,7 +129,7 @@ public class SiteToDCOverlayVPN {
         EndpointGroup thinCpeEpg = new EndpointGroup();
         UuidAllocUtil.allocUuid(thinCpeEpg);
         thinCpeEpg.setTenantId(overlayVpn.getTenantId());
-        thinCpeEpg.setName(overlayVpn.getName());
+        thinCpeEpg.setName(overlayVpn.getName() + "_" + "vxlanthincpeepg");
         thinCpeEpg.setDescription(overlayVpn.getDescription());
 
         thinCpeEpg.setNeId(siteToDc.getSite().getSiteThinCPE());
@@ -147,7 +145,7 @@ public class SiteToDCOverlayVPN {
         EndpointGroup vCpeEpg = new EndpointGroup();
         UuidAllocUtil.allocUuid(vCpeEpg);
         vCpeEpg.setTenantId(overlayVpn.getTenantId());
-        vCpeEpg.setName(overlayVpn.getName());
+        vCpeEpg.setName(overlayVpn.getName() + "_" + "vxlanvcpeepg");
         vCpeEpg.setDescription(overlayVpn.getDescription());
 
         vCpeEpg.setNeId(siteToDc.getSite().getSitevCPE());
@@ -173,6 +171,7 @@ public class SiteToDCOverlayVPN {
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
      * @param overlayVpn - OverlayVpn for which this connection is being created
+     * @return Connection
      * @throws ServiceException when create connection failed
      * @since SDNO 0.5
      */
@@ -227,6 +226,7 @@ public class SiteToDCOverlayVPN {
         if(null == oOldSite2DcVpn) {
             LOGGER.error("updateVpnStatus oOldSite2DcVpn is null for siteToDc.getUuid(): " + siteToDc.getUuid());
             ThrowOverlayVpnExcpt.throwResNotExistAsNotFound("Overlay VPN", siteToDc.getUuid());
+            return new ResultRsp<OverlayVpn>();
         }
 
         // 4.Build New VPN Data with Inactive Status
@@ -418,13 +418,13 @@ public class SiteToDCOverlayVPN {
         UuidAllocUtil.allocUuid(vCpeEpg);
 
         vCpeEpg.setTenantId(overlayVpn.getTenantId());
-        vCpeEpg.setName(overlayVpn.getName());
+        vCpeEpg.setName(overlayVpn.getName() + "_" + "ipsecacepg");
         vCpeEpg.setDescription(overlayVpn.getDescription());
 
         vCpeEpg.setConnectionId(overlayVpn.getConnectionIds().get(1));
         vCpeEpg.setNeId(siteToDc.getSite().getSitevCPE());
         vCpeEpg.setType(EndpointType.CIDR.getName());
-        vCpeEpg.setEndpoints(siteToDc.getSite().getPortAndVlan());
+        vCpeEpg.setEndpoints(JsonUtil.toJson(Arrays.asList(siteToDc.getSite().getSiteTypeAddress())));
         vCpeEpg.setCidr(siteToDc.getSite().getSiteTypeAddress());
 
         ResultRsp<EndpointGroup> vCpeEpgRsp = endpointGroupSvc.create(req, resp, vCpeEpg);
@@ -436,13 +436,16 @@ public class SiteToDCOverlayVPN {
         UuidAllocUtil.allocUuid(dcEpg);
 
         dcEpg.setTenantId(overlayVpn.getTenantId());
-        dcEpg.setName(overlayVpn.getName());
+        dcEpg.setName(overlayVpn.getName() + "_" + "ipsecdcepg");
         dcEpg.setDescription(overlayVpn.getDescription());
 
         dcEpg.setConnectionId(overlayVpn.getConnectionIds().get(1));
         dcEpg.setNeId(OSDriverConfigUtil.getOSDriverNeId());
         dcEpg.setType(EndpointType.VPC.getName());
-        dcEpg.setEndpointList(Arrays.asList(createVpcEndpointInfo(vpc)));
+        dcEpg.setEndpoints(JsonUtil.toJson(Arrays.asList(createVpcEndpointInfo(vpc))));
+
+        ResultRsp<EndpointGroup> dcEpgRsp = endpointGroupSvc.create(req, resp, dcEpg);
+        ThrowOverlayVpnExcpt.checkRspThrowException(dcEpgRsp);
 
         List<EndpointGroup> epgList = new ArrayList<EndpointGroup>();
         epgList.add(vCpeEpg);
@@ -451,49 +454,11 @@ public class SiteToDCOverlayVPN {
         return epgList;
     }
 
-    /**
-     * Create Vpc and Subnet.<br>
-     * 
-     * @param req HttpServletRequest object
-     * @param siteToDc SiteToDc object
-     * @return Vpc Object created
-     * @throws ServiceException throws when create failed
-     * @since SDNO 0.5
-     */
-    public Vpc createVpcAndSubnet(HttpServletRequest req, SiteToDc siteToDc) throws ServiceException {
-
-        ResultRsp<Vpc> vpcResultRsp = VpcService.getInstance().create(req, siteToDc.getVpc());
-        if(!vpcResultRsp.isSuccess() || null == vpcResultRsp.getData()) {
-            LOGGER.error("Create VPC Service return Error!!");
-            throw new ServiceException("Create VPC Service failed!!");
-        }
-
-        Vpc createdVpc = vpcResultRsp.getData();
-        siteToDc.getVpc().getSubnet().setVpcId(createdVpc.getUuid());
-
-        ResultRsp<SubNet> subnetResultRsp = VpcSubnetService.getInstance().create(req, siteToDc.getVpc().getSubnet());
-        if(!subnetResultRsp.isSuccess() || null == subnetResultRsp.getData()) {
-            LOGGER.error("Create Subnet Service return Error!!");
-            throw new ServiceException("Create Subnet Service failed!!");
-        }
-
-        SubNet createdSubnet = subnetResultRsp.getData();
-        createdVpc.setSubnet(createdSubnet);
-        return createdVpc;
-    }
-
     private String createVpcEndpointInfo(Vpc vpc) {
 
         StringBuilder endPointInfo = new StringBuilder();
-        endPointInfo.append("cidr");
-        endPointInfo.append('|');
-        endPointInfo.append(vpc.getUuid());
-        endPointInfo.append('|');
-        endPointInfo.append(vpc.getAttributes().getRouterId());
-        endPointInfo.append('|');
-        endPointInfo.append(vpc.getExternalIp());
-        endPointInfo.append('|');
-        endPointInfo.append(vpc.getSubnet().getUuid());
+        endPointInfo.append("cidr|").append(vpc.getUuid()).append('|').append(vpc.getAttributes().getRouterId())
+                .append('|').append(vpc.getExternalIp()).append('|').append(vpc.getSubnet().getUuid());
 
         return endPointInfo.toString();
     }

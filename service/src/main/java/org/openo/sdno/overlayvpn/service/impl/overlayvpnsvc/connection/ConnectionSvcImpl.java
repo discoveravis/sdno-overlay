@@ -267,7 +267,8 @@ public class ConnectionSvcImpl implements IConnection {
         filterMap.put("connectionId", Arrays.asList(connection.getUuid()));
         ResultRsp<List<EndpointGroup>> endpointGrpRsp =
                 inventoryDao.queryByFilter(EndpointGroup.class, JsonUtil.toJson(filterMap), null);
-        if(CollectionUtils.isEmpty(endpointGrpRsp.getData())) {
+        if(!CollectionUtils.isEmpty(endpointGrpRsp.getData())) {
+            LOGGER.error("Connection is used by Epg, do not delete!!");
             ThrowOverlayVpnExcpt.throwResourceIsInUsedExpt(connection.getName(),
                     endpointGrpRsp.getData().get(0).getName());
         }
@@ -299,7 +300,7 @@ public class ConnectionSvcImpl implements IConnection {
 
         // Schedule VPN service to task
         ResultRsp<Map<String, OverlayVpn>> tecToCloudVpnMapRsp =
-                MutilTecVpnByTree.getTechToCloudVpnMap(overlayVpnRsp.getData(), OperaMethType.DEPLOY);
+                MutilTecVpnByTree.getTechToOverlayVpnMap(overlayVpnRsp.getData(), OperaMethType.DEPLOY);
 
         Map<String, Boolean> tecVpnToDeployedMap = new HashMap<String, Boolean>();
         ResultRsp<Map<String, OverlayVpn>> deployResult =
@@ -339,7 +340,7 @@ public class ConnectionSvcImpl implements IConnection {
         OverlayVpnSvcUtil.markConnToVpn(vpnDataToUndeploy, connection, ModifyMaskType.UNDEPLOY);
 
         ResultRsp<Map<String, OverlayVpn>> tecToCloudVpnMapRsp =
-                MutilTecVpnByTree.getTechToCloudVpnMap(vpnDataToUndeploy, OperaMethType.UNDEPLOY);
+                MutilTecVpnByTree.getTechToOverlayVpnMap(vpnDataToUndeploy, OperaMethType.UNDEPLOY);
 
         Map<String, Boolean> tecVpnToDeployedMap = new HashMap<String, Boolean>();
         ResultRsp<Map<String, OverlayVpn>> undeployResult =

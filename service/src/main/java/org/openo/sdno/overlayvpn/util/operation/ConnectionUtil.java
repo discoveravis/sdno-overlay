@@ -21,7 +21,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.collections.CollectionUtils;
-import org.codehaus.jackson.type.TypeReference;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.overlayvpn.consts.CommConst;
@@ -52,35 +51,6 @@ public class ConnectionUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(ConnectionUtil.class);
 
     private ConnectionUtil() {
-    }
-
-    /**
-     * Build Batch query Filter.<br>
-     * 
-     * @param tenantId tenant id
-     * @param name resource name
-     * @param description resource description
-     * @param adminStatus Administrative status
-     * @param operStatus Operation Status
-     * @param overlayVpnId OverlayVpn id
-     * @param topology topology value
-     * @param technology technology value
-     * @param mappingPolicyId mappingPolicy id
-     * @return filter map of query
-     * @throws ServiceException when overlay VPN ID is invalid
-     * @since SDNO 0.5
-     */
-    public static String buildBatchQueryFilter(String tenantId, String name, String description, String adminStatus,
-            String operStatus, String overlayVpnId, String topology, String technology, String mappingPolicyId)
-            throws ServiceException {
-        // construct filter map
-        Map<String, Object> filterMap = new HashMap<String, Object>();
-        filterMap.put("tenantId", Arrays.asList(tenantId));
-
-        doBuildFilterMap(filterMap, name, description, adminStatus, operStatus);
-        doBuildFilterMap2(filterMap, overlayVpnId, topology, technology, mappingPolicyId);
-
-        return JsonUtil.toJson(filterMap);
     }
 
     /**
@@ -211,19 +181,7 @@ public class ConnectionUtil {
      */
     public static ResultRsp<Connection> buildNewConnByOldAndInputData(Connection queryedOldConn, String inputJsonStr)
             throws ServiceException {
-        Map<String, String> updateDataMap = null;
-        try {
-            updateDataMap = JsonUtil.fromJson(inputJsonStr, new TypeReference<Map<String, String>>() {});
-        } catch(IllegalArgumentException e) {
-            LOGGER.error("update data formate error, inputJsonStr = " + inputJsonStr, e);
-            ThrowOverlayVpnExcpt.throwParmaterInvalid("Connection", "Update data");
-            return null;
-        }
-
-        if(null == updateDataMap) {
-            LOGGER.error("update data formate error, updateDataMap is NULL");
-            ThrowOverlayVpnExcpt.throwParmaterInvalid("Connection", "Update data");
-        }
+        Map<String, String> updateDataMap = OperationUtil.getUpdateDataMap(inputJsonStr);
 
         Connection newConnection = new Connection();
         newConnection.copyBasicData(queryedOldConn);

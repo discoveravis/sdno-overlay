@@ -161,6 +161,7 @@ public class EpgUtil {
         if(null == updateDataMap) {
             LOGGER.error("update data formate error, updateDataMap is NULL");
             ThrowOverlayVpnExcpt.throwParmaterInvalid("EndpointGroup", "Update data");
+            return null;
         }
         EndpointGroup newEpg = new EndpointGroup();
         newEpg.copyBasicData(queryedOldEpg);

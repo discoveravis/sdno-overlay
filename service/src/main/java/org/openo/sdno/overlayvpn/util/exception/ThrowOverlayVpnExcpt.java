@@ -71,18 +71,19 @@ public class ThrowOverlayVpnExcpt {
      * @since SDNO 0.5
      */
     public static void throwResNotExistAsBadReq(String resName, String resDesc) throws ServiceException {
-        String packName = "";
+        String packageName = "";
         if(!StringUtils.hasLength(resName)) {
-            packName = "[Name]";
+            packageName = "[Name]";
         } else {
-            packName = "[" + resName + "]";
+            packageName = "[" + resName + "]";
         }
 
         // make error message
-        LOGGER.error("resource not exist, " + packName + resDesc);
+        LOGGER.error("resource not exist, " + packageName + resDesc);
         String desc = ResourceUtil.getMessage("resource.not_exist.desc");
-        String message = packName + resDesc + " " + ResourceUtil.getMessage("resource.not_exist.reason");
+        String message = packageName + resDesc + " " + ResourceUtil.getMessage("resource.not_exist.reason");
         String advice = ResourceUtil.getMessage("resource.not_exist.advice");
+
         SvcExcptUtil.throwBadReqSvcExptionWithInfo(ErrorCode.OVERLAYVPN_RESOURCE_NOT_EXIST, desc, message, message,
                 advice);
     }
@@ -96,17 +97,18 @@ public class ThrowOverlayVpnExcpt {
      * @since SDNO 0.5
      */
     public static void throwResNotExistAsNotFound(String resName, String resDesc) throws ServiceException {
-        String packName = "";
+        String packageName = "";
         if(!StringUtils.hasLength(resName)) {
-            packName = "[Name]";
+            packageName = "[Name]";
         } else {
-            packName = "[" + resName + "]";
+            packageName = "[" + resName + "]";
         }
         // make error message
-        LOGGER.error("resource not exist, " + packName + resDesc);
+        LOGGER.error("resource not exist, " + packageName + resDesc);
         String desc = ResourceUtil.getMessage("resource.not_exist.desc");
-        String message = packName + resDesc + " " + ResourceUtil.getMessage("resource.not_exist.reason");
+        String message = packageName + resDesc + " " + ResourceUtil.getMessage("resource.not_exist.reason");
         String advice = ResourceUtil.getMessage("resource.not_exist.advice");
+
         SvcExcptUtil.throwNotFoundSvcExptionWithInfo(ErrorCode.OVERLAYVPN_RESOURCE_NOT_EXIST, desc, message, message,
                 advice);
     }
@@ -125,10 +127,11 @@ public class ThrowOverlayVpnExcpt {
         }
 
         // make error message
-        LOGGER.error("tenantIds are not the same, expt = " + exptTenantId + ", real = " + realTenantId);
+        LOGGER.error("tenant Ids are not the same, expected tenant Id = " + exptTenantId + ", real = " + realTenantId);
         String desc = ResourceUtil.getMessage("tenantid.invalid.desc");
         String message = ResourceUtil.getMessage("tenantid.invalid.reason");
         String advice = ResourceUtil.getMessage("tenantid.invalid.advice");
+
         SvcExcptUtil.throwBadReqSvcExptionWithInfo(ErrorCode.OVERLAYVPN_TENANT_INVALID, desc, message, message, advice);
     }
 
@@ -141,10 +144,11 @@ public class ThrowOverlayVpnExcpt {
      */
     public static void throwTenantIdMissing(String exptTenantId) throws ServiceException {
         // make error message
-        LOGGER.error("tenantIds data missing in operation, expt = " + exptTenantId);
+        LOGGER.error("tenantIds data missing in operation, expected tenant Id = " + exptTenantId);
         String desc = ResourceUtil.getMessage("tenantid.data.missing.desc");
         String message = ResourceUtil.getMessage("tenantid.data.missing.reason");
         String advice = ResourceUtil.getMessage("tenantid.data.missing.advice");
+
         SvcExcptUtil.throwBadReqSvcExptionWithInfo(ErrorCode.OVERLAYVPN_TENANT_INVALID, desc, message, message, advice);
     }
 
@@ -157,15 +161,15 @@ public class ThrowOverlayVpnExcpt {
      * @since SDNO 0.5
      */
     public static void throwParmaterInvalid(String paraName, String parmaterPath) throws ServiceException {
-        String packName = "";
+        String packageName = "";
         if(!StringUtils.hasLength(paraName)) {
-            packName = "[Name]";
+            packageName = "[Name]";
         } else {
-            packName = "[" + paraName + "]";
+            packageName = "[" + paraName + "]";
         }
 
         String desc = ResourceUtil.getMessage("parameter.invalid.desc");
-        String message = packName + parmaterPath + " " + ResourceUtil.getMessage("parameter.invalid.reason");
+        String message = packageName + parmaterPath + " " + ResourceUtil.getMessage("parameter.invalid.reason");
         String advice = ResourceUtil.getMessage("parameter.invalid.advice");
         SvcExcptUtil.throwBadReqSvcExptionWithInfo(ErrorCode.OVERLAYVPN_PARAMETER_INVALID, desc, message, message,
                 advice);

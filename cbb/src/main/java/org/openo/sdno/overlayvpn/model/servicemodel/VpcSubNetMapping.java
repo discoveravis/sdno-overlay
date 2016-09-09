@@ -73,6 +73,9 @@ public class VpcSubNetMapping extends AbstUuidModel {
     @AString(require = false)
     private String subnetCidr;
 
+    @AString(require = false)
+    private Integer vni;
+
     public String getSitetodcId() {
         return sitetodcId;
     }
@@ -183,6 +186,14 @@ public class VpcSubNetMapping extends AbstUuidModel {
 
     public void setSubnetCidr(String subnetCidr) {
         this.subnetCidr = subnetCidr;
+    }
+
+    public Integer getVni() {
+        return vni;
+    }
+
+    public void setVni(Integer vni) {
+        this.vni = vni;
     }
 
 }

@@ -320,7 +320,7 @@ public class EndPointGrpSvcImpl implements IEndPointGrp {
         OverlayVpnSvcUtil.markEpgToVpn(vpnDataToGre, reqEpg, ModifyMaskType.DEPLOY);
 
         ResultRsp<Map<String, OverlayVpn>> tecToCloudVpnMapRsp =
-                MutilTecVpnByTree.getTechToCloudVpnMap(parentVpnRsp.getData(), OperaMethType.DEPLOY);
+                MutilTecVpnByTree.getTechToOverlayVpnMap(parentVpnRsp.getData(), OperaMethType.DEPLOY);
 
         Map<String, Boolean> tecVpnToDeployedMap = new HashMap<String, Boolean>();
         try {
@@ -362,7 +362,7 @@ public class EndPointGrpSvcImpl implements IEndPointGrp {
         OverlayVpnSvcUtil.markEpgToVpn(vpnDataToGre, reqEpg, ModifyMaskType.UNDEPLOY);
 
         ResultRsp<Map<String, OverlayVpn>> tecToCloudVpnMapRsp =
-                MutilTecVpnByTree.getTechToCloudVpnMap(vpnDataToGre, OperaMethType.UNDEPLOY);
+                MutilTecVpnByTree.getTechToOverlayVpnMap(vpnDataToGre, OperaMethType.UNDEPLOY);
 
         Map<String, Boolean> tecVpnToUndeployedMap = new HashMap<String, Boolean>();
         ResultRsp<Map<String, OverlayVpn>> deployResult =

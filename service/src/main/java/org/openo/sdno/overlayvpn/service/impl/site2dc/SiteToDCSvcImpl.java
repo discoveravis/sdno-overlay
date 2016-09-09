@@ -34,12 +34,14 @@ import org.openo.sdno.overlayvpn.model.servicemodel.EndpointGroup;
 import org.openo.sdno.overlayvpn.model.servicemodel.OverlayVpn;
 import org.openo.sdno.overlayvpn.model.servicemodel.SiteToDc;
 import org.openo.sdno.overlayvpn.model.servicemodel.Vpc;
+import org.openo.sdno.overlayvpn.model.servicemodel.VpcSubNetMapping;
 import org.openo.sdno.overlayvpn.osdriver.OSDriverConfigUtil;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
 import org.openo.sdno.overlayvpn.security.authentication.TokenDataHolder;
 import org.openo.sdno.overlayvpn.service.impl.overlayvpnsvc.connection.ConnectionSvcImpl;
 import org.openo.sdno.overlayvpn.service.impl.overlayvpnsvc.endpointgroup.EndPointGrpSvcImpl;
 import org.openo.sdno.overlayvpn.service.impl.overlayvpnsvc.overlayvpn.OverlayVpnSvcImpl;
+import org.openo.sdno.overlayvpn.service.impl.overlayvpnsvc.vpcsubnet.VpcSubnetImpl;
 import org.openo.sdno.overlayvpn.service.inf.overlayvpn.ISiteToDC;
 import org.openo.sdno.overlayvpn.util.check.CheckStrUtil;
 import org.openo.sdno.overlayvpn.util.exception.ThrowOverlayVpnExcpt;
@@ -74,9 +76,14 @@ public class SiteToDCSvcImpl implements ISiteToDC {
     private SiteToDCOverlayVPN siteToDCOverlayVPN;
 
     @Autowired
+    private VpcSubnetImpl vpcSubNetSvc;
+
+    @Autowired
     private InventoryDao<OverlayVpn> inventoryDao;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SiteToDCSvcImpl.class);
+
+    private static final int HOP_NUMBER = 1;
 
     /**
      * Constructor<br>
@@ -105,10 +112,7 @@ public class SiteToDCSvcImpl implements ISiteToDC {
         // 1.Create overlay VPN and store in database in CREATING state.
         OverlayVpn overlayVpn = siteToDCOverlayVPN.createOverlayVpn(req, resp, siteToDc);
 
-        // 2.Load OSDriver Info
-        OSDriverConfigUtil.LoadOSDriverConfigData();
-
-        // 3. Create VxLan Connection
+        // 2. Create VxLan Connection
         Connection connection = siteToDCOverlayVPN.createVxLanVpnConnection(req, resp, overlayVpn);
         List<EndpointGroup> vxLanEpgList = siteToDCOverlayVPN.createEpgForVxLan(req, resp, siteToDc, overlayVpn);
 
@@ -124,8 +128,12 @@ public class SiteToDCSvcImpl implements ISiteToDC {
         connection.setEpgIds(vxLanEpgIdList);
         connection.setEndpointGroups(vxLanEpgList);
 
+        // 3.Load OSDriver Info
+        OSDriverConfigUtil.loadOSDriverConfigData();
+        siteToDc.getVpc().setOsControllerId(OSDriverConfigUtil.getOSControllerId());
+
         // 4. Create VPC & VPC Subnet
-        Vpc vpcNetwork = siteToDCOverlayVPN.createVpcAndSubnet(req, siteToDc);
+        Vpc vpcNetwork = vpcSubNetSvc.create(req, resp, siteToDc);
 
         // 5. Create IpSec Connection
         Connection ipSecConnection = siteToDCOverlayVPN.createIpSecConnection(req, resp, overlayVpn);

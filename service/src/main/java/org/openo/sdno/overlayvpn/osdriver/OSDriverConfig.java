@@ -37,6 +37,11 @@ public class OSDriverConfig {
 
     private Properties properties = new Properties();
 
+    /**
+     * Constructor.<br>
+     * 
+     * @since SDNO 0.5
+     */
     public OSDriverConfig() {
         loadProperties();
     }

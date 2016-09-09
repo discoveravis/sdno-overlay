@@ -16,6 +16,9 @@
 
 package org.openo.sdno.overlayvpn.check;
 
+import mockit.Mock;
+import mockit.MockUp;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
@@ -25,9 +28,6 @@ import org.openo.sdno.overlayvpn.model.servicemodel.Gateway;
 import org.openo.sdno.overlayvpn.util.check.CheckGatewayUtil;
 import org.openo.sdno.overlayvpn.util.check.ValidationUtil;
 import org.openo.sdno.resource.ResourceUtil;
-
-import mockit.Mock;
-import mockit.MockUp;
 
 public class CheckGatewayUtilTest {
 

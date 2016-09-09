@@ -328,7 +328,7 @@ public class OverlayVpnSvcImpl implements IOverlayVpn {
 
         // Divide OverlayVpn Connections by Technology type
         ResultRsp<Map<String, OverlayVpn>> tecToCloudVpnMapRsp =
-                MutilTecVpnByTree.getTechToCloudVpnMap(overlayVpnRsp.getData(), OperaMethType.DEPLOY);
+                MutilTecVpnByTree.getTechToOverlayVpnMap(overlayVpnRsp.getData(), OperaMethType.DEPLOY);
 
         // Deploy OverlayVpn
         Map<String, Boolean> tecVpnToDeployedMap = new HashMap<String, Boolean>();
@@ -351,24 +351,24 @@ public class OverlayVpnSvcImpl implements IOverlayVpn {
      * 
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
-     * @param cloudVpn OverlayVpn need to UnDeploy
+     * @param overlayVpn OverlayVpn need to UnDeploy
      * @return operation result wrapped with the response object
      * @throws ServiceException throws serviceException if operate failed
      * @since SDNO 0.5
      */
     @Override
-    public ResultRsp<OverlayVpn> undeploy(HttpServletRequest req, HttpServletResponse resp, OverlayVpn cloudVpn)
+    public ResultRsp<OverlayVpn> undeploy(HttpServletRequest req, HttpServletResponse resp, OverlayVpn overlayVpn)
             throws ServiceException {
 
         // Query Whole OverlayVpn Data
-        ResultRsp<OverlayVpn> overlayVpnRsp = overlayVpnComplexDao.queryComplexVpnByVpnUuid(cloudVpn.getUuid(), true);
+        ResultRsp<OverlayVpn> overlayVpnRsp = overlayVpnComplexDao.queryComplexVpnByVpnUuid(overlayVpn.getUuid(), true);
 
         // Set Modify Type
         overlayVpnRsp.getData().setModifyMask(ModifyMaskType.UNDEPLOY.getName());
 
         // Divide OverlayVpn Connections by Technology type
         ResultRsp<Map<String, OverlayVpn>> tecToCloudVpnMapRsp =
-                MutilTecVpnByTree.getTechToCloudVpnMap(overlayVpnRsp.getData(), OperaMethType.UNDEPLOY);
+                MutilTecVpnByTree.getTechToOverlayVpnMap(overlayVpnRsp.getData(), OperaMethType.UNDEPLOY);
 
         // UnDeploy OverlayVpn
         Map<String, Boolean> tecVpnToDeployedMap = new HashMap<String, Boolean>();
@@ -383,7 +383,7 @@ public class OverlayVpnSvcImpl implements IOverlayVpn {
         }
         updateVpnStatus.updateVpnStatus(undeployResult, tecVpnToDeployedMap, complexVpn, complexVpn.getVpnConnections(),
                 epgList, inventoryDao);
-        return new ResultRsp<>(undeployResult, cloudVpn);
+        return new ResultRsp<>(undeployResult, overlayVpn);
     }
 
 }

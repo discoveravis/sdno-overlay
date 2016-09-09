@@ -16,12 +16,18 @@
 
 package org.openo.sdno.overlayvpn.check;
 
+import static org.junit.Assert.*;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import mockit.Mock;
+import mockit.MockUp;
+
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
@@ -30,9 +36,6 @@ import org.openo.sdno.overlayvpn.errorcode.ErrorCode;
 import org.openo.sdno.overlayvpn.model.PortAndVlanUsed;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
 import org.openo.sdno.overlayvpn.util.check.CheckPortAndVlanUtil;
-
-import mockit.Mock;
-import mockit.MockUp;
 
 public class CheckPortAndVlanUtilTest {
 

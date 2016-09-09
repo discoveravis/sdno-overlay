@@ -16,26 +16,20 @@
 
 package org.openo.sdno.overlayvpn.util.operation;
 
-import java.util.Arrays;
 import java.util.Map;
 
-import org.codehaus.jackson.type.TypeReference;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
-import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.overlayvpn.consts.CommConst;
 import org.openo.sdno.overlayvpn.errorcode.ErrorCode;
 import org.openo.sdno.overlayvpn.model.servicemodel.SiteToDc;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
 import org.openo.sdno.overlayvpn.util.exception.ThrowOverlayVpnExcpt;
-import org.openo.sdno.util.ip.IpUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
  * Util class of SiteToDc.<br>
- * <p>
- * </p>
  * 
  * @author
  * @version SDNO 0.5 Jun 1, 2016
@@ -53,23 +47,11 @@ public class SiteToDcUtil {
      * @param quriedSiteToDC old SiteToDc
      * @param inputJsonStr new data in JSON format
      * @return new SiteToDc Object
-     * @throws ServiceException when failed
+     * @throws ServiceException when build OverlayVpn data failed
      * @since SDNO 0.5
      */
     public static ResultRsp<SiteToDc> buildNewVpnByOldAndInputData(String inputJsonStr) throws ServiceException {
-        Map<String, String> updateDataMap = null;
-        try {
-            updateDataMap = JsonUtil.fromJson(inputJsonStr, new TypeReference<Map<String, String>>() {});
-        } catch(IllegalArgumentException e) {
-            LOGGER.error("update data formate error, inputJsonStr = " + inputJsonStr, e);
-            ThrowOverlayVpnExcpt.throwParmaterInvalid("SiteToDc", "Update data");
-            return null;
-        }
-
-        if(null == updateDataMap) {
-            LOGGER.error("update data formate error, updateDataMap is NULL");
-            ThrowOverlayVpnExcpt.throwParmaterInvalid("SiteToDc", "Update data");
-        }
+        Map<String, String> updateDataMap = OperationUtil.getUpdateDataMap(inputJsonStr);
 
         SiteToDc siteToDc = new SiteToDc("");
 
@@ -91,46 +73,4 @@ public class SiteToDcUtil {
 
         return new ResultRsp<>(ErrorCode.OVERLAYVPN_SUCCESS, siteToDc);
     }
-
-    /**
-     * <br>
-     * 
-     * @param cidr
-     * @return
-     * @throws ServiceException
-     * @since SDNO 0.5
-     */
-    public static String[] getGatewayIpAndMaskFromCidr(String cidr) throws ServiceException {
-
-        // Validate CIDR
-        if(!IpUtils.isValidCidr(cidr)) {
-            LOGGER.error("Invalid CIDR");
-            ThrowOverlayVpnExcpt.throwParmaterInvalid("CIDR", cidr);
-        }
-
-        // Split IP Address and VLAN information
-        String[] ipandprefix = cidr.split("/");
-
-        if((null == ipandprefix[0]) || (2 != ipandprefix.length)) {
-            LOGGER.error("CIDR do not match ***/*** format");
-            ThrowOverlayVpnExcpt.throwParmaterInvalid("CIDRs", cidr);
-        }
-        // Validate IP
-        if(!IpUtils.isValidAddress(ipandprefix[0])) {
-            LOGGER.error("IP format err");
-            ThrowOverlayVpnExcpt.throwParmaterInvalid("IP Address", cidr);
-        }
-
-        String[] ipandmask = Arrays.copyOf(ipandprefix, ipandprefix[1].length());
-
-        int prefix = Integer.parseInt(ipandprefix[1]);
-        if(prefix > 32 || prefix < 0) {
-            LOGGER.error("Prefix format err");
-            ThrowOverlayVpnExcpt.throwParmaterInvalid("CIDR Prefix", String.valueOf(prefix));
-        }
-        ipandmask[1] = IpUtils.prefixToMask(prefix);
-
-        return ipandmask;
-    }
-
 }

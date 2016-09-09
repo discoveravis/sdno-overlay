@@ -28,6 +28,8 @@ import org.openo.sdno.overlayvpn.brs.model.AuthInfo;
 import org.openo.sdno.overlayvpn.brs.model.CommParamMO;
 import org.openo.sdno.overlayvpn.brs.model.ControllerMO;
 import org.openo.sdno.overlayvpn.brs.model.NetworkElementMO;
+import org.openo.sdno.overlayvpn.model.common.enums.AdminStatus;
+import org.openo.sdno.overlayvpn.model.common.enums.OperStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,6 +45,8 @@ public class OSDriverConfigUtil {
 
     private static final String OS_DRIVER_NE_NAME = "OSDriverNE";
 
+    private static final String OS_DRIVER_NE_NATIVEID = "OSDriverNEID";
+
     private static final String OS_DRIVER_CONTROLLER_NAME = "OSController";
 
     private static OSDriverConfig osDriverConfig = new OSDriverConfig();
@@ -53,13 +57,16 @@ public class OSDriverConfigUtil {
 
     private static CommParamDao commParamDao = new CommParamDao();
 
+    private OSDriverConfigUtil() {
+    }
+
     /**
      * Load OS Driver Data From Property file.<br>
      * 
      * @throws ServiceException throws when load failed
      * @since SDNO 0.5
      */
-    public static void LoadOSDriverConfigData() throws ServiceException {
+    public static void loadOSDriverConfigData() throws ServiceException {
 
         NetworkElementInvDao neInvDao = new NetworkElementInvDao();
         List<NetworkElementMO> neList = neInvDao.getNeByName(OS_DRIVER_NE_NAME);
@@ -86,11 +93,24 @@ public class OSDriverConfigUtil {
         return neList.get(0).getId();
     }
 
+    /**
+     * Get OSDriver Controller Id.<br>
+     * 
+     * @return OSDriver Controller Id
+     * @since SDNO 0.5
+     */
+    public static String getOSControllerId() throws ServiceException {
+        String neId = getOSDriverNeId();
+        List<ControllerMO> controllerList = controllerDao.getControllerByNeId(neId);
+        return controllerList.get(0).getObjectId();
+    }
+
     private static void addNeAndOSController() throws ServiceException {
 
         ControllerMO controller = new ControllerMO();
         controller.setName(OS_DRIVER_CONTROLLER_NAME);
         controller.setDescription(osDriverConfig.getOSDomainName());
+        controller.setHostName(osDriverConfig.getOSIpAddress());
         String controllerId = controllerDao.addMO(controller);
 
         CommParamMO commParam = new CommParamMO();
@@ -110,8 +130,9 @@ public class OSDriverConfigUtil {
         NetworkElementMO networkElement = new NetworkElementMO();
         networkElement.setName(OS_DRIVER_NE_NAME);
         networkElement.setControllerID(Arrays.asList(controllerId));
-        networkElement.setAdminState("active");
-        networkElement.setOperState("up");
+        networkElement.setNativeID(OS_DRIVER_NE_NATIVEID);
+        networkElement.setAdminState(AdminStatus.ACTIVE.getName());
+        networkElement.setOperState(OperStatus.UP.getName());
 
         neInvDao.addMO(networkElement);
     }

@@ -58,7 +58,7 @@ public class MutilTecVpnByTree {
      * @return Map of Technology type to OverlayVpn
      * @since SDNO 0.5
      */
-    public static ResultRsp<Map<String, OverlayVpn>> getTechToCloudVpnMap(OverlayVpn complexTreeVpn,
+    public static ResultRsp<Map<String, OverlayVpn>> getTechToOverlayVpnMap(OverlayVpn complexTreeVpn,
             OperaMethType type) {
         Map<String, OverlayVpn> techToOverlayVpnMap = new HashMap<>();
         for(Connection tempConn : complexTreeVpn.getVpnConnections()) {

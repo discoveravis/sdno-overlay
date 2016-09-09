@@ -16,8 +16,9 @@
 
 package org.openo.sdno.overlayvpn.check;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.openo.sdno.overlayvpn.util.check.VlanRangeComparator;
 

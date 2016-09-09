@@ -20,7 +20,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.codehaus.jackson.type.TypeReference;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.overlayvpn.consts.CommConst;
@@ -35,8 +34,6 @@ import org.springframework.util.StringUtils;
 
 /**
  * Util class of OverlayVpn.<br>
- * <p>
- * </p>
  * 
  * @author
  * @version SDNO 0.5 06-May-2016
@@ -112,18 +109,8 @@ public class OverlayVpnUtil {
      */
     public static ResultRsp<OverlayVpn> buildNewVpnByOldAndInputData(OverlayVpn queryedOldVpn, String inputJsonStr)
             throws ServiceException {
-        Map<String, String> updateDataMap = null;
-        try {
-            updateDataMap = JsonUtil.fromJson(inputJsonStr, new TypeReference<Map<String, String>>() {});
-        } catch(IllegalArgumentException e) {
-            LOGGER.error("update data formate error, inputJsonStr = " + inputJsonStr, e);
-            ThrowOverlayVpnExcpt.throwParmaterInvalid("Overlay VPN", "Update data");
-            return null;
-        }
-        if(null == updateDataMap) {
-            LOGGER.error("update data formate error, updateDataMap is NULL");
-            ThrowOverlayVpnExcpt.throwParmaterInvalid("Overlay VPN", "Update data");
-        }
+        Map<String, String> updateDataMap = OperationUtil.getUpdateDataMap(inputJsonStr);
+
         OverlayVpn newOverlayVpn = new OverlayVpn();
         newOverlayVpn.copyBasicData(queryedOldVpn);
 
