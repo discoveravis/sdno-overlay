@@ -75,9 +75,6 @@ public class EndPointGrpSvcImpl implements IEndPointGrp {
     private UpdateVpnStatus updateVpnStatus;
 
     @Resource
-    private EpgForVxlanSvcImpl epgForVxlanSvcImpl;
-
-    @Resource
     private ConnectionSvcImpl connectionSvcImpl;
 
     @Autowired
@@ -389,10 +386,6 @@ public class EndPointGrpSvcImpl implements IEndPointGrp {
 
     public void setOverlayVpnTaskSvc(OverlayVpnTaskSvc overlayVpnTaskSvc) {
         this.overlayVpnTaskSvc = overlayVpnTaskSvc;
-    }
-
-    public void setEpgForVxlanSvcImpl(EpgForVxlanSvcImpl epgForVxlanSvcImpl) {
-        this.epgForVxlanSvcImpl = epgForVxlanSvcImpl;
     }
 
     public void setConnectionSvcImpl(ConnectionSvcImpl connectionSvcImpl) {

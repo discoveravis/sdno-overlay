@@ -39,6 +39,7 @@ import org.openo.sdno.framework.container.util.UuidUtils;
 import org.openo.sdno.overlayvpn.consts.HttpCode;
 import org.openo.sdno.overlayvpn.errorcode.ErrorCode;
 import org.openo.sdno.overlayvpn.model.servicemodel.SiteToDc;
+import org.openo.sdno.overlayvpn.model.servicemodel.SiteToDcNbi;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
 import org.openo.sdno.overlayvpn.security.authentication.TokenDataHolder;
 import org.openo.sdno.overlayvpn.service.inf.overlayvpn.ISiteToDC;

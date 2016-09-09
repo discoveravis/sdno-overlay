@@ -38,8 +38,6 @@ import org.springframework.util.StringUtils;
 
 /**
  * Util class of MappingPolicy.<br>
- * <p>
- * </p>
  * 
  * @author
  * @version SDNO 0.5 Jun 1, 2016
