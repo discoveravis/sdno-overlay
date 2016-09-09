@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -31,7 +31,7 @@ import org.openo.sdno.overlayvpn.model.PortAndVlanUsed;
 import org.openo.sdno.overlayvpn.model.common.enums.EndpointType;
 
 /**
- * Port and VLAN Data Verify Class.<br/>
+ * Port and VLAN Data Verify Class.<br>
  * <p>
  * </p>
  * 
@@ -48,7 +48,7 @@ public class CheckPortAndVlanUtil {
     }
 
     /**
-     * Check weather port and vlan data is invalid.<br/>
+     * Check weather port and vlan data is invalid.<br>
      * 
      * @param portUuids list of Port id
      * @param portToVlanMap port to VLAN Map
@@ -81,7 +81,7 @@ public class CheckPortAndVlanUtil {
     }
 
     /**
-     * Check weather vlan data is valid.<br/>
+     * Check weather vlan data is valid.<br>
      * 
      * @param targetVlans target vlans
      * @param vlansLst list of vlan

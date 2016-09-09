@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -32,7 +32,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Class of Dividing OverlayVpn Connections by Technology Type.<br/>
+ * Class of Dividing OverlayVpn Connections by Technology Type.<br>
  * 
  * @author
  * @version SDNO 0.5 Jun 7, 2016
@@ -42,7 +42,7 @@ public class MutilTecVpnByTree {
     private static final Logger LOGGER = LoggerFactory.getLogger(MutilTecVpnByTree.class);
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      */
@@ -51,7 +51,7 @@ public class MutilTecVpnByTree {
     }
 
     /**
-     * Get Map of Technology type to OverlayVpn.<br/>
+     * Get Map of Technology type to OverlayVpn.<br>
      * 
      * @param complexTreeVpn OverlayVpn need to divide
      * @param type operation type
@@ -93,7 +93,7 @@ public class MutilTecVpnByTree {
     }
 
     /**
-     * Add OverlayVpn Connections based on VxLan to Map.<br/>
+     * Add OverlayVpn Connections based on VxLan to Map.<br>
      * 
      * @param techToCloudVpnMap Map of VxLan Technology type to OverlayVpn
      * @param complexOverlayVpn OverlayVpn need to divide
@@ -118,7 +118,7 @@ public class MutilTecVpnByTree {
     }
 
     /**
-     * Add OverlayVpn Connections based on IpSec to Map.<br/>
+     * Add OverlayVpn Connections based on IpSec to Map.<br>
      * 
      * @param tecToCloudVpnMap Map of IpSec Technology type to OverlayVpn
      * @param complexCloudVpn OverlayVpn need to divide

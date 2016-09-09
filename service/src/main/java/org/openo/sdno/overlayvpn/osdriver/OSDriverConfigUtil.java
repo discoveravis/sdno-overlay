@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -32,7 +32,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Util Class of OSDriver Configuration.<br/>
+ * Util Class of OSDriver Configuration.<br>
  * 
  * @author
  * @version SDNO 0.5 Aug 9, 2016
@@ -54,7 +54,7 @@ public class OSDriverConfigUtil {
     private static CommParamDao commParamDao = new CommParamDao();
 
     /**
-     * Load OS Driver Data From Property file.<br/>
+     * Load OS Driver Data From Property file.<br>
      * 
      * @throws ServiceException throws when load failed
      * @since SDNO 0.5
@@ -72,7 +72,7 @@ public class OSDriverConfigUtil {
     }
 
     /**
-     * Query OS Driver NetworkElement Id.<br/>
+     * Query OS Driver NetworkElement Id.<br>
      * 
      * @return OS Driver NetworkElement Id
      * @throws ServiceException throws query failed

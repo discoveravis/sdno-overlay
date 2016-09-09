@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -39,7 +39,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
- * Util class of Connection.<br/>
+ * Util class of Connection.<br>
  * <p>
  * This class provide some functions to operation Connection Data.
  * </p>
@@ -55,7 +55,7 @@ public class ConnectionUtil {
     }
 
     /**
-     * Build Batch query Filter.<br/>
+     * Build Batch query Filter.<br>
      * 
      * @param tenantId tenant id
      * @param name resource name
@@ -84,7 +84,7 @@ public class ConnectionUtil {
     }
 
     /**
-     * Build Batch query Filter.<br/>
+     * Build Batch query Filter.<br>
      * 
      * @param tenantId tenant id
      * @param overlayVpnId OverlayVpn id
@@ -109,7 +109,7 @@ public class ConnectionUtil {
     }
 
     /**
-     * First step to build Filter map.<br/>
+     * First step to build Filter map.<br>
      * 
      * @param filterMap filter map of query
      * @param name resource name
@@ -155,7 +155,7 @@ public class ConnectionUtil {
     }
 
     /**
-     * Second step to build Filter map.<br/>
+     * Second step to build Filter map.<br>
      * 
      * @param filterMap filter map of query
      * @param overlayVpnId OverlayVpn id
@@ -201,7 +201,7 @@ public class ConnectionUtil {
     }
 
     /**
-     * Build new connection based on old connection and new data.<br/>
+     * Build new connection based on old connection and new data.<br>
      * 
      * @param queryedOldConn old connection
      * @param inputJsonStr new data in JSON format
@@ -256,7 +256,7 @@ public class ConnectionUtil {
     }
 
     /**
-     * Check whether any Hub exists in the EndpointGroups.<br/>
+     * Check whether any Hub exists in the EndpointGroups.<br>
      * 
      * @param conn connection
      * @return true if Hub exists exist,false otherwise

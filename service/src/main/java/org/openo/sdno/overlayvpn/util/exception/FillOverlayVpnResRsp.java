@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,7 +21,7 @@ import org.openo.sdno.overlayvpn.result.ResultRsp;
 import org.openo.sdno.resource.ResourceUtil;
 
 /**
- * Define General ErrorResultRsp when filling OverlayVpn.<br/>
+ * Define General ErrorResultRsp when filling OverlayVpn.<br>
  * <p>
  * </p>
  * 
@@ -35,7 +35,7 @@ public class FillOverlayVpnResRsp {
     }
 
     /**
-     * Common Configuration not exist ResultRsp.<br/>
+     * Common Configuration not exist ResultRsp.<br>
      * 
      * @param cfgkey Configuration key
      * @return ResultRsp Object
@@ -50,7 +50,7 @@ public class FillOverlayVpnResRsp {
     }
 
     /**
-     * Inventory Resource not exist ResultRsp.<br/>
+     * Inventory Resource not exist ResultRsp.<br>
      * 
      * @param resName resource name
      * @param resDesc resource description
@@ -70,7 +70,7 @@ public class FillOverlayVpnResRsp {
     }
 
     /**
-     * Resource allocate Failed ResultRsp.<br/>
+     * Resource allocate Failed ResultRsp.<br>
      * 
      * @param resType resource type
      * @param num index of error message

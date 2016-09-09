@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -35,7 +35,7 @@ import org.openo.sdno.overlayvpn.util.exception.ThrowOverlayVpnExcpt;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * The mapping policy implementation. <br/>
+ * The mapping policy implementation. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-7
@@ -47,7 +47,7 @@ public class MappingPolicySvcImpl implements IMappingPolicy {
     private InventoryDao inventoryDao;
 
     /**
-     * Create mapping policy. <br/>
+     * Create mapping policy. <br>
      * 
      * @param req
      *            HttpServletRequest Object
@@ -68,7 +68,7 @@ public class MappingPolicySvcImpl implements IMappingPolicy {
     }
 
     /**
-     * Query a mapping policy. <br/>
+     * Query a mapping policy. <br>
      * 
      * @param req
      *            HttpServletRequest Object
@@ -116,7 +116,7 @@ public class MappingPolicySvcImpl implements IMappingPolicy {
     }
 
     /**
-     * Query mapping policy in batch. <br/>
+     * Query mapping policy in batch. <br>
      * 
      * @param req
      *            HttpServletRequest Object
@@ -167,7 +167,7 @@ public class MappingPolicySvcImpl implements IMappingPolicy {
     }
 
     /**
-     * Update a mapping policy. <br/>
+     * Update a mapping policy. <br>
      * 
      * @param req
      *            HttpServletRequest Object
@@ -190,7 +190,7 @@ public class MappingPolicySvcImpl implements IMappingPolicy {
     }
 
     /**
-     * Delete a mapping policy. <br/>
+     * Delete a mapping policy. <br>
      * 
      * @param req
      *            HttpServletRequest Object
@@ -211,7 +211,7 @@ public class MappingPolicySvcImpl implements IMappingPolicy {
     }
 
     /**
-     * Deploy a connection. <br/>
+     * Deploy a connection. <br>
      * 
      * @param req
      *            HttpServletRequest Object
@@ -232,7 +232,7 @@ public class MappingPolicySvcImpl implements IMappingPolicy {
     }
 
     /**
-     * Undeploy a mapping policy. <br/>
+     * Undeploy a mapping policy. <br>
      * 
      * @param req
      *            HttpServletRequest Object

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -36,7 +36,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 /**
- * Class of OverlayVpn Task Service.<br/>
+ * Class of OverlayVpn Task Service.<br>
  * <p>
  * </p>
  * 
@@ -49,7 +49,7 @@ public class OverlayVpnTaskSvc {
     private static final Logger LOGGER = LoggerFactory.getLogger(OverlayVpnTaskSvc.class);
 
     /**
-     * Create OverlayVpn Task.<br/>
+     * Create OverlayVpn Task.<br>
      * 
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -75,7 +75,7 @@ public class OverlayVpnTaskSvc {
     }
 
     /**
-     * Deploy OverlayVpn Task.<br/>
+     * Deploy OverlayVpn Task.<br>
      * 
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -98,7 +98,7 @@ public class OverlayVpnTaskSvc {
     }
 
     /**
-     * Deploy OverlayVpn by Technology type.<br/>
+     * Deploy OverlayVpn by Technology type.<br>
      * 
      * @param deployVpnTaskList List of OverlayVpnTask need to deploy
      * @param data OverlayVpn need to deploy
@@ -132,7 +132,7 @@ public class OverlayVpnTaskSvc {
     }
 
     /**
-     * Create Delete OverlayVpn Task.<br/>
+     * Create Delete OverlayVpn Task.<br>
      * 
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -155,7 +155,7 @@ public class OverlayVpnTaskSvc {
     }
 
     /**
-     * Create UnDeploy OverlayVpn Task.<br/>
+     * Create UnDeploy OverlayVpn Task.<br>
      * 
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -178,7 +178,7 @@ public class OverlayVpnTaskSvc {
     }
 
     /**
-     * UnDeploy OverlayVpn By Technology Type.<br/>
+     * UnDeploy OverlayVpn By Technology Type.<br>
      * 
      * @param undeployVpnTaskList List of OverlayVpnTask need to deploy
      * @param data OverlayVpn need to UnDeploy
@@ -212,7 +212,7 @@ public class OverlayVpnTaskSvc {
     }
 
     /**
-     * Update OverlayVpn.<br/>
+     * Update OverlayVpn.<br>
      * 
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -255,7 +255,7 @@ public class OverlayVpnTaskSvc {
     }
 
     /**
-     * Package Result Response Data.<br/>
+     * Package Result Response Data.<br>
      * 
      * @param data OverlayVpn Object
      * @param rollBackRet Result of roll Back
@@ -288,7 +288,7 @@ public class OverlayVpnTaskSvc {
     }
 
     /**
-     * Add Info to Header.<br/>
+     * Add Info to Header.<br>
      * 
      * @param tec info
      * @return Info after adding header

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -32,7 +32,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Overlay VPN status update.<br/>
+ * Overlay VPN status update.<br>
  * <p>
  * </p>
  * 
@@ -49,7 +49,7 @@ public class UpdateVpnStatusByEle {
 
     /**
      * After a successful connection to the deployment or deployment , refresh its connection and
-     * vpn state<br/>
+     * vpn state<br>
      * 
      * @param deployResult - Overlay VPN deployment result
      * @param fullOverlayVpn - Original overlay VPN model
@@ -100,7 +100,7 @@ public class UpdateVpnStatusByEle {
     }
 
     /**
-     * Update the VPN Staus<br/>
+     * Update the VPN Staus<br>
      * 
      * @param deployResult Result response of the depoly operation
      * @param fullOverlayVpn Overlay VPN
@@ -138,7 +138,7 @@ public class UpdateVpnStatusByEle {
     }
 
     /**
-     * Update connection status of connection and respective endpoint groups<br/>
+     * Update connection status of connection and respective endpoint groups<br>
      * 
      * @param fullOverlayVpn - Original overlay VPN
      * @param epg - Endpoint group

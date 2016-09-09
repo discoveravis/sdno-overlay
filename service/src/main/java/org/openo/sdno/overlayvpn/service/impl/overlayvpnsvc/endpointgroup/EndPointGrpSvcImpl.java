@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -55,7 +55,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Endpoint group model implementation. <br/>
+ * Endpoint group model implementation. <br>
  *
  * @author
  * @version SDNO 0.5 Jun 2, 2016
@@ -84,7 +84,7 @@ public class EndPointGrpSvcImpl implements IEndPointGrp {
     private InventoryDao<EndpointGroup> inventoryDao;
 
     /**
-     * Create endpoint group in INACTIVE state. Build EPG for the technology type requested. <br/>
+     * Create endpoint group in INACTIVE state. Build EPG for the technology type requested. <br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -105,7 +105,7 @@ public class EndPointGrpSvcImpl implements IEndPointGrp {
     }
 
     /**
-     * Implementation of batch creation of EPG's using one request. <br/>
+     * Implementation of batch creation of EPG's using one request. <br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -143,7 +143,7 @@ public class EndPointGrpSvcImpl implements IEndPointGrp {
     }
 
     /**
-     * Query an endpoint group using UUID and tenant id. <br/>
+     * Query an endpoint group using UUID and tenant id. <br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -169,7 +169,7 @@ public class EndPointGrpSvcImpl implements IEndPointGrp {
     }
 
     /**
-     * Query endpoint groups in batch. <br/>
+     * Query endpoint groups in batch. <br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -187,7 +187,7 @@ public class EndPointGrpSvcImpl implements IEndPointGrp {
     }
 
     /**
-     * Update an endpoint group. <br/>
+     * Update an endpoint group. <br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -220,7 +220,7 @@ public class EndPointGrpSvcImpl implements IEndPointGrp {
     }
 
     /**
-     * Delete an endpoint group. <br/>
+     * Delete an endpoint group. <br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -288,7 +288,7 @@ public class EndPointGrpSvcImpl implements IEndPointGrp {
     }
 
     /**
-     * Deploy an endpoint group. <br/>
+     * Deploy an endpoint group. <br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -341,7 +341,7 @@ public class EndPointGrpSvcImpl implements IEndPointGrp {
     }
 
     /**
-     * Undeploy an endpoint group. <br/>
+     * Undeploy an endpoint group. <br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object

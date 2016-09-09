@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -54,7 +54,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 /**
- * Site To DC service implementation<br/>
+ * Site To DC service implementation<br>
  * <p>
  * Implements Site to DC between enterprise Site to Tenant VPC in DC or vDC.
  * </p>
@@ -77,7 +77,7 @@ public class SiteToDCOverlayVPN {
     private EndPointGrpSvcImpl endpointGroupSvc;
 
     /**
-     * Create OverlayVpn for Site To DC.<br/>
+     * Create OverlayVpn for Site To DC.<br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -115,7 +115,7 @@ public class SiteToDCOverlayVPN {
     }
 
     /**
-     * Create EPG's for VxLAN Connection.<br/>
+     * Create EPG's for VxLAN Connection.<br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -168,7 +168,7 @@ public class SiteToDCOverlayVPN {
     }
 
     /**
-     * Create connection for VxLAN.<br/>
+     * Create connection for VxLAN.<br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -203,7 +203,7 @@ public class SiteToDCOverlayVPN {
     }
 
     /**
-     * Update OverlayVpn status.<br/>
+     * Update OverlayVpn status.<br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -246,7 +246,7 @@ public class SiteToDCOverlayVPN {
     }
 
     /**
-     * Delete OverlayVpn.<br/>
+     * Delete OverlayVpn.<br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -281,7 +281,7 @@ public class SiteToDCOverlayVPN {
     }
 
     /**
-     * Delete Connection.<br/>
+     * Delete Connection.<br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -316,7 +316,7 @@ public class SiteToDCOverlayVPN {
     }
 
     /**
-     * Delete EndPoingGroup.<br/>
+     * Delete EndPoingGroup.<br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -452,7 +452,7 @@ public class SiteToDCOverlayVPN {
     }
 
     /**
-     * Create Vpc and Subnet.<br/>
+     * Create Vpc and Subnet.<br>
      * 
      * @param req HttpServletRequest object
      * @param siteToDc SiteToDc object

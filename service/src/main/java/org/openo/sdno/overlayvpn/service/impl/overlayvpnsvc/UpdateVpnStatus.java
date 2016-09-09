@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -35,7 +35,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 /**
- * Overlay VPN status update.<br/>
+ * Overlay VPN status update.<br>
  * <p>
  * Methods to update the status of deployment for overlay vpn models
  * </p>
@@ -106,7 +106,7 @@ public class UpdateVpnStatus {
     }
 
     /**
-     * Utility function to update the deployment status to map<br/>
+     * Utility function to update the deployment status to map<br>
      * 
      * @param tecVpnToDeployedMap - Map to be updated with status
      * @param deployResult - Deployment result response
@@ -134,7 +134,7 @@ public class UpdateVpnStatus {
     }
 
     /**
-     * Based on deployment status fill the map<br/>
+     * Based on deployment status fill the map<br>
      * 
      * @param isDepolyed - Boolean to check Deployment or Undeployment operation
      * @param connUuidToAdmStatMap - Connection Map to be updated with status
@@ -163,7 +163,7 @@ public class UpdateVpnStatus {
 
     /**
      * Utility to fill status onto map with key as uuid and status as value when deployment was
-     * successful<br/>
+     * successful<br>
      * 
      * @param uuidToStatMap - Map to be updated with
      * @param uuid - Key
@@ -183,7 +183,7 @@ public class UpdateVpnStatus {
 
     /**
      * Utility to fill status onto map with key as uuid and status as value when undeploy was
-     * successful<br/>
+     * successful<br>
      * 
      * @param uuidToStatMap - Map to be updated with
      * @param uuid - key

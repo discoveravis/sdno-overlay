@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -36,7 +36,7 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * Util class of VcpeModel.<br/>
+ * Util class of VcpeModel.<br>
  * <p>
  * </p>
  * 
@@ -50,7 +50,7 @@ public class VcpeModelUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(VcpeModelUtil.class);
 
     /**
-     * Create AdapterDeviceNetwork<br/>
+     * Create AdapterDeviceNetwork<br>
      * 
      * @param neID networkElement id
      * @param tenantId tenant id
@@ -85,7 +85,7 @@ public class VcpeModelUtil {
     }
 
     /**
-     * Get controller id of network element.<br/>
+     * Get controller id of network element.<br>
      * 
      * @param neID networkElement id
      * @return controller id
@@ -122,7 +122,7 @@ public class VcpeModelUtil {
     }
 
     /**
-     * Build AdapterDeviceNetwork instance.<br/>
+     * Build AdapterDeviceNetwork instance.<br>
      * 
      * @param neId network element id
      * @param tenantId tenant id

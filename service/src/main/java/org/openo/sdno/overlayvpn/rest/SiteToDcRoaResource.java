@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -50,7 +50,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
- * Resource oriented class for Site to DC scenario<br/>
+ * Resource oriented class for Site to DC scenario<br>
  * 
  * @author
  * @version SDNO 0.5 24-May-2016
@@ -70,7 +70,7 @@ public class SiteToDcRoaResource {
     }
 
     /**
-     * Rest interface to perform create a site to DC operation<br/>
+     * Rest interface to perform create a site to DC operation<br>
      * 
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -119,7 +119,7 @@ public class SiteToDcRoaResource {
     }
 
     /**
-     * Query SiteToDC information for the Site to DC scenario<br/>
+     * Query SiteToDC information for the Site to DC scenario<br>
      * 
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -159,7 +159,7 @@ public class SiteToDcRoaResource {
     }
 
     /**
-     * Update the name and description of the Site to DC<br/>
+     * Update the name and description of the Site to DC<br>
      * 
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -207,7 +207,7 @@ public class SiteToDcRoaResource {
     }
 
     /**
-     * Delete a specific site to DC scenario<br/>
+     * Delete a specific site to DC scenario<br>
      * 
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -29,7 +29,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
- * Throw some OverlayVpn Exceptions.<br/>
+ * Throw some OverlayVpn Exceptions.<br>
  * <p>
  * </p>
  * 
@@ -45,7 +45,7 @@ public class ThrowOverlayVpnExcpt {
     }
 
     /**
-     * Check weather ResultRsp is success and throws Exception.<br/>
+     * Check weather ResultRsp is success and throws Exception.<br>
      * 
      * @param result ResultRsp need to check
      * @throws ServiceException ServiceException throws if result is not success
@@ -63,7 +63,7 @@ public class ThrowOverlayVpnExcpt {
     }
 
     /**
-     * Throw BadReq Exception.<br/>
+     * Throw BadReq Exception.<br>
      * 
      * @param resName resource name
      * @param resDesc resource description
@@ -88,7 +88,7 @@ public class ThrowOverlayVpnExcpt {
     }
 
     /**
-     * Throw NotFound Exception.<br/>
+     * Throw NotFound Exception.<br>
      * 
      * @param resName resource name
      * @param resDesc resource description
@@ -112,7 +112,7 @@ public class ThrowOverlayVpnExcpt {
     }
 
     /**
-     * Throw Tenant id invalid Exception.<br/>
+     * Throw Tenant id invalid Exception.<br>
      * 
      * @param exptTenantId exception tenant id
      * @param realTenantId real tenant id
@@ -133,7 +133,7 @@ public class ThrowOverlayVpnExcpt {
     }
 
     /**
-     * Throw Tenant id missing Exception.<br/>
+     * Throw Tenant id missing Exception.<br>
      * 
      * @param exptTenantId exception tenant id
      * @throws ServiceException ServiceException throws
@@ -149,7 +149,7 @@ public class ThrowOverlayVpnExcpt {
     }
 
     /**
-     * Throw Parameter invalid Exception.<br/>
+     * Throw Parameter invalid Exception.<br>
      * 
      * @param paraName parameter name
      * @param parmaterPath parameter path
@@ -172,7 +172,7 @@ public class ThrowOverlayVpnExcpt {
     }
 
     /**
-     * Throw Update Epg invalid Exception.<br/>
+     * Throw Update Epg invalid Exception.<br>
      * 
      * @throws ServiceException ServiceException throws
      * @since SDNO 0.5
@@ -186,7 +186,7 @@ public class ThrowOverlayVpnExcpt {
     }
 
     /**
-     * Throw Having MappingPolicy Exception.<br/>
+     * Throw Having MappingPolicy Exception.<br>
      * mappingPolicyId should not have mappingPolicyId when Gre is used
      * 
      * @param connectionId connection id
@@ -203,7 +203,7 @@ public class ThrowOverlayVpnExcpt {
     }
 
     /**
-     * Throw Having MappingPolicy Exception.<br/>
+     * Throw Having MappingPolicy Exception.<br>
      * mappingPolicyId should have if ipsec、vxlan、gre_over_ipsec are used
      * 
      * @param connectionId connection id
@@ -220,7 +220,7 @@ public class ThrowOverlayVpnExcpt {
     }
 
     /**
-     * Throw Port Conflict Exception.<br/>
+     * Throw Port Conflict Exception.<br>
      * 
      * @param neUuid network element id
      * @param portUuid port id
@@ -238,7 +238,7 @@ public class ThrowOverlayVpnExcpt {
     }
 
     /**
-     * Throw VLAN Conflict Exception.<br/>
+     * Throw VLAN Conflict Exception.<br>
      * 
      * @param neUuid network element id
      * @param portUuid port id
@@ -257,7 +257,7 @@ public class ThrowOverlayVpnExcpt {
     }
 
     /**
-     * Throw TP already exist Exception.<br/>
+     * Throw TP already exist Exception.<br>
      * 
      * @param neUuid network element id
      * @param portUuid port id
@@ -276,7 +276,7 @@ public class ThrowOverlayVpnExcpt {
     }
 
     /**
-     * Throw Resource is used Exception.<br/>
+     * Throw Resource is used Exception.<br>
      * 
      * @param resource resource id
      * @param user user id
@@ -295,7 +295,7 @@ public class ThrowOverlayVpnExcpt {
     }
 
     /**
-     * Throw id Description Exception.<br/>
+     * Throw id Description Exception.<br>
      * 
      * @param id key id
      * @param desc Description
@@ -307,7 +307,7 @@ public class ThrowOverlayVpnExcpt {
     }
 
     /**
-     * Throw OverlayVpn Data Missing Exception.<br/>
+     * Throw OverlayVpn Data Missing Exception.<br>
      * 
      * @param resource resource name
      * @param resDesc resource description
@@ -338,7 +338,7 @@ public class ThrowOverlayVpnExcpt {
     }
 
     /**
-     * Throw WanSubInf Query Failed Exception.<br/>
+     * Throw WanSubInf Query Failed Exception.<br>
      * 
      * @param neId network element id
      * @param type type
@@ -355,7 +355,7 @@ public class ThrowOverlayVpnExcpt {
     }
 
     /**
-     * Throw epg belongs to different connection Exception.<br/>
+     * Throw epg belongs to different connection Exception.<br>
      * 
      * @param connectionId1 connection1 id
      * @param connectionId2 connection2 id

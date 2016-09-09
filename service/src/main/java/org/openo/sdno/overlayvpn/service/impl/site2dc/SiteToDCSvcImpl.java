@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -50,7 +50,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 /**
- * Site To DC service implementation<br/>
+ * Site To DC service implementation<br>
  * <p>
  * Implements Site to DC between enterprise Site to Tenant VPC in DC or vDC.
  * </p>
@@ -79,7 +79,7 @@ public class SiteToDCSvcImpl implements ISiteToDC {
     private static final Logger LOGGER = LoggerFactory.getLogger(SiteToDCSvcImpl.class);
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      *
      * @since SDNO 0.5
      */
@@ -88,7 +88,7 @@ public class SiteToDCSvcImpl implements ISiteToDC {
     }
 
     /**
-     * Site To DC create operation<br/>
+     * Site To DC create operation<br>
      *
      * @param httpContext - HTTP context for security token
      * @param siteToDC - Overlay VPN information
@@ -181,7 +181,7 @@ public class SiteToDCSvcImpl implements ISiteToDC {
     }
 
     /**
-     * Query Overlay VPN information for Site to DC scenario<br/>
+     * Query Overlay VPN information for Site to DC scenario<br>
      *
      * @param httpContext - HTTP Context to get the tenant ID
      * @param uuid - UUID of the overlay VPN
@@ -254,7 +254,7 @@ public class SiteToDCSvcImpl implements ISiteToDC {
     }
 
     /**
-     * Update Overlay VPN Name or Description<br/>
+     * Update Overlay VPN Name or Description<br>
      *
      * @param httpContext - HTTP Context for security token
      * @param newReq - Site2DC information with update name or description
@@ -309,7 +309,7 @@ public class SiteToDCSvcImpl implements ISiteToDC {
     }
 
     /**
-     * Undeploy and delete the Overlay VPN for Site to DC Scenario<br/>
+     * Undeploy and delete the Overlay VPN for Site to DC Scenario<br>
      *
      * @param httpContext - HTTP Context to get the tenant id
      * @param siteToDc - Contains the Site and DC information

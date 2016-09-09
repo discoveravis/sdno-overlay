@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -25,7 +25,7 @@ import org.apache.commons.collections.Predicate;
 import org.apache.commons.collections.functors.FalsePredicate;
 
 /**
- * VLAN usage Predicate class.<br/>
+ * VLAN usage Predicate class.<br>
  * <p>
  * </p>
  * 
@@ -46,7 +46,7 @@ public final class VlanUsagePredicate implements Predicate {
     }
 
     /**
-     * Get Predicate Instance.<br/>
+     * Get Predicate Instance.<br>
      * 
      * @param vlanList list of VLAN
      * @return Predicate Instance
@@ -65,7 +65,7 @@ public final class VlanUsagePredicate implements Predicate {
     }
 
     /**
-     * Evaluate whether the target VLAN overlap with any of the existing VLANs<br/>
+     * Evaluate whether the target VLAN overlap with any of the existing VLANs<br>
      * 
      * @param targetVlans - VLAN to be evaluated, ["1-2","3"]
      * @return true- target VLAN overlap with existing VLANs, else return false

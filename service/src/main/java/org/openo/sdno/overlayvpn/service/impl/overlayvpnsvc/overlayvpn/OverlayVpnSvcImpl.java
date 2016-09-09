@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -52,7 +52,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * OverlayVpn service implementation.<br/>
+ * OverlayVpn service implementation.<br>
  * 
  * @author
  * @version SDNO 0.5 Jun 7, 2016
@@ -74,7 +74,7 @@ public class OverlayVpnSvcImpl implements IOverlayVpn {
     private InventoryDao inventoryDao;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      */
@@ -83,7 +83,7 @@ public class OverlayVpnSvcImpl implements IOverlayVpn {
     }
 
     /**
-     * Create OverlayVpn.<br/>
+     * Create OverlayVpn.<br>
      * 
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -107,7 +107,7 @@ public class OverlayVpnSvcImpl implements IOverlayVpn {
     }
 
     /**
-     * Query OverlayVpn by UUID and Tenant id.<br/>
+     * Query OverlayVpn by UUID and Tenant id.<br>
      * 
      * @param req HttpServletRequest Object
      * @param resp HttpServletRequest Object
@@ -150,7 +150,7 @@ public class OverlayVpnSvcImpl implements IOverlayVpn {
     }
 
     /**
-     * Batch Query OverlayVpn by Tenant.<br/>
+     * Batch Query OverlayVpn by Tenant.<br>
      * 
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -215,7 +215,7 @@ public class OverlayVpnSvcImpl implements IOverlayVpn {
     }
 
     /**
-     * Update OverlayVpn.<br/>
+     * Update OverlayVpn.<br>
      * 
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -257,7 +257,7 @@ public class OverlayVpnSvcImpl implements IOverlayVpn {
     }
 
     /**
-     * Delete OverlayVpn.<br/>
+     * Delete OverlayVpn.<br>
      * delete one OverlayVpn
      * 
      * @param req HttpServletRequest Object
@@ -297,7 +297,7 @@ public class OverlayVpnSvcImpl implements IOverlayVpn {
     }
 
     /**
-     * Deploy OverlayVpn.<br/>
+     * Deploy OverlayVpn.<br>
      * 
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -347,7 +347,7 @@ public class OverlayVpnSvcImpl implements IOverlayVpn {
     }
 
     /**
-     * UnDeploy OverlayVpn.<br/>
+     * UnDeploy OverlayVpn.<br>
      * 
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object

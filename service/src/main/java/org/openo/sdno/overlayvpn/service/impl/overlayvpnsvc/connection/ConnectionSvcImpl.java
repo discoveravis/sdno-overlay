@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -53,7 +53,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Connection service model implementation. <br/>
+ * Connection service model implementation. <br>
  * <p>
  * Defines VPN connection properties.
  * </p>
@@ -79,7 +79,7 @@ public class ConnectionSvcImpl implements IConnection {
     private InventoryDao inventoryDao;
 
     /**
-     * Set the connection status and store in DB. <br/>
+     * Set the connection status and store in DB. <br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -99,7 +99,7 @@ public class ConnectionSvcImpl implements IConnection {
     }
 
     /**
-     * Query a single connection. <br/>
+     * Query a single connection. <br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -142,7 +142,7 @@ public class ConnectionSvcImpl implements IConnection {
     }
 
     /**
-     * Batch query of connections associated with tenant and query filter. <br/>
+     * Batch query of connections associated with tenant and query filter. <br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -205,7 +205,7 @@ public class ConnectionSvcImpl implements IConnection {
     }
 
     /**
-     * Update a connection. <br/>
+     * Update a connection. <br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -239,7 +239,7 @@ public class ConnectionSvcImpl implements IConnection {
     }
 
     /**
-     * Delete a connection. <br/>
+     * Delete a connection. <br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -276,7 +276,7 @@ public class ConnectionSvcImpl implements IConnection {
     }
 
     /**
-     * Deploy a connection. <br/>
+     * Deploy a connection. <br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
@@ -313,7 +313,7 @@ public class ConnectionSvcImpl implements IConnection {
     }
 
     /**
-     * Undeploy a connection. <br/>
+     * Undeploy a connection. <br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object

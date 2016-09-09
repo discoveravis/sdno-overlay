@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -36,7 +36,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
- * Util class of EndpointGroup.<br/>
+ * Util class of EndpointGroup.<br>
  * <p>
  * This class provide some functions to operation EndpointGroup Data
  * </p>
@@ -52,7 +52,7 @@ public class EpgUtil {
     }
 
     /**
-     * Build filter map of Query.<br/>
+     * Build filter map of Query.<br>
      * 
      * @param name resource name
      * @param type resource type
@@ -77,7 +77,7 @@ public class EpgUtil {
     }
 
     /**
-     * First step to build filter map.<br/>
+     * First step to build filter map.<br>
      * 
      * @param filterMap filter map of query
      * @param name resource name
@@ -104,7 +104,7 @@ public class EpgUtil {
     }
 
     /**
-     * Second step to build filter map.<br/>
+     * Second step to build filter map.<br>
      * 
      * @param filterMap filter map of query
      * @param gatewayId gateway id
@@ -141,7 +141,7 @@ public class EpgUtil {
     }
 
     /**
-     * Build new EndpointGroup based on old EndpointGroup end new data.<br/>
+     * Build new EndpointGroup based on old EndpointGroup end new data.<br>
      * 
      * @param queryedOldEpg old EndpointGroup
      * @param inputJsonStr new data in JSON format

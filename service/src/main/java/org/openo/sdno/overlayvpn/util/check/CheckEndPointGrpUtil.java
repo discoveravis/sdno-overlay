@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -46,7 +46,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
- * EndPointGrp Data Verify Class.<br/>
+ * EndPointGrp Data Verify Class.<br>
  * <p>
  * </p>
  * 
@@ -61,7 +61,7 @@ public class CheckEndPointGrpUtil {
     }
 
     /**
-     * Check weather EndpointGroup data is valid.<br/>
+     * Check weather EndpointGroup data is valid.<br>
      * 
      * @param epg EndpointGroup need t verify
      * @param tenantId tenant id
@@ -115,7 +115,7 @@ public class CheckEndPointGrpUtil {
     }
 
     /**
-     * Verify EndPoints data of EndpointGroup.<br/>
+     * Verify EndPoints data of EndpointGroup.<br>
      * 
      * @param epg EndpointGroup need to verify
      * @throws ServiceException ServiceException throws when EndpointGroup is invalid
@@ -151,7 +151,7 @@ public class CheckEndPointGrpUtil {
     }
 
     /**
-     * Check weather Port exist in Database.<br/>
+     * Check weather Port exist in Database.<br>
      * 
      * @param portUuids list of port id
      * @throws ServiceException ServiceException throws when port not exist or query failed
@@ -178,7 +178,7 @@ public class CheckEndPointGrpUtil {
     }
 
     /**
-     * Verify VLAN EndPoint Format.<br/>
+     * Verify VLAN EndPoint Format.<br>
      * 
      * @param endpoints original end points String
      * @param endpointList List of EndPoint need to verify
@@ -215,7 +215,7 @@ public class CheckEndPointGrpUtil {
     }
 
     /**
-     * Check CIDR EndPont Format.<br/>
+     * Check CIDR EndPont Format.<br>
      * 
      * @param endpoints original end points String
      * @param endpointList List of EndPoint need to verify
@@ -231,7 +231,7 @@ public class CheckEndPointGrpUtil {
     }
 
     /**
-     * Check Resource of EndpointGroup is valid.<br/>
+     * Check Resource of EndpointGroup is valid.<br>
      * 
      * @param epg EndpointGroup need to check
      * @return Connection this EndpointGroup belongs to

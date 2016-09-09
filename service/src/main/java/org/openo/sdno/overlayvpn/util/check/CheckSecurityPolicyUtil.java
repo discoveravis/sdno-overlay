@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -35,7 +35,7 @@ import org.openo.sdno.overlayvpn.util.check.ValidationUtil;
 import org.openo.sdno.overlayvpn.util.exception.ThrowOverlayVpnExcpt;
 
 /**
- * SecurityPolicy Data Verify Class.<br/>
+ * SecurityPolicy Data Verify Class.<br>
  * <p>
  * </p>
  * 
@@ -50,7 +50,7 @@ public class CheckSecurityPolicyUtil {
     }
 
     /**
-     * Check weather SecurityPolicy data is valid.<br/>
+     * Check weather SecurityPolicy data is valid.<br>
      * 
      * @param securityPolicy
      * @throws ServiceException
@@ -67,7 +67,7 @@ public class CheckSecurityPolicyUtil {
     }
 
     /**
-     * Check weather IkePolicy is used.<br/>
+     * Check weather IkePolicy is used.<br>
      * 
      * @param ikePolicy IkePolicy need to check
      * @throws ServiceException ServiceException throws when IkePolicy is used
@@ -101,7 +101,7 @@ public class CheckSecurityPolicyUtil {
     }
 
     /**
-     * Check weather IpSecPolicy is used.<br/>
+     * Check weather IpSecPolicy is used.<br>
      * 
      * @param ipSecPolicy IpSecPolicy need to check
      * @throws ServiceException ServiceException throws when IpSecPolicy is used
