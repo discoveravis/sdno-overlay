@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Error Code Message Class.<br/>
+ * Error Code Message Class.<br>
  * 
  * @author
  * @version SDNO 0.5 May 26, 2016
@@ -38,7 +38,7 @@ public class ErrorCodeMsg {
     private List<ErrorCodeInfo> smallErrorCodeList;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      */
@@ -47,7 +47,7 @@ public class ErrorCodeMsg {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param retCode error code
@@ -58,7 +58,7 @@ public class ErrorCodeMsg {
     }
 
     /**
-     * Get tatalErrorCode attribute.<br/>
+     * Get tatalErrorCode attribute.<br>
      * 
      * @return tatalErrorCode attribute
      * @since SDNO 0.5
@@ -68,7 +68,7 @@ public class ErrorCodeMsg {
     }
 
     /**
-     * Set tatalErrorCode attribute.<br/>
+     * Set tatalErrorCode attribute.<br>
      * 
      * @param tatalErrorCode ErrorCodeInfo Object
      * @since SDNO 0.5
@@ -78,7 +78,7 @@ public class ErrorCodeMsg {
     }
 
     /**
-     * Get smallErrorCodeList attribute.<br/>
+     * Get smallErrorCodeList attribute.<br>
      * 
      * @return smallErrorCodeList attribute
      * @since SDNO 0.5
@@ -88,7 +88,7 @@ public class ErrorCodeMsg {
     }
 
     /**
-     * Set smallErrorCodeList attribute.<br/>
+     * Set smallErrorCodeList attribute.<br>
      * 
      * @param smallErrorCodeList List<ErrorCodeInfo> Object
      * @since SDNO 0.5

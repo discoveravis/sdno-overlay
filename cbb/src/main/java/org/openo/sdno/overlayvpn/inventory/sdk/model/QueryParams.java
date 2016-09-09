@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,7 +20,7 @@ import org.openo.baseservice.roa.util.restclient.RestfulParametes;
 import org.openo.sdno.overlayvpn.security.authentication.TokenDataHolder;
 
 /**
- * The definition of query parameters. <br/>
+ * The definition of query parameters. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-6
@@ -49,7 +49,7 @@ public class QueryParams {
     private final String sortType;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param filter The filter value
@@ -81,7 +81,7 @@ public class QueryParams {
     }
 
     /**
-     * It is used to convert from QueryParams to RestfulParametes. <br/>
+     * It is used to convert from QueryParams to RestfulParametes. <br>
      * 
      * @return The object of RestfulParametes.
      * @since SDNO 0.5

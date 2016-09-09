@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -23,7 +23,7 @@ import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
 
 /**
- * Controller model class.<br/>
+ * Controller model class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-5
@@ -57,7 +57,7 @@ public final class ControllerMO extends BaseMO {
     private String vendor;
 
     /**
-     * Get objectId attribute.<br/>
+     * Get objectId attribute.<br>
      * 
      * @return objectId attribute
      * @since SDNO 0.5
@@ -67,7 +67,7 @@ public final class ControllerMO extends BaseMO {
     }
 
     /**
-     * Set objectId attribute.<br/>
+     * Set objectId attribute.<br>
      * 
      * @param objectId String Object
      * @since SDNO 0.5
@@ -77,7 +77,7 @@ public final class ControllerMO extends BaseMO {
     }
 
     /**
-     * Get productName attribute..<br/>
+     * Get productName attribute..<br>
      * 
      * @return productName attribute
      * @since SDNO 0.5
@@ -87,7 +87,7 @@ public final class ControllerMO extends BaseMO {
     }
 
     /**
-     * Set productName attribute.<br/>
+     * Set productName attribute.<br>
      * 
      * @param productName String Object
      * @since SDNO 0.5
@@ -97,7 +97,7 @@ public final class ControllerMO extends BaseMO {
     }
 
     /**
-     * Get version attribute.<br/>
+     * Get version attribute.<br>
      * 
      * @return version attribute
      * @since SDNO 0.5
@@ -107,7 +107,7 @@ public final class ControllerMO extends BaseMO {
     }
 
     /**
-     * Set version attribute.<br/>
+     * Set version attribute.<br>
      * 
      * @param version String Object
      * @since SDNO 0.5
@@ -117,7 +117,7 @@ public final class ControllerMO extends BaseMO {
     }
 
     /**
-     * Get hostName attribute.<br/>
+     * Get hostName attribute.<br>
      * 
      * @return hostName attribute
      * @since SDNO 0.5
@@ -127,7 +127,7 @@ public final class ControllerMO extends BaseMO {
     }
 
     /**
-     * Set hostName attribute.<br/>
+     * Set hostName attribute.<br>
      * 
      * @param hostName String Object
      * @since SDNO 0.5
@@ -137,7 +137,7 @@ public final class ControllerMO extends BaseMO {
     }
 
     /**
-     * Get slaveHostName attribute.<br/>
+     * Get slaveHostName attribute.<br>
      * 
      * @return slaveHostName attribute
      * @since SDNO 0.5
@@ -147,7 +147,7 @@ public final class ControllerMO extends BaseMO {
     }
 
     /**
-     * Set slaveHostName attribute.<br/>
+     * Set slaveHostName attribute.<br>
      * 
      * @param slaveHostName String Object
      * @since SDNO 0.5
@@ -157,7 +157,7 @@ public final class ControllerMO extends BaseMO {
     }
 
     /**
-     * Get vendor attribute.<br/>
+     * Get vendor attribute.<br>
      * 
      * @return vendor attribute
      * @since SDNO 0.5
@@ -167,7 +167,7 @@ public final class ControllerMO extends BaseMO {
     }
 
     /**
-     * Set vendor attribute.<br/>
+     * Set vendor attribute.<br>
      * 
      * @param vendor String Object
      * @since SDNO 0.5

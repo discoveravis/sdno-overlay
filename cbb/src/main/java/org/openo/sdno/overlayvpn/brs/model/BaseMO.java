@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,7 +19,7 @@ package org.openo.sdno.overlayvpn.brs.model;
 import org.openo.sdno.overlayvpn.verify.annotation.AString;
 
 /**
- * Base model object abstract class.<br/>
+ * Base model object abstract class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-5
@@ -34,7 +34,7 @@ public abstract class BaseMO {
     protected String description;
 
     /**
-     * Get id attribute.<br/>
+     * Get id attribute.<br>
      * 
      * @return id attribute
      * @since SDNO 0.5
@@ -44,7 +44,7 @@ public abstract class BaseMO {
     }
 
     /**
-     * Set id attribute.<br/>
+     * Set id attribute.<br>
      * 
      * @param id String Object
      * @since SDNO 0.5
@@ -54,7 +54,7 @@ public abstract class BaseMO {
     }
 
     /**
-     * Get name attribute.<br/>
+     * Get name attribute.<br>
      * 
      * @return name attribute
      * @since SDNO 0.5
@@ -64,7 +64,7 @@ public abstract class BaseMO {
     }
 
     /**
-     * Set name attribute.<br/>
+     * Set name attribute.<br>
      * 
      * @param name String Object
      * @since SDNO 0.5
@@ -74,7 +74,7 @@ public abstract class BaseMO {
     }
 
     /**
-     * Get description attribute.<br/>
+     * Get description attribute.<br>
      * 
      * @return
      * @since SDNO 0.5
@@ -84,7 +84,7 @@ public abstract class BaseMO {
     }
 
     /**
-     * Set description attribute.<br/>
+     * Set description attribute.<br>
      * 
      * @param description String Object
      * @since SDNO 0.5
@@ -94,7 +94,7 @@ public abstract class BaseMO {
     }
 
     /**
-     * Transform object info to JSON.<br/>
+     * Transform object info to JSON.<br>
      * 
      * @return JSON string
      * @since SDNO 0.5

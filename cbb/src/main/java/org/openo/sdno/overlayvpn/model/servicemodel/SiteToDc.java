@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -29,7 +29,7 @@ import org.openo.sdno.overlayvpn.verify.annotation.AString;
 import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
 /**
- * Site To DC model object for the NBI Rest interface.<br/>
+ * Site To DC model object for the NBI Rest interface.<br>
  * 
  * @author
  * @version SDNO 0.5 Jun 3, 2016
@@ -59,7 +59,7 @@ public class SiteToDc extends BaseServiceModel {
     private Sfp sfp;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * Empty constructor
      * </p>
@@ -71,7 +71,7 @@ public class SiteToDc extends BaseServiceModel {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * Constructor with UUid
      * </p>
@@ -88,7 +88,7 @@ public class SiteToDc extends BaseServiceModel {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * Constructor with Tenant Id & UUid
      * </p>
@@ -115,7 +115,7 @@ public class SiteToDc extends BaseServiceModel {
     }
 
     /**
-     * Copy Basic data from other Site2DC.<br/>
+     * Copy Basic data from other Site2DC.<br>
      * 
      * @param data Site2DC Object
      * @since SDNO 0.5
@@ -153,7 +153,7 @@ public class SiteToDc extends BaseServiceModel {
     }
 
     /**
-     * Class of Site NBI Model.<br/>
+     * Class of Site NBI Model.<br>
      * 
      * @author
      * @version SDNO 0.5 Jun 3, 2016

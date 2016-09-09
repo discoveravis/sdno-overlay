@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -28,7 +28,7 @@ import org.openo.sdno.overlayvpn.verify.annotation.AString;
 import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
 /**
- * Vpc model.<br/>
+ * Vpc model.<br>
  * 
  * @author
  * @version     SDNO 0.5  Aug 24, 2016
@@ -87,7 +87,7 @@ public class Vpc {
     private SubNet subnet;
 
     /**
-     * Constructor.<br/>
+     * Constructor.<br>
      * 
      * @since SDNO 0.5
      */
@@ -169,7 +169,7 @@ public class Vpc {
     }
 
     /**
-     * The model of underlay resource.<br/>
+     * The model of underlay resource.<br>
      * 
      * @author
      * @version SDNO 0.5 Aug 18, 2016
@@ -190,7 +190,7 @@ public class Vpc {
         private String routerId = null;
 
         /**
-         * Constructor.<br/>
+         * Constructor.<br>
          * 
          * @since SDNO 0.5
          */

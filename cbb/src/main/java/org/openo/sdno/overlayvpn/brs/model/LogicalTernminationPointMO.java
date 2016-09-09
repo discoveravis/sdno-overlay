@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -24,7 +24,7 @@ import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
 import org.openo.sdno.overlayvpn.verify.annotation.AString;
 
 /**
- * Logical termination points model class.<br/>
+ * Logical termination points model class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-5
@@ -141,7 +141,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     private String containedLayers;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      */
@@ -150,7 +150,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Get meID attribute.<br/>
+     * Get meID attribute.<br>
      * 
      * @return meID attribute
      * @since SDNO 0.5
@@ -160,7 +160,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Set meID attribute.<br/>
+     * Set meID attribute.<br>
      * 
      * @param meID String Object
      * @since SDNO 0.5
@@ -170,7 +170,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Get logicalType attribute.<br/>
+     * Get logicalType attribute.<br>
      * 
      * @return logicalType attribute
      * @since SDNO 0.5
@@ -180,7 +180,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Set logicalType attribute.<br/>
+     * Set logicalType attribute.<br>
      * 
      * @param logicalType String Object
      * @since SDNO 0.5
@@ -190,7 +190,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Get layerRate attribute.<br/>
+     * Get layerRate attribute.<br>
      * 
      * @return layerRate attribute
      * @since SDNO 0.5
@@ -200,7 +200,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Set layerRate attribute.<br/>
+     * Set layerRate attribute.<br>
      * 
      * @param layerRate String Object
      * @since SDNO 0.5
@@ -210,7 +210,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Get isEdgePoint attribute.<br/>
+     * Get isEdgePoint attribute.<br>
      * 
      * @return isEdgePoint attribute
      * @since SDNO 0.5
@@ -220,7 +220,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Set isEdgePoint attribute.<br/>
+     * Set isEdgePoint attribute.<br>
      * 
      * @param isEdgePoint String Object
      * @since SDNO 0.5
@@ -230,7 +230,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Get portIndex attribute.<br/>
+     * Get portIndex attribute.<br>
      * 
      * @return portIndex attribute
      * @since SDNO 0.5
@@ -240,7 +240,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Set portIndex attribute.<br/>
+     * Set portIndex attribute.<br>
      * 
      * @param portIndex String Object
      * @since SDNO 0.5
@@ -250,7 +250,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Get source attribute.<br/>
+     * Get source attribute.<br>
      * 
      * @return source attribute
      * @since SDNO 0.5
@@ -260,7 +260,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Set source attribute.<br/>
+     * Set source attribute.<br>
      * 
      * @param source String Object
      * @since SDNO 0.5
@@ -270,7 +270,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Get owner attribute.<br/>
+     * Get owner attribute.<br>
      * 
      * @return owner attribute
      * @since SDNO 0.5
@@ -280,7 +280,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Set owner attribute.<br/>
+     * Set owner attribute.<br>
      * 
      * @param owner String Object
      * @since SDNO 0.5
@@ -290,7 +290,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Get ipAddress attribute.<br/>
+     * Get ipAddress attribute.<br>
      * 
      * @return ipAddress attribute
      * @since SDNO 0.5
@@ -300,7 +300,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Set ipAddress attribute.<br/>
+     * Set ipAddress attribute.<br>
      * 
      * @param ipAddress String Object
      * @since SDNO 0.5
@@ -310,7 +310,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Get direction attribute.<br/>
+     * Get direction attribute.<br>
      * 
      * @return direction attribute
      * @since SDNO 0.5
@@ -320,7 +320,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Set direction attribute.<br/>
+     * Set direction attribute.<br>
      * 
      * @param direction String Object
      * @since SDNO 0.5
@@ -330,7 +330,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Get phyBW attribute.<br/>
+     * Get phyBW attribute.<br>
      * 
      * @return phyBW attribute
      * @since SDNO 0.5
@@ -340,7 +340,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Set phyBW attribute.<br/>
+     * Set phyBW attribute.<br>
      * 
      * @param phyBW String Object
      * @since SDNO 0.5
@@ -350,7 +350,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Get ipMask attribute.<br/>
+     * Get ipMask attribute.<br>
      * 
      * @return ipMask attribute
      * @since SDNO 0.5
@@ -360,7 +360,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Set ipMask attribute.<br/>
+     * Set ipMask attribute.<br>
      * 
      * @param ipMask String Object
      * @since SDNO 0.5
@@ -370,7 +370,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Get adminState attribute.<br/>
+     * Get adminState attribute.<br>
      * 
      * @return adminState attribute
      * @since SDNO 0.5
@@ -380,7 +380,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Set adminState attribute.<br/>
+     * Set adminState attribute.<br>
      * 
      * @param adminState String Object
      * @since SDNO 0.5
@@ -390,7 +390,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Get operState attribute.<br/>
+     * Get operState attribute.<br>
      * 
      * @return operState attribute
      * @since SDNO 0.5
@@ -400,7 +400,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Set operState attribute.<br/>
+     * Set operState attribute.<br>
      * 
      * @param operState String Object
      * @since SDNO 0.5
@@ -410,7 +410,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Get MOKEY attribute.<br/>
+     * Get MOKEY attribute.<br>
      * 
      * @return MOKEY attribute
      * @since SDNO 0.5
@@ -420,7 +420,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Get nativeID attribute.<br/>
+     * Get nativeID attribute.<br>
      * 
      * @return nativeID attribute
      * @since SDNO 0.5
@@ -430,7 +430,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Set nativeID attribute.<br/>
+     * Set nativeID attribute.<br>
      * 
      * @param nativeID String Object
      * @since SDNO 0.5
@@ -440,7 +440,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Get macAddress attribute.<br/>
+     * Get macAddress attribute.<br>
      * 
      * @return macAddress attribute
      * @since SDNO 0.5
@@ -450,7 +450,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Set macAddress attribute.<br/>
+     * Set macAddress attribute.<br>
      * 
      * @param macAddress String Object
      * @since SDNO 0.5
@@ -460,7 +460,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Get tenantID attribute.<br/>
+     * Get tenantID attribute.<br>
      * 
      * @return tenantID attribute
      * @since SDNO 0.5
@@ -470,7 +470,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Set tenantID attribute.<br/>
+     * Set tenantID attribute.<br>
      * 
      * @param tenantID String Object
      * @since SDNO 0.5
@@ -480,7 +480,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Get usageState attribute.<br/>
+     * Get usageState attribute.<br>
      * 
      * @return usageState attribute
      * @since SDNO 0.5
@@ -490,7 +490,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Set usageState attribute.<br/>
+     * Set usageState attribute.<br>
      * 
      * @param usageState String Object
      * @since SDNO 0.5
@@ -500,7 +500,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Get containedLayers attribute.<br/>
+     * Get containedLayers attribute.<br>
      * 
      * @return containedLayers attribute
      * @since SDNO 0.5
@@ -510,7 +510,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Set containedLayers attribute.<br/>
+     * Set containedLayers attribute.<br>
      * 
      * @param containedLayers String Object
      * @since SDNO 0.5
@@ -520,7 +520,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Override toJsonBody Function.<br/>
+     * Override toJsonBody Function.<br>
      * 
      * @return toJsonBody Content
      * @since SDNO 0.5
@@ -533,7 +533,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     }
 
     /**
-     * Override toString Function.<br/>
+     * Override toString Function.<br>
      * 
      * @return toString description
      * @since SDNO 0.5

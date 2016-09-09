@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -37,7 +37,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Site data DAO class.<br/>
+ * Site data DAO class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-5
@@ -53,7 +53,7 @@ public class SiteInvDao {
     private static final String SITE_KEY = "site";
 
     /**
-     * Add site model object.<br/>
+     * Add site model object.<br>
      * 
      * @param curMO site model object info to be added
      * @throws ServiceException when add MO failed.
@@ -66,7 +66,7 @@ public class SiteInvDao {
     }
 
     /**
-     * Delete site model object.<br/>
+     * Delete site model object.<br>
      * 
      * @param uuid site UUID
      * @throws ServiceException when delete model object failed.
@@ -85,7 +85,7 @@ public class SiteInvDao {
     }
 
     /**
-     * Update site model object.<br/>
+     * Update site model object.<br>
      * 
      * @param curMO site info
      * @throws ServiceException when update failed.
@@ -98,7 +98,7 @@ public class SiteInvDao {
     }
 
     /**
-     * Query all site info.<br/>
+     * Query all site info.<br>
      * 
      * @return all site info.
      * @throws ServiceException when query site info failed.
@@ -117,7 +117,7 @@ public class SiteInvDao {
 
     /**
      * Query site model object info with input condition.Filter properties: name, type,
-     * tenantID.<br/>
+     * tenantID.<br>
      * 
      * @param condition condition
      * @return site model object info
@@ -138,7 +138,7 @@ public class SiteInvDao {
     }
 
     /**
-     * Query site model object info with site ID.<br/>
+     * Query site model object info with site ID.<br>
      * 
      * @param id site ID
      * @return site model object info
@@ -155,7 +155,7 @@ public class SiteInvDao {
     }
 
     /**
-     * Query site info with tenant ID.<br/>
+     * Query site info with tenant ID.<br>
      * 
      * @param tenantId tenant ID
      * @return site info
@@ -171,7 +171,7 @@ public class SiteInvDao {
     }
 
     /**
-     * Query SiteMO by name.<br/>
+     * Query SiteMO by name.<br>
      * 
      * @param name Site name
      * @return SiteMO list returned
@@ -187,7 +187,7 @@ public class SiteInvDao {
     }
 
     /**
-     * Check whether the filter field is supported.<br/>
+     * Check whether the filter field is supported.<br>
      * 
      * @param condition condition
      * @throws ServiceException when filter field is not supported.

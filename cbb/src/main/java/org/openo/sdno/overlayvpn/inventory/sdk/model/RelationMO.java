@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -28,7 +28,7 @@ import org.openo.sdno.overlayvpn.inventory.sdk.util.MOModelProcessor;
 import org.openo.sdno.util.reflect.JavaEntityUtil;
 
 /**
- * The definition of relative relation about MO. <br/>
+ * The definition of relative relation about MO. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-6
@@ -63,7 +63,7 @@ public class RelationMO {
     public static final String ASSOCIATION_TYPE = "association";
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      */
@@ -72,7 +72,7 @@ public class RelationMO {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param srcMo The source MO
@@ -94,7 +94,7 @@ public class RelationMO {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param srcMo The source object
@@ -146,7 +146,7 @@ public class RelationMO {
     }
 
     /**
-     * It is used to get resource type of destination. <br/>
+     * It is used to get resource type of destination. <br>
      * 
      * @return The resource type.
      * @since SDNO 0.5
@@ -156,7 +156,7 @@ public class RelationMO {
     }
 
     /**
-     * It is used to get resource type of source. <br/>
+     * It is used to get resource type of source. <br>
      * 
      * @return The resource type.
      * @since SDNO 0.5
@@ -178,7 +178,7 @@ public class RelationMO {
     }
 
     /**
-     * It is used to build a relation map by relation. <br/>
+     * It is used to build a relation map by relation. <br>
      * 
      * @return The relation map, the format is [{"src_uuid":"s7S3e_1BTgquI8TaDjJccA",
      *         "dst_uuid":"2FET7LKITkab88KTjtDGjQ", "dst_type":"frame", "relation":"composition",
@@ -196,7 +196,7 @@ public class RelationMO {
     }
 
     /**
-     * It is used to build a relation parameters. <br/>
+     * It is used to build a relation parameters. <br>
      * 
      * @return The object of RestfulParametes, it may has src_uuid, dst_uuid, src_attr, dst_attr,
      *         servicetype, querytype, and the querytype is "all".
@@ -224,7 +224,7 @@ public class RelationMO {
     }
 
     /**
-     * It is used to get attribute of source relation. <br/>
+     * It is used to get attribute of source relation. <br>
      * 
      * @return The attribute.
      * @since SDNO 0.5
@@ -234,7 +234,7 @@ public class RelationMO {
     }
 
     /**
-     * It is used to set attribute of source relation. <br/>
+     * It is used to set attribute of source relation. <br>
      * 
      * @param srcAttr
      * @since SDNO 0.5
@@ -244,7 +244,7 @@ public class RelationMO {
     }
 
     /**
-     * It is used to get attribute of destination relation. <br/>
+     * It is used to get attribute of destination relation. <br>
      * 
      * @return
      * @since SDNO 0.5
@@ -254,7 +254,7 @@ public class RelationMO {
     }
 
     /**
-     * It is used to set attribute of destination relation. <br/>
+     * It is used to set attribute of destination relation. <br>
      * 
      * @param dstAttr
      * @since SDNO 0.5
@@ -272,7 +272,7 @@ public class RelationMO {
     }
 
     /**
-     * It is used to get resource type. <br/>
+     * It is used to get resource type. <br>
      * 
      * @return It'll return destination resource type if destination uuid is null, it'll return
      *         source resource type if source uuid is null or it'll return null if both source and

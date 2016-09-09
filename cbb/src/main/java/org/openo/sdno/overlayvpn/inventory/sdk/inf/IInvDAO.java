@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -25,7 +25,7 @@ import org.openo.sdno.overlayvpn.inventory.sdk.model.RelationMO;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
 
 /**
- * The interface of inventory. <br/>
+ * The interface of inventory. <br>
  * <p>
  * The object of MO must has a empty constructor, and all attributes must have the method of get or
  * set.
@@ -38,7 +38,7 @@ import org.openo.sdno.overlayvpn.result.ResultRsp;
 public interface IInvDAO<T> {
 
     /**
-     * Add relative relation. <br/>
+     * Add relative relation. <br>
      * 
      * @param relationMO The object of RelationMO
      * @return The object of ResultRsp.
@@ -48,7 +48,7 @@ public interface IInvDAO<T> {
     ResultRsp<T> addRelation(RelationMO relationMO) throws ServiceException;
 
     /**
-     * Delete relative relation. <br/>
+     * Delete relative relation. <br>
      * 
      * @param relationMO The object of RelationMO
      * @return The object of ResultRsp.
@@ -59,7 +59,7 @@ public interface IInvDAO<T> {
     ResultRsp deleteRelation(RelationMO relation) throws ServiceException;
 
     /**
-     * Insert designated object to database. <br/>
+     * Insert designated object to database. <br>
      * 
      * @param moList The object list that want to insert.
      * @param moType The class type.
@@ -71,7 +71,7 @@ public interface IInvDAO<T> {
     ResultRsp<List<String>> add(List<T> moList, Class moType) throws ServiceException;
 
     /**
-     * Delete from database by uuid. <br/>
+     * Delete from database by uuid. <br>
      * 
      * @param uuid The record uuid that want to delete
      * @param moType The class type
@@ -83,7 +83,7 @@ public interface IInvDAO<T> {
     ResultRsp<String> delete(String uuid, Class moType) throws ServiceException;
 
     /**
-     * Delete from database by object list. <br/>
+     * Delete from database by object list. <br>
      * 
      * @param moList The object list that want to delete
      * @param moType The class type
@@ -95,7 +95,7 @@ public interface IInvDAO<T> {
     ResultRsp<List<String>> delete(List<T> moList, Class moType) throws ServiceException;
 
     /**
-     * Batch delete from database by uuid list. <br/>
+     * Batch delete from database by uuid list. <br>
      * 
      * @param uuidList The list of uuid that want to delete
      * @param moType The class type
@@ -107,7 +107,7 @@ public interface IInvDAO<T> {
     ResultRsp batchDelete(List<String> uuidList, Class moType) throws ServiceException;
 
     /**
-     * Update database by object list. <br/>
+     * Update database by object list. <br>
      * 
      * @param moList The object list that want to update.
      * @param moType The class type.
@@ -119,7 +119,7 @@ public interface IInvDAO<T> {
     ResultRsp update(List<T> moList, Class moType) throws ServiceException;
 
     /**
-     * Query database by condition list. <br/>
+     * Query database by condition list. <br>
      * 
      * @param condition The condition list
      * @param moType The class type.
@@ -131,7 +131,7 @@ public interface IInvDAO<T> {
     ResultRsp<List<T>> query(List<T> condition, @SuppressWarnings("rawtypes") Class moType) throws ServiceException;
 
     /**
-     * Query database by queryParams that user defined. <br/>
+     * Query database by queryParams that user defined. <br>
      * 
      * @param moType The class type.
      * @param queryParams The query conditions that user defined
@@ -143,7 +143,7 @@ public interface IInvDAO<T> {
     ResultRsp<List<T>> query(Class moType, QueryParams queryParams) throws ServiceException;
 
     /**
-     * Query database by uuid. <br/>
+     * Query database by uuid. <br>
      * 
      * @param uuid The uuid
      * @param moType The class type
@@ -155,7 +155,7 @@ public interface IInvDAO<T> {
     ResultRsp<T> query(String uuid, Class moType) throws ServiceException;
 
     /**
-     * Query database by relation. <br/>
+     * Query database by relation. <br>
      * 
      * @param relation the object of RelationMO.
      * @return The object of ResultRsp, it'll take with MO list.
@@ -165,7 +165,7 @@ public interface IInvDAO<T> {
     ResultRsp<List<T>> queryByRelation(RelationMO relation) throws ServiceException;
 
     /**
-     * Query numbers by filter in one table. <br/>
+     * Query numbers by filter in one table. <br>
      * 
      * @param resType The resource type
      * @param filter The filter
@@ -176,7 +176,7 @@ public interface IInvDAO<T> {
     long queryTotalNumber(String resType, String filter) throws ServiceException;
 
     /**
-     * Query database by filterEntity. <br/>
+     * Query database by filterEntity. <br>
      * 
      * @param moType The class type
      * @param filterEntity The query filter

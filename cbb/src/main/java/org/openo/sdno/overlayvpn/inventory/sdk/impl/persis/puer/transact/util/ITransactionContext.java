@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,7 +17,7 @@
 package org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.transact.util;
 
 /**
- * Interface of transaction context.<br/>
+ * Interface of transaction context.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-6
@@ -25,7 +25,7 @@ package org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.transact.util;
 public interface ITransactionContext {
 
     /**
-     * Get the operation type of the corresponded context.<br/>
+     * Get the operation type of the corresponded context.<br>
      * 
      * @return Operation type
      * @since SDNO 0.5
@@ -33,7 +33,7 @@ public interface ITransactionContext {
     TransactionOperateType getOperateType();
 
     /**
-     * Add context to child context.<br/>
+     * Add context to child context.<br>
      * 
      * @param name Context name
      * @param context Context value
@@ -42,7 +42,7 @@ public interface ITransactionContext {
     void addContext(String name, ITransactionContext context);
 
     /**
-     * Get the context of the specified name.<br/>
+     * Get the context of the specified name.<br>
      * 
      * @param name Context name
      * @return Context

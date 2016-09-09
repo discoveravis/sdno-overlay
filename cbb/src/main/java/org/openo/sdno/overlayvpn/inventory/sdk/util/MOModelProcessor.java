@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -40,7 +40,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * The class of model processor. <br/>
+ * The class of model processor. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-7
@@ -54,7 +54,7 @@ public class MOModelProcessor {
     }
 
     /**
-     * It is used to build filter map by annotation in class. <br/>
+     * It is used to build filter map by annotation in class. <br>
      * 
      * @param value The map of query value
      * @param motype The class type
@@ -109,7 +109,7 @@ public class MOModelProcessor {
     }
 
     /**
-     * It processes by annotation in class. <br/>
+     * It processes by annotation in class. <br>
      * 
      * @param value The value
      * @param motype The class type
@@ -158,7 +158,7 @@ public class MOModelProcessor {
     }
 
     /**
-     * It is used to get field name in class. <br/>
+     * It is used to get field name in class. <br>
      * 
      * @param fieldName The field name that want to get
      * @param motype The class type
@@ -192,7 +192,7 @@ public class MOModelProcessor {
     }
 
     /**
-     * It is used to get uuid. <br/>
+     * It is used to get uuid. <br>
      * 
      * @param obj The object
      * @param motype The class type
@@ -231,7 +231,7 @@ public class MOModelProcessor {
     }
 
     /**
-     * It is used to get resource type. <br/>
+     * It is used to get resource type. <br>
      * 
      * @param motype The class type
      * @return The resource type.
@@ -248,7 +248,7 @@ public class MOModelProcessor {
     }
 
     /**
-     * It is used to get relation field in class. <br/>
+     * It is used to get relation field in class. <br>
      * 
      * @param motype The class type
      * @return The relation field list.
@@ -267,7 +267,7 @@ public class MOModelProcessor {
     }
 
     /**
-     * It is used to check the field is composition field or not. <br/>
+     * It is used to check the field is composition field or not. <br>
      * 
      * @param field The field that want to check
      * @return true if the field is composition field.
@@ -280,7 +280,7 @@ public class MOModelProcessor {
     }
 
     /**
-     * It is used to get all composition fields. <br/>
+     * It is used to get all composition fields. <br>
      * 
      * @param motype the class type
      * @return The list of composition field.

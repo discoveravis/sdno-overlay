@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -23,7 +23,7 @@ import org.openo.sdno.overlayvpn.result.ResultRsp;
 
 /**
  * This class only solves a simple type of transaction model, using one listener to process a series
- * of data, and requiring the listener is defined as the transaction of create type.<br/>
+ * of data, and requiring the listener is defined as the transaction of create type.<br>
  * 
  * @param <T> Data Class
  * @author
@@ -32,7 +32,7 @@ import org.openo.sdno.overlayvpn.result.ResultRsp;
 public class SimpleTransactionMgr<T> {
 
     /**
-     * Handling simple transactions. If there is a failure, all data should roll back.<br/>
+     * Handling simple transactions. If there is a failure, all data should roll back.<br>
      * 
      * @param listener Transaction listener
      * @param transactData Collection of transaction data

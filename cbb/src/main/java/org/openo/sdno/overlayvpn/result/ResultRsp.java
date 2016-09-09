@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -28,7 +28,7 @@ import org.openo.sdno.overlayvpn.errorcode.ErrorCodeInfo;
 import org.springframework.util.StringUtils;
 
 /**
- * Class of Result Response.<br/>
+ * Class of Result Response.<br>
  * 
  * @param <T> User Data Class
  * @author
@@ -90,7 +90,7 @@ public class ResultRsp<T> implements Serializable {
     private List<FailData<T>> fail = null;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * </p>
      * 
@@ -101,7 +101,7 @@ public class ResultRsp<T> implements Serializable {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * </p>
      * 
@@ -114,7 +114,7 @@ public class ResultRsp<T> implements Serializable {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * </p>
      * 
@@ -135,7 +135,7 @@ public class ResultRsp<T> implements Serializable {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * </p>
      * 
@@ -150,7 +150,7 @@ public class ResultRsp<T> implements Serializable {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * </p>
      * 
@@ -170,7 +170,7 @@ public class ResultRsp<T> implements Serializable {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * </p>
      * 
@@ -184,7 +184,7 @@ public class ResultRsp<T> implements Serializable {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * </p>
      * 
@@ -203,7 +203,7 @@ public class ResultRsp<T> implements Serializable {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * </p>
      * 
@@ -217,7 +217,7 @@ public class ResultRsp<T> implements Serializable {
     }
 
     /**
-     * Copy ResultRsp to this Object.<br/>
+     * Copy ResultRsp to this Object.<br>
      * 
      * @param result other ResultRsp Object
      * @since SDNO 0.5
@@ -300,7 +300,7 @@ public class ResultRsp<T> implements Serializable {
     }
 
     /**
-     * Check whether Result Response is Success.<br/>
+     * Check whether Result Response is Success.<br>
      * 
      * @return true if Result Response is Success
      * @since SDNO 0.5
@@ -311,7 +311,7 @@ public class ResultRsp<T> implements Serializable {
     }
 
     /**
-     * Build Exception Arguments.<br/>
+     * Build Exception Arguments.<br>
      * 
      * @return exception arguments built
      * @since SDNO 0.5
@@ -337,7 +337,7 @@ public class ResultRsp<T> implements Serializable {
     }
 
     /**
-     * Get First Error Message.<br/>
+     * Get First Error Message.<br>
      * 
      * @param dataArry list of Error Message
      * @return first error message
@@ -351,7 +351,7 @@ public class ResultRsp<T> implements Serializable {
     }
 
     /**
-     * Override toString function.<br/>
+     * Override toString function.<br>
      * 
      * @return description of ResultRep Object
      * @since SDNO 0.5
@@ -369,7 +369,7 @@ public class ResultRsp<T> implements Serializable {
     }
 
     /**
-     * Check whether ResultRsp is valid.<br/>
+     * Check whether ResultRsp is valid.<br>
      * 
      * @return true if ResultRsp is success result and contains data.
      * @since SDNO 0.5

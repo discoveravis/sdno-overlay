@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -23,7 +23,7 @@ import java.util.Map;
 import org.openo.baseservice.roa.util.restclient.RestfulParametes;
 
 /**
- * Class of token data holder.<br/>
+ * Class of token data holder.<br>
  * <p>
  * </p>
  * 
@@ -51,7 +51,7 @@ public class TokenDataHolder {
     }
 
     /**
-     * Add token to HttpRequest.<br/>
+     * Add token to HttpRequest.<br>
      * 
      * @param restfulParametes Add token to HttpRequest
      * @since SDNO 0.5
@@ -62,7 +62,7 @@ public class TokenDataHolder {
     }
 
     /**
-     * Get token data.<br/>
+     * Get token data.<br>
      * 
      * @return token data.
      * @since SDNO 0.5
@@ -73,7 +73,7 @@ public class TokenDataHolder {
     }
 
     /**
-     * Get request URI.<br/>
+     * Get request URI.<br>
      * 
      * @return request URI
      * @since SDNO 0.5
@@ -83,7 +83,7 @@ public class TokenDataHolder {
     }
 
     /**
-     * Get request method..<br/>
+     * Get request method..<br>
      * 
      * @return request method
      * @since SDNO 0.5
@@ -93,7 +93,7 @@ public class TokenDataHolder {
     }
 
     /**
-     * Get user name.<br/>
+     * Get user name.<br>
      * 
      * @return user name
      * @since SDNO 0.5
@@ -104,7 +104,7 @@ public class TokenDataHolder {
     }
 
     /**
-     * Get tenant id.<br/>
+     * Get tenant id.<br>
      * 
      * @return tenant id
      * @since SDNO 0.5
@@ -115,7 +115,7 @@ public class TokenDataHolder {
     }
 
     /**
-     * Get tenant name.<br/>
+     * Get tenant name.<br>
      * 
      * @return tenant name
      * @since SDNO 0.5
@@ -126,7 +126,7 @@ public class TokenDataHolder {
     }
 
     /**
-     * Get Role List.<br/>
+     * Get Role List.<br>
      * 
      * @return role list
      * @since SDNO 0.5

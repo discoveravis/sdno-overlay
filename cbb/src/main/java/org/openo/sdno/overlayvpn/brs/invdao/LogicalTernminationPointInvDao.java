@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -35,7 +35,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * LogicalTernminationPoint Data DAO class.<br/>
+ * LogicalTernminationPoint Data DAO class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-4
@@ -64,7 +64,7 @@ public class LogicalTernminationPointInvDao {
     }
 
     /**
-     * Add LogicalTernminationPoint.<br/>
+     * Add LogicalTernminationPoint.<br>
      * 
      * @param curMO LogicalTernminationPoint need to be added
      * @throws ServiceException when failed
@@ -77,7 +77,7 @@ public class LogicalTernminationPointInvDao {
     }
 
     /**
-     * Delete LogicalTernminationPoint.<br/>
+     * Delete LogicalTernminationPoint.<br>
      * 
      * @param uuid LogicalTernminationPoint id
      * @throws ServiceException when failed
@@ -96,7 +96,7 @@ public class LogicalTernminationPointInvDao {
     }
 
     /**
-     * Update LogicalTernminationPoint.<br/>
+     * Update LogicalTernminationPoint.<br>
      * 
      * @param curLtpMO LogicalTernminationPoint need to be updated
      * @throws ServiceException when failed
@@ -109,7 +109,7 @@ public class LogicalTernminationPointInvDao {
     }
 
     /**
-     * Query all LogicalTernminationPoints.<br/>
+     * Query all LogicalTernminationPoints.<br>
      * 
      * @return all LogicalTernminationPoints queried out
      * @throws ServiceException when failed
@@ -132,7 +132,7 @@ public class LogicalTernminationPointInvDao {
     /**
      * Query LogicalTernminationPoints by input condition.Filter properties: name, logicalType,
      * adminState,
-     * source, owner, meID, isEdgePoint, ipAddress.<br/>
+     * source, owner, meID, isEdgePoint, ipAddress.<br>
      * 
      * @param condition condition
      * @return LogicalTernminationPoints queried
@@ -153,7 +153,7 @@ public class LogicalTernminationPointInvDao {
     }
 
     /**
-     * Query LogicalTernminationPoint by key id.<br/>
+     * Query LogicalTernminationPoint by key id.<br>
      * 
      * @param id LogicalTernminationPoint id
      * @return port LogicalTernminationPoint queried out
@@ -171,7 +171,7 @@ public class LogicalTernminationPointInvDao {
     }
 
     /**
-     * Check whether the filter field is supported.<br/>
+     * Check whether the filter field is supported.<br>
      * 
      * @param condition condition
      * @throws ServiceException when filter field is not supported.

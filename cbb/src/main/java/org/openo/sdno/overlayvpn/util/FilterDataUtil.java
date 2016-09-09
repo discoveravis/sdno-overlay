@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -32,7 +32,7 @@ import org.openo.sdno.overlayvpn.model.servicemodel.OverlayVpn;
 import org.springframework.util.StringUtils;
 
 /**
- * Class Filter Data Operation.<br/>
+ * Class Filter Data Operation.<br>
  * <p>
  * </p>
  * 
@@ -45,7 +45,7 @@ public class FilterDataUtil {
     }
 
     /**
-     * Build Filter Data by Object.<br/>
+     * Build Filter Data by Object.<br>
      * 
      * @param name attribute name
      * @param value attribute value
@@ -74,7 +74,7 @@ public class FilterDataUtil {
     }
 
     /**
-     * Build Filter Data.<br/>
+     * Build Filter Data.<br>
      * 
      * @param overlayVpn OverlayVpn Object
      * @param tenantId tenant id
@@ -115,7 +115,7 @@ public class FilterDataUtil {
     }
 
     /**
-     * Build Filter Data.<br/>
+     * Build Filter Data.<br>
      * 
      * @param overlayVpn OverlayVpn Object
      * @param tenantId tenant id

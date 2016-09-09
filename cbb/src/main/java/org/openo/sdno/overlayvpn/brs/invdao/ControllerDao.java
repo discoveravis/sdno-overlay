@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -33,7 +33,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 /**
- * Controller data DAO class.This class can be used to access Controller Data.<br/>
+ * Controller data DAO class.This class can be used to access Controller Data.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-4
@@ -46,7 +46,7 @@ public class ControllerDao {
     private static final String CONTROLLER_URL = "/openoapi/sdnobrs/v1/controller";
 
     /**
-     * Add Controller Object.<br/>
+     * Add Controller Object.<br>
      * 
      * @param controllerMO ControllerMO Object need to add
      * @return Controller id
@@ -65,7 +65,7 @@ public class ControllerDao {
     }
 
     /**
-     * Update Controller Object<br/>
+     * Update Controller Object<br>
      * 
      * @param controllerMO ControllerMO Object need to update
      * @throws ServiceException throws when operate failed
@@ -78,7 +78,7 @@ public class ControllerDao {
     }
 
     /**
-     * Query controller by UUID.<br/>
+     * Query controller by UUID.<br>
      * 
      * @param uuid id of controller
      * @return controller Object query out
@@ -103,7 +103,7 @@ public class ControllerDao {
     }
 
     /**
-     * Query controller by networkElement ID.<br/>
+     * Query controller by networkElement ID.<br>
      * 
      * @param neId networkElement id
      * @return controller Object query out
@@ -129,7 +129,7 @@ public class ControllerDao {
     }
 
     /**
-     * Query controller by site ID.<br/>
+     * Query controller by site ID.<br>
      * 
      * @param siteId site ID
      * @return controller Object query out

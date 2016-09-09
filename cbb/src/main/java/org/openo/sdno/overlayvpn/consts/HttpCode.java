@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,7 +17,7 @@
 package org.openo.sdno.overlayvpn.consts;
 
 /**
- * Definition class of HTTP code.<br/>
+ * Definition class of HTTP code.<br>
  * 
  * @author
  * @version SDNO 0.5 May 26, 2016
@@ -58,7 +58,7 @@ public class HttpCode {
     }
 
     /**
-     * Check whether code is success.<br/>
+     * Check whether code is success.<br>
      * 
      * @param httpCode HTTP Code
      * @return true if success HTTP code,false otherwise

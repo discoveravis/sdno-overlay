@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -24,7 +24,7 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 /**
- * Annotation Validator Interface of UUID Object.<br/>
+ * Annotation Validator Interface of UUID Object.<br>
  * <p>
  * </p>
  * 
@@ -40,7 +40,7 @@ import javax.validation.Payload;
 public @interface AUuid {
 
     /**
-     * Get message of the attribute.<br/>
+     * Get message of the attribute.<br>
      * 
      * @return message of the attribute
      * @since SDNO 0.5
@@ -48,7 +48,7 @@ public @interface AUuid {
     String message() default "this UUID value is invalid";
 
     /**
-     * Get groups of the attribute.<br/>
+     * Get groups of the attribute.<br>
      * 
      * @return groups of the attribute
      * @since SDNO 0.5
@@ -56,7 +56,7 @@ public @interface AUuid {
     Class<?>[] groups() default {};
 
     /**
-     * Get payload of the attribute.<br/>
+     * Get payload of the attribute.<br>
      * 
      * @return payload of attribute
      * @since SDNO 0.5
@@ -64,7 +64,7 @@ public @interface AUuid {
     Class<? extends Payload>[] payload() default {};
 
     /**
-     * Require the attribute or not.<br/>
+     * Require the attribute or not.<br>
      * 
      * @return true if the attribute is required
      * @since SDNO 0.5

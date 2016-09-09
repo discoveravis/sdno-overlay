@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -45,7 +45,7 @@ import org.openo.sdno.resource.ResourceUtil;
 import org.springframework.util.StringUtils;
 
 /**
- * Util class of OverlayVpn Complex DAO.<br/>
+ * Util class of OverlayVpn Complex DAO.<br>
  * 
  * @author
  * @version SDNO 0.5 May 26, 2016
@@ -56,7 +56,7 @@ public class OverlayVpnComplexDaoUtil {
     }
 
     /**
-     * Construct Complex Overlay Object.<br/>
+     * Construct Complex Overlay Object.<br>
      * OverlayVpn has many connections and Connection has many EndpointGroups
      * 
      * @param totalVpns
@@ -93,7 +93,7 @@ public class OverlayVpnComplexDaoUtil {
     }
 
     /**
-     * Throw Data Miss Exception.<br/>
+     * Throw Data Miss Exception.<br>
      * 
      * @param resource
      *            exception resource
@@ -120,7 +120,7 @@ public class OverlayVpnComplexDaoUtil {
     }
 
     /**
-     * Build Whole Connection Data.<br/>
+     * Build Whole Connection Data.<br>
      * 
      * @param totalConnections
      *            Connections need to fill data
@@ -190,7 +190,7 @@ public class OverlayVpnComplexDaoUtil {
     }
 
     /**
-     * Fill members of EndpointGroup.<br/>
+     * Fill members of EndpointGroup.<br>
      * 
      * @param totalEpgs
      *            list of EndpointGroup
@@ -228,7 +228,7 @@ public class OverlayVpnComplexDaoUtil {
     }
 
     /**
-     * Build Connection to EndpointGroups map.<br/>
+     * Build Connection to EndpointGroups map.<br>
      * 
      * @param epgList
      *            list of EndpointGroup
@@ -251,7 +251,7 @@ public class OverlayVpnComplexDaoUtil {
     }
 
     /**
-     * Build Gateway id to Gateway map.<br/>
+     * Build Gateway id to Gateway map.<br>
      * 
      * @param totalGwList
      *            list of gateway

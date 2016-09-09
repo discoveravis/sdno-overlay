@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,7 +20,7 @@ import org.openo.sdno.overlayvpn.log.inf.IOperObject;
 import org.openo.sdno.overlayvpn.model.tenant.TenantMO;
 
 /**
- * Class of Tenant Message.<br/>
+ * Class of Tenant Message.<br>
  * <p>
  * </p>
  * 
@@ -32,7 +32,7 @@ public class TenantMsg implements IOperObject {
     private TenantMO tenantMO;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * </p>
      * 
@@ -43,7 +43,7 @@ public class TenantMsg implements IOperObject {
     }
 
     /**
-     * Get Operation name.<br/>
+     * Get Operation name.<br>
      * 
      * @return
      * @since SDNO 0.5
@@ -54,7 +54,7 @@ public class TenantMsg implements IOperObject {
     }
 
     /**
-     * Get Operation Detail.<br/>
+     * Get Operation Detail.<br>
      * 
      * @return
      * @since SDNO 0.5

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -26,7 +26,7 @@ import org.openo.sdno.overlayvpn.model.uuid.AbstUuidModel;
 import org.openo.sdno.util.reflect.JavaEntityUtil;
 
 /**
- * Class of Object UUid Allocation.<br/>
+ * Class of Object UUid Allocation.<br>
  * <p>
  * </p>
  * 
@@ -39,7 +39,7 @@ public class UuidAllocUtil {
     }
 
     /**
-     * Allocate UUid for all AbstUuidModel Objects Recursively.<br/>
+     * Allocate UUid for all AbstUuidModel Objects Recursively.<br>
      * 
      * @param object Object need to allocate UUid
      * @since SDNO 0.5
@@ -81,7 +81,7 @@ public class UuidAllocUtil {
     }
 
     /**
-     * Check whether UUid of Object is valid.<br/>
+     * Check whether UUid of Object is valid.<br>
      * 
      * @param object Object need to allocate UUid
      * @throws ServiceException when ServiceException occurs
@@ -124,7 +124,7 @@ public class UuidAllocUtil {
     }
 
     /**
-     * Get all Non-basic Type fields.<br/>
+     * Get all Non-basic Type fields.<br>
      * 
      * @param motype class type of Object
      * @return all fields of non-basic type

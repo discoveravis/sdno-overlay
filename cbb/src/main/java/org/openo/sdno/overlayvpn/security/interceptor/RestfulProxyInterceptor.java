@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -29,7 +29,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
- * Intercepter of Restful Request.<br/>
+ * Intercepter of Restful Request.<br>
  * <p>
  * </p>
  * 
@@ -41,7 +41,7 @@ public class RestfulProxyInterceptor {
     private static final Logger LOGGER = LoggerFactory.getLogger(RestfulProxyInterceptor.class);
 
     /**
-     * Intercepter before.<br/>
+     * Intercepter before.<br>
      * 
      * @param jp Join Point
      * @throws Throwable exception throws
@@ -70,7 +70,7 @@ public class RestfulProxyInterceptor {
     }
 
     /**
-     * Build Restful Parameters With Arguments.<br/>
+     * Build Restful Parameters With Arguments.<br>
      * 
      * @param method Method Object
      * @param args Arguments List
@@ -94,7 +94,7 @@ public class RestfulProxyInterceptor {
     }
 
     /**
-     * Check Whether RestfulParametes contains token.<br/>
+     * Check Whether RestfulParametes contains token.<br>
      * 
      * @param restfulParametes Restful Parameter
      * @return true if RestfulParametes contains token, false otherwise
@@ -105,7 +105,7 @@ public class RestfulProxyInterceptor {
     }
 
     /**
-     * Add Token to HTTP Header.<br/>
+     * Add Token to HTTP Header.<br>
      * 
      * @param restfulParametes Restful Parameters
      * @since SDNO 0.5

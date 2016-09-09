@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -25,7 +25,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
- * Class of Service Exception Operation.<br/>
+ * Class of Service Exception Operation.<br>
  * <p>
  * </p>
  * 
@@ -40,7 +40,7 @@ public class SvcExcptUtil {
     }
 
     /**
-     * Throws NotFound Exception.<br/>
+     * Throws NotFound Exception.<br>
      * 
      * @throws ServiceException
      * @since SDNO 0.5
@@ -50,7 +50,7 @@ public class SvcExcptUtil {
     }
 
     /**
-     * Throws BadRequest Exception.<br/>
+     * Throws BadRequest Exception.<br>
      * 
      * @param msg error Message
      * @throws ServiceException Exception occurs
@@ -63,7 +63,7 @@ public class SvcExcptUtil {
     }
 
     /**
-     * Throws NotFound Exception with errorInfo.<br/>
+     * Throws NotFound Exception with errorInfo.<br>
      * 
      * @param excptId exception id
      * @param desc error description
@@ -82,7 +82,7 @@ public class SvcExcptUtil {
     }
 
     /**
-     * Throws BadRequest Exception with errorInfo.<br/>
+     * Throws BadRequest Exception with errorInfo.<br>
      * 
      * @param excptId exception id
      * @param desc error description
@@ -101,7 +101,7 @@ public class SvcExcptUtil {
     }
 
     /**
-     * Throws InnerServiceError Exception with errorInfo.<br/>
+     * Throws InnerServiceError Exception with errorInfo.<br>
      * 
      * @param excptId exception id
      * @param desc error description
@@ -120,7 +120,7 @@ public class SvcExcptUtil {
     }
 
     /**
-     * Throws Service Exception with errorInfo.<br/>
+     * Throws Service Exception with errorInfo.<br>
      * 
      * @param desc error description
      * @param reason error reason
@@ -142,7 +142,7 @@ public class SvcExcptUtil {
     }
 
     /**
-     * Throws Service Exception with ResultRsp.<br/>
+     * Throws Service Exception with ResultRsp.<br>
      * 
      * @param result ResultRsp object
      * @throws ServiceException when failed

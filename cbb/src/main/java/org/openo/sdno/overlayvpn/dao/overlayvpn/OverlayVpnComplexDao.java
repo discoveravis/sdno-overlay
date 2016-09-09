@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -42,7 +42,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 /**
- * OverlayVpn Complex DAO Class.<br/>
+ * OverlayVpn Complex DAO Class.<br>
  * <p>
  * Provide some complex query interfaces.
  * </p>
@@ -59,7 +59,7 @@ public class OverlayVpnComplexDao {
     private InventoryDao inventoryDao;
 
     /**
-     * Query OverlayVpn Object by id.<br/>
+     * Query OverlayVpn Object by id.<br>
      * 
      * @param vpnUuid
      *            OverlayVpn id
@@ -118,7 +118,7 @@ public class OverlayVpnComplexDao {
     }
 
     /**
-     * Query OverlayVpn by Connection.<br/>
+     * Query OverlayVpn by Connection.<br>
      * 
      * @param connectionUuid
      *            connection id
@@ -169,7 +169,7 @@ public class OverlayVpnComplexDao {
     }
 
     /**
-     * Query OverlayVpns by EndpointGroups.<br/>
+     * Query OverlayVpns by EndpointGroups.<br>
      * 
      * @param epgs
      *            list of EndpointGroups
@@ -249,7 +249,7 @@ public class OverlayVpnComplexDao {
     }
 
     /**
-     * Query OverlayVpn Object by EndpointGroup.<br/>
+     * Query OverlayVpn Object by EndpointGroup.<br>
      * 
      * @param epg
      *            EndpointGroup object

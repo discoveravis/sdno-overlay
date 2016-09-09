@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -24,7 +24,7 @@ import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.ssl.EncryptionUtil;
 
 /**
- * Model class of communication parameter for controller.<br/>
+ * Model class of communication parameter for controller.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-16
@@ -47,7 +47,7 @@ public final class CommParamMO extends BaseMO {
     private String commParams;
 
     /**
-     * Get authentication info.<br/>
+     * Get authentication info.<br>
      * 
      * @return Authentication info
      * @since SDNO 0.5
@@ -61,7 +61,7 @@ public final class CommParamMO extends BaseMO {
     }
 
     /**
-     * Set authentication info.<br/>
+     * Set authentication info.<br>
      * 
      * @return Authentication info
      * @since SDNO 0.5

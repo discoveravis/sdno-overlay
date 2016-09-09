@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -48,7 +48,7 @@ import org.springframework.util.StringUtils;
 import net.sf.json.JSONObject;
 
 /**
- * Inventory DAO class.<br/>
+ * Inventory DAO class.<br>
  * 
  * @param <T>
  *            Inventory Model Class
@@ -82,7 +82,7 @@ public class InventoryDao<T> {
     }
 
     /**
-     * Query data with filter field.<br/>
+     * Query data with filter field.<br>
      * 
      * @param clazz
      *            object type
@@ -115,7 +115,7 @@ public class InventoryDao<T> {
     }
 
     /**
-     * Query data by id and tenant id.<br/>
+     * Query data by id and tenant id.<br>
      * 
      * @param clazz
      *            object type
@@ -149,7 +149,7 @@ public class InventoryDao<T> {
     }
 
     /**
-     * Batch query data.<br/>
+     * Batch query data.<br>
      * 
      * @param clazz
      *            object type
@@ -166,7 +166,7 @@ public class InventoryDao<T> {
     }
 
     /**
-     * Batch query data.<br/>
+     * Batch query data.<br>
      * 
      * @param clazz
      *            object type
@@ -192,7 +192,7 @@ public class InventoryDao<T> {
 
     /**
      * Delete data according to UUID. If UUID is null, do nothing and return
-     * success.<br/>
+     * success.<br>
      * 
      * @param clazz
      *            object type
@@ -212,7 +212,7 @@ public class InventoryDao<T> {
     }
 
     /**
-     * Batch delete data according to UUID list.<br/>
+     * Batch delete data according to UUID list.<br>
      * 
      * @param clazz
      *            object type
@@ -245,7 +245,7 @@ public class InventoryDao<T> {
     }
 
     /**
-     * Insert a single data.<br/>
+     * Insert a single data.<br>
      * 
      * @param data
      *            data
@@ -259,7 +259,7 @@ public class InventoryDao<T> {
     }
 
     /**
-     * Batch insert data.<br/>
+     * Batch insert data.<br>
      * 
      * @param dataList
      *            list of data
@@ -292,7 +292,7 @@ public class InventoryDao<T> {
     }
 
     /**
-     * Update data.<br/>
+     * Update data.<br>
      * 
      * @param data
      *            data to be updated
@@ -311,7 +311,7 @@ public class InventoryDao<T> {
     }
 
     /**
-     * Batch update data.<br/>
+     * Batch update data.<br>
      * 
      * @param clazz
      *            object type
@@ -349,7 +349,7 @@ public class InventoryDao<T> {
     }
 
     /**
-     * Update the status of model data.<br/>
+     * Update the status of model data.<br>
      * 
      * @param dataList
      *            list of data
@@ -369,7 +369,7 @@ public class InventoryDao<T> {
     }
 
     /**
-     * Update generic object T's adminStatus to inactive.<br/>
+     * Update generic object T's adminStatus to inactive.<br>
      * 
      * @param dataMap
      *            map of data
@@ -395,7 +395,7 @@ public class InventoryDao<T> {
     }
 
     /**
-     * Update the status of model data.<<br/>
+     * Update the status of model data.<<br>
      * 
      * @param dataList
      *            list of data
@@ -437,7 +437,7 @@ public class InventoryDao<T> {
 
     /**
      * Copy out fields in update data list which need to be updated. UUID must
-     * be copied.<br/>
+     * be copied.<br>
      * 
      * @param oriUpdateList
      *            data to be updated

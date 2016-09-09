@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -26,7 +26,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Class of Object Operation.<br/>
+ * Class of Object Operation.<br>
  * <p>
  * </p>
  * 
@@ -41,7 +41,7 @@ public class ObjectOperUtil {
     }
 
     /**
-     * Set value of all field to null.<br/>
+     * Set value of all field to null.<br>
      * 
      * @param object Object need to fill NULL
      * @since SDNO 0.5
@@ -66,7 +66,7 @@ public class ObjectOperUtil {
     }
 
     /**
-     * Set filed Value by setterName.<br/>
+     * Set filed Value by setterName.<br>
      * 
      * @param object Object need to set value
      * @param field Object field need to set value
@@ -105,7 +105,7 @@ public class ObjectOperUtil {
     }
 
     /**
-     * Get Setter Method name of Attribute.<br/>
+     * Get Setter Method name of Attribute.<br>
      * 
      * @param attrName attribute name
      * @return Setter Method name
@@ -119,7 +119,7 @@ public class ObjectOperUtil {
     }
 
     /**
-     * Get Getter Method name of Attribute.<br/>
+     * Get Getter Method name of Attribute.<br>
      * 
      * @param attrName attribute name
      * @return Getter Method name

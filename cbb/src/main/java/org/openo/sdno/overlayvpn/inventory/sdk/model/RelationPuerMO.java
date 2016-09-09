@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -22,7 +22,7 @@ import java.util.List;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
- * The definition of relative relation about puer MO. <br/>
+ * The definition of relative relation about puer MO. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-6
@@ -43,7 +43,7 @@ public class RelationPuerMO {
     private String servicetype;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * </p>
      * 
@@ -54,7 +54,7 @@ public class RelationPuerMO {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param srcUuid The source uuid
@@ -114,7 +114,7 @@ public class RelationPuerMO {
     }
 
     /**
-     * It is used to convert from RelationMO to RelationPuerMO. <br/>
+     * It is used to convert from RelationMO to RelationPuerMO. <br>
      * 
      * @param relationList The RelationMO list
      * @return The RelationPuerMO list

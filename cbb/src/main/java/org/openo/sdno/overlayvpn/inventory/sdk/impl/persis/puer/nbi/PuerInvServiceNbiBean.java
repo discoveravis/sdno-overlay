@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -44,7 +44,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
- * Northbound interface implementation for inventory service.<br/>
+ * Northbound interface implementation for inventory service.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-6
@@ -56,7 +56,7 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
     private static final String DBURL = "/openoapi/sdnomss/v1/buckets/{0}/resources/";
 
     /**
-     * Add resources into database.<br/>
+     * Add resources into database.<br>
      * 
      * @param resType
      *            Resource type
@@ -99,7 +99,7 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
     }
 
     /**
-     * Update resources in database.<br/>
+     * Update resources in database.<br>
      * 
      * @param resType
      *            Resource type
@@ -140,7 +140,7 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
     }
 
     /**
-     * Query database by uuid.<br/>
+     * Query database by uuid.<br>
      * 
      * @param uuid
      *            The uuid
@@ -185,7 +185,7 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
     }
 
     /**
-     * Query all resources by resource type.<br/>
+     * Query all resources by resource type.<br>
      * 
      * @param resType
      *            Resource type
@@ -224,7 +224,7 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
     }
 
     /**
-     * Query all resources by resource type.<br/>
+     * Query all resources by resource type.<br>
      * 
      * @param resType
      *            Resource type
@@ -241,7 +241,7 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
     }
 
     /**
-     * Query resources by Uuid.<br/>
+     * Query resources by Uuid.<br>
      * 
      * @param resType
      *            Resource type
@@ -267,7 +267,7 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
     }
 
     /**
-     * Query resources by Uuid.<br/>
+     * Query resources by Uuid.<br>
      * 
      * @param resType
      *            Resource type
@@ -285,7 +285,7 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
     }
 
     /**
-     * Delete one resource by Uuid.<br/>
+     * Delete one resource by Uuid.<br>
      * 
      * @param resType
      *            Resource type
@@ -317,7 +317,7 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
     }
 
     /**
-     * Query total number of records in a table.<br/>
+     * Query total number of records in a table.<br>
      * 
      * @param resType
      *            Resource type
@@ -356,7 +356,7 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
     }
 
     /**
-     * Batch delete resources in database.<br/>
+     * Batch delete resources in database.<br>
      * 
      * @param resType
      *            Resource type
@@ -401,7 +401,7 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
     }
 
     /**
-     * Query database by filterEntity.<br/>
+     * Query database by filterEntity.<br>
      * 
      * @param resType
      *            Resource type
@@ -437,7 +437,7 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
     }
 
     /**
-     * Query data in other page.<br/>
+     * Query data in other page.<br>
      * 
      * @param resType
      *            Resource type

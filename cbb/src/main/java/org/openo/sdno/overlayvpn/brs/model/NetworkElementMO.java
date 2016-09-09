@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -25,7 +25,7 @@ import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
 import org.openo.sdno.overlayvpn.verify.annotation.AString;
 
 /**
- * Network element model class.<br/>
+ * Network element model class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-5
@@ -124,7 +124,7 @@ public class NetworkElementMO extends BaseMO {
     private String nativeID;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * </p>
      * 
@@ -135,7 +135,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get version attribute.<br/>
+     * Get version attribute.<br>
      * 
      * @return version attribute
      * @since SDNO 0.5
@@ -145,7 +145,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Set version attribute.<br/>
+     * Set version attribute.<br>
      * 
      * @param version String Object
      * @since SDNO 0.5
@@ -155,7 +155,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get logicID attribute.<br/>
+     * Get logicID attribute.<br>
      * 
      * @return logicID attribute
      * @since SDNO 0.5
@@ -165,7 +165,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Set logicID attribute.<br/>
+     * Set logicID attribute.<br>
      * 
      * @param logicID String Object
      * @since SDNO 0.5
@@ -175,7 +175,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get phyNeID attribute.<br/>
+     * Get phyNeID attribute.<br>
      * 
      * @return phyNeID attribute.
      * @since SDNO 0.5
@@ -185,7 +185,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get phyNeID attribute.<br/>
+     * Get phyNeID attribute.<br>
      * 
      * @param phyNeID String Object
      * @since SDNO 0.5
@@ -195,7 +195,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get managementDomainID attribute.<br/>
+     * Get managementDomainID attribute.<br>
      * 
      * @return managementDomainID attribute
      * @since SDNO 0.5
@@ -205,7 +205,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Set managementDomainID attribute.<br/>
+     * Set managementDomainID attribute.<br>
      * 
      * @param managementDomainID String Object
      * @since SDNO 0.5
@@ -215,7 +215,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get controllerID attribute.<br/>
+     * Get controllerID attribute.<br>
      * 
      * @return controllerID attribute
      * @since SDNO 0.5
@@ -225,7 +225,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Set controllerID attribute.<br/>
+     * Set controllerID attribute.<br>
      * 
      * @param controllerID List<String> Object
      * @since SDNO 0.5
@@ -235,7 +235,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get siteID attribute.<br/>
+     * Get siteID attribute.<br>
      * 
      * @return List<String> Object
      * @since SDNO 0.5
@@ -245,7 +245,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Set siteID attribute.<br/>
+     * Set siteID attribute.<br>
      * 
      * @param siteID List<String> Object
      * @since SDNO 0.5
@@ -255,7 +255,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get productName attribute.<br/>
+     * Get productName attribute.<br>
      * 
      * @return productName attribute
      * @since SDNO 0.5
@@ -265,7 +265,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Set productName attribute.<br/>
+     * Set productName attribute.<br>
      * 
      * @param productName String Object
      * @since SDNO 0.5
@@ -275,7 +275,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get isVirtual attribute.<br/>
+     * Get isVirtual attribute.<br>
      * 
      * @return isVirtual attribute.
      * @since SDNO 0.5
@@ -285,7 +285,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Set isVirtual attribute.<br/>
+     * Set isVirtual attribute.<br>
      * 
      * @param isVirtual String Object
      * @since SDNO 0.5
@@ -295,7 +295,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get ipAddress attribute.<br/>
+     * Get ipAddress attribute.<br>
      * 
      * @return ipAddress attribute
      * @since SDNO 0.5
@@ -305,7 +305,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Set ipAddress attribute.<br/>
+     * Set ipAddress attribute.<br>
      * 
      * @param ipAddress String Object
      * @since SDNO 0.5
@@ -315,7 +315,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get source attribute.<br/>
+     * Get source attribute.<br>
      * 
      * @return source attribute
      * @since SDNO 0.5
@@ -325,7 +325,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Set source attribute. <br/>
+     * Set source attribute. <br>
      * 
      * @param source String Object
      * @since SDNO 0.5
@@ -335,7 +335,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get owner attribute.<br/>
+     * Get owner attribute.<br>
      * 
      * @return owner attribute
      * @since SDNO 0.5
@@ -345,7 +345,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Set owner attribute.<br/>
+     * Set owner attribute.<br>
      * 
      * @param owner String Object
      * @since SDNO 0.5
@@ -355,7 +355,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get location attribute.<br/>
+     * Get location attribute.<br>
      * 
      * @return location attribute
      * @since SDNO 0.5
@@ -365,7 +365,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Set location attribute.<br/>
+     * Set location attribute.<br>
      * 
      * @param location String Object
      * @since SDNO 0.5
@@ -375,7 +375,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get serialNumber attribute.<br/>
+     * Get serialNumber attribute.<br>
      * 
      * @return serialNumber attribute
      * @since SDNO 0.5
@@ -385,7 +385,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Set serialNumber attribute.<br/>
+     * Set serialNumber attribute.<br>
      * 
      * @param serialNumber String Object
      * @since SDNO 0.5
@@ -395,7 +395,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get manufacturer attribute.<br/>
+     * Get manufacturer attribute.<br>
      * 
      * @return manufacturer attribute
      * @since SDNO 0.5
@@ -405,7 +405,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Set manufacturer attribute.<br/>
+     * Set manufacturer attribute.<br>
      * 
      * @param manufacturer String Object
      * @since SDNO 0.5
@@ -415,7 +415,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get manufactureDate attribute.<br/>
+     * Get manufactureDate attribute.<br>
      * 
      * @return manufactureDate attribute.
      * @since SDNO 0.5
@@ -425,7 +425,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Set manufactureDate attribute.<br/>
+     * Set manufactureDate attribute.<br>
      * 
      * @param manufactureDate manufactureDate attribute
      * @since SDNO 0.5
@@ -435,7 +435,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get adminState attribute.<br/>
+     * Get adminState attribute.<br>
      * 
      * @return adminState attribute
      * @since SDNO 0.5
@@ -445,7 +445,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Set adminState attribute.<br/>
+     * Set adminState attribute.<br>
      * 
      * @param adminState String Object
      * @since SDNO 0.5
@@ -455,7 +455,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get operState attribute.<br/>
+     * Get operState attribute.<br>
      * 
      * @return operState attribute
      * @since SDNO 0.5
@@ -465,7 +465,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Set operState attribute.<br/>
+     * Set operState attribute.<br>
      * 
      * @param operState attribute
      * @since SDNO 0.5
@@ -475,7 +475,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get nativeID attribute.<br/>
+     * Get nativeID attribute.<br>
      * 
      * @return nativeID attribute
      * @since SDNO 0.5
@@ -485,7 +485,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Set nativeID attribute.<br/>
+     * Set nativeID attribute.<br>
      * 
      * @param nativeID String Object
      * @since SDNO 0.5
@@ -495,7 +495,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get MOKEY attribute.<br/>
+     * Get MOKEY attribute.<br>
      * 
      * @return MOKEY attribute
      * @since SDNO 0.5
@@ -505,7 +505,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Override toJsonBody Function.<br/>
+     * Override toJsonBody Function.<br>
      * 
      * @return toJsonBody
      * @since SDNO 0.5
@@ -518,7 +518,7 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Override toString Function.<br/>
+     * Override toString Function.<br>
      * 
      * @return toString description
      * @since SDNO 0.5

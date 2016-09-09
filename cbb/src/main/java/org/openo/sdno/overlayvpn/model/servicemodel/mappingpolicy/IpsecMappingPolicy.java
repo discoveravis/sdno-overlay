@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,7 +20,7 @@ import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
 import org.openo.sdno.overlayvpn.verify.annotation.AString;
 
 /**
- * Class of IpSec MappingPloicy.<br/>
+ * Class of IpSec MappingPloicy.<br>
  * <p>
  * </p>
  * 
@@ -49,7 +49,7 @@ public class IpsecMappingPolicy extends BaseMappingPolicy {
     private String psk;
 
     /**
-     * Copy Basic attribute of other Object to this Object.<br/>
+     * Copy Basic attribute of other Object to this Object.<br>
      * 
      * @param mappingPolicy other IpsecMappingPolicy object
      * @since SDNO 0.5

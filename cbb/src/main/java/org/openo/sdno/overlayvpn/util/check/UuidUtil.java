@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -25,7 +25,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Class of UUID Validate Operation.<br/>
+ * Class of UUID Validate Operation.<br>
  * <p>
  * </p>
  * 
@@ -40,7 +40,7 @@ public class UuidUtil {
     }
 
     /**
-     * Validate UUID Object.<br/>
+     * Validate UUID Object.<br>
      * 
      * @param uuid UUID need to validate
      * @return true if UUID is valid, false otherwise
@@ -58,7 +58,7 @@ public class UuidUtil {
     }
 
     /**
-     * Validate UUID List Object.<br/>
+     * Validate UUID List Object.<br>
      * 
      * @param uuidList UUID list need to validate
      * @return true if all UUIDs are valid, false otherwise

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -30,7 +30,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Class for transaction context operating.<br/>
+ * Class for transaction context operating.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-6
@@ -42,7 +42,7 @@ class TransactionContextOperate {
     TransactionOperateType operateType;
 
     /**
-     * Constructor.<br/>
+     * Constructor.<br>
      * 
      * @since SDNO 0.5
      * @param contextClass Context class
@@ -74,7 +74,7 @@ class TransactionContextOperate {
 }
 
 /**
- * Transaction management class.<br/>
+ * Transaction management class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-6
@@ -93,7 +93,7 @@ public class TransactionMgr {
     }
 
     /**
-     * Register transaction listener.<br/>
+     * Register transaction listener.<br>
      * 
      * @param bundle Bundle key of listener map
      * @param listenerClass Listener class
@@ -126,7 +126,7 @@ public class TransactionMgr {
     }
 
     /**
-     * Unregister transaction listener.<br/>
+     * Unregister transaction listener.<br>
      * 
      * @param bundle Bundle key of listener map
      * @since SDNO 0.5
@@ -147,7 +147,7 @@ public class TransactionMgr {
     }
 
     /**
-     * Prepare transaction.<br/>
+     * Prepare transaction.<br>
      * 
      * @param context Transaction context
      * @return Prepare transaction result
@@ -181,7 +181,7 @@ public class TransactionMgr {
     }
 
     /**
-     * Fire transaction.<br/>
+     * Fire transaction.<br>
      * 
      * @param context Transaction context
      * @return Fire transaction result
@@ -205,7 +205,7 @@ public class TransactionMgr {
     }
 
     /**
-     * Roll back transaction.<br/>
+     * Roll back transaction.<br>
      * 
      * @param context Transaction context
      * @return Roll back transaction result
@@ -216,7 +216,7 @@ public class TransactionMgr {
     }
 
     /**
-     * Roll back transaction.<br/>
+     * Roll back transaction.<br>
      * 
      * @param context Transaction context
      * @param successList List of transaction listeners
@@ -235,7 +235,7 @@ public class TransactionMgr {
     }
 
     /**
-     * Commit transaction.<br/>
+     * Commit transaction.<br>
      * 
      * @param context Transaction context
      * @return Commit transaction result
@@ -253,7 +253,7 @@ public class TransactionMgr {
     }
 
     /**
-     * Get listener of transaction context.<br/>
+     * Get listener of transaction context.<br>
      * 
      * @param context Transaction context
      * @return Collection of transaction listeners
@@ -268,7 +268,7 @@ public class TransactionMgr {
     }
 
     /**
-     * Create listener for transaction context.<br/>
+     * Create listener for transaction context.<br>
      * 
      * @param context Transaction context
      * @since SDNO 0.5

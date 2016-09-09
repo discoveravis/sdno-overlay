@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -39,7 +39,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Dao class of AllocIdResource.<br/>
+ * Dao class of AllocIdResource.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-7-20
@@ -54,7 +54,7 @@ public class AllocIdResourceInvDao {
     private static final String OBJECTS_KEY = "objects";
 
     /**
-     * Batch insert resource data.<br/>
+     * Batch insert resource data.<br>
      * 
      * @param resourceList resource data
      * @throws ServiceException when insert failed
@@ -85,7 +85,7 @@ public class AllocIdResourceInvDao {
     }
 
     /**
-     * Batch delete resource data.<br/>
+     * Batch delete resource data.<br>
      * 
      * @param resourceList resource data
      * @throws ServiceException when delete failed
@@ -129,7 +129,7 @@ public class AllocIdResourceInvDao {
     }
 
     /**
-     * Batch query AllocIdResource Data.<br/>
+     * Batch query AllocIdResource Data.<br>
      * 
      * @param poolName resource pool name
      * @param idList list of resource id

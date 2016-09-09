@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -25,7 +25,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * The class of NvString, It is used to save the type, endpoints and uuid of EndpointGroup. <br/>
+ * The class of NvString, It is used to save the type, endpoints and uuid of EndpointGroup. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-6
@@ -45,7 +45,7 @@ public class NvString extends AbstUuidModel implements Cloneable {
     private String firstParentUuid;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      */
@@ -58,7 +58,7 @@ public class NvString extends AbstUuidModel implements Cloneable {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param tempName The value name
@@ -71,7 +71,7 @@ public class NvString extends AbstUuidModel implements Cloneable {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param tempName The value name
@@ -86,7 +86,7 @@ public class NvString extends AbstUuidModel implements Cloneable {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param tempUuid The uuid of current data

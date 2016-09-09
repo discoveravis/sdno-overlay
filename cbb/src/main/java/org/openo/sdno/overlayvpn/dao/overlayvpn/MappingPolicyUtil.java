@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -48,7 +48,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
- * Util class of Mapping Policy.<br/>
+ * Util class of Mapping Policy.<br>
  * 
  * @author
  * @version SDNO 0.5 May 26, 2016
@@ -62,7 +62,7 @@ public class MappingPolicyUtil {
     }
 
     /**
-     * Get All Mapping policies from Connection.<br/>
+     * Get All Mapping policies from Connection.<br>
      * 
      * @param totalConns
      *            all connections
@@ -117,7 +117,7 @@ public class MappingPolicyUtil {
     }
 
     /**
-     * Build map of MappingPolicy id to MappingPolicy.<br/>
+     * Build map of MappingPolicy id to MappingPolicy.<br>
      * 
      * @param totalMappingPolicies
      *            List of MappingPolicy
@@ -135,7 +135,7 @@ public class MappingPolicyUtil {
     }
 
     /**
-     * Fill Member of MappingPolicy.<br/>
+     * Fill Member of MappingPolicy.<br>
      * 
      * @param totalMappingPolicies
      *            all Mapping Policies
@@ -182,7 +182,7 @@ public class MappingPolicyUtil {
     }
 
     /**
-     * Get IkePolicy id and IpSec id.<br/>
+     * Get IkePolicy id and IpSec id.<br>
      * 
      * @param totalMappingPolicies
      *            all Mapping Policies
@@ -207,7 +207,7 @@ public class MappingPolicyUtil {
     }
 
     /**
-     * Get IkePolicy Object Map by id.<br/>
+     * Get IkePolicy Object Map by id.<br>
      * 
      * @param totalIkePolicyUuids
      *            IkePolicy id list
@@ -239,7 +239,7 @@ public class MappingPolicyUtil {
     }
 
     /**
-     * Get IpSecPolicy Object Map by id.<br/>
+     * Get IpSecPolicy Object Map by id.<br>
      * 
      * @param totalIpsecPolicyUuids
      *            IpSecPolicy id list

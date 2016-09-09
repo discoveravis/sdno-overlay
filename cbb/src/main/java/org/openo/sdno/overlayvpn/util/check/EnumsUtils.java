@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -24,7 +24,7 @@ import org.openo.sdno.overlayvpn.model.common.enums.topo.TopologyRole;
 import org.openo.sdno.overlayvpn.model.common.enums.topo.TopologyType;
 
 /**
- * Class of Enum Object Validation.<br/>
+ * Class of Enum Object Validation.<br>
  * <p>
  * </p>
  * 
@@ -37,7 +37,7 @@ public class EnumsUtils {
     }
 
     /**
-     * Validate AdminStatus Data.<br/>
+     * Validate AdminStatus Data.<br>
      * 
      * @param value value need to validate
      * @return true if value is valid,false otherwise
@@ -48,7 +48,7 @@ public class EnumsUtils {
     }
 
     /**
-     * Validate OperStatus Data.<br/>
+     * Validate OperStatus Data.<br>
      * 
      * @param value value need to validate
      * @return true if value is valid,false otherwise
@@ -59,7 +59,7 @@ public class EnumsUtils {
     }
 
     /**
-     * Validate EndpointType Data.<br/>
+     * Validate EndpointType Data.<br>
      * 
      * @param value value need to validate
      * @return true if value is valid,false otherwise
@@ -76,7 +76,7 @@ public class EnumsUtils {
     }
 
     /**
-     * Validate TopologyType Data.<br/>
+     * Validate TopologyType Data.<br>
      * 
      * @param topology value need to validate
      * @return true if value is valid,false otherwise
@@ -88,7 +88,7 @@ public class EnumsUtils {
     }
 
     /**
-     * Validate TopologyRole Data.<br/>
+     * Validate TopologyRole Data.<br>
      * 
      * @param role value need to validate
      * @return if value is valid, false otherwise
@@ -105,7 +105,7 @@ public class EnumsUtils {
     }
 
     /**
-     * Validate authMode Data.<br/>
+     * Validate authMode Data.<br>
      * only "psk" is valid
      * 
      * @param authMode data need to validate
@@ -117,7 +117,7 @@ public class EnumsUtils {
     }
 
     /**
-     * Validate routeMode Data.<br/>
+     * Validate routeMode Data.<br>
      * only STATIC mode is valid
      * 
      * @param routeMode data need to validate
@@ -129,7 +129,7 @@ public class EnumsUtils {
     }
 
     /**
-     * Validate Boolean Data.<br/>
+     * Validate Boolean Data.<br>
      * 
      * @param booleanStr Boolean data
      * @return true if value is valid, false otherwise

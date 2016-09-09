@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -33,7 +33,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 /**
- * Class for querying communication parameter.<br/>
+ * Class for querying communication parameter.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-16
@@ -49,7 +49,7 @@ public class CommParamDao {
             "/openoapi/sdnobrs/v1/commparammgmt/access-objects/{0}/commparams/{1}";
 
     /**
-     * Add CommParam Object.<br/>
+     * Add CommParam Object.<br>
      * 
      * @param controllerId Controller Id
      * @param commParamMO CommParam Object need to add
@@ -63,7 +63,7 @@ public class CommParamDao {
     }
 
     /**
-     * Update CommParam Object.<br/>
+     * Update CommParam Object.<br>
      * 
      * @param commParamMO CommParam Object need to update
      * @since SDNO 0.5
@@ -78,7 +78,7 @@ public class CommParamDao {
     }
 
     /**
-     * Get communication parameter.<br/>
+     * Get communication parameter.<br>
      * 
      * @param controllerID Controller Id
      * @return Collection of communication parameters.

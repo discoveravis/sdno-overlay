@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -28,7 +28,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Class of Relation Operation.<br/>
+ * Class of Relation Operation.<br>
  * 
  * @author
  * @version SDNO 0.5 Jun 7, 2016
@@ -48,7 +48,7 @@ public class GetAddRelationProcessor {
     private final Object relationObject;
 
     /**
-     * Constructor.<br/>
+     * Constructor.<br>
      * 
      * @since SDNO 0.5
      * @param mo MO object
@@ -67,7 +67,7 @@ public class GetAddRelationProcessor {
     }
 
     /**
-     * Recursive get all relations.<br/>
+     * Recursive get all relations.<br>
      * 
      * @param mo MO object
      * @param allAddRelationMO Collection of relation MO objects
@@ -120,7 +120,7 @@ public class GetAddRelationProcessor {
     }
 
     /**
-     * Get relations of collection object.<br/>
+     * Get relations of collection object.<br>
      * 
      * @throws InnerErrorServiceException if add relation failed.
      * @since SDNO 0.5
@@ -137,7 +137,7 @@ public class GetAddRelationProcessor {
     }
 
     /**
-     * Get relations of ordenary object.<br/>
+     * Get relations of ordenary object.<br>
      * 
      * @throws InnerErrorServiceException if add relation failed.
      * @since SDNO 0.5

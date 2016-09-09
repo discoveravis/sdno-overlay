@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -25,7 +25,7 @@ import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
 import org.openo.sdno.overlayvpn.verify.annotation.AString;
 
 /**
- * Site model object class.<br/>
+ * Site model object class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-5
@@ -59,7 +59,7 @@ public class SiteMO extends BaseMO {
     private String tenantSiteIDs;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      */
@@ -68,7 +68,7 @@ public class SiteMO extends BaseMO {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param name site name
@@ -84,7 +84,7 @@ public class SiteMO extends BaseMO {
     }
 
     /**
-     * Get type attribute.<br/>
+     * Get type attribute.<br>
      * 
      * @return type attribute
      * @since SDNO 0.5
@@ -94,7 +94,7 @@ public class SiteMO extends BaseMO {
     }
 
     /**
-     * Set type attribute.<br/>
+     * Set type attribute.<br>
      * 
      * @param type String Object
      * @since SDNO 0.5
@@ -104,7 +104,7 @@ public class SiteMO extends BaseMO {
     }
 
     /**
-     * Get tenantID attribute.<br/>
+     * Get tenantID attribute.<br>
      * 
      * @return tenantID attribute
      * @since SDNO 0.5
@@ -114,7 +114,7 @@ public class SiteMO extends BaseMO {
     }
 
     /**
-     * Set tenantID attribute.<br/>
+     * Set tenantID attribute.<br>
      * 
      * @param tenantID String Object
      * @since SDNO 0.5
@@ -124,7 +124,7 @@ public class SiteMO extends BaseMO {
     }
 
     /**
-     * Get location attribute.<br/>
+     * Get location attribute.<br>
      * 
      * @return location attribute
      * @since SDNO 0.5
@@ -134,7 +134,7 @@ public class SiteMO extends BaseMO {
     }
 
     /**
-     * Set location attribute.<br/>
+     * Set location attribute.<br>
      * 
      * @param location String Object
      * @since SDNO 0.5
@@ -144,7 +144,7 @@ public class SiteMO extends BaseMO {
     }
 
     /**
-     * Get tenantSiteIDs attribute.<br/>
+     * Get tenantSiteIDs attribute.<br>
      * 
      * @return tenantSiteIDs attribute
      * @since SDNO 0.5
@@ -154,7 +154,7 @@ public class SiteMO extends BaseMO {
     }
 
     /**
-     * Set tenantSiteIDs attribute.<br/>
+     * Set tenantSiteIDs attribute.<br>
      * 
      * @param tenantSiteIDs String Object
      * @since SDNO 0.5
@@ -164,7 +164,7 @@ public class SiteMO extends BaseMO {
     }
 
     /**
-     * Override toJsonBody Function.<br/>
+     * Override toJsonBody Function.<br>
      * 
      * @return JsonBody String
      * @since SDNO 0.5

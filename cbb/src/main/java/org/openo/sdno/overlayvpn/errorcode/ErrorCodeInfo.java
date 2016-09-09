@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,7 +17,7 @@
 package org.openo.sdno.overlayvpn.errorcode;
 
 /**
- * ErrorCode Info Class.<br/>
+ * ErrorCode Info Class.<br>
  * 
  * @author
  * @version SDNO 0.5 May 26, 2016
@@ -56,7 +56,7 @@ public class ErrorCodeInfo {
     private String detailArg = "";
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      */
@@ -65,7 +65,7 @@ public class ErrorCodeInfo {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param errorCode error code
@@ -76,7 +76,7 @@ public class ErrorCodeInfo {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param errorCode error code
@@ -89,7 +89,7 @@ public class ErrorCodeInfo {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param errorCode error code
@@ -104,7 +104,7 @@ public class ErrorCodeInfo {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param errorCode error code
@@ -121,7 +121,7 @@ public class ErrorCodeInfo {
     }
 
     /**
-     * Get description attribute.<br/>
+     * Get description attribute.<br>
      * 
      * @return description attribute
      * @since SDNO 0.5
@@ -131,7 +131,7 @@ public class ErrorCodeInfo {
     }
 
     /**
-     * Set description attribute.<br/>
+     * Set description attribute.<br>
      * 
      * @param descrption String Object
      * @since SDNO 0.5
@@ -141,7 +141,7 @@ public class ErrorCodeInfo {
     }
 
     /**
-     * Get objectId attribute.<br/>
+     * Get objectId attribute.<br>
      * 
      * @return objectId attribute
      * @since SDNO 0.5
@@ -151,7 +151,7 @@ public class ErrorCodeInfo {
     }
 
     /**
-     * Set objectId attribute.<br/>
+     * Set objectId attribute.<br>
      * 
      * @param objectId String Object
      * @since SDNO 0.5
@@ -161,7 +161,7 @@ public class ErrorCodeInfo {
     }
 
     /**
-     * Get objectName attribute.<br/>
+     * Get objectName attribute.<br>
      * 
      * @return objectName attribute
      * @since SDNO 0.5
@@ -171,7 +171,7 @@ public class ErrorCodeInfo {
     }
 
     /**
-     * Set objectName attribute.<br/>
+     * Set objectName attribute.<br>
      * 
      * @param objectName String Object
      * @since SDNO 0.5
@@ -181,7 +181,7 @@ public class ErrorCodeInfo {
     }
 
     /**
-     * Get object attribute.<br/>
+     * Get object attribute.<br>
      * 
      * @return object attribute
      * @since SDNO 0.5
@@ -191,7 +191,7 @@ public class ErrorCodeInfo {
     }
 
     /**
-     * Set object attribute.<br/>
+     * Set object attribute.<br>
      * 
      * @param object Object
      * @since SDNO 0.5
@@ -201,7 +201,7 @@ public class ErrorCodeInfo {
     }
 
     /**
-     * Get errorCode attribute.<br/>
+     * Get errorCode attribute.<br>
      * 
      * @return errorCode attribute
      * @since SDNO 0.5
@@ -211,7 +211,7 @@ public class ErrorCodeInfo {
     }
 
     /**
-     * Set errorCode attribute.<br/>
+     * Set errorCode attribute.<br>
      * 
      * @param errorCode String Object
      * @since SDNO 0.5
@@ -221,7 +221,7 @@ public class ErrorCodeInfo {
     }
 
     /**
-     * Set descArg attribute.<br/>
+     * Set descArg attribute.<br>
      * 
      * @param descArg String Object
      * @since SDNO 0.5
@@ -231,7 +231,7 @@ public class ErrorCodeInfo {
     }
 
     /**
-     * Get descArg attribute.<br/>
+     * Get descArg attribute.<br>
      * 
      * @return descArg attribute
      * @since SDNO 0.5
@@ -241,7 +241,7 @@ public class ErrorCodeInfo {
     }
 
     /**
-     * Set reasonArg attribute.<br/>
+     * Set reasonArg attribute.<br>
      * 
      * @param reasonArg String Object
      * @since SDNO 0.5
@@ -251,7 +251,7 @@ public class ErrorCodeInfo {
     }
 
     /**
-     * Get reasonArg attribute.<br/>
+     * Get reasonArg attribute.<br>
      * 
      * @return reasonArg attribute
      * @since SDNO 0.5
@@ -261,7 +261,7 @@ public class ErrorCodeInfo {
     }
 
     /**
-     * Set detailArg attribute.<br/>
+     * Set detailArg attribute.<br>
      * 
      * @param detailArg String Object
      * @since SDNO 0.5
@@ -271,7 +271,7 @@ public class ErrorCodeInfo {
     }
 
     /**
-     * Get detailArg attribute.<br/>
+     * Get detailArg attribute.<br>
      * 
      * @return detailArg attribute
      * @since SDNO 0.5

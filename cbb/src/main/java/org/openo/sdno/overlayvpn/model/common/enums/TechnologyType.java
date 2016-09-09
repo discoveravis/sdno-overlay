@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,7 +19,7 @@ package org.openo.sdno.overlayvpn.model.common.enums;
 import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
- * The class of technology type. <br/>
+ * The class of technology type. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-7
@@ -30,7 +30,7 @@ public enum TechnologyType {
     private int value;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param value The technology type
@@ -40,7 +40,7 @@ public enum TechnologyType {
     }
 
     /**
-     * It is used to get technology type name. <br/>
+     * It is used to get technology type name. <br>
      * 
      * @return The technology type name.
      * @since SDNO 0.5
@@ -63,7 +63,7 @@ public enum TechnologyType {
     }
 
     /**
-     * It is used to check the technology type name is valid or not. <br/>
+     * It is used to check the technology type name is valid or not. <br>
      * 
      * @param name The technology type name
      * @return true if the policy technology name is valid.
@@ -80,7 +80,7 @@ public enum TechnologyType {
     }
 
     /**
-     * It is used to check whether the technology type name is IPSEC. <br/>
+     * It is used to check whether the technology type name is IPSEC. <br>
      * 
      * @param name The technology type name
      * @return true if the technology type name is IPSEC.
@@ -92,7 +92,7 @@ public enum TechnologyType {
     }
 
     /**
-     * It is used to check whether the technology type name is VXLAN or VXLAN_OVER_IPSEC. <br/>
+     * It is used to check whether the technology type name is VXLAN or VXLAN_OVER_IPSEC. <br>
      * 
      * @param name The technology type name
      * @return true if the technology type name is VXLAN or VXLAN_OVER_IPSEC.

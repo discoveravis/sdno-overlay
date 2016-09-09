@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -38,7 +38,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * NetworkElement data DAO class.<br/>
+ * NetworkElement data DAO class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-5
@@ -54,7 +54,7 @@ public class NetworkElementInvDao {
     private static final String NE_KEY = "managedElement";
 
     /**
-     * Add NetworkElement object.<br/>
+     * Add NetworkElement object.<br>
      * 
      * @param curMO NetworkElement need to be added
      * @throws ServiceException when operation failed
@@ -68,7 +68,7 @@ public class NetworkElementInvDao {
     }
 
     /**
-     * Delete NetworkElement object.<br/>
+     * Delete NetworkElement object.<br>
      * 
      * @param uuid NetworkElement id
      * @throws ServiceException when delete model object failed
@@ -87,7 +87,7 @@ public class NetworkElementInvDao {
     }
 
     /**
-     * Update NetworkElement object.<br/>
+     * Update NetworkElement object.<br>
      * 
      * @param curNeMO NetworkElement need to updated
      * @throws ServiceException
@@ -100,7 +100,7 @@ public class NetworkElementInvDao {
     }
 
     /**
-     * Query all NetworkElements.<br/>
+     * Query all NetworkElements.<br>
      * 
      * @return all NetworkElement queried out
      * @throws ServiceException when query failed.
@@ -118,7 +118,7 @@ public class NetworkElementInvDao {
     }
 
     /**
-     * Query NetworkElement by Controller.<br/>
+     * Query NetworkElement by Controller.<br>
      * 
      * @param controllerID controller id
      * @return NetworkElement queried out
@@ -135,7 +135,7 @@ public class NetworkElementInvDao {
     /**
      * Query NetworkElement model object info with input condition.Filter properties: name,
      * productName, ipAddress, adminState, source, owner, managementDomainID, controllerID,
-     * siteID.<br/>
+     * siteID.<br>
      * 
      * @param condition condition
      * @return NetworkElement queried out
@@ -156,7 +156,7 @@ public class NetworkElementInvDao {
     }
 
     /**
-     * Query NetworkElement by id.<br/>
+     * Query NetworkElement by id.<br>
      * 
      * @param id NetworkElement id
      * @return NE NetworkElement queried out
@@ -173,7 +173,7 @@ public class NetworkElementInvDao {
     }
 
     /**
-     * Query NetworkElement info with site ID.<br/>
+     * Query NetworkElement info with site ID.<br>
      * 
      * @param siteId site id
      * @return NetworkElement queried out
@@ -188,7 +188,7 @@ public class NetworkElementInvDao {
     }
 
     /**
-     * Query NetworkElement info with site ID.<br/>
+     * Query NetworkElement info with site ID.<br>
      * 
      * @param name NetworkElement name
      * @return NetworkElement queried out
@@ -203,7 +203,7 @@ public class NetworkElementInvDao {
     }
 
     /**
-     * Query site list by NetworkElement id.<br/>
+     * Query site list by NetworkElement id.<br>
      * 
      * @param neId NetworkElement id
      * @return list of site queried out
@@ -230,7 +230,7 @@ public class NetworkElementInvDao {
     }
 
     /**
-     * Query site list with tenant ID. <br/>
+     * Query site list with tenant ID. <br>
      * 
      * @param tenantId tenant ID
      * @return list of site queried out
@@ -251,7 +251,7 @@ public class NetworkElementInvDao {
     }
 
     /**
-     * Check whether the filter field is supported.<br/>
+     * Check whether the filter field is supported.<br>
      * 
      * @param condition condition
      * @throws ServiceException when filter field is not supported.
