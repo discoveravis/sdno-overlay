@@ -1,0 +1,38 @@
+{
+	"request": {
+		"uri": "/openoapi/sdnovxlan/v1/vxlans",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8"
+		},
+		"json": {
+			"id": "111111",
+			"tenantId": "3333333",
+			"name": null,
+			"description": null,
+			"modifyMask": "NOMODIFY",
+			"operStatus": "none",
+			"adminStatus": "none",
+			"createTime": null,
+			"connectionIds": null,
+			"vpnConnections": [
+			]
+		}
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"id": "111111",
+			"tenantId": "3333333",
+			"name": null,
+			"description": null,
+			"modifyMask": "NOMODIFY",
+			"operStatus": "none",
+			"adminStatus": "none",
+			"createTime": null,
+			"connectionIds": null,
+			"vpnConnections": [
+			]
+		}
+	}
+}

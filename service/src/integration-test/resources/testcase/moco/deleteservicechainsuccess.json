@@ -1,17 +1,13 @@
 {
 	"request": {
-		"uri": "/openoapi/sdnooverlay/v1/site2dc-vpn/{objectId}",
+		"uri": "/openoapi/sdnoservicechain/v1/paths/[a-zA-Z0-9\\-\\_]{1,36}",
 		"method": "delete",
 		"headers": {
 			"Content-Type": "application/json;charset=UTF-8"
-		},
-		"json": {
 		}
 	},
 	"response": {
 		"status": 200,
-		"json": {
-			"errorCode": "overlayvpn.operation.success"
-		}
+		"json": null
 	}
 }

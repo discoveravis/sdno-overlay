@@ -49,11 +49,6 @@ public class OverlayVpnSuccessTest extends TestManager {
         vxlanServer.stop();
     }
 
-    // @Test(timeout = 300000)
-    // public void createOverlayVpnSuccessTest() throws ServiceException {
-    // execTestCase(new File("src/main/resources/overlayvpn/create.json"));
-    // }
-
     @Test
     public void createFulltest() throws ServiceException {
 
@@ -91,46 +86,6 @@ public class OverlayVpnSuccessTest extends TestManager {
         deleteRequest.setUri(PathReplace.replaceUuid("objectId", deleteHttpObject.getRequest().getUri(), uuid));
         send(deleteRequest, new RegularExpChecker(deleteHttpObject.getResponse()));
 
-        String test = "Test";
-
     }
-
-    // @Test
-    // public void queryOverlayVpnTest() throws ServiceException {
-    // execTestCase(new File("src/main/resources/overlayvpn/query.json"));
-    // }
-    //
-    // @Test
-    // public void deleteOverlayVpnTest() throws ServiceException {
-    // execTestCase(new File("src/main/resources/overlayvpn/create.json"));
-    // }
-
-    // @Test
-    // public void CreateVxlanSuccessTest2() throws ServiceException {
-    // execTestCase(new File("src/main/resources/createvxlansuccess2.json"));
-    // }
-    //
-    // @Test
-    // public void QueryVxlanSuccessTest() throws ServiceException {
-    // // Query Site to DC
-    // File queryFile = new File("src/integration-test/resources/testcase/query.json");
-    // HttpRquestResponse queryHttpObject =
-    // HttpModelUtils.praseHttpRquestResponse(FileUtils.readFromJson(queryFile));
-    // HttpRequest queryRequest = queryHttpObject.getRequest();
-    // queryRequest.setUri(PathReplace.replaceUuid("objectId",
-    // queryHttpObject.getRequest().getUri(),
-    // "94d819b1-acda-41c9-90de-28fcbd015962"));
-    // send(queryRequest, new RegularExpChecker(queryHttpObject.getResponse()));
-    // }
-    //
-    // @Test
-    // public void DeployVxlanSuccessTest() throws ServiceException {
-    // execTestCase(new File("src/main/resources/deployvxlansuccess.json"));
-    // }
-    //
-    // @Test
-    // public void UnDeployVxlanSuccessTest() throws ServiceException {
-    // execTestCase(new File("src/main/resources/undeployvxlansuccess.json"));
-    // }
 
 }

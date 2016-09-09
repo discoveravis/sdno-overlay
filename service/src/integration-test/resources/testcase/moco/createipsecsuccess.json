@@ -1,50 +1,47 @@
 {
-	"request":
-	{
-		"uri": "/svc/ipsec/v1/ipsecs",
+	"request": {
+		"uri": "/openoapi/sdnoipsec/v1/ipsecs",
 		"method": "post",
-		"headers":{"Content-Type":"application/json;charset=UTF-8"},
-		"json":
-		{
-			"id":"111111",
-			"tenantId":"3333333",
-			"name":null,
-			"description":null,
-			"modifyMask":"NOMODIFY",
-			"operStatus":"none",
-			"adminStatus":"none",
-			"createTime":null,
-			"connectionIds":null,
-			"vpnConnections":[]
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8"
+		},
+		"json": {
+			"id": "111111",
+			"tenantId": "3333333",
+			"name": null,
+			"description": null,
+			"modifyMask": "NOMODIFY",
+			"operStatus": "none",
+			"adminStatus": "none",
+			"createTime": null,
+			"connectionIds": null,
+			"vpnConnections": []
 		}
 	},
-	"response":
-	{
-		"status":200,
-		"json":
-		{
-			"errorCode":"overlayvpn.operation.success",
-			"descArg":"",
-			"reasonArg":"",
-			"detailArg":"",
-			"adviceArg":"",
-			"httpCode":200,
-			"message":"",
-			"smallErrorCodeList":null,
-			"successed":null,
-			"fail":null,
-			"data":
-			{
-				"id":"11111111",
-				"tenantId":null,
-				"name":null,
-				"description":null,
-				"modifyMask":"NOMODIFY",
-				"operStatus":"none",
-				"adminStatus":"none",
-				"createTime":null,
-				"connectionIds":null,
-				"vpnConnections":null
+	"response": {
+		"status": 200,
+		"json": {
+			"errorCode": "overlayvpn.operation.success",
+			"descArg": "",
+			"reasonArg": "",
+			"detailArg": "",
+			"adviceArg": "",
+			"httpCode": 200,
+			"message": "",
+			"smallErrorCodeList": null,
+			"successed": null,
+			"fail": null,
+			"data": {
+				"id": "11111111",
+				"tenantId": null,
+				"name": null,
+				"description": null,
+				"modifyMask": "NOMODIFY",
+				"operStatus": "none",
+				"adminStatus": "none",
+				"createTime": null,
+				"connectionIds": null,
+				"vpnConnections": null
 			}
 		}
 	}

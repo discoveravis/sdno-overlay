@@ -40,17 +40,13 @@ public class OverlayVpnFailServer extends MocoHttpServer {
         super();
     }
 
-    public OverlayVpnFailServer(String configFile) {
-        super(configFile);
-    }
-
     @Override
     public void addRequestResponsePairs() {
 
         HttpRquestResponse httpObject = null;
         try {
-            httpObject = HttpModelUtils
-                    .praseHttpRquestResponseFromFile("src/main/resources/MocoVxLanSbiAdapter/createvxlan.json");
+            httpObject = HttpModelUtils.praseHttpRquestResponseFromFile(
+                    "src/integration-test/resources/testcase/moco/createservicechainfailed.json");
         } catch(ServiceException e) {
             LOGGER.error("Read Json File failed!!");
             return;

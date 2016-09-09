@@ -1,33 +1,44 @@
 {
-	"request":
-	{
-		"uri": "/rest/api/overlayvpn/v1/site2dc-vpn",
+	"request": {
+		"uri": "/openoapi/sdnooverlay/v1/site2dc-vpn",
 		"method": "post",
-		"headers":{"Content-Type":"application/json;charset=UTF-8"},
-		"json":
-		{
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8"
+		},
+		"json": {
 			"name": "hw-szc",
-			"site":{
-			       "cidr": "10.12.13.14/16",
-				   "cpe": "5271222f-8b22-47f4-8acb-abbd5337d0b0",
-				   "portVlan": "1"
+			"description": "create test",
+			"site": {
+				"cidr": "10.12.13.14/16",
+				"thinCpeId": "5271222f-8b22-47f4-8acb-abbd5337d0b0",
+				"portAndVlan": "1",
+				"vCPEId": "bbbbbbb"
 			},
 			"vpc": {
-			       "name": "vpc-huawei",
-				   "subnet":{
-				         "name": "subnet1",
-						 "cidr": "10.0.0.16/32"
-				   }
+				"name": "vpc-huawei",
+				"subnet": {
+					"name": "subnet1",
+					"cidr": "10.0.0.16/32",
+					"vni": "25"
+				}
+			},
+			"sfp": {
+				"scfNeId": "aaaaaaaaa",
+				"servicePathHop": [
+					{
+						"hopNumber": "22",
+						"sfiId": "ccccccc",
+						"sfgId": "ddddddd"
+					}
+				]
 			}
 		}
 	},
-	"response":
-	{
-		"status":201,
-		"json":
-		{		    
-			"errorCode":"overlayvpn.operation.success",
-            "vpnId" : "[^\\s]"
+	"response": {
+		"status": 201,
+		"json": {
+			"errorCode": "overlayvpn.operation.success",
+			"vpnId": "[^\\s]"
 		}
 	}
 }

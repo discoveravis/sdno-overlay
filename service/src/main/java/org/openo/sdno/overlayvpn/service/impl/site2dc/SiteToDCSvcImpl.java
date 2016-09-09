@@ -35,7 +35,6 @@ import org.openo.sdno.overlayvpn.model.common.enums.AdminStatus;
 import org.openo.sdno.overlayvpn.model.common.enums.EndpointType;
 import org.openo.sdno.overlayvpn.model.servicechain.ServiceChainPath;
 import org.openo.sdno.overlayvpn.model.servicechain.ServiceChainSiteToDcRelation;
-import org.openo.sdno.overlayvpn.model.servicechain.ServicePathHop;
 import org.openo.sdno.overlayvpn.model.servicemodel.Connection;
 import org.openo.sdno.overlayvpn.model.servicemodel.EndpointGroup;
 import org.openo.sdno.overlayvpn.model.servicemodel.OverlayVpn;
@@ -291,11 +290,11 @@ public class SiteToDCSvcImpl implements ISiteToDC {
 
             }
         }
-        
+
         // 3. Query Vpc/Subnet information
         VpcSubNetMapping vsMapping = vpcSubNetSvc.query(req, resp, oSite2Dc.getUuid());
         VpcSubnetUtil.setSiteToDcByVpcMapping(oSite2Dc, vsMapping);
-        
+
         // 4. Query ServiceChain
         ServiceChainSiteToDcRelation relation = ServiceChainDbOper.query(oSite2Dc.getUuid());
         ServiceChainPath scPath = JsonUtil.fromJson(relation.getData(), ServiceChainPath.class);

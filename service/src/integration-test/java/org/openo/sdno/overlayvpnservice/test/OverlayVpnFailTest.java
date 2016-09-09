@@ -22,31 +22,39 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
-import org.openo.sdno.overlayvpnservice.test.mocoserver.OverlayVpnSuccessServer;
+import org.openo.sdno.overlayvpnservice.test.mocoserver.OverlayVpnFailServer;
+import org.openo.sdno.testframework.checker.RegularExpChecker;
+import org.openo.sdno.testframework.http.model.HttpModelUtils;
+import org.openo.sdno.testframework.http.model.HttpRquestResponse;
 import org.openo.sdno.testframework.testmanager.TestManager;
+import org.openo.sdno.testframework.util.file.FileUtils;
 
 public class OverlayVpnFailTest extends TestManager {
 
-    private OverlayVpnSuccessServer overlayVpnAdapterServer = new OverlayVpnSuccessServer();
+    private OverlayVpnFailServer overlayVpnFailServer = new OverlayVpnFailServer();
 
     @Before
     public void setup() throws ServiceException {
-        overlayVpnAdapterServer.start();
+        overlayVpnFailServer.start();
     }
 
     @After
     public void tearDown() {
-        overlayVpnAdapterServer.stop();
+        overlayVpnFailServer.stop();
     }
 
     @Test
-    public void CreateVxlanFailTest1() throws ServiceException {
-        execTestCase(new File("src/main/resources/createvxlanfail1.json"));
+    public void createNotExistFailedTest() throws ServiceException {
+        File createFile = new File("src/integration-test/resources/testcase/createfailed.json");
+        HttpRquestResponse createHttpObject = HttpModelUtils.praseHttpRquestResponse(FileUtils.readFromJson(createFile));
+        execTestCase(createFile, new RegularExpChecker(createHttpObject.getResponse()));
     }
 
     @Test
-    public void CreateVxlanFailTest2() throws ServiceException {
-        execTestCase(new File("src/main/resources/createvxlanfail1.json"));
+    public void queryNotExistFailedTest() throws ServiceException {
+        File queryFile = new File("src/integration-test/resources/testcase/querynotexistfailed.json");
+        HttpRquestResponse queryHttpObject = HttpModelUtils.praseHttpRquestResponse(FileUtils.readFromJson(queryFile));
+        execTestCase(queryFile, new RegularExpChecker(queryHttpObject.getResponse()));
     }
 
 }

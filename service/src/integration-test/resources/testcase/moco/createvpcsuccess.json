@@ -1,0 +1,26 @@
+{
+	"request": {
+		"uri": "/openoapi/sdnovpc/v1/vpcs",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8"
+		}
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"name": null,
+			"description": null,
+			"status": "None",
+			"statusReason": null,
+			"osControllerId": null,
+			"externalIp": null,
+			"attributes": {
+				"id": "aaaa",
+				"parentId": "parentId",
+				"routerId": "routerId"
+			},
+			"id": null
+		}
+	}
+}
