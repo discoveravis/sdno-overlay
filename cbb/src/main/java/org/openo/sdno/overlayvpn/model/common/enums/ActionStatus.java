@@ -26,6 +26,9 @@ public enum ActionStatus {
     NONE(0), NORMAL(1), CREATING(2), DELETING(3), UPDATING(4), CREATE_EXCEPTION(5), DELETE_EXCEPTION(6),
     UPDATE_EXCEPTION(7);
 
+    private static final String[] NAME_LIST = new String[] {"None", "Normal", "Creating", "Deleting", "Updating",
+                    "Create_Excepion", "Delete_Exception", "Update_Exception"};
+
     private int value;
 
     /**
@@ -45,26 +48,12 @@ public enum ActionStatus {
      * @since SDNO 0.5
      */
     public String getName() {
-        switch(value) {
-            case 0:
-                return "None";
-            case 1:
-                return "Normal";
-            case 2:
-                return "Creating";
-            case 3:
-                return "Deleting";
-            case 4:
-                return "Updating";
-            case 5:
-                return "Create_Excepion";
-            case 6:
-                return "Delete_Exception";
-            case 7:
-                return "Update_Exception";
-            default:
-                return "";
+
+        if(value >= 0 && value < NAME_LIST.length) {
+            return NAME_LIST[value];
         }
+
+        return "";
     }
 
 }

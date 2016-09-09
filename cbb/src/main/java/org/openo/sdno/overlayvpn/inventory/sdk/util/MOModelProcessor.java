@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
@@ -204,31 +203,18 @@ public class MOModelProcessor {
         List<Field> fields = JavaEntityUtil.getAllField(motype);
         for(Field field : fields) {
             if(field.getName().equalsIgnoreCase(InvConst.UUID_STR)) {
-                return getFieldValueByName(obj, field);
+                return MOModelProcessorUtil.getFieldValueByName(obj, field);
             }
             MOUUIDField uuidFieldAnn = field.getAnnotation(MOUUIDField.class);
             if(uuidFieldAnn != null) {
-                return getFieldValueByName(obj, field);
+                return MOModelProcessorUtil.getFieldValueByName(obj, field);
             }
         }
 
         return null;
     }
 
-    private static String getFieldValueByName(Object obj, Field field) throws InnerErrorServiceException {
-        Object fieldValueByName = JavaEntityUtil.getFieldValueByName(field.getName(), obj);
-        if(fieldValueByName != null) {
-            return fieldValueByName.toString();
-        } else {
-            LOGGER.error("getFieldValueByName fieldValueByName is null,return null.");
-            return null;
-        }
-    }
 
-    private static String buildRestType(Class moType) {
-        String resttype = moType.getName().replaceAll("\\.", "_");
-        return resttype.toLowerCase(Locale.getDefault());
-    }
 
     /**
      * It is used to get resource type. <br>
@@ -244,7 +230,7 @@ public class MOModelProcessor {
                 return restypeAn.infoModelName();
             }
         }
-        return buildRestType(motype);
+        return MOModelProcessorUtil.buildRestType(motype);
     }
 
     /**

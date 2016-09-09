@@ -16,7 +16,7 @@
 
 package org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;

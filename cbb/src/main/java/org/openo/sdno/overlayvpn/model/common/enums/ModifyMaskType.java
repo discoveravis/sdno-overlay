@@ -25,6 +25,9 @@ package org.openo.sdno.overlayvpn.model.common.enums;
 public enum ModifyMaskType {
     NOMODIFY(0), ADD(1), DELETE(2), MODIFY(3), MIDDLECOMPARE(4), DEPLOY(5), UNDEPLOY(6);
 
+    private static final String[] NAME_LIST =
+            new String[] {"NOMODIFY", "ADD", "DELETE", "MODIFY", "MIDDLECOMPARE", "DEPLOY", "UNDEPLOY"};
+
     private int value;
 
     /**
@@ -45,23 +48,11 @@ public enum ModifyMaskType {
      * @since SDNO 0.5
      */
     public String getName() {
-        switch(value) {
-            case 0:
-                return "NOMODIFY";
-            case 1:
-                return "ADD";
-            case 2:
-                return "DELETE";
-            case 3:
-                return "MODIFY";
-            case 4:
-                return "MIDDLECOMPARE";
-            case 5:
-                return "DEPLOY";
-            case 6:
-                return "UNDEPLOY";
-            default:
-                return "";
+
+        if(value >= 0 && value < NAME_LIST.length) {
+            return NAME_LIST[value];
         }
+
+        return "";
     }
 }

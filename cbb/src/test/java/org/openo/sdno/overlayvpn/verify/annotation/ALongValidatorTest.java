@@ -18,12 +18,13 @@ package org.openo.sdno.overlayvpn.verify.annotation;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
-import org.junit.Test;
-
 import mockit.Expectations;
 import mockit.Mocked;
 import mockit.Verifications;
+
+import org.junit.Test;
+import org.openo.sdno.overlayvpn.verify.annotation.ALong;
+import org.openo.sdno.overlayvpn.verify.annotation.ALongValidator;
 
 /*
  * Junit Test case to test the com.huawei.netmatrix.cbb.overlayvpn.verify.annotation.ALongValidator class

@@ -81,7 +81,7 @@ public class WanSubInterface {
     /**
      * The prefix length of IPV6
      */
-    private String prifexlength;
+    private String prefixlength;
 
     /**
      * type:for GRE or for VxLan
@@ -91,7 +91,7 @@ public class WanSubInterface {
     @Override
     public String toString() {
         return "WanSubInterface [neId=" + neId + ", name=" + name + ", ceHighVlan=" + ceHighVlan + ", ip=" + ipAddress
-                + ", mask=" + mask + ", mac=" + mac + ", ipv6address=" + ipv6address + ", prifexlength=" + prifexlength
+                + ", mask=" + mask + ", mac=" + mac + ", ipv6address=" + ipv6address + ", prifexlength=" + prefixlength
                 + ", type=" + type + "]";
     }
 
@@ -167,11 +167,11 @@ public class WanSubInterface {
         this.ipv6address = ipv6address;
     }
 
-    public String getPrifexlength() {
-        return prifexlength;
+    public String getPrefixlength() {
+        return prefixlength;
     }
 
-    public void setPrifexlength(String prifexlength) {
-        this.prifexlength = prifexlength;
+    public void setPrefixlength(String prefixlength) {
+        this.prefixlength = prefixlength;
     }
 }

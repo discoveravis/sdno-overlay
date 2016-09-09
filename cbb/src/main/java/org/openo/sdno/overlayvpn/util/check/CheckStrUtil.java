@@ -49,39 +49,39 @@ public class CheckStrUtil {
 
     private static final String PARAMETER_INVALID_UUID = ResourceUtil.getMessage("parameter.invalid.uuid");
 
-    private static final String PARAMETER_INVALID_UUID_REASON = ResourceUtil
-            .getMessage("parameter.invalid.uuid.reason");
+    private static final String PARAMETER_INVALID_UUID_REASON =
+            ResourceUtil.getMessage("parameter.invalid.uuid.reason");
 
     private static final String PARAMETER_INVALID_ADVICE = ResourceUtil.getMessage("parameter.invalid.advice");
 
-    private static final String PARAMETER_INVALID_UUID_NOT_SAME_REASON = ResourceUtil
-            .getMessage("parameter.invalid.uuid_not_same.reason");
+    private static final String PARAMETER_INVALID_UUID_NOT_SAME_REASON =
+            ResourceUtil.getMessage("parameter.invalid.uuid_not_same.reason");
 
     private static final String PARAMETER_INVALID_RANGE = ResourceUtil.getMessage("parameter.invalid.range");
 
-    private static final String PARAMETER_INVALID_RANGE_REASON = ResourceUtil
-            .getMessage("parameter.invalid.range.reason");
+    private static final String PARAMETER_INVALID_RANGE_REASON =
+            ResourceUtil.getMessage("parameter.invalid.range.reason");
 
     private static final String PARAMETER_INVALID_IPSEGMENT = ResourceUtil.getMessage("parameter.invalid.ipsegment");
 
-    private static final String PARAMETER_INVALID_IPSEGMENT_REASON = ResourceUtil
-            .getMessage("parameter.invalid.ipsegment.reason");
+    private static final String PARAMETER_INVALID_IPSEGMENT_REASON =
+            ResourceUtil.getMessage("parameter.invalid.ipsegment.reason");
 
     private static final String PARAMETER_INVALID_BANDWIDTH = ResourceUtil.getMessage("parameter.invalid.bandwidth");
 
-    private static final String PARAMETER_INVALID_BANDWIDTH_REASON = ResourceUtil
-            .getMessage("parameter.invalid.bandwidth.reason");
+    private static final String PARAMETER_INVALID_BANDWIDTH_REASON =
+            ResourceUtil.getMessage("parameter.invalid.bandwidth.reason");
 
-    private static final String PARAMETER_INVALID_STATICROUTE = ResourceUtil
-            .getMessage("parameter.invalid.staticroute");
+    private static final String PARAMETER_INVALID_STATICROUTE =
+            ResourceUtil.getMessage("parameter.invalid.staticroute");
 
-    private static final String PARAMETER_INVALID_STATICROUTE_REASON = ResourceUtil
-            .getMessage("parameter.invalid.staticroute.reason");
+    private static final String PARAMETER_INVALID_STATICROUTE_REASON =
+            ResourceUtil.getMessage("parameter.invalid.staticroute.reason");
 
     private static final String PARAMETER_INVALID_BGPEER = ResourceUtil.getMessage("parameter.invalid.bgpeer");
 
-    private static final String PARAMETER_INVALID_BGPEER_REASON = ResourceUtil
-            .getMessage("parameter.invalid.bgpeer.reason");
+    private static final String PARAMETER_INVALID_BGPEER_REASON =
+            ResourceUtil.getMessage("parameter.invalid.bgpeer.reason");
 
     private CheckStrUtil() {
     }
@@ -125,6 +125,7 @@ public class CheckStrUtil {
             LOGGER.error("uuidList invalid. uuidList is null.");
             SvcExcptUtil.throwBadReqSvcExptionWithInfo(ErrorCode.OVERLAYVPN_PARAMETER_INVALID, desc, message, message,
                     advice);
+            return;
         }
 
         if(uuidList.size() > QUERY_TUNNEL_MAX_LENGTH) {
@@ -160,9 +161,8 @@ public class CheckStrUtil {
             LOGGER.error("uuids is not same. uuid = " + uuid1 + ", uuid2 = " + uuid2);
             // construct error message
             String desc = PARAMETER_INVALID_DESC;
-            String message =
-                    PARAMETER_INVALID_UUID + uuid1 + ", " + PARAMETER_INVALID_UUID + uuid2
-                            + PARAMETER_INVALID_UUID_NOT_SAME_REASON;
+            String message = PARAMETER_INVALID_UUID + uuid1 + ", " + PARAMETER_INVALID_UUID + uuid2
+                    + PARAMETER_INVALID_UUID_NOT_SAME_REASON;
             String advice = PARAMETER_INVALID_ADVICE;
             SvcExcptUtil.throwBadReqSvcExptionWithInfo(ErrorCode.OVERLAYVPN_PARAMETER_INVALID, desc, message, message,
                     advice);

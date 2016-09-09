@@ -91,8 +91,6 @@ public class ResultRsp<T> implements Serializable {
 
     /**
      * Constructor<br>
-     * <p>
-     * </p>
      * 
      * @since SDNO 0.5
      */
@@ -102,8 +100,6 @@ public class ResultRsp<T> implements Serializable {
 
     /**
      * Constructor<br>
-     * <p>
-     * </p>
      * 
      * @since SDNO 0.5
      * @param errorCode error code
@@ -115,8 +111,6 @@ public class ResultRsp<T> implements Serializable {
 
     /**
      * Constructor<br>
-     * <p>
-     * </p>
      * 
      * @since SDNO 0.5
      * @param errorCode error code
@@ -136,8 +130,6 @@ public class ResultRsp<T> implements Serializable {
 
     /**
      * Constructor<br>
-     * <p>
-     * </p>
      * 
      * @since SDNO 0.5
      * @param errorCode error code
@@ -151,8 +143,6 @@ public class ResultRsp<T> implements Serializable {
 
     /**
      * Constructor<br>
-     * <p>
-     * </p>
      * 
      * @since SDNO 0.5
      * @param errorCode error code
@@ -162,17 +152,19 @@ public class ResultRsp<T> implements Serializable {
         super();
         this.errorCode = errorCode;
         if(null != excptArgs) {
-            this.descArg = getFisrtDataFromArry(excptArgs.getDescArgs());
-            this.reasonArg = getFisrtDataFromArry(excptArgs.getReasonArgs());
-            this.detailArg = getFisrtDataFromArry(excptArgs.getDetailArgs());
-            this.adviceArg = getFisrtDataFromArry(excptArgs.getAdviceArgs());
+            this.descArg = ((null != excptArgs.getDescArgs()) && (excptArgs.getDescArgs().length > 0))
+                    ? excptArgs.getDescArgs()[0] : null;
+            this.reasonArg = ((null != excptArgs.getReasonArgs()) && (excptArgs.getReasonArgs().length > 0))
+                    ? excptArgs.getReasonArgs()[0] : null;
+            this.detailArg = ((null != excptArgs.getDetailArgs()) && (excptArgs.getDetailArgs().length > 0))
+                    ? excptArgs.getDetailArgs()[0] : null;
+            this.adviceArg = ((null != excptArgs.getAdviceArgs()) && (excptArgs.getAdviceArgs().length > 0))
+                    ? excptArgs.getAdviceArgs()[0] : null;
         }
     }
 
     /**
      * Constructor<br>
-     * <p>
-     * </p>
      * 
      * @since SDNO 0.5
      * @param excpt ServiceException Object
@@ -185,8 +177,6 @@ public class ResultRsp<T> implements Serializable {
 
     /**
      * Constructor<br>
-     * <p>
-     * </p>
      * 
      * @since SDNO 0.5
      * @param result ResultRsp Object
@@ -204,8 +194,6 @@ public class ResultRsp<T> implements Serializable {
 
     /**
      * Constructor<br>
-     * <p>
-     * </p>
      * 
      * @since SDNO 0.5
      * @param result ResultRsp Object
@@ -334,20 +322,6 @@ public class ResultRsp<T> implements Serializable {
         String[] detailArray = {message + detailArg};
         String[] adviceArray = {message + adviceArg};
         return new ExceptionArgs(descArray, reasonArray, detailArray, adviceArray);
-    }
-
-    /**
-     * Get First Error Message.<br>
-     * 
-     * @param dataArry list of Error Message
-     * @return first error message
-     * @since SDNO 0.5
-     */
-    private String getFisrtDataFromArry(String[] dataArry) {
-        if((null != dataArry) && (dataArry.length > 0)) {
-            return dataArry[0];
-        }
-        return null;
     }
 
     /**

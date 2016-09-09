@@ -23,9 +23,6 @@ import static org.junit.Assert.fail;
 import java.util.ArrayList;
 import java.util.List;
 
-import mockit.Mock;
-import mockit.MockUp;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
@@ -33,8 +30,9 @@ import org.openo.sdno.overlayvpn.brs.invdao.ControllerDao;
 import org.openo.sdno.overlayvpn.brs.model.ControllerMO;
 import org.openo.sdno.overlayvpn.errorcode.ErrorCode;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
-import org.openo.sdno.overlayvpn.util.ctrlconnection.ControllerUtil;
-import org.openo.sdno.overlayvpn.util.ctrlconnection.IpReachableUtil;
+
+import mockit.Mock;
+import mockit.MockUp;
 
 /**
  * ControllerUtil Test class.<br>
@@ -65,16 +63,6 @@ public class ControllerUtilTest {
 
         };
 
-        new MockUp<IpReachableUtil>() {
-
-            @Mock
-            public boolean ping(String ip) {
-
-                return true;
-            }
-
-        };
-
         List<String> neUuids = new ArrayList<String>();
         neUuids.add("001");
         neUuids.add("002");
@@ -99,16 +87,6 @@ public class ControllerUtilTest {
                 List<ControllerMO> list = new ArrayList<>();
                 list.add(mo);
                 return list;
-            }
-
-        };
-
-        new MockUp<IpReachableUtil>() {
-
-            @Mock
-            public boolean ping(String ip) {
-
-                return false;
             }
 
         };

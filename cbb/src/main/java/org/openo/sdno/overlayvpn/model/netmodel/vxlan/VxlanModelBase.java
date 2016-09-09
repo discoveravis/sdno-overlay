@@ -21,8 +21,6 @@ import org.openo.sdno.overlayvpn.verify.annotation.AString;
 
 /**
  * Class of VxLan Model Base.<br>
- * <p>
- * </p>
  * 
  * @author
  * @version SDNO 0.5 Jun 6, 2016

@@ -126,32 +126,28 @@ public class ValidationUtilTest {
         @Override
         public <T> Set<ConstraintViolation<T>> validateProperty(T paramT, String paramString,
                 Class<?>... paramArrayOfClass) {
-
             return null;
         }
 
         @Override
         public <T> Set<ConstraintViolation<T>> validateValue(Class<T> paramClass, String paramString,
                 Object paramObject, Class<?>... paramArrayOfClass) {
-
             return null;
         }
 
         @Override
         public BeanDescriptor getConstraintsForClass(Class<?> paramClass) {
-
             return null;
         }
 
         @Override
         public <T> T unwrap(Class<T> paramClass) {
-
             return null;
         }
 
         @Override
         public ExecutableValidator forExecutables() {
-
+            // TODO Auto-generated method stub
             return null;
         }
 
@@ -166,42 +162,37 @@ public class ValidationUtilTest {
 
         @Override
         public ValidatorContext usingContext() {
-
             return null;
         }
 
         @Override
         public MessageInterpolator getMessageInterpolator() {
-
             return null;
         }
 
         @Override
         public TraversableResolver getTraversableResolver() {
-
             return null;
         }
 
         @Override
         public ConstraintValidatorFactory getConstraintValidatorFactory() {
-
             return null;
         }
 
         @Override
         public <T> T unwrap(Class<T> paramClass) {
-
             return null;
         }
 
         @Override
         public void close() {
-
+            // TODO Auto-generated method stub
         }
 
         @Override
         public ParameterNameProvider getParameterNameProvider() {
-
+            // TODO Auto-generated method stub
             return null;
         }
     }
@@ -210,67 +201,59 @@ public class ValidationUtilTest {
 
         @Override
         public String getMessage() {
-
             return "PriConstraintViolation";
         }
 
         @Override
         public String getMessageTemplate() {
-
             return null;
         }
 
         @Override
         public Object getRootBean() {
-
             return null;
         }
 
         @Override
         public Class getRootBeanClass() {
-
             return null;
         }
 
         @Override
         public Object getLeafBean() {
-
             return null;
         }
 
         @Override
         public Path getPropertyPath() {
-
             return new PriPath();
         }
 
         @Override
         public Object getInvalidValue() {
-
             return null;
         }
 
         @Override
         public ConstraintDescriptor getConstraintDescriptor() {
-
             return null;
         }
 
         @Override
         public Object[] getExecutableParameters() {
-
+            // TODO Auto-generated method stub
             return null;
         }
 
         @Override
         public Object getExecutableReturnValue() {
-
+            // TODO Auto-generated method stub
             return null;
         }
 
         @Override
         public Object unwrap(Class arg0) {
-
+            // TODO Auto-generated method stub
             return null;
         }
 

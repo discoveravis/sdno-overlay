@@ -63,27 +63,27 @@ public class IpsecMappingPolicy extends BaseMappingPolicy {
         this.ipsecPolicyId = mappingPolicy.getIpsecPolicyId();
     }
 
-    public String getRouteMode() {
-        return routeMode;
+    public String getAuthMode() {
+        return authMode;
     }
 
     public void setRouteMode(String routeMode) {
         this.routeMode = routeMode;
     }
 
-    public String getAuthMode() {
-        return authMode;
+    public String getPsk() {
+        return psk;
     }
 
     public void setAuthMode(String authMode) {
         this.authMode = authMode;
     }
 
-    public String getPsk() {
-        return psk;
-    }
-
     public void setPsk(String psk) {
         this.psk = psk;
+    }
+
+    public String getRouteMode() {
+        return routeMode;
     }
 }

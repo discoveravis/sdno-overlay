@@ -22,11 +22,13 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
-
 import mockit.Expectations;
 import mockit.Mocked;
 import mockit.Verifications;
+
+import org.junit.Test;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
+import org.openo.sdno.overlayvpn.verify.annotation.AStringValidator;
 
 /*
  * Junit Test case to test the com.huawei.netmatrix.cbb.overlayvpn.verify.annotation.AStringValidator class

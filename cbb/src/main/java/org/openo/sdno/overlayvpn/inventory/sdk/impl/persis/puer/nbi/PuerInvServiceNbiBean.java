@@ -389,10 +389,7 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
         String url = MessageFormat.format(DBURL, DbOwerInfo.getBucketName()) + resType + "/objects";
 
         RestfulResponse response = RestfulProxy.delete(url, restfulParametes);
-        if(HttpCode.isSucess(response.getStatus())) {
-            // responseValue = ResponseUtils.transferResponse(response,
-            // InvRsp.class);
-        } else {
+        if(!HttpCode.isSucess(response.getStatus())) {
             LOGGER.warn("batchDelete fail!resType=" + resType + ",uuidList=" + uuidList);
             dealSvcException(response);
             throw new ServiceException(ErrorCode.DB_RETURN_ERROR);
@@ -506,16 +503,18 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
                 int size = values.size();
 
                 filterDsc.append('(');
+
                 for(Object obj : values) {
                     if(size == num) {
                         filterDsc.append(key).append("=':").append(key).append(num).append('\'');
                     } else {
+
                         filterDsc.append(key).append("=':").append(key).append(num).append("' or ");
                     }
 
                     entriyFilter.put(key + num, obj);
-
                     num++;
+
                 }
                 filterDsc.append(')');
 
@@ -528,11 +527,10 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
             batchQueryFileterEntity.setFilterData(JsonUtil.toJson(entriyFilter));
         } else {
             batchQueryFileterEntity.setFilterData("");
+
             batchQueryFileterEntity.setFilterDsc("");
         }
-
         restParametes.put("filter", JsonUtil.toJson(batchQueryFileterEntity));
-
         return restParametes;
     }
 

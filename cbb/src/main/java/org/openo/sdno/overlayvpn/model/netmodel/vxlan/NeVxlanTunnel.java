@@ -28,8 +28,6 @@ import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
 /**
  * Class of NeVxlanTunnel Model.<br>
- * <p>
- * </p>
  * 
  * @author
  * @version SDNO 0.5 Jun 6, 2016

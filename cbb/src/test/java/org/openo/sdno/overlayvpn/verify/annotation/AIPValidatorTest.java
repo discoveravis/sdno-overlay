@@ -16,14 +16,17 @@
 
 package org.openo.sdno.overlayvpn.verify.annotation;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
-import org.junit.Test;
+import javax.validation.ConstraintValidatorContext;
 
 import mockit.Expectations;
 import mockit.Mocked;
 import mockit.Verifications;
+
+import org.junit.Test;
+import org.openo.sdno.overlayvpn.verify.annotation.AIPValidator;
+import org.openo.sdno.overlayvpn.verify.annotation.AIp;
 
 /**
  * JUnit Test class for Annotation Validator Class of IpAddress.

@@ -260,12 +260,13 @@ public class OverlayVpnComplexDao {
      */
     public ResultRsp<OverlayVpn> queryComplexVpnByEpg(EndpointGroup epg) throws ServiceException {
         String connectionId = epg.getConnectionId();
-
+        ResultRsp<OverlayVpn> retResult = new ResultRsp<>();
         // Query Connection of epg
         Connection parentConn = (Connection)inventoryDao.query(Connection.class, connectionId, null).getData();
         if(null == parentConn) {
             LOGGER.error("Connection not found. uuid = " + connectionId);
             OverlayVpnComplexDaoUtil.throwCloudVpnDataMissExpt("Connection");
+            return retResult;
         }
 
         // Query OverlayVpn of parent Connection
@@ -279,6 +280,7 @@ public class OverlayVpnComplexDao {
         if(null == overlanVpn) {
             LOGGER.error("OverlayVpn not found. filter = " + parentVpnUuid);
             OverlayVpnComplexDaoUtil.throwCloudVpnDataMissExpt("OverlayVpn");
+            return retResult;
         }
 
         // Query all EndpointGroups of this connection
@@ -293,7 +295,6 @@ public class OverlayVpnComplexDao {
         parentConn.setEndpointGroups(totalEpgs);
         overlanVpn.setVpnConnections(Arrays.asList(parentConn));
 
-        ResultRsp<OverlayVpn> retResult = new ResultRsp<>();
         retResult.setData(overlanVpn);
         return retResult;
     }

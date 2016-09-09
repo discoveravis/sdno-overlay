@@ -125,8 +125,6 @@ public class NetworkElementMO extends BaseMO {
 
     /**
      * Constructor<br>
-     * <p>
-     * </p>
      * 
      * @since SDNO 0.5
      */
@@ -255,16 +253,6 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get productName attribute.<br>
-     * 
-     * @return productName attribute
-     * @since SDNO 0.5
-     */
-    public String getProductName() {
-        return productName;
-    }
-
-    /**
      * Set productName attribute.<br>
      * 
      * @param productName String Object
@@ -275,13 +263,13 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get isVirtual attribute.<br>
+     * Get productName attribute.<br>
      * 
-     * @return isVirtual attribute.
+     * @return productName attribute
      * @since SDNO 0.5
      */
-    public String getIsVirtual() {
-        return isVirtual;
+    public String getProductName() {
+        return productName;
     }
 
     /**
@@ -295,13 +283,13 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get ipAddress attribute.<br>
+     * Get isVirtual attribute.<br>
      * 
-     * @return ipAddress attribute
+     * @return isVirtual attribute.
      * @since SDNO 0.5
      */
-    public String getIpAddress() {
-        return ipAddress;
+    public String getIsVirtual() {
+        return isVirtual;
     }
 
     /**
@@ -315,23 +303,13 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get source attribute.<br>
+     * Get ipAddress attribute.<br>
      * 
-     * @return source attribute
+     * @return ipAddress attribute
      * @since SDNO 0.5
      */
-    public String getSource() {
-        return source;
-    }
-
-    /**
-     * Set source attribute. <br>
-     * 
-     * @param source String Object
-     * @since SDNO 0.5
-     */
-    public void setSource(String source) {
-        this.source = source;
+    public String getIpAddress() {
+        return ipAddress;
     }
 
     /**
@@ -352,6 +330,26 @@ public class NetworkElementMO extends BaseMO {
      */
     public void setOwner(String owner) {
         this.owner = owner;
+    }
+
+    /**
+     * Get source attribute.<br>
+     * 
+     * @return source attribute
+     * @since SDNO 0.5
+     */
+    public String getSource() {
+        return source;
+    }
+
+    /**
+     * Set source attribute. <br>
+     * 
+     * @param source String Object
+     * @since SDNO 0.5
+     */
+    public void setSource(String source) {
+        this.source = source;
     }
 
     /**
@@ -395,26 +393,6 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get manufacturer attribute.<br>
-     * 
-     * @return manufacturer attribute
-     * @since SDNO 0.5
-     */
-    public String getManufacturer() {
-        return manufacturer;
-    }
-
-    /**
-     * Set manufacturer attribute.<br>
-     * 
-     * @param manufacturer String Object
-     * @since SDNO 0.5
-     */
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
-    }
-
-    /**
      * Get manufactureDate attribute.<br>
      * 
      * @return manufactureDate attribute.
@@ -435,23 +413,23 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
-     * Get adminState attribute.<br>
+     * Get manufacturer attribute.<br>
      * 
-     * @return adminState attribute
+     * @return manufacturer attribute
      * @since SDNO 0.5
      */
-    public String getAdminState() {
-        return adminState;
+    public String getManufacturer() {
+        return manufacturer;
     }
 
     /**
-     * Set adminState attribute.<br>
+     * Set manufacturer attribute.<br>
      * 
-     * @param adminState String Object
+     * @param manufacturer String Object
      * @since SDNO 0.5
      */
-    public void setAdminState(String adminState) {
-        this.adminState = adminState;
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
     }
 
     /**
@@ -472,6 +450,26 @@ public class NetworkElementMO extends BaseMO {
      */
     public void setOperState(String operState) {
         this.operState = operState;
+    }
+
+    /**
+     * Get adminState attribute.<br>
+     * 
+     * @return adminState attribute
+     * @since SDNO 0.5
+     */
+    public String getAdminState() {
+        return adminState;
+    }
+
+    /**
+     * Set adminState attribute.<br>
+     * 
+     * @param adminState String Object
+     * @since SDNO 0.5
+     */
+    public void setAdminState(String adminState) {
+        this.adminState = adminState;
     }
 
     /**

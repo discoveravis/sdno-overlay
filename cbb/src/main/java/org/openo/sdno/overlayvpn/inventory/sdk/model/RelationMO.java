@@ -20,8 +20,6 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
-import org.openo.baseservice.roa.util.restclient.RestfulParametes;
 import org.openo.sdno.exception.InnerErrorServiceException;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MORelationField;
 import org.openo.sdno.overlayvpn.inventory.sdk.util.MOModelProcessor;
@@ -193,34 +191,6 @@ public class RelationMO {
         oneRelation.put(RELATION_TYPE, this.getRelation());
         oneRelation.put(SERVICE_TYPE, this.getServiceType());
         return oneRelation;
-    }
-
-    /**
-     * It is used to build a relation parameters. <br>
-     * 
-     * @return The object of RestfulParametes, it may has src_uuid, dst_uuid, src_attr, dst_attr,
-     *         servicetype, querytype, and the querytype is "all".
-     * @since SDNO 0.5
-     */
-    public RestfulParametes buildRelationParam() {
-        RestfulParametes restParametes = new RestfulParametes();
-        if(this.getSrcUUID() != null) {
-            restParametes.put("src_uuid", this.getSrcUUID());
-        }
-        if(this.getDstUUID() != null) {
-            restParametes.put("dst_uuid", this.getDstUUID());
-        }
-        if(this.getSrcAttr() != null) {
-            restParametes.put("src_attr", this.getSrcAttr());
-        }
-        if(this.getDstAttr() != null) {
-            restParametes.put("dst_attr", this.getDstAttr());
-        }
-        if(!StringUtils.isEmpty(this.getServiceType())) {
-            restParametes.put("servicetype", this.getServiceType());
-        }
-        restParametes.put("querytype", "all");
-        return restParametes;
     }
 
     /**

@@ -16,23 +16,29 @@
 
 package org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.roa.util.restclient.RestfulParametes;
 import org.openo.baseservice.roa.util.restclient.RestfulResponse;
 import org.openo.sdno.framework.container.resthelper.RestfulProxy;
+import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.nbi.PuerInvRelationNbiBean;
 import org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.nbi.PuerInvServiceNbiBean;
+import org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.transact.util.ITransactionContext;
+import org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.transact.util.TransactionMgr;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.BatchQueryFileterEntity;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.QueryParams;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.RelationMO;
 import org.openo.sdno.overlayvpn.model.servicemodel.Gateway;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
+import org.openo.sdno.rest.ResponseUtils;
 
 import mockit.Mock;
 import mockit.MockUp;

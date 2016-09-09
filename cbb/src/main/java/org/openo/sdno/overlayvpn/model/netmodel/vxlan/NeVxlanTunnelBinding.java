@@ -23,8 +23,6 @@ import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
 /**
  * Class of NeVxlanTunnelBinding Model.<br>
- * <p>
- * </p>
  * 
  * @author
  * @version SDNO 0.5 Jun 6, 2016
@@ -36,7 +34,7 @@ public class NeVxlanTunnelBinding extends AbstUuidModel {
     private String vxlanTunnelId;
 
     /**
-     * VXLAN ID
+     * VxLAN ID
      */
     @AUuid(require = true)
     private String attachBy;

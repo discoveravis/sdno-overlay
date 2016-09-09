@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -33,8 +32,6 @@ import org.openo.sdno.overlayvpn.errorcode.ErrorCode;
 import org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.PuerInvDAOImpl;
 import org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.PuerInvServicesImpl;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.QueryParams;
-import org.openo.sdno.overlayvpn.model.BaseServiceModel;
-import org.openo.sdno.overlayvpn.model.common.enums.AdminStatus;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
 import org.openo.sdno.overlayvpn.result.SvcExcptUtil;
 import org.openo.sdno.overlayvpn.util.dbresultprocess.FillDbResultRsp;
@@ -50,8 +47,7 @@ import net.sf.json.JSONObject;
 /**
  * Inventory DAO class.<br>
  * 
- * @param <T>
- *            Inventory Model Class
+ * @param <T> Inventory Model Class
  * @author
  * @version SDNO 0.5 2016-5-5
  */
@@ -84,17 +80,12 @@ public class InventoryDao<T> {
     /**
      * Query data with filter field.<br>
      * 
-     * @param clazz
-     *            object type
-     * @param filter
-     *            filter
-     * @param queryResultFields
-     *            fields need be present in query result
-     * @param <T>
-     *            Inventory Model Class
+     * @param clazz object type
+     * @param filter filter
+     * @param queryResultFields fields need be present in query result
+     * @param <T> Inventory Model Class
      * @return query result
-     * @throws ServiceException
-     *             when query data failed.
+     * @throws ServiceException when query data failed.
      * @since SDNO 0.5
      */
     public ResultRsp<List<T>> queryByFilter(Class clazz, String filter, String queryResultFields)
@@ -117,15 +108,11 @@ public class InventoryDao<T> {
     /**
      * Query data by id and tenant id.<br>
      * 
-     * @param clazz
-     *            object type
-     * @param uuid
-     *            id
-     * @param tenantId
-     *            tenant id
+     * @param clazz object type
+     * @param uuid id
+     * @param tenantId tenant id
      * @return query result
-     * @throws ServiceException
-     *             when query data failed.
+     * @throws ServiceException when query data failed.
      * @since SDNO 0.5
      */
     @SuppressWarnings("rawtypes")
@@ -151,13 +138,10 @@ public class InventoryDao<T> {
     /**
      * Batch query data.<br>
      * 
-     * @param clazz
-     *            object type
-     * @param filter
-     *            filter
+     * @param clazz object type
+     * @param filter filter
      * @return query result
-     * @throws ServiceException
-     *             when query data failed.
+     * @throws ServiceException when query data failed.
      * @since SDNO 0.5
      */
     @SuppressWarnings("rawtypes")
@@ -168,13 +152,10 @@ public class InventoryDao<T> {
     /**
      * Batch query data.<br>
      * 
-     * @param clazz
-     *            object type
-     * @param uuids
-     *            id list
+     * @param clazz object type
+     * @param uuids id list
      * @return query result
-     * @throws ServiceException
-     *             when query data failed.
+     * @throws ServiceException when query data failed.
      * @since SDNO 0.5
      */
     @SuppressWarnings("rawtypes")
@@ -194,13 +175,10 @@ public class InventoryDao<T> {
      * Delete data according to UUID. If UUID is null, do nothing and return
      * success.<br>
      * 
-     * @param clazz
-     *            object type
-     * @param uuid
-     *            UUID
+     * @param clazz object type
+     * @param uuid UUID
      * @return operation result
-     * @throws ServiceException
-     *             when delete data failed.
+     * @throws ServiceException when delete data failed.
      * @since SDNO 0.5
      */
     @SuppressWarnings("rawtypes")
@@ -214,13 +192,10 @@ public class InventoryDao<T> {
     /**
      * Batch delete data according to UUID list.<br>
      * 
-     * @param clazz
-     *            object type
-     * @param uuids
-     *            list of UUIDs
+     * @param clazz object type
+     * @param uuids list of UUIDs
      * @return operation result
-     * @throws ServiceException
-     *             when delete data failed.
+     * @throws ServiceException when delete data failed.
      * @since SDNO 0.5
      */
     public ResultRsp<String> batchDelete(Class clazz, List<String> uuids) throws ServiceException {
@@ -247,11 +222,9 @@ public class InventoryDao<T> {
     /**
      * Insert a single data.<br>
      * 
-     * @param data
-     *            data
+     * @param data data
      * @return operation result
-     * @throws ServiceException
-     *             when insert data failed.
+     * @throws ServiceException when insert data failed.
      * @since SDNO 0.5
      */
     public ResultRsp<T> insert(T data) throws ServiceException {
@@ -261,11 +234,9 @@ public class InventoryDao<T> {
     /**
      * Batch insert data.<br>
      * 
-     * @param dataList
-     *            list of data
+     * @param dataList list of data
      * @return operation result
-     * @throws ServiceException
-     *             when insert data failed.
+     * @throws ServiceException when insert data failed.
      * @since SDNO 0.5
      */
     @SuppressWarnings("unchecked")
@@ -294,13 +265,10 @@ public class InventoryDao<T> {
     /**
      * Update data.<br>
      * 
-     * @param data
-     *            data to be updated
-     * @param updateFieldListStr
-     *            fields need to be updated
+     * @param data data to be updated
+     * @param updateFieldListStr fields need to be updated
      * @return operation result
-     * @throws ServiceException
-     *             when update data failed.
+     * @throws ServiceException when update data failed.
      * @since SDNO 0.5
      */
     public ResultRsp<T> update(T data, String updateFieldListStr) throws ServiceException {
@@ -313,15 +281,11 @@ public class InventoryDao<T> {
     /**
      * Batch update data.<br>
      * 
-     * @param clazz
-     *            object type
-     * @param oriUpdateList
-     *            data to be updated
-     * @param updateFieldListStr
-     *            fields need to be updated
+     * @param clazz object type
+     * @param oriUpdateList data to be updated
+     * @param updateFieldListStr fields need to be updated
      * @return operation result
-     * @throws ServiceException
-     *             when update data failed.
+     * @throws ServiceException when update data failed.
      * @since SDNO 0.5
      */
     @SuppressWarnings({"unchecked", "rawtypes"})
@@ -349,102 +313,12 @@ public class InventoryDao<T> {
     }
 
     /**
-     * Update the status of model data.<br>
-     * 
-     * @param dataList
-     *            list of data
-     * @param clazz
-     *            object type
-     * @return operation result
-     * @throws ServiceException
-     *             when update status failed.
-     * @since SDNO 0.5
-     */
-    @SuppressWarnings("rawtypes")
-    public ResultRsp<List<T>> updateStatus(List<T> dataList, Class clazz) throws ServiceException {
-        if(CollectionUtils.isEmpty(dataList)) {
-            return new ResultRsp<List<T>>(ErrorCode.OVERLAYVPN_SUCCESS);
-        }
-        return update(clazz, dataList, "adminStatus");
-    }
-
-    /**
-     * Update generic object T's adminStatus to inactive.<br>
-     * 
-     * @param dataMap
-     *            map of data
-     * @param clazz
-     *            object type
-     * @since SDNO 0.5
-     */
-    @SuppressWarnings("rawtypes")
-    public void inActiveCreatedDataList(Map<String, List<T>> dataMap, Class clazz) {
-        List<T> allDataList = new ArrayList<T>();
-        for(Map.Entry<String, List<T>> entry : dataMap.entrySet()) {
-            for(T tempObj : entry.getValue()) {
-                ((BaseServiceModel)tempObj).setAdminStatus(AdminStatus.INACTIVE.getName());
-            }
-            allDataList.addAll(entry.getValue());
-        }
-
-        try {
-            update(clazz, allDataList, "adminStatus");
-        } catch(ServiceException e) {
-            LOGGER.error("update data adminStatus error,", e);
-        }
-    }
-
-    /**
-     * Update the status of model data.<<br>
-     * 
-     * @param dataList
-     *            list of data
-     * @param adminStatus
-     *            adminStatus
-     * @param clazz
-     *            object type
-     * @return operation result
-     * @throws ServiceException
-     *             when update status failed.
-     * @since SDNO 0.5
-     */
-    @SuppressWarnings("rawtypes")
-    public ResultRsp<List<T>> updateStatus(List<T> dataList, AdminStatus adminStatus, Class clazz)
-            throws ServiceException {
-        if(CollectionUtils.isEmpty(dataList)) {
-            return new ResultRsp<List<T>>(ErrorCode.OVERLAYVPN_SUCCESS);
-        }
-
-        Iterator<T> it = dataList.iterator();
-        while(it.hasNext()) {
-            T tempData = it.next();
-            if(BaseServiceModel.class.isAssignableFrom(clazz)) {
-                ((BaseServiceModel)tempData).setAdminStatus(adminStatus.getName());
-            } else {
-                it.remove();
-                LOGGER.warn("update status data is not extends from BaseServiceModel, class = " + clazz.getName());
-            }
-        }
-
-        ResultRsp<List<T>> result = update(clazz, dataList, "adminStatus");
-        if(result.isSuccess()) {
-            // Success, translate error code to CloudVpn's success error code.
-            return new ResultRsp<>(ErrorCode.OVERLAYVPN_SUCCESS, dataList);
-        }
-
-        return result;
-    }
-
-    /**
      * Copy out fields in update data list which need to be updated. UUID must
      * be copied.<br>
      * 
-     * @param oriUpdateList
-     *            data to be updated
-     * @param tClass
-     *            object type
-     * @param updateFieldListStr
-     *            fields need to be updated
+     * @param oriUpdateList data to be updated
+     * @param tClass object type
+     * @param updateFieldListStr fields need to be updated
      * @return operation result
      * @since SDNO 0.5
      */

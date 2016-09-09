@@ -97,14 +97,4 @@ public class OverlayVpn extends BaseServiceModel {
         this.vpnConnections = vpnConnections;
     }
 
-    /**
-     * Copy Basic data from other OverlayVpn.<br>
-     * 
-     * @param data OverlayVpn Object
-     * @since SDNO 0.5
-     */
-    public void copyBasicData(OverlayVpn data) {
-        super.copyBasicData(data);
-    }
-
 }

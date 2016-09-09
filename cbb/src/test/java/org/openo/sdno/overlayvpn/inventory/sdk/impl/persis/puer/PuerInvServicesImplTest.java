@@ -16,13 +16,16 @@
 
 package org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.openo.sdno.overlayvpn.brs.invdao.ControllerDao;
+import org.openo.sdno.overlayvpn.brs.model.ControllerMO;
+import org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.transact.PuerAddMOContext;
 import org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.transact.util.ITransactionContext;
 import org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.transact.util.TransactionMgr;
 import org.openo.sdno.overlayvpn.model.servicemodel.Gateway;

@@ -42,23 +42,15 @@ public class NeIpSecConnection extends BaseNetModel {
     @AUuid(require = true)
     private String neId;
 
+    @AIpMask(require = true)
+    private String sourceAddress;
+
     @JsonProperty(value = "sourceIfId")
     @AString(require = true, min = 1, max = 36)
     private String soureIfName;
 
-    @AIpMask(require = true)
-    private String sourceAddress;
-
     @AString(require = true, scope = "none,hub,spoke")
     private String topoRole;
-
-    // Info of peer end
-    @AIpMask(require = true)
-    private String peerAddress;
-
-    @JsonIgnore
-    @AString(require = false, min = 0, max = 255)
-    private String peerNeId;
 
     @AString(require = true, scope = "PSK,certificate")
     private String authMode = AuthModeType.PSK.getName();
@@ -69,6 +61,14 @@ public class NeIpSecConnection extends BaseNetModel {
     @AString(min = 0, max = 36)
     @JsonIgnore
     private String ikePolicyId;
+
+    // Info of peer end
+    @AIpMask(require = true)
+    private String peerAddress;
+
+    @JsonIgnore
+    @AString(require = false, min = 0, max = 255)
+    private String peerNeId;
 
     @AString(min = 0, max = 36)
     @JsonIgnore
@@ -97,17 +97,10 @@ public class NeIpSecConnection extends BaseNetModel {
     }
 
     /**
-     * @return Returns the soureIfName.
+     * @param sourceAddress The sourceAddress to set.
      */
-    public String getSoureIfName() {
-        return soureIfName;
-    }
-
-    /**
-     * @param soureIfName The soureIfName to set.
-     */
-    public void setSoureIfName(String soureIfName) {
-        this.soureIfName = soureIfName;
+    public void setSourceAddress(String sourceAddress) {
+        this.sourceAddress = sourceAddress;
     }
 
     /**
@@ -118,10 +111,17 @@ public class NeIpSecConnection extends BaseNetModel {
     }
 
     /**
-     * @param sourceAddress The sourceAddress to set.
+     * @param soureIfName The soureIfName to set.
      */
-    public void setSourceAddress(String sourceAddress) {
-        this.sourceAddress = sourceAddress;
+    public void setSoureIfName(String soureIfName) {
+        this.soureIfName = soureIfName;
+    }
+
+    /**
+     * @return Returns the soureIfName.
+     */
+    public String getSoureIfName() {
+        return soureIfName;
     }
 
     /**
@@ -153,13 +153,6 @@ public class NeIpSecConnection extends BaseNetModel {
     }
 
     /**
-     * @return Returns the authMode.
-     */
-    public String getAuthMode() {
-        return authMode;
-    }
-
-    /**
      * @param authMode The authMode to set.
      */
     public void setAuthMode(String authMode) {
@@ -167,10 +160,10 @@ public class NeIpSecConnection extends BaseNetModel {
     }
 
     /**
-     * @return Returns the psk.
+     * @return Returns the authMode.
      */
-    public String getPsk() {
-        return psk;
+    public String getAuthMode() {
+        return authMode;
     }
 
     /**
@@ -181,10 +174,10 @@ public class NeIpSecConnection extends BaseNetModel {
     }
 
     /**
-     * @return Returns the ikePolicyId.
+     * @return Returns the psk.
      */
-    public String getIkePolicyId() {
-        return ikePolicyId;
+    public String getPsk() {
+        return psk;
     }
 
     /**
@@ -195,10 +188,10 @@ public class NeIpSecConnection extends BaseNetModel {
     }
 
     /**
-     * @return Returns the ipsecPolicyId.
+     * @return Returns the ikePolicyId.
      */
-    public String getIpsecPolicyId() {
-        return ipsecPolicyId;
+    public String getIkePolicyId() {
+        return ikePolicyId;
     }
 
     /**
@@ -209,10 +202,31 @@ public class NeIpSecConnection extends BaseNetModel {
     }
 
     /**
+     * @return Returns the ipsecPolicyId.
+     */
+    public String getIpsecPolicyId() {
+        return ipsecPolicyId;
+    }
+
+    /**
      * @return Returns the ikePolicy.
      */
     public IkePolicy getIkePolicy() {
         return ikePolicy;
+    }
+
+    /**
+     * @return Returns the peerNeId.
+     */
+    public String getPeerNeId() {
+        return peerNeId;
+    }
+
+    /**
+     * @param peerNeId The peerNeId to set.
+     */
+    public void setPeerNeId(String peerNeId) {
+        this.peerNeId = peerNeId;
     }
 
     /**
@@ -234,20 +248,6 @@ public class NeIpSecConnection extends BaseNetModel {
      */
     public void setIpSecPolicy(IpSecPolicy ipSecPolicy) {
         this.ipSecPolicy = ipSecPolicy;
-    }
-
-    /**
-     * @return Returns the peerNeId.
-     */
-    public String getPeerNeId() {
-        return peerNeId;
-    }
-
-    /**
-     * @param peerNeId The peerNeId to set.
-     */
-    public void setPeerNeId(String peerNeId) {
-        this.peerNeId = peerNeId;
     }
 
 }

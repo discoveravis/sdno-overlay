@@ -100,9 +100,9 @@ public class UpdateVpnStatus {
         }
 
         // Update service status in DAO
-        inventoryDao.updateStatus(Arrays.asList(operOverlayVpn), OverlayVpn.class);
-        inventoryDao.updateStatus(operConns, Connection.class);
-        inventoryDao.updateStatus(operEpgs, EndpointGroup.class);
+        inventoryDao.update(OverlayVpn.class, Arrays.asList(operOverlayVpn), "adminStatus");
+        inventoryDao.update(Connection.class, operConns, "adminStatus");
+        inventoryDao.update(EndpointGroup.class, operEpgs, "adminStatus");
     }
 
     /**

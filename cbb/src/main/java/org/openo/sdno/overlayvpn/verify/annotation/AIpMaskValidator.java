@@ -24,13 +24,12 @@ import java.util.regex.Pattern;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+import org.openo.sdno.framework.container.util.IpConfig;
 import org.openo.sdno.overlayvpn.consts.ValidationConsts;
 import org.springframework.util.StringUtils;
 
 /**
  * Annotation Validator Class of IpMask.<br>
- * <p>
- * </p>
  * 
  * @author
  * @version SDNO 0.5 Jun 2, 2016
@@ -60,7 +59,7 @@ public class AIpMaskValidator implements ConstraintValidator<AIpMask, String> {
      */
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        if("0.0.0.0/0".equals(value)) {
+        if(IpConfig.getMaskIpAddress().equals(value)) {
             return true;
         }
 

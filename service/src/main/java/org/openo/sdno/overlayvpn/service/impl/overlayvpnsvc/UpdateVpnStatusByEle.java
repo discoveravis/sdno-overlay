@@ -33,8 +33,6 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Overlay VPN status update.<br>
- * <p>
- * </p>
  * 
  * @author
  * @version SDNO 0.5 Jun 8, 2016
@@ -68,14 +66,14 @@ public class UpdateVpnStatusByEle {
 
         conn.setAdminStatus(refreshedStatus.getName());
         InventoryDao invDao = new InventoryDao<>();
-        invDao.updateStatus(Arrays.asList(conn), Connection.class);
+        invDao.update(Connection.class, Arrays.asList(conn), "adminStatus");
 
         List<EndpointGroup> epgList = new ArrayList<EndpointGroup>();
         for(EndpointGroup epg : conn.getEndpointGroups()) {
             epg.setAdminStatus(refreshedStatus.getName());
             epgList.add(epg);
         }
-        invDao.updateStatus(epgList, EndpointGroup.class);
+        invDao.update(EndpointGroup.class, epgList, "adminStatus");
 
         if(refreshedStatus.getName().equals(fullOverlayVpn.getAdminStatus())) {
             return;
@@ -95,7 +93,7 @@ public class UpdateVpnStatusByEle {
 
         if(isNeedRefreshVpn) {
             fullOverlayVpn.setAdminStatus(refreshedStatus.getName());
-            invDao.updateStatus(Arrays.asList(fullOverlayVpn), OverlayVpn.class);
+            invDao.update(OverlayVpn.class, Arrays.asList(fullOverlayVpn), "adminStatus");
         }
     }
 
@@ -132,7 +130,7 @@ public class UpdateVpnStatusByEle {
 
         epg.setAdminStatus(refreshedStatus.getName());
 
-        invDao.updateStatus(Arrays.asList(epg), EndpointGroup.class);
+        invDao.update(EndpointGroup.class, Arrays.asList(epg), "adminStatus");
 
         refreshConnAndVpn(fullOverlayVpn, epg, invDao, refreshedStatus);
     }
@@ -177,7 +175,7 @@ public class UpdateVpnStatusByEle {
                     if((connection.getEndpointGroups().size() == 2)
                             && (refreshedStatus.getName().equals(AdminStatus.ACTIVE.getName()))) {
                         tempEpg.setAdminStatus(refreshedStatus.getName());
-                        invDao.updateStatus(Arrays.asList(tempEpg), EndpointGroup.class);
+                        invDao.update(EndpointGroup.class, Arrays.asList(tempEpg), "adminStatus");
 
                     }
                 }
@@ -186,11 +184,11 @@ public class UpdateVpnStatusByEle {
 
         if((null != tempConn) && isNeedRefreshConnStatus) {
             tempConn.setAdminStatus(refreshedStatus.getName());
-            invDao.updateStatus(Arrays.asList(tempConn), Connection.class);
+            invDao.update(Connection.class, Arrays.asList(tempConn), "adminStatus");
         }
         if(isNeedRefreshVpnStatus) {
             fullOverlayVpn.setAdminStatus(refreshedStatus.getName());
-            invDao.updateStatus(Arrays.asList(fullOverlayVpn), OverlayVpn.class);
+            invDao.update(OverlayVpn.class, Arrays.asList(fullOverlayVpn), "adminStatus");
         }
     }
 }

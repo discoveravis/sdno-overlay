@@ -16,14 +16,14 @@
 
 package org.openo.sdno.overlayvpn.verify.annotation;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-import org.junit.Test;
-
+import static org.junit.Assert.*;
 import mockit.Expectations;
 import mockit.Mocked;
 import mockit.Verifications;
+
+import org.junit.Test;
+import org.openo.sdno.overlayvpn.verify.annotation.AIpMask;
+import org.openo.sdno.overlayvpn.verify.annotation.AIpMaskValidator;
 
 /**
  * JUnit Test class for Annotation Validator Class of IpMask.

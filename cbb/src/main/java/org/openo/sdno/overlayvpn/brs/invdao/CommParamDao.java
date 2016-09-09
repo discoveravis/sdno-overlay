@@ -65,7 +65,9 @@ public class CommParamDao {
     /**
      * Update CommParam Object.<br>
      * 
-     * @param commParamMO CommParam Object need to update
+     * @param controllerId controller ID
+     * @param commParamMO commParamMO CommParam Object need to update
+     * @throws ServiceException when update failed
      * @since SDNO 0.5
      */
     public void updateMO(String controllerId, CommParamMO commParamMO) throws ServiceException {
