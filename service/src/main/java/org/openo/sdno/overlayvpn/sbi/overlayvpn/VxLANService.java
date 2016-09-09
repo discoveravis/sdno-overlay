@@ -51,9 +51,9 @@ public class VxLANService implements IMicroSvcBasicOper<OverlayVpn> {
 
     private static volatile VxLANService instance = null;
 
-    private static final String VXLAN_VPN_BASIC_PATH = "/rest/svc/vxlan/v1/vxlans";
+    private static final String VXLAN_VPN_BASIC_PATH = "/openoapi/sdnovxlan/v1/vxlans";
 
-    private static final String VXLAN_QUERY_TUNNEL_PATH = "/rest/svc/vxlan/v1/vxlans/{connectionid}/vxlantunnels";
+    private static final String VXLAN_QUERY_TUNNEL_PATH = "/openoapi/sdnovxlan/v1/vxlans/{connectionid}/vxlantunnels";
 
     /**
      * Get singleton Instance of VxLANService.<br>
@@ -92,6 +92,16 @@ public class VxLANService implements IMicroSvcBasicOper<OverlayVpn> {
         return null;
     }
 
+    /**
+     * Query tunnel info.<br>
+     * 
+     * @param req HttpServletRequest
+     * @param resp HttpServletResponse
+     * @param connectionUuid connection uuid
+     * @return tunnel info
+     * @throws ServiceException when query failed
+     * @since SDNO 0.5
+     */
     public ResultRsp<List<Tunnel>> queryTunnel(HttpServletRequest req, HttpServletResponse resp, String connectionUuid)
             throws ServiceException {
         RestfulParametes restfulParameters = new RestfulParametes();
@@ -171,12 +181,12 @@ public class VxLANService implements IMicroSvcBasicOper<OverlayVpn> {
     private ResultRsp<OverlayVpn> getResultRspFromResponse(RestfulResponse response, OverlayVpn request) {
         try {
             String overlayVpnContent = ResponseUtils.transferResponse(response);
-            ResultRsp<OverlayVpn> result =
+            ResultRsp<OverlayVpn> resultObj =
                     JsonUtil.fromJson(overlayVpnContent, new TypeReference<ResultRsp<OverlayVpn>>() {});
-            LOGGER.info("VXLAN. OverlayVpn operation finish, result = " + result.toString());
-            return new ResultRsp<OverlayVpn>(result, request);
+            LOGGER.info("VXLAN's OverlayVpn operation finish, result = " + resultObj.toString());
+            return new ResultRsp<OverlayVpn>(resultObj, request);
         } catch(ServiceException e) {
-            LOGGER.error("VXLAN. except info: ", e);
+            LOGGER.error("VXLAN's except information: ", e);
             return new ResultRsp<OverlayVpn>(e.getId(), e.getExceptionArgs());
         }
     }

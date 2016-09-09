@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.overlayvpn.consts.CommConst;
 import org.openo.sdno.overlayvpn.errorcode.ErrorCode;
+import org.openo.sdno.overlayvpn.model.servicemodel.Connection;
 import org.openo.sdno.overlayvpn.model.servicemodel.OverlayVpn;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
 import org.openo.sdno.overlayvpn.sbi.overlayvpn.IpSecService;
@@ -69,9 +70,13 @@ public class UndeployCloudVpnTask extends AbstCloudVpnTask {
 
         try {
             if(CommConst.VPN_TEC_VXLAN.equals(this.vpnTechnology)) {
-                this.execuRet = VxLANService.getInstance().undeploy(httpRequest, this.overlayVpn);
+                for(Connection connection : this.overlayVpn.getVpnConnections()) {
+                    this.execuRet = VxLANService.getInstance().delete(httpRequest, connection.getUuid());
+                }
             } else if(CommConst.VPN_TEC_IPSEC.equals(this.vpnTechnology)) {
-                this.execuRet = IpSecService.getInstance().undeploy(httpRequest, this.overlayVpn);
+                for(Connection connection : this.overlayVpn.getVpnConnections()) {
+                    this.execuRet = IpSecService.getInstance().delete(httpRequest, connection.getUuid());
+                }
             } else {
                 LOGGER.error("vpn technology invalied. tec: " + this.vpnTechnology);
                 this.execuRet = new ResultRsp<>(ErrorCode.OVERLAYVPN_FAILED);

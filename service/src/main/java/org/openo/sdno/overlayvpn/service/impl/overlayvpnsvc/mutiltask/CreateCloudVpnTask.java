@@ -19,13 +19,7 @@ package org.openo.sdno.overlayvpn.service.impl.overlayvpnsvc.mutiltask;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.openo.baseservice.remoteservice.exception.ServiceException;
-import org.openo.sdno.overlayvpn.consts.CommConst;
-import org.openo.sdno.overlayvpn.errorcode.ErrorCode;
 import org.openo.sdno.overlayvpn.model.servicemodel.OverlayVpn;
-import org.openo.sdno.overlayvpn.result.ResultRsp;
-import org.openo.sdno.overlayvpn.sbi.overlayvpn.IpSecService;
-import org.openo.sdno.overlayvpn.sbi.overlayvpn.VxLANService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -65,23 +59,7 @@ public class CreateCloudVpnTask extends AbstCloudVpnTask {
 
         LOGGER.info("CreateCloudVpnTask OverlayVpn:" + this.overlayVpn.getUuid() + ", tec: " + this.vpnTechnology);
 
-        createNewOverlayVpnInstance();
-
-        try {
-            if(CommConst.VPN_TEC_VXLAN.equals(this.vpnTechnology)) {
-                this.execuRet = VxLANService.getInstance().create(httpRequest, this.overlayVpn);
-            } else if(CommConst.VPN_TEC_IPSEC.equals(this.vpnTechnology)) {
-                this.execuRet = IpSecService.getInstance().create(httpRequest, this.overlayVpn);
-            } else {
-                LOGGER.error("vpn technology invalied. tec: " + this.vpnTechnology);
-                this.execuRet = new ResultRsp<>(ErrorCode.OVERLAYVPN_FAILED);
-            }
-        } catch(ServiceException createException) {
-            LOGGER.error("CreatCloudVpnTask exception.", createException);
-            this.execuRet = new ResultRsp<>(ErrorCode.OVERLAYVPN_FAILED);
-        }
-
-        isFinish = true;
+        this.isFinish = true;
     }
 
     @Override

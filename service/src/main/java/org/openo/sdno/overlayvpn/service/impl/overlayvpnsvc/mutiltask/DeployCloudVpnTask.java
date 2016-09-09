@@ -63,7 +63,7 @@ public class DeployCloudVpnTask extends AbstCloudVpnTask {
 
         this.isFinish = false;
 
-        LOGGER.info("DeployCloudVpnTask vpn:" + this.overlayVpn.getUuid() + ", tec: " + this.vpnTechnology);
+        LOGGER.info("Deploy CloudVpn Task vpn:" + this.overlayVpn.getUuid() + ", tec: " + this.vpnTechnology);
 
         createNewOverlayVpnInstance();
 
@@ -73,11 +73,11 @@ public class DeployCloudVpnTask extends AbstCloudVpnTask {
             } else if(CommConst.VPN_TEC_IPSEC.equals(this.vpnTechnology)) {
                 this.execuRet = IpSecService.getInstance().create(httpRequest, this.overlayVpn);
             } else {
-                LOGGER.error("vpn technology invalied. tec: " + this.vpnTechnology);
+                LOGGER.error("Vpn technology invalied. tec: " + this.vpnTechnology);
                 this.execuRet = new ResultRsp<>(ErrorCode.OVERLAYVPN_FAILED);
             }
         } catch(ServiceException deployException) {
-            LOGGER.error("DeployCloudVpnTask exception: ", deployException);
+            LOGGER.error("Deploy CloudVpn Task exception: ", deployException);
             this.execuRet = new ResultRsp<>(ErrorCode.OVERLAYVPN_FAILED);
         }
 

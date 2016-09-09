@@ -44,7 +44,7 @@ public class VpcService implements IMicroSvcBasicOper<Vpc> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(VpcService.class);
 
-    private static final String VPC_BASIC_PATH = "/rest/svc/vpc/v1/vpcs";
+    private static final String VPC_BASIC_PATH = "/openoapi/sdnovpc/v1/vpcs";
 
     /**
      * Instance of the VpcService
@@ -87,6 +87,7 @@ public class VpcService implements IMicroSvcBasicOper<Vpc> {
 
         RestfulResponse response = RestfulProxy.post(VPC_BASIC_PATH, restfulParametes);
         if(response.getStatus() == HttpCode.NOT_FOUND) {
+            LOGGER.error("Vpc Restful Interface Not Found");
             return new ResultRsp<Vpc>(ErrorCode.RESTFUL_COMMUNICATION_FAILED);
         }
 
@@ -145,9 +146,9 @@ public class VpcService implements IMicroSvcBasicOper<Vpc> {
     private ResultRsp<Vpc> getResultRspFromResponse(RestfulResponse response, Vpc request) {
         try {
             String vpcContent = ResponseUtils.transferResponse(response);
-            ResultRsp<Vpc> result = JsonUtil.fromJson(vpcContent, new TypeReference<ResultRsp<Vpc>>() {});
-            LOGGER.info("Vpc. OverlayVpn operation finish, result = " + result.toString());
-            return new ResultRsp<Vpc>(result, request);
+            Vpc resultVpc = JsonUtil.fromJson(vpcContent, new TypeReference<Vpc>() {});
+            LOGGER.info("Vpc. OverlayVpn operation finish, result = " + resultVpc.toString());
+            return new ResultRsp<Vpc>(ErrorCode.OVERLAYVPN_SUCCESS, resultVpc);
         } catch(ServiceException e) {
             LOGGER.error("Vpc. except info: ", e);
             return new ResultRsp<Vpc>(e.getId(), e.getExceptionArgs());

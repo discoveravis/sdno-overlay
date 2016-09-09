@@ -48,16 +48,16 @@ public class IpSecService implements IMicroSvcBasicOper<OverlayVpn> {
 
     private static volatile IpSecService instance = null;
 
-    private static final String IPSEC_VPN_BASIC_PATH = "/rest/svc/ipsec/v1/ipsecs";
+    private static final String IPSEC_VPN_BASIC_PATH = "/openoapi/sdnoipsec/v1/ipsecs";
 
-    private static final String IPSEC_VPN_QUERY_PATH = "/rest/svc/ipsec/v1/ipsecs//{connectionid}";
+    private static final String IPSEC_VPN_QUERY_PATH = "/openoapi/sdnoipsec/v1/ipsecs//{connectionid}";
 
     private IpSecService() {
 
     }
 
     /**
-     * Get singleton Instance of the IP Sec service<br>
+     * Get singleton Instance of the IpSec Service<br>
      * 
      * @return IpSecService instance
      * @since SDNO 0.5

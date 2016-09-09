@@ -27,7 +27,6 @@ import org.openo.sdno.framework.container.resthelper.RestfulProxy;
 import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.overlayvpn.errorcode.ErrorCode;
 import org.openo.sdno.overlayvpn.model.servicemodel.SubNet;
-import org.openo.sdno.overlayvpn.model.servicemodel.Vpc;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
 import org.openo.sdno.overlayvpn.sbi.IMicroSvcBasicOper;
 import org.openo.sdno.rest.ResponseUtils;
@@ -45,7 +44,7 @@ public class VpcSubnetService implements IMicroSvcBasicOper<SubNet> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(VpcSubnetService.class);
 
-    private static final String VPC_SUBNET_BASIC_PATH = "/rest/svc/vpc/v1/subnets";
+    private static final String VPC_SUBNET_BASIC_PATH = "/openoapi/sdnovpc/v1/subnets";
 
     /**
      * Instance of the VpcSubnetService
@@ -147,10 +146,10 @@ public class VpcSubnetService implements IMicroSvcBasicOper<SubNet> {
 
     private ResultRsp<SubNet> getResultRspFromResponse(RestfulResponse response, SubNet request) {
         try {
-            String vpcContent = ResponseUtils.transferResponse(response);
-            ResultRsp<Vpc> result = JsonUtil.fromJson(vpcContent, new TypeReference<ResultRsp<Vpc>>() {});
-            LOGGER.info("Vpc SubNet. OverlayVpn operation finish, result = " + result.toString());
-            return new ResultRsp<SubNet>(result, request);
+            String subNetContent = ResponseUtils.transferResponse(response);
+            SubNet resultSubNet = JsonUtil.fromJson(subNetContent, new TypeReference<SubNet>() {});
+            LOGGER.info("Vpc SubNet. OverlayVpn operation finish!!");
+            return new ResultRsp<SubNet>(ErrorCode.OVERLAYVPN_SUCCESS, resultSubNet);
         } catch(ServiceException e) {
             LOGGER.error("Vpc SubNet. except info: ", e);
             return new ResultRsp<SubNet>(e.getId(), e.getExceptionArgs());

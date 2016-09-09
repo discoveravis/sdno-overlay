@@ -25,10 +25,17 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.Transformer;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.openo.sdno.framework.container.util.JsonUtil;
+import org.openo.sdno.framework.container.util.UuidUtils;
 import org.openo.sdno.overlayvpn.consts.CommConst;
 import org.openo.sdno.overlayvpn.dao.common.InventoryDao;
 import org.openo.sdno.overlayvpn.errorcode.ErrorCode;
+import org.openo.sdno.overlayvpn.model.common.enums.ActionStatus;
 import org.openo.sdno.overlayvpn.model.common.enums.AdminStatus;
+import org.openo.sdno.overlayvpn.model.common.enums.EndpointType;
+import org.openo.sdno.overlayvpn.model.servicechain.ServiceChainPath;
+import org.openo.sdno.overlayvpn.model.servicechain.ServiceChainSiteToDcRelation;
+import org.openo.sdno.overlayvpn.model.servicechain.ServicePathHop;
 import org.openo.sdno.overlayvpn.model.servicemodel.Connection;
 import org.openo.sdno.overlayvpn.model.servicemodel.EndpointGroup;
 import org.openo.sdno.overlayvpn.model.servicemodel.OverlayVpn;
@@ -37,6 +44,7 @@ import org.openo.sdno.overlayvpn.model.servicemodel.Vpc;
 import org.openo.sdno.overlayvpn.model.servicemodel.VpcSubNetMapping;
 import org.openo.sdno.overlayvpn.osdriver.OSDriverConfigUtil;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
+import org.openo.sdno.overlayvpn.sbi.overlayvpn.ServiceChainService;
 import org.openo.sdno.overlayvpn.security.authentication.TokenDataHolder;
 import org.openo.sdno.overlayvpn.service.impl.overlayvpnsvc.connection.ConnectionSvcImpl;
 import org.openo.sdno.overlayvpn.service.impl.overlayvpnsvc.endpointgroup.EndPointGrpSvcImpl;
@@ -45,6 +53,8 @@ import org.openo.sdno.overlayvpn.service.impl.overlayvpnsvc.vpcsubnet.VpcSubnetI
 import org.openo.sdno.overlayvpn.service.inf.overlayvpn.ISiteToDC;
 import org.openo.sdno.overlayvpn.util.check.CheckStrUtil;
 import org.openo.sdno.overlayvpn.util.exception.ThrowOverlayVpnExcpt;
+import org.openo.sdno.overlayvpn.util.operation.ServiceChainDbOper;
+import org.openo.sdno.overlayvpn.util.operation.VpcSubnetUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,6 +87,9 @@ public class SiteToDCSvcImpl implements ISiteToDC {
 
     @Autowired
     private VpcSubnetImpl vpcSubNetSvc;
+
+    @Autowired
+    private ServiceChainService serviceChainServiceSbi;
 
     @Autowired
     private InventoryDao<OverlayVpn> inventoryDao;
@@ -153,11 +166,29 @@ public class SiteToDCSvcImpl implements ISiteToDC {
         ipSecConnection.setEndpointGroups(ipSecEpgList);
 
         // 6. Update and deploy OverlayVPN for Site To DC for VxLAN &IPsec service
-        overlayVpn.setAdminStatus(AdminStatus.ACTIVE.getName());
         ResultRsp<OverlayVpn> resultRsp = overlayVpnSvc.deploy(req, resp, overlayVpn);
         ThrowOverlayVpnExcpt.checkRspThrowException(resultRsp);
 
-        // 7. Update database
+        // 7. Save data and Send data to serviceChain
+        ServiceChainPath scp = new ServiceChainPath();
+        scp.setUuid(UuidUtils.createUuid());
+        scp.setName("tenantName");
+        scp.setServicePathHop(siteToDc.getSfp().getServicePathHop());
+        scp.setDescription(siteToDc.getVpc().getName());
+        scp.setScfNeId(siteToDc.getSfp().getScfNeId());
+        ServiceChainSiteToDcRelation serviceChainnSiteToDcRelation = new ServiceChainSiteToDcRelation();
+        serviceChainnSiteToDcRelation.setUuid(scp.getUuid());
+        serviceChainnSiteToDcRelation.setVpnId(siteToDc.getUuid());
+        serviceChainnSiteToDcRelation.setData(JsonUtil.toJson(scp));
+        ServiceChainDbOper.create(serviceChainnSiteToDcRelation);
+
+        serviceChainServiceSbi.create(req, scp);
+
+        // 8. Update OverlayVpn Status
+        overlayVpn.setAdminStatus(AdminStatus.ACTIVE.getName());
+        overlayVpn.setActionState(ActionStatus.NORMAL.getName());
+
+        // 9. Update database
         ResultRsp<OverlayVpn> resultDbRsp = inventoryDao.update(overlayVpn, null);
         ThrowOverlayVpnExcpt.checkRspThrowException(resultDbRsp);
 
@@ -211,30 +242,33 @@ public class SiteToDCSvcImpl implements ISiteToDC {
         ResultRsp<OverlayVpn> overlayVpnRsp = overlayVpnSvc.query(req, resp, uuid, tenantId);
         OverlayVpn oSite2DcVpn = overlayVpnRsp.getData();
         if(null == oSite2DcVpn) {
+            LOGGER.error("Query OverlayVpn " + uuid + " not exist!!");
             ThrowOverlayVpnExcpt.throwResNotExistAsNotFound("Overlay VPN", uuid);
+            return new ResultRsp<SiteToDc>();
         }
 
         oSite2Dc.setUuid(oSite2DcVpn.getUuid());
         oSite2Dc.setName(oSite2DcVpn.getName());
+        oSite2Dc.setDescription(oSite2DcVpn.getDescription());
 
         // 2. Query Site information
-        for(String strConnectionId : oSite2DcVpn.getConnectionIds()) {
+        for(String connectionId : oSite2DcVpn.getConnectionIds()) {
 
             // 2.1. Validate the UUID
-            CheckStrUtil.checkUuidStr(strConnectionId);
+            CheckStrUtil.checkUuidStr(connectionId);
 
             // 2.2. Query the Connection from database
-            ResultRsp<Connection> vpnConnRsp = connectionSvc.query(req, resp, strConnectionId, tenantId);
+            ResultRsp<Connection> vpnConnRsp = connectionSvc.query(req, resp, connectionId, tenantId);
             Connection queryedVpnConn = vpnConnRsp.getData();
             if(null == queryedVpnConn) {
                 continue;
             }
 
             // 2.3. Query EPG and gateway information
-            for(String strEpgId : queryedVpnConn.getEpgIds()) {
+            for(String epgId : queryedVpnConn.getEpgIds()) {
 
                 // 2.3.1 Query the endpoint group from database
-                ResultRsp<EndpointGroup> endpointGrpRsp = endPointGrpSvc.query(req, resp, strEpgId, tenantId);
+                ResultRsp<EndpointGroup> endpointGrpRsp = endPointGrpSvc.query(req, resp, epgId, tenantId);
                 EndpointGroup invEpg = endpointGrpRsp.getData();
                 if(null == invEpg) {
                     continue;
@@ -245,16 +279,28 @@ public class SiteToDCSvcImpl implements ISiteToDC {
                     oSite2Dc.getSite().setSiteGatewayId(invEpg.getGatewayId());
                 }
 
-                if(null != invEpg.getType()) {
-                    if(invEpg.getType().equals("cidr")) {
-                        oSite2Dc.getSite().setSiteTypeAddress(invEpg.getCidr());
-                        oSite2Dc.getSite().setPortAndVlan(invEpg.getEndpoints());
-                        oSite2Dc.getSite().setSitevCPE(invEpg.getNeId());
-                    }
+                if(EndpointType.CIDR.getName().equals(invEpg.getType())) {
+                    oSite2Dc.getSite().setSiteTypeAddress(invEpg.getCidr());
+                    oSite2Dc.getSite().setPortAndVlan(invEpg.getEndpoints());
+                }
+                if(invEpg.getName().contains("thincpe")) {
+                    oSite2Dc.getSite().setSiteThinCPE(invEpg.getNeId());
+                } else if(invEpg.getName().contains("vcpe")) {
+                    oSite2Dc.getSite().setSitevCPE(invEpg.getNeId());
                 }
 
             }
         }
+        
+        // 3. Query Vpc/Subnet information
+        VpcSubNetMapping vsMapping = vpcSubNetSvc.query(req, resp, oSite2Dc.getUuid());
+        VpcSubnetUtil.setSiteToDcByVpcMapping(oSite2Dc, vsMapping);
+        
+        // 4. Query ServiceChain
+        ServiceChainSiteToDcRelation relation = ServiceChainDbOper.query(oSite2Dc.getUuid());
+        ServiceChainPath scPath = JsonUtil.fromJson(relation.getData(), ServiceChainPath.class);
+        oSite2Dc.getSfp().setScfNeId(scPath.getScfNeId());
+        oSite2Dc.getSfp().setServicePathHop(scPath.getServicePathHop());
 
         LOGGER.info("Exit query Site2DC method. Cost time = " + (System.currentTimeMillis() - infterEnterTime));
 
@@ -281,6 +327,7 @@ public class SiteToDCSvcImpl implements ISiteToDC {
         ResultRsp<OverlayVpn> overlayVpnRsp = overlayVpnSvc.query(req, resp, oldReq.getUuid(), tenantIdFromToken);
         OverlayVpn oldBasicCloudVpn = overlayVpnRsp.getData();
         if(null == oldBasicCloudVpn) {
+            LOGGER.error("This OverlayVpn not exist!!");
             ThrowOverlayVpnExcpt.throwResNotExistAsNotFound("Overlay VPN", oldReq.getUuid());
         }
 
@@ -305,8 +352,6 @@ public class SiteToDCSvcImpl implements ISiteToDC {
             }
             newOverlayVpn.setDescription(description);
         }
-
-        // TODO:?? Whether need admin status here
 
         // 4. Update overlay VPN to database
         ResultRsp<OverlayVpn> resultRsp = overlayVpnSvc.update(req, resp, newOverlayVpn, oldBasicCloudVpn);
@@ -334,38 +379,48 @@ public class SiteToDCSvcImpl implements ISiteToDC {
 
         // 1. UnDeploy the VXLAN service on adapter/controller and update the VPN Status to
         // inactive.It also gets all the connection IDs for the overlayVPN from database.
-        ResultRsp<OverlayVpn> oOverlayVpn = siteToDCOverlayVPN.updateVpnStatus(req, resp, siteToDc);
-        if(null == oOverlayVpn.getData()) {
+        ResultRsp<OverlayVpn> overlayVpn = siteToDCOverlayVPN.updateVpnStatus(req, resp, siteToDc);
+        if(null == overlayVpn.getData()) {
             ThrowOverlayVpnExcpt.throwResNotExistAsNotFound("Overlay VPN", siteToDc.getUuid());
         }
 
         // 2. Delete all EPGIDs in the connection and then delete connection
-        for(String strConnectionId : oOverlayVpn.getData().getConnectionIds()) {
+        for(String connectionId : overlayVpn.getData().getConnectionIds()) {
 
             // 2.1. Get Tenant ID
             String tenantId = TokenDataHolder.getTenantID();
 
             // 2.2. Validate the UUID
-            CheckStrUtil.checkUuidStr(strConnectionId);
+            CheckStrUtil.checkUuidStr(connectionId);
 
             // 2.3. Query the EPG ids from database by connection ID filter
-            ResultRsp<Connection> vpnConnRsp = connectionSvc.query(req, resp, strConnectionId, tenantId);
+            ResultRsp<Connection> vpnConnRsp = connectionSvc.query(req, resp, connectionId, tenantId);
             Connection queryedVpnConn = vpnConnRsp.getData();
             if(null == queryedVpnConn) {
                 continue;
             }
 
             // 2.4. Delete the EPG ids from database and adapter database
-            for(String strEpgId : queryedVpnConn.getEpgIds()) {
-                siteToDCOverlayVPN.deleteEpg(req, resp, strEpgId);
+            for(String epgId : queryedVpnConn.getEpgIds()) {
+                siteToDCOverlayVPN.deleteEpg(req, resp, epgId);
             }
 
             // 2.5 Delete the connection from database
-            siteToDCOverlayVPN.deleteConnection(req, resp, strConnectionId);
+            siteToDCOverlayVPN.deleteConnection(req, resp, connectionId);
 
         }
 
-        // 3. Delete OverlayVPN from database
+        // 3. Delete Vpc and SubNet
+        vpcSubNetSvc.delete(req, resp, siteToDc.getUuid());
+
+        // 4. Delete service chain
+        ServiceChainSiteToDcRelation serviceChainDbData = ServiceChainDbOper.query(siteToDc.getUuid());
+        if(null != serviceChainDbData) {
+            serviceChainServiceSbi.delete(req, serviceChainDbData.getUuid());
+            ServiceChainDbOper.delete(serviceChainDbData.getUuid());
+        }
+
+        // 5. Delete OverlayVPN from database
         ResultRsp<String> resultRsp = siteToDCOverlayVPN.deleteOverlayVpn(req, resp, siteToDc.getUuid());
 
         LOGGER.info("Exit delete Site2DC method. cost time = " + (System.currentTimeMillis() - infterEnterTime));
@@ -387,5 +442,13 @@ public class SiteToDCSvcImpl implements ISiteToDC {
 
     public void setSiteToDCOverlayVPN(SiteToDCOverlayVPN siteToDCOverlayVPN) {
         this.siteToDCOverlayVPN = siteToDCOverlayVPN;
+    }
+
+    public void setVpcSubNetSvc(VpcSubnetImpl vpcSubNetSvc) {
+        this.vpcSubNetSvc = vpcSubNetSvc;
+    }
+
+    public void setServiceChainServiceSbi(ServiceChainService serviceChainServiceSbi) {
+        this.serviceChainServiceSbi = serviceChainServiceSbi;
     }
 }
