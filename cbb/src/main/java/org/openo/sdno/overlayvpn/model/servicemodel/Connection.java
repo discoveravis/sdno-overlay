@@ -21,6 +21,7 @@ import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.Null;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOInvField;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
@@ -56,6 +57,12 @@ public class Connection extends BaseServiceModel {
     private String technology;
 
     /**
+     * Whether protect or not
+     */
+    @AString(require = false, scope = "true,false")
+    private String isProtect;
+
+    /**
      * id of OverlayVpn this connection belongs to
      */
     @MOInvField(invName = "overlayVpnId")
@@ -87,6 +94,7 @@ public class Connection extends BaseServiceModel {
      */
     @Valid
     @NONInvField
+    @JsonIgnore
     private GreMappingPolicy greMappingPolicy;
 
     /**
@@ -94,6 +102,7 @@ public class Connection extends BaseServiceModel {
      */
     @Valid
     @NONInvField
+    @JsonIgnore
     private IpsecMappingPolicy ipsecMappingPolicy;
 
     /**
@@ -101,12 +110,11 @@ public class Connection extends BaseServiceModel {
      */
     @Valid
     @NONInvField
+    @JsonIgnore
     private VxlanMappingPolicy vxlanMappingPolicy;
 
     /**
      * Constructor<br>
-     * <p>
-     * </p>
      * 
      * @since SDNO 0.5
      */
@@ -116,8 +124,6 @@ public class Connection extends BaseServiceModel {
 
     /**
      * Constructor<br>
-     * <p>
-     * </p>
      * 
      * @since SDNO 0.5
      * @param connUuid
@@ -129,8 +135,6 @@ public class Connection extends BaseServiceModel {
 
     /**
      * Constructor<br>
-     * <p>
-     * </p>
      * 
      * @since SDNO 0.5
      * @param connUuid connection UUid
@@ -164,6 +168,14 @@ public class Connection extends BaseServiceModel {
 
     public void setTechnology(String technology) {
         this.technology = technology;
+    }
+
+    public String getIsProtect() {
+        return isProtect;
+    }
+
+    public void setIsProtect(String isProtect) {
+        this.isProtect = isProtect;
     }
 
     public String getMappingPolicyId() {

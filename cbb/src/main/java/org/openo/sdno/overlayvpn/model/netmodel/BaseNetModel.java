@@ -16,15 +16,12 @@
 
 package org.openo.sdno.overlayvpn.model.netmodel;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
 import org.openo.sdno.overlayvpn.model.BaseServiceModel;
 import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
 /**
  * Class of Base Net Model.<br>
- * <p>
- * </p>
  * 
  * @author
  * @version SDNO 0.5 Jun 6, 2016
@@ -40,15 +37,14 @@ public abstract class BaseNetModel extends BaseServiceModel {
     /**
      * External Id
      */
-    @JsonIgnore
     @NONInvField
+    @AUuid(require = false)
     private String externalId;
 
     /**
      * Connection Id
      */
-    @JsonIgnore
-    @AUuid
+    @AUuid(require = false)
     private String connectionServiceId;
 
     public String getControllerId() {

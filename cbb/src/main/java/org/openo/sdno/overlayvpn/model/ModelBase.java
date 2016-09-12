@@ -20,7 +20,6 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MORelationField;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
 import org.openo.sdno.overlayvpn.model.common.enums.ModifyMaskType;
@@ -52,7 +51,6 @@ public abstract class ModelBase extends AbstUuidModel {
     private String modifyMask = ModifyMaskType.NOMODIFY.getName();
 
     @Valid
-    @JsonIgnore
     @MORelationField
     private List<NvString> additionalInfo;
 

@@ -47,7 +47,6 @@ public abstract class BaseServiceModel extends ModelBase {
     /**
      * Action State
      */
-    @JsonIgnore
     @AString(scope = "Normal,Creating,Deleting,Updating,Create_Excepion,Delete_Exception,Update_Exception")
     private String actionState = ActionStatus.NORMAL.getName();
 

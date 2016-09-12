@@ -425,7 +425,6 @@ public class SiteToDCOverlayVPN {
         vCpeEpg.setNeId(siteToDc.getSite().getSitevCPE());
         vCpeEpg.setType(EndpointType.CIDR.getName());
         vCpeEpg.setEndpoints(JsonUtil.toJson(Arrays.asList(siteToDc.getSite().getSiteTypeAddress())));
-        vCpeEpg.setCidr(siteToDc.getSite().getSiteTypeAddress());
 
         ResultRsp<EndpointGroup> vCpeEpgRsp = endpointGroupSvc.create(req, resp, vCpeEpg);
 

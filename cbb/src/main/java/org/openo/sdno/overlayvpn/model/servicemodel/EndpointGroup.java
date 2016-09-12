@@ -54,12 +54,6 @@ public class EndpointGroup extends BaseServiceModel {
     private String endpoints;
 
     /**
-     * CIDR value
-     */
-    @AString(require = false)
-    private String cidr;
-
-    /**
      * list of EndPoint
      */
     @NONInvField
@@ -136,8 +130,6 @@ public class EndpointGroup extends BaseServiceModel {
 
     /**
      * Constructor<br>
-     * <p>
-     * </p>
      * 
      * @since SDNO 0.5
      * @param uuid UUid
@@ -151,8 +143,6 @@ public class EndpointGroup extends BaseServiceModel {
 
     /**
      * Constructor<br>
-     * <p>
-     * </p>
      * 
      * @since SDNO 0.5
      * @param uuid UUid
@@ -199,14 +189,6 @@ public class EndpointGroup extends BaseServiceModel {
 
     public void setEndpoints(String endpoints) {
         this.endpoints = endpoints;
-    }
-
-    public String getCidr() {
-        return cidr;
-    }
-
-    public void setCidr(String cidr) {
-        this.cidr = cidr;
     }
 
     public List<String> getEndpointList() {

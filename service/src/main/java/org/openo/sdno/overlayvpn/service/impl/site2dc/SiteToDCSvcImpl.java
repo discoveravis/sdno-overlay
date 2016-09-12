@@ -279,7 +279,7 @@ public class SiteToDCSvcImpl implements ISiteToDC {
                 }
 
                 if(EndpointType.CIDR.getName().equals(invEpg.getType())) {
-                    oSite2Dc.getSite().setSiteTypeAddress(invEpg.getCidr());
+                    oSite2Dc.getSite().setSiteTypeAddress(invEpg.getEndpoints());
                     oSite2Dc.getSite().setPortAndVlan(invEpg.getEndpoints());
                 }
                 if(invEpg.getName().contains("thincpe")) {

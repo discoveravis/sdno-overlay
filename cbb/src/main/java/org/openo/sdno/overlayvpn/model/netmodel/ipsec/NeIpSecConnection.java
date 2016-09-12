@@ -39,6 +39,9 @@ import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 @MOResType(infoModelName = "neipsecconnection")
 public class NeIpSecConnection extends BaseNetModel {
 
+    @AUuid
+    private String externalIpSecId;
+
     @AUuid(require = true)
     private String neId;
 
@@ -81,6 +84,29 @@ public class NeIpSecConnection extends BaseNetModel {
     @NONInvField
     @NotNull
     private IpSecPolicy ipSecPolicy;
+
+    @AString(require = false, scope = "work, protect")
+    private String workType = "work";
+
+    @AString(min = 0, max = 255)
+    private String sourceLanCidrs;
+
+    @AString(min = 0, max = 255)
+    private String peerLanCidrs;
+
+    /**
+     * @param externalIpSecId The externalIpSecId to set.
+     */
+    public void setExternalIpSecId(String externalIpSecId) {
+        this.externalIpSecId = externalIpSecId;
+    }
+
+    /**
+     * @return Returns the externalIpSecId.
+     */
+    public String getExternalIpSecId() {
+        return externalIpSecId;
+    }
 
     /**
      * @return Returns the neId.
@@ -248,6 +274,48 @@ public class NeIpSecConnection extends BaseNetModel {
      */
     public void setIpSecPolicy(IpSecPolicy ipSecPolicy) {
         this.ipSecPolicy = ipSecPolicy;
+    }
+
+    /**
+     * @return Returns the workType.
+     */
+    public String getWorkType() {
+        return workType;
+    }
+
+    /**
+     * @param workType The workType to set.
+     */
+    public void setWorkType(String workType) {
+        this.workType = workType;
+    }
+
+    /**
+     * @return Returns the sourceLanCidrs.
+     */
+    public String getSourceLanCidrs() {
+        return sourceLanCidrs;
+    }
+
+    /**
+     * @param sourceLanCidrs The sourceLanCidrs to set.
+     */
+    public void setSourceLanCidrs(String sourceLanCidrs) {
+        this.sourceLanCidrs = sourceLanCidrs;
+    }
+
+    /**
+     * @return Returns the peerLanCidrs.
+     */
+    public String getPeerLanCidrs() {
+        return peerLanCidrs;
+    }
+
+    /**
+     * @param peerLanCidrs The peerLanCidrs to set.
+     */
+    public void setPeerLanCidrs(String peerLanCidrs) {
+        this.peerLanCidrs = peerLanCidrs;
     }
 
 }
