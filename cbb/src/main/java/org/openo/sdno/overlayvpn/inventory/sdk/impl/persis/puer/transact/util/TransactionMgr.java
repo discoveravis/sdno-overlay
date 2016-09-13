@@ -161,8 +161,8 @@ public class TransactionMgr {
             for(ITransactionListener listener : getContextListener(context)) {
                 result = listener.prepare(context);
                 if(!result.isSuccess()) {
-                    LOGGER.error(String.format("Listener %s failed in prepare, error no:%d", listener.getClass()
-                            .getName(), result.getErrorCode()));
+                    LOGGER.error(String.format("Listener %s failed in prepare, error no:%s",
+                            listener.getClass().getName(), result.getErrorCode()));
                     return result;
                 } else {
                     successList.add(listener);
@@ -192,8 +192,8 @@ public class TransactionMgr {
             for(ITransactionListener listener : getContextListener(context)) {
                 ResultRsp<?> result = listener.fire(context);
                 if(!result.isSuccess()) {
-                    LOGGER.error(String.format("Listener %s failed in fire, error no:%d",
-                            listener.getClass().getName(), result.getErrorCode()));
+                    LOGGER.error(String.format("Listener %s failed in fire, error no:%d", listener.getClass().getName(),
+                            result.getErrorCode()));
                     return result;
                 }
             }
@@ -227,7 +227,7 @@ public class TransactionMgr {
         for(ITransactionListener listener : successList) {
             ResultRsp<?> result = listener.rollback(context);
             if(!result.isSuccess()) {
-                LOGGER.warn(String.format("Listener %s failed in rollback, error no:%d", listener.getClass().getName(),
+                LOGGER.warn(String.format("Listener %s failed in rollback, error no:%s", listener.getClass().getName(),
                         result.getErrorCode()));
             }
         }
@@ -291,8 +291,8 @@ public class TransactionMgr {
                     }
                 }
             } else {
-                LOGGER.warn(String.format("Context %s not inherit from CommonTransactionContext", context.getClass()
-                        .getName()));
+                LOGGER.warn(String.format("Context %s not inherit from CommonTransactionContext",
+                        context.getClass().getName()));
             }
         }
     }

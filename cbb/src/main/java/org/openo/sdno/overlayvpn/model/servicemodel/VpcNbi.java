@@ -22,27 +22,14 @@ package org.openo.sdno.overlayvpn.model.servicemodel;
  * @author
  * @version SDNO 0.5 Jul 18, 2016
  */
-public class SiteToDcNbi {
+public class VpcNbi {
 
-    // Name of Site2DC
     String name;
 
-    // Description of Site2DC
-    String description;
+    SubnetNbi site;
 
-    // Site data
-    SiteNbi site;
-
-    // VPC data
-    VpcNbi vpc;
-
-    // service function path data
-    SfpNbi sfp;
-
-    public SiteToDcNbi() {
-        site = new SiteNbi();
-        vpc = new VpcNbi();
-        sfp = new SfpNbi();
+    public VpcNbi() {
+        site = new SubnetNbi();
     }
 
     public String getName() {
@@ -53,35 +40,11 @@ public class SiteToDcNbi {
         this.name = name;
     }
 
-    public SiteNbi getSite() {
+    public SubnetNbi getSite() {
         return site;
     }
 
-    public void setSite(SiteNbi site) {
+    public void setSite(SubnetNbi site) {
         this.site = site;
-    }
-
-    public VpcNbi getVpc() {
-        return vpc;
-    }
-
-    public void setVpc(VpcNbi vpc) {
-        this.vpc = vpc;
-    }
-
-    public SfpNbi getSfp() {
-        return sfp;
-    }
-
-    public void setSfp(SfpNbi sfp) {
-        this.sfp = sfp;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getDescription() {
-        return this.description;
     }
 }
