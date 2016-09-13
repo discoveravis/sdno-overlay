@@ -14,28 +14,28 @@
  * limitations under the License.
  */
 
-package org.openo.sdno.overlayvpn.check;
+package org.openo.sdno.overlayvpn.util.check;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import mockit.Mock;
-import mockit.MockUp;
-
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.overlayvpn.dao.common.InventoryDao;
 import org.openo.sdno.overlayvpn.errorcode.ErrorCode;
 import org.openo.sdno.overlayvpn.model.PortAndVlanUsed;
+import org.openo.sdno.overlayvpn.model.servicemodel.Gateway;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
-import org.openo.sdno.overlayvpn.util.check.CheckPortAndVlanUtil;
+
+import mockit.Mock;
+import mockit.MockUp;
 
 public class CheckPortAndVlanUtilTest {
 
@@ -69,8 +69,12 @@ public class CheckPortAndVlanUtilTest {
                 return new ResultRsp(ErrorCode.OVERLAYVPN_SUCCESS, portVlanList);
             }
         };
-
-        CheckPortAndVlanUtil.check(portUuids, portToVlanMap);
+        try {
+            CheckPortAndVlanUtil.check(portUuids, portToVlanMap);
+            assertTrue(true);
+        } catch(Exception e) {
+            fail("Exception occured");
+        }
     }
 
 }

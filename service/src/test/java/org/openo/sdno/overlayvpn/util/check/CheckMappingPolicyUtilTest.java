@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-package org.openo.sdno.overlayvpn.check;
+package org.openo.sdno.overlayvpn.util.check;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,12 +31,11 @@ import org.openo.sdno.overlayvpn.model.common.enums.MappingPolicyType;
 import org.openo.sdno.overlayvpn.model.ipsec.IkePolicy;
 import org.openo.sdno.overlayvpn.model.ipsec.IpSecPolicy;
 import org.openo.sdno.overlayvpn.model.servicemodel.Connection;
+import org.openo.sdno.overlayvpn.model.servicemodel.Gateway;
 import org.openo.sdno.overlayvpn.model.servicemodel.mappingpolicy.GreMappingPolicy;
 import org.openo.sdno.overlayvpn.model.servicemodel.mappingpolicy.IpsecMappingPolicy;
 import org.openo.sdno.overlayvpn.model.servicemodel.mappingpolicy.VxlanMappingPolicy;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
-import org.openo.sdno.overlayvpn.util.check.CheckMappingPolicyUtil;
-import org.openo.sdno.overlayvpn.util.check.ValidationUtil;
 import org.openo.sdno.resource.ResourceUtil;
 
 import mockit.Mock;
@@ -67,6 +67,7 @@ public class CheckMappingPolicyUtilTest {
         mappingPolicy.setIkePolicyId("ikePolicyId1");
         mappingPolicy.setType(MappingPolicyType.IPSEC.getName());
         CheckMappingPolicyUtil.check(mappingPolicy);
+        fail("Exception occured");
     }
 
     @Test(expected = ServiceException.class)
@@ -84,6 +85,7 @@ public class CheckMappingPolicyUtilTest {
         mappingPolicy.setIpsecPolicyId("ipsecPolicyId1");
         mappingPolicy.setType(MappingPolicyType.GRE_OVER_IPSEC.getName());
         CheckMappingPolicyUtil.check(mappingPolicy);
+        fail("Exception occured");
     }
 
     @Test(expected = ServiceException.class)
@@ -100,6 +102,7 @@ public class CheckMappingPolicyUtilTest {
         mappingPolicy.setIkePolicyId("ikePolicyId1");
         mappingPolicy.setType(MappingPolicyType.IPSEC.getName());
         CheckMappingPolicyUtil.check(mappingPolicy);
+        fail("Exception occured");
     }
 
     @Test(expected = ServiceException.class)
@@ -116,6 +119,7 @@ public class CheckMappingPolicyUtilTest {
         mappingPolicy.setIpsecPolicyId("ipsecPolicyId1");
         mappingPolicy.setType(MappingPolicyType.VXLAN.getName());
         CheckMappingPolicyUtil.check(mappingPolicy);
+        fail("Exception occured");
     }
 
     @Test(expected = ServiceException.class)
@@ -132,6 +136,7 @@ public class CheckMappingPolicyUtilTest {
         mappingPolicy.setIpsecPolicyId("ipsecPolicyId1");
         mappingPolicy.setType(MappingPolicyType.IPSEC.getName());
         CheckMappingPolicyUtil.check(mappingPolicy);
+        fail("Exception occured");
     }
 
     @Test(expected = ServiceException.class)
@@ -140,6 +145,7 @@ public class CheckMappingPolicyUtilTest {
         mappingPolicy.setType(MappingPolicyType.IPSEC.getName());
         mappingPolicy.setIkePolicy(new IkePolicy());
         CheckMappingPolicyUtil.check(mappingPolicy);
+        fail("Exception occured");
     }
 
     @Test(expected = ServiceException.class)
@@ -148,15 +154,19 @@ public class CheckMappingPolicyUtilTest {
         mappingPolicy.setType(MappingPolicyType.IPSEC.getName());
         mappingPolicy.setIpSecPolicy(new IpSecPolicy());
         CheckMappingPolicyUtil.check(mappingPolicy);
-        assertTrue(MappingPolicyType.isIpsec("ipsec"));
-        assertTrue(MappingPolicyType.isVxlanRelated("vxlan"));
+        fail("Exception occured");
     }
 
     @Test
     public <T> void testCheck() throws ServiceException {
         IpsecMappingPolicy mappingPolicy = new IpsecMappingPolicy();
         mappingPolicy.setType(MappingPolicyType.IPSEC.getName());
-        CheckMappingPolicyUtil.check(mappingPolicy);
+        try {
+            CheckMappingPolicyUtil.check(mappingPolicy);
+            assertTrue(true);
+        } catch(Exception e) {
+            fail("Exception occured");
+        }
     }
 
     @Test(expected = ServiceException.class)
@@ -173,6 +183,7 @@ public class CheckMappingPolicyUtilTest {
         IpsecMappingPolicy mappingPolicy = new IpsecMappingPolicy();
         mappingPolicy.setUuid("uuid1");
         CheckMappingPolicyUtil.checkMappingPolicyIsUsed(mappingPolicy);
+        fail("Exception occured");
     }
 
     @Test(expected = ServiceException.class)
@@ -191,6 +202,7 @@ public class CheckMappingPolicyUtilTest {
         IpsecMappingPolicy mappingPolicy = new IpsecMappingPolicy();
         mappingPolicy.setUuid("uuid1");
         CheckMappingPolicyUtil.checkMappingPolicyIsUsed(mappingPolicy);
+        fail("Exception occured");
     }
 
     @Test
@@ -206,6 +218,11 @@ public class CheckMappingPolicyUtilTest {
 
         IpsecMappingPolicy mappingPolicy = new IpsecMappingPolicy();
         mappingPolicy.setUuid("uuid1");
-        CheckMappingPolicyUtil.checkMappingPolicyIsUsed(mappingPolicy);
+        try {
+            CheckMappingPolicyUtil.checkMappingPolicyIsUsed(mappingPolicy);
+            assertTrue(true);
+        } catch(Exception e) {
+            fail("Exception occured");
+        }
     }
 }

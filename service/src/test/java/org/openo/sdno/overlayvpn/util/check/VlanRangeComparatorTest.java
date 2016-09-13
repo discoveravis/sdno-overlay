@@ -14,13 +14,11 @@
  * limitations under the License.
  */
 
-package org.openo.sdno.overlayvpn.check;
+package org.openo.sdno.overlayvpn.util.check;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
-import org.junit.Before;
 import org.junit.Test;
-import org.openo.sdno.overlayvpn.util.check.VlanRangeComparator;
 
 public class VlanRangeComparatorTest {
 

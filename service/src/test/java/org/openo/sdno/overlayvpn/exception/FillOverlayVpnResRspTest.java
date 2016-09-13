@@ -17,8 +17,6 @@
 package org.openo.sdno.overlayvpn.exception;
 
 import static org.junit.Assert.assertEquals;
-import mockit.Mock;
-import mockit.MockUp;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -26,6 +24,9 @@ import org.openo.sdno.overlayvpn.errorcode.ErrorCode;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
 import org.openo.sdno.overlayvpn.util.exception.FillOverlayVpnResRsp;
 import org.openo.sdno.resource.ResourceUtil;
+
+import mockit.Mock;
+import mockit.MockUp;
 
 /**
  * FillOverlayVpnResRsp test class.<br>
