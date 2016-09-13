@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>overlayvpnservice-deployment</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -41,7 +41,8 @@
                             <source>
                                 System.out.println("******** Going to make release zip ********")
 
-                                deployFolder = "${project.build.directory}/deployoutput"
+                                deployFolder =
+                                "${project.build.directory}/deployoutput"
                                 deployUnzip =
                                 "${project.build.directory}/deployunzip"
                                 outfileName =
@@ -68,7 +69,7 @@
                                 ant.copy(todir:
                                 "${deployUnzip}/webapps/ROOT") {
                                 fileset(dir:
-                                "${project.build.directory}/../../service/target/${package.name}-${project.version}")
+                                "${project.build.directory}/../../service/target/${package.name}")
                                 }
 
                                 ant.zip(destfile:
