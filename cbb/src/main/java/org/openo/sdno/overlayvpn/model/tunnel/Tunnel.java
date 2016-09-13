@@ -53,6 +53,12 @@ public class Tunnel {
     private String srcNeId;
 
     /**
+     * UUID of source EndPointGroup
+     */
+    @AUuid(require = false)
+    private String srcEpgId;
+
+    /**
      * IpAddress of tunnel source NetworkElement
      */
     @AIp(require = true)
@@ -63,6 +69,12 @@ public class Tunnel {
      */
     @AUuid(require = true)
     private String dstNeId;
+
+    /**
+     * UUID of destination EndPointGroup
+     */
+    @AUuid(require = false)
+    private String dstEpgId;
 
     /**
      * IpAddress of tunnel destination NetworkElement
@@ -121,6 +133,22 @@ public class Tunnel {
 
     public void setSrcIp(String srcIp) {
         this.srcIp = srcIp;
+    }
+
+    public String getSrcEpgId() {
+        return srcEpgId;
+    }
+
+    public void setSrcEpgId(String srcEpgId) {
+        this.srcEpgId = srcEpgId;
+    }
+
+    public String getDstEpgId() {
+        return dstEpgId;
+    }
+
+    public void setDstEpgId(String dstEpgId) {
+        this.dstEpgId = dstEpgId;
     }
 
     public String getDstNeId() {
