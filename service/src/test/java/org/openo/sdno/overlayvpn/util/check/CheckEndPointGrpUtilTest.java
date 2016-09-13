@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.openo.sdno.overlayvpn.check;
+package org.openo.sdno.overlayvpn.util.check;
 
 import static org.junit.Assert.assertTrue;
 
@@ -39,8 +39,6 @@ import org.openo.sdno.overlayvpn.model.servicemodel.Connection;
 import org.openo.sdno.overlayvpn.model.servicemodel.EndpointGroup;
 import org.openo.sdno.overlayvpn.model.servicemodel.Gateway;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
-import org.openo.sdno.overlayvpn.util.check.CheckEndPointGrpUtil;
-import org.openo.sdno.overlayvpn.util.check.ValidationUtil;
 import org.openo.sdno.resource.ResourceUtil;
 
 import mockit.Mock;
@@ -83,6 +81,7 @@ public class CheckEndPointGrpUtilTest {
         EndpointGroup epg = new EndpointGroup();
         epg.setEndpoints("");
         CheckEndPointGrpUtil.check(epg, "tenantId1");
+        assertTrue(CheckEndPointGrpUtil.check(epg, "tenantId1").getErrorCode().equals(ErrorCode.OVERLAYVPN_TENANT_INVALID));
     }
 
     @Test(expected = ServiceException.class)
@@ -90,6 +89,7 @@ public class CheckEndPointGrpUtilTest {
         EndpointGroup epg = new EndpointGroup();
         epg.setEndpoints("[]");
         CheckEndPointGrpUtil.check(epg, "tenantId1");
+        assertTrue(CheckEndPointGrpUtil.check(epg, "tenantId1").getErrorCode().equals(ErrorCode.OVERLAYVPN_TENANT_INVALID));
     }
 
     @Test(expected = ServiceException.class)
@@ -98,6 +98,7 @@ public class CheckEndPointGrpUtilTest {
         epg.setEndpoints(endpointsJsonNegtive);
         epg.setType(EndpointType.CIDR.getName());
         CheckEndPointGrpUtil.check(epg, "tenantId1");
+        assertTrue(CheckEndPointGrpUtil.check(epg, "tenantId1").getErrorCode().equals(ErrorCode.OVERLAYVPN_TENANT_INVALID));
     }
 
     @Test(expected = ServiceException.class)
@@ -106,6 +107,7 @@ public class CheckEndPointGrpUtilTest {
         epg.setEndpoints(endpointsJsonNegtive2);
         epg.setType(EndpointType.PORT_VLAN.getName());
         CheckEndPointGrpUtil.check(epg, "tenantId1");
+        assertTrue(CheckEndPointGrpUtil.check(epg, "tenantId1").getErrorCode().equals(ErrorCode.OVERLAYVPN_TENANT_INVALID));
     }
 
     @Test(expected = ServiceException.class)
@@ -114,6 +116,7 @@ public class CheckEndPointGrpUtilTest {
         epg.setEndpoints(endpointsJsonNegtive3);
         epg.setType(EndpointType.PORT_VLAN.getName());
         CheckEndPointGrpUtil.check(epg, "tenantId1");
+        assertTrue(CheckEndPointGrpUtil.check(epg, "tenantId1").getErrorCode().equals(ErrorCode.OVERLAYVPN_TENANT_INVALID));
     }
 
     @Test(expected = ServiceException.class)
@@ -122,6 +125,7 @@ public class CheckEndPointGrpUtilTest {
         epg.setEndpoints(endpointsJsonNegtive4);
         epg.setType(EndpointType.PORT_VLAN.getName());
         CheckEndPointGrpUtil.check(epg, "tenantId1");
+        assertTrue(CheckEndPointGrpUtil.check(epg, "tenantId1").getErrorCode().equals(ErrorCode.OVERLAYVPN_TENANT_INVALID));
     }
 
     @Test(expected = ServiceException.class)
@@ -138,6 +142,7 @@ public class CheckEndPointGrpUtilTest {
         epg.setEndpoints(endpointsJsonNegtive5);
         epg.setType(EndpointType.PORT_VLAN.getName());
         CheckEndPointGrpUtil.check(epg, "tenantId1");
+        assertTrue(CheckEndPointGrpUtil.check(epg, "tenantId1").getErrorCode().equals(ErrorCode.OVERLAYVPN_TENANT_INVALID));
     }
 
     @Test(expected = ServiceException.class)
@@ -154,6 +159,7 @@ public class CheckEndPointGrpUtilTest {
         epg.setEndpoints(endpointsJsonNegtive5);
         epg.setType(EndpointType.PORT_VLAN.getName());
         CheckEndPointGrpUtil.check(epg, "tenantId1");
+        assertTrue(CheckEndPointGrpUtil.check(epg, "tenantId1").getErrorCode().equals(ErrorCode.OVERLAYVPN_TENANT_INVALID));
     }
 
     @Test(expected = ServiceException.class)
@@ -162,6 +168,7 @@ public class CheckEndPointGrpUtilTest {
         epg.setEndpoints(endpointsJsonNegtive5);
         epg.setType(EndpointType.VNI.getName());
         CheckEndPointGrpUtil.check(epg, "tenantId1");
+        assertTrue(CheckEndPointGrpUtil.check(epg, "tenantId1").getErrorCode().equals(ErrorCode.OVERLAYVPN_TENANT_INVALID));
     }
 
     @Test(expected = ServiceException.class)
@@ -186,6 +193,7 @@ public class CheckEndPointGrpUtilTest {
         epg.setType(EndpointType.PORT_VLAN.getName());
         epg.setGateway(new Gateway());
         CheckEndPointGrpUtil.check(epg, "tenantId1");
+        assertTrue(CheckEndPointGrpUtil.check(epg, "tenantId1").getErrorCode().equals(ErrorCode.OVERLAYVPN_TENANT_INVALID));
     }
 
     @Test(expected = ServiceException.class)
@@ -210,6 +218,7 @@ public class CheckEndPointGrpUtilTest {
         epg.setEndpoints(endpointsJsonCidr);
         epg.setType(EndpointType.CIDR.getName());
         CheckEndPointGrpUtil.check(epg, "tenantId1");
+        assertTrue(CheckEndPointGrpUtil.check(epg, "tenantId1").getErrorCode().equals(ErrorCode.OVERLAYVPN_TENANT_INVALID));
     }
 
     @Test(expected = ServiceException.class)
@@ -241,6 +250,7 @@ public class CheckEndPointGrpUtilTest {
         epg.setType(EndpointType.CIDR.getName());
         epg.setGatewayId("gatewayId1");
         CheckEndPointGrpUtil.check(epg, "tenantId1");
+        assertTrue(CheckEndPointGrpUtil.check(epg, "tenantId1").getErrorCode().equals(ErrorCode.OVERLAYVPN_TENANT_INVALID));
     }
 
     @Test
@@ -310,6 +320,7 @@ public class CheckEndPointGrpUtilTest {
         epg.setType(EndpointType.CIDR.getName());
         epg.setNeId("neId1");
         CheckEndPointGrpUtil.check(epg, "tenantId1");
+        assertTrue(CheckEndPointGrpUtil.check(epg, "tenantId1").getErrorCode().equals(ErrorCode.OVERLAYVPN_TENANT_INVALID));
     }
 
     @Test(expected = ServiceException.class)
@@ -350,6 +361,7 @@ public class CheckEndPointGrpUtilTest {
         epg.setNeId("neId1");
         epg.setTopologyRole(TopologyRole.SPOKE.getName());
         CheckEndPointGrpUtil.check(epg, "tenantId1");
+        assertTrue(CheckEndPointGrpUtil.check(epg, "tenantId1").getErrorCode().equals(ErrorCode.OVERLAYVPN_TENANT_INVALID));
     }
 
     @Test(expected = ServiceException.class)
@@ -391,6 +403,7 @@ public class CheckEndPointGrpUtilTest {
         epg.setNeId("neId1");
         epg.setTopologyRole(TopologyRole.HUB.getName());
         CheckEndPointGrpUtil.check(epg, "tenantId1");
+        assertTrue(CheckEndPointGrpUtil.check(epg, "tenantId1").getErrorCode().equals(ErrorCode.OVERLAYVPN_TENANT_INVALID));
     }
 
     @Test

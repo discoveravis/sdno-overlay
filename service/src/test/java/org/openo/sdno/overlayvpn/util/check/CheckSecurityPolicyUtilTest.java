@@ -14,15 +14,13 @@
  * limitations under the License.
  */
 
-package org.openo.sdno.overlayvpn.check;
+package org.openo.sdno.overlayvpn.util.check;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import mockit.Mock;
-import mockit.MockUp;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -31,13 +29,14 @@ import org.openo.sdno.overlayvpn.dao.common.InventoryDao;
 import org.openo.sdno.overlayvpn.errorcode.ErrorCode;
 import org.openo.sdno.overlayvpn.model.ipsec.IkePolicy;
 import org.openo.sdno.overlayvpn.model.ipsec.IpSecPolicy;
-import org.openo.sdno.overlayvpn.model.servicemodel.OverlayVpn;
+import org.openo.sdno.overlayvpn.model.servicemodel.Gateway;
 import org.openo.sdno.overlayvpn.model.servicemodel.mappingpolicy.GreMappingPolicy;
 import org.openo.sdno.overlayvpn.model.servicemodel.mappingpolicy.IpsecMappingPolicy;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
-import org.openo.sdno.overlayvpn.util.check.CheckSecurityPolicyUtil;
-import org.openo.sdno.overlayvpn.util.check.ValidationUtil;
 import org.openo.sdno.resource.ResourceUtil;
+
+import mockit.Mock;
+import mockit.MockUp;
 
 public class CheckSecurityPolicyUtilTest {
 
@@ -61,7 +60,13 @@ public class CheckSecurityPolicyUtilTest {
 
     @Test
     public void testCheck() throws ServiceException {
-        CheckSecurityPolicyUtil.check(new IkePolicy());
+
+        try {
+            CheckSecurityPolicyUtil.check(new IkePolicy());
+            assertTrue(true);
+        } catch(Exception e) {
+            fail("Exception occured");
+        }
     }
 
     @Test(expected = ServiceException.class)
@@ -77,6 +82,7 @@ public class CheckSecurityPolicyUtilTest {
         IpSecPolicy ipsecPolicy = new IpSecPolicy();
         ipsecPolicy.setUuid("uuid1");
         CheckSecurityPolicyUtil.checkIpsecPolicyIsUsed(ipsecPolicy);
+        fail("Exception not occured");
     }
 
     @Test(expected = ServiceException.class)
@@ -94,6 +100,7 @@ public class CheckSecurityPolicyUtilTest {
         IpSecPolicy ipsecPolicy = new IpSecPolicy();
         ipsecPolicy.setUuid("uuid1");
         CheckSecurityPolicyUtil.checkIpsecPolicyIsUsed(ipsecPolicy);
+        fail("Exception not occured");
     }
 
     @Test(expected = ServiceException.class)
@@ -113,6 +120,7 @@ public class CheckSecurityPolicyUtilTest {
         IpSecPolicy ipsecPolicy = new IpSecPolicy();
         ipsecPolicy.setUuid("uuid1");
         CheckSecurityPolicyUtil.checkIpsecPolicyIsUsed(ipsecPolicy);
+        fail("Exception not occured");
     }
 
     @Test(expected = ServiceException.class)
@@ -134,6 +142,7 @@ public class CheckSecurityPolicyUtilTest {
         IpSecPolicy ipsecPolicy = new IpSecPolicy();
         ipsecPolicy.setUuid("uuid1");
         CheckSecurityPolicyUtil.checkIpsecPolicyIsUsed(ipsecPolicy);
+        fail("Exception not occured");
     }
 
     @Test(expected = ServiceException.class)
@@ -149,6 +158,7 @@ public class CheckSecurityPolicyUtilTest {
         IkePolicy ikePolicy = new IkePolicy();
         ikePolicy.setUuid("uuid1");
         CheckSecurityPolicyUtil.checkIkePolicyIsUsed(ikePolicy);
+        fail("Exception not occured");
     }
 
     @Test(expected = ServiceException.class)
@@ -166,6 +176,7 @@ public class CheckSecurityPolicyUtilTest {
         IkePolicy ikePolicy = new IkePolicy();
         ikePolicy.setUuid("uuid1");
         CheckSecurityPolicyUtil.checkIkePolicyIsUsed(ikePolicy);
+        fail("Exception not occured");
     }
 
     @Test(expected = ServiceException.class)
@@ -185,6 +196,7 @@ public class CheckSecurityPolicyUtilTest {
         IkePolicy ikePolicy = new IkePolicy();
         ikePolicy.setUuid("uuid1");
         CheckSecurityPolicyUtil.checkIkePolicyIsUsed(ikePolicy);
+        fail("Exception not occured");
     }
 
     @Test(expected = ServiceException.class)
@@ -206,5 +218,6 @@ public class CheckSecurityPolicyUtilTest {
         IkePolicy ikePolicy = new IkePolicy();
         ikePolicy.setUuid("uuid1");
         CheckSecurityPolicyUtil.checkIkePolicyIsUsed(ikePolicy);
+        fail("Exception not occured");
     }
 }

@@ -14,24 +14,24 @@
  * limitations under the License.
  */
 
-package org.openo.sdno.overlayvpn.check;
+package org.openo.sdno.overlayvpn.util.check;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import mockit.Mock;
-import mockit.MockUp;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.overlayvpn.model.servicemodel.Connection;
+import org.openo.sdno.overlayvpn.model.servicemodel.Gateway;
 import org.openo.sdno.overlayvpn.model.servicemodel.OverlayVpn;
-import org.openo.sdno.overlayvpn.util.check.CheckOverlayVpnUtil;
-import org.openo.sdno.overlayvpn.util.check.ValidationUtil;
 import org.openo.sdno.resource.ResourceUtil;
+
+import mockit.Mock;
+import mockit.MockUp;
 
 public class CheckOverlayVpnUtilTest {
 
@@ -60,6 +60,7 @@ public class CheckOverlayVpnUtilTest {
         connectionIdList.add("id1");
         overlayVpn.setConnectionIds(connectionIdList);
         CheckOverlayVpnUtil.check(overlayVpn);
+        fail("Exception not occured");
     }
 
     @Test(expected = ServiceException.class)
@@ -69,11 +70,17 @@ public class CheckOverlayVpnUtilTest {
         connectionList.add(new Connection());
         overlayVpn.setVpnConnections(connectionList);
         CheckOverlayVpnUtil.check(overlayVpn);
+        fail("Exception not occured");
     }
 
     @Test
     public void testCheck() throws ServiceException {
-        CheckOverlayVpnUtil.check(new OverlayVpn());
+        try {
+            CheckOverlayVpnUtil.check(new OverlayVpn());
+            assertTrue(true);
+        } catch(Exception e) {
+            fail("Exception occured");
+        }
     }
 
 }

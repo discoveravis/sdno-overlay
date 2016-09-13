@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package org.openo.sdno.overlayvpn.check;
+package org.openo.sdno.overlayvpn.util.check;
+
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import mockit.Mock;
-import mockit.MockUp;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -30,13 +30,15 @@ import org.openo.sdno.overlayvpn.errorcode.ErrorCode;
 import org.openo.sdno.overlayvpn.model.common.enums.TechnologyType;
 import org.openo.sdno.overlayvpn.model.servicemodel.Connection;
 import org.openo.sdno.overlayvpn.model.servicemodel.EndpointGroup;
+import org.openo.sdno.overlayvpn.model.servicemodel.Gateway;
 import org.openo.sdno.overlayvpn.model.servicemodel.OverlayVpn;
 import org.openo.sdno.overlayvpn.model.servicemodel.mappingpolicy.IpsecMappingPolicy;
 import org.openo.sdno.overlayvpn.model.servicemodel.mappingpolicy.VxlanMappingPolicy;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
-import org.openo.sdno.overlayvpn.util.check.CheckConnectionUtil;
-import org.openo.sdno.overlayvpn.util.check.ValidationUtil;
 import org.openo.sdno.resource.ResourceUtil;
+
+import mockit.Mock;
+import mockit.MockUp;
 
 public class CheckConnectionUtilTest {
 
@@ -66,6 +68,7 @@ public class CheckConnectionUtilTest {
         Connection connection = new Connection();
         connection.setEpgIds(epgIds);
         CheckConnectionUtil.check(connection);
+        fail("Exception occured");
     }
 
     @Test(expected = ServiceException.class)
@@ -75,6 +78,7 @@ public class CheckConnectionUtilTest {
         Connection connection = new Connection();
         connection.setEndpointGroups(epgGroups);
         CheckConnectionUtil.check(connection);
+        fail("Exception occured");
     }
 
     @Test(expected = ServiceException.class)
@@ -83,6 +87,7 @@ public class CheckConnectionUtilTest {
         connection.setName("name1");
         connection.setIpsecMappingPolicy(new IpsecMappingPolicy());
         CheckConnectionUtil.check(connection);
+        fail("Exception occured");
     }
 
     @Test(expected = ServiceException.class)
@@ -91,6 +96,7 @@ public class CheckConnectionUtilTest {
         connection.setName("name1");
         connection.setTechnology(TechnologyType.GRE_OVER_IPSEC.getName());
         CheckConnectionUtil.check(connection);
+        fail("Exception occured");
     }
 
     @Test(expected = ServiceException.class)
@@ -108,6 +114,7 @@ public class CheckConnectionUtilTest {
         connection.setName("name1");
         connection.setMappingPolicyId("mappingPolicyId1");
         CheckConnectionUtil.check(connection);
+        fail("Exception occured");
     }
 
     @Test(expected = ServiceException.class)
@@ -129,6 +136,7 @@ public class CheckConnectionUtilTest {
         connection.setTechnology(TechnologyType.IPSEC.getName());
         connection.setMappingPolicyId("mappingPolicyId1");
         CheckConnectionUtil.check(connection);
+        fail("Exception occured");
     }
 
     @Test(expected = ServiceException.class)
@@ -150,6 +158,7 @@ public class CheckConnectionUtilTest {
         connection.setTechnology(TechnologyType.VXLAN.getName());
         connection.setMappingPolicyId("mappingPolicyId1");
         CheckConnectionUtil.check(connection);
+        fail("Exception occured");
     }
 
     @Test(expected = ServiceException.class)
@@ -170,6 +179,7 @@ public class CheckConnectionUtilTest {
         connection.setMappingPolicyId("mappingPolicyId1");
 
         CheckConnectionUtil.check(connection);
+        fail("Exception occured");
     }
 
     @Test
@@ -188,7 +198,11 @@ public class CheckConnectionUtilTest {
         connection.setName("name1");
         connection.setTechnology(TechnologyType.VXLAN.getName());
         connection.setMappingPolicyId("mappingPolicyId1");
-
-        CheckConnectionUtil.check(connection);
+        try {
+            CheckConnectionUtil.check(connection);
+            assertTrue(true);
+        } catch(Exception e) {
+            fail("Exception occured");
+        }
     }
 }

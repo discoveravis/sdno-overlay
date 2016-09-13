@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-package org.openo.sdno.overlayvpn.check;
+package org.openo.sdno.overlayvpn.util.check;
 
-import mockit.Mock;
-import mockit.MockUp;
+import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -25,9 +24,10 @@ import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.overlayvpn.brs.invdao.NetworkElementInvDao;
 import org.openo.sdno.overlayvpn.brs.model.NetworkElementMO;
 import org.openo.sdno.overlayvpn.model.servicemodel.Gateway;
-import org.openo.sdno.overlayvpn.util.check.CheckGatewayUtil;
-import org.openo.sdno.overlayvpn.util.check.ValidationUtil;
 import org.openo.sdno.resource.ResourceUtil;
+
+import mockit.Mock;
+import mockit.MockUp;
 
 public class CheckGatewayUtilTest {
 
@@ -58,8 +58,8 @@ public class CheckGatewayUtilTest {
                 return null;
             }
         };
-
         CheckGatewayUtil.check(new Gateway());
+        fail("Exception not occured");
     }
 
     @Test
@@ -71,8 +71,12 @@ public class CheckGatewayUtilTest {
                 return new NetworkElementMO();
             }
         };
-
-        CheckGatewayUtil.check(new Gateway());
+        try {
+            CheckGatewayUtil.check(new Gateway());
+            assertTrue(true);
+        } catch(Exception e) {
+            fail("Exception occured");
+        }
     }
 
 }
