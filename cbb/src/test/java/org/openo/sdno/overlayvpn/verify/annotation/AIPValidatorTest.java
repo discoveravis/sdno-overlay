@@ -16,8 +16,8 @@
 
 package org.openo.sdno.overlayvpn.verify.annotation;
 
-import static org.junit.Assert.*;
-
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import javax.validation.ConstraintValidatorContext;
 
 import mockit.Expectations;

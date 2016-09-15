@@ -108,6 +108,7 @@ public class GatewaySvcImplTest {
         } catch(NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e2) {
             // TODO Auto-generated catch block
             e2.printStackTrace();
+			 fail("File Exception occured");
         }
 
         HttpServletRequest req = null;
