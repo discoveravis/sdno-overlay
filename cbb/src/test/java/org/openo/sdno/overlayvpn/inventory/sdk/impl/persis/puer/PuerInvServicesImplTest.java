@@ -16,7 +16,8 @@
 
 package org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +46,7 @@ public class PuerInvServicesImplTest {
         gway.setUuid("uuid");
         moList.add(gway);
         servImpl.add(moList);
-        // assertTrue(resp.isSuccess());
+        fail("Exception was not thrown");
     }
 
     @Test

@@ -62,6 +62,7 @@ public class UuidAllocUtilTest {
         gateway.setUuid("123456++++");
         try {
             UuidAllocUtil.checkUuid(gateway);
+            fail("Validation exception was not thrown");
         } catch(ServiceException e) {
             assertEquals(e.getHttpCode(), 400);
         }

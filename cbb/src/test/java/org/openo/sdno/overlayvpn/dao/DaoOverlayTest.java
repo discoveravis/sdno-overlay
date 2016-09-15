@@ -16,12 +16,13 @@
 
 package org.openo.sdno.overlayvpn.dao;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
@@ -54,7 +55,8 @@ public class DaoOverlayTest {
             baseMapping.setDescription("TestBase Policy");
             List<BaseMappingPolicy> totalMappingPolicies = new ArrayList<BaseMappingPolicy>();
             totalMappingPolicies.add(baseMapping);
-            MappingPolicyUtil.buildUuidToMappingPolicyMap(totalMappingPolicies);
+            Map<String, BaseMappingPolicy> policyMap = MappingPolicyUtil.buildUuidToMappingPolicyMap(totalMappingPolicies);
+            assertEquals(1, policyMap.size());
         } catch(Exception ex) {
             fail("Exception while building the UUID to MappingPolicy");
         }
@@ -113,7 +115,8 @@ public class DaoOverlayTest {
             baseconn.setTechnology("gre");
             totalMappingPolicies.add(baseconn);
 
-            MappingPolicyUtil.getTotalMappingPoliciesFromConn(totalMappingPolicies, invDao);
+            List<BaseMappingPolicy> mappingPolicies = MappingPolicyUtil.getTotalMappingPoliciesFromConn(totalMappingPolicies, invDao);
+            assertEquals(2, mappingPolicies.size());
         } catch(ServiceException e) {
             fail("Exception while building the complex to MappingPolicy");
         }

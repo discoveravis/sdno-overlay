@@ -19,6 +19,7 @@ package org.openo.sdno.overlayvpn.inventory.sdk.util;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.overlayvpn.brs.enums.SiteType;
 import org.openo.sdno.overlayvpn.brs.invdao.CommParamDao;
@@ -55,6 +56,7 @@ public class BrsTest extends TestCase {
 
     SiteMO siteMo = new SiteMO();
 
+    @Test
     public void testBrsSiteTypeNetworkAndTenant() {
         SiteType siteNet = SiteType.NETWORK_SITE;
         SiteType siteTenant = SiteType.TENANT_SITE;
@@ -64,11 +66,12 @@ public class BrsTest extends TestCase {
 
     }
 
+    @Test
     public void testBrsControllerEmptyCntrlIDInventoryDao() {
         ControllerDao cntrlDao = new ControllerDao();
         try {
             cntrlDao.getController("");
-            fail("Ne exception for invalid controller id");
+            fail("No exception for invalid controller id");
         } catch(ServiceException ex) {
             assertTrue(true);
         }
@@ -86,27 +89,30 @@ public class BrsTest extends TestCase {
 
     }
 
+    @Test
     public void testBrsControllerInvalidCntrlIdInventoryDao() {
         ControllerDao cntrlDao = new ControllerDao();
         try {
             cntrlDao.getController("0");
-            fail("Ne exception for invalid controller id");
+            fail("No exception for invalid controller id");
         } catch(ServiceException ex) {
             assertTrue(true);
         }
     }
 
+    @Test
     public void testBrsControllerCommonInventoryDao() {
         CommParamDao commDao = new CommParamDao();
 
         try {
             commDao.getCommParam("0");
-            fail("Ne exception for invalid controller id");
+            fail("No exception for invalid controller id");
         } catch(ServiceException e) {
             assertTrue(true);
         }
     }
 
+    @Test
     public void testLogicalTesrminationPnt() {
         LogicalTernminationPointInvDao cntrlDao = new LogicalTernminationPointInvDao();
         LogicalTernminationPointMO curMO = new LogicalTernminationPointMO();
@@ -141,6 +147,7 @@ public class BrsTest extends TestCase {
         }
     }
 
+    @Test
     public void testLogicalTestNetworkelem() {
         NetworkElementInvDao cntrlDao = new NetworkElementInvDao();
         NetworkElementMO curMO = new NetworkElementMO();
@@ -176,6 +183,7 @@ public class BrsTest extends TestCase {
         }
     }
 
+    @Test
     public void testSiteInvDao() {
         SiteInvDao cntrlDao = new SiteInvDao();
 

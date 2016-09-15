@@ -68,7 +68,7 @@ public class BrsTest extends TestCase {
         ControllerDao cntrlDao = new ControllerDao();
         try {
             cntrlDao.getController("");
-            fail("Ne exception for invalid controller id");
+            fail("No exception for invalid controller id");
         } catch(ServiceException ex) {
             assertTrue(true);
         }
@@ -90,7 +90,7 @@ public class BrsTest extends TestCase {
         ControllerDao cntrlDao = new ControllerDao();
         try {
             cntrlDao.getController("0");
-            fail("Ne exception for invalid controller id");
+            fail("No exception for invalid controller id");
         } catch(ServiceException ex) {
             assertTrue(true);
         }
@@ -101,7 +101,7 @@ public class BrsTest extends TestCase {
 
         try {
             commDao.getCommParam("0");
-            fail("Ne exception for invalid controller id");
+            fail("No exception for invalid controller id");
         } catch(ServiceException e) {
             assertTrue(true);
         }
@@ -112,12 +112,14 @@ public class BrsTest extends TestCase {
         LogicalTernminationPointMO curMO = new LogicalTernminationPointMO();
         try {
             cntrlDao.addMO(curMO);
+            fail("No validation Exception thrown for missing mandatory fields");
         } catch(ServiceException e) {
             assertTrue(true);
         }
 
         try {
             cntrlDao.deleteMO("uuid");
+            fail("No exception thrown for invalid id");
         } catch(ServiceException e) {
             assertTrue(true);
         }
@@ -147,12 +149,14 @@ public class BrsTest extends TestCase {
         try {
 
             cntrlDao.addMO(curMO);
+            fail("No validation Exception thrown for missing mandatory fields");
         } catch(ServiceException e) {
             assertTrue(true);
         }
 
         try {
             cntrlDao.deleteMO("uuid");
+            fail("No exception thrown for invalid id");
         } catch(ServiceException e) {
             assertTrue(true);
         }
@@ -183,12 +187,14 @@ public class BrsTest extends TestCase {
         try {
 
             cntrlDao.addMO(curMO);
+            fail("No validation Exception thrown for missing mandatory fields");
         } catch(ServiceException e) {
             assertTrue(true);
         }
 
         try {
             cntrlDao.deleteMO("uuid");
+            fail("No exception thrown for invalid id");
         } catch(ServiceException e) {
             assertTrue(true);
         }

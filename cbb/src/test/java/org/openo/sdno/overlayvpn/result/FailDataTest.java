@@ -16,7 +16,7 @@
 
 package org.openo.sdno.overlayvpn.result;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.openo.sdno.overlayvpn.model.servicemodel.Gateway;

@@ -76,7 +76,7 @@ public class PuerInvDAOImplTest {
         Gateway gw = new Gateway();
         gw.setUuid("uuid");
         ResultRsp<String> result = dao.delete("uuid", Gateway.class);
-
+        fail("Exception was not thrown");
     }
 
     @Test
@@ -121,6 +121,7 @@ public class PuerInvDAOImplTest {
         gw.setUuid("uuid");
         gwList.add(gw);
         ResultRsp<List<String>> result = dao.delete(gwList, Gateway.class);
+        fail("Exception was not thrown");
     }
 
     /*
@@ -165,6 +166,7 @@ public class PuerInvDAOImplTest {
         List<String> gwList = new ArrayList<String>();
         gwList.add("uuid");
         ResultRsp result = dao.batchDelete(gwList, Gateway.class);
+        fail("Exception was not thrown");
     }
 
     // TODO: test normal batchDelete case
@@ -183,6 +185,7 @@ public class PuerInvDAOImplTest {
         gw.setUuid("uuid");
         gwList.add(gw);
         ResultRsp result = dao.update(gwList, Gateway.class);
+        fail("Exception was not thrown");
     }
 
     // TODO: test normal update case
@@ -201,6 +204,7 @@ public class PuerInvDAOImplTest {
         gw.setUuid("uuid");
         gwList.add(gw);
         ResultRsp result = dao.query(gwList, Gateway.class);
+        fail("Exception was not thrown");
     }
 
     // TODO: test normal query case
@@ -220,6 +224,7 @@ public class PuerInvDAOImplTest {
         gwList.add(gw);
         QueryParams queryParams = new QueryParams(null, null, null, null);
         ResultRsp result = dao.query(Gateway.class, queryParams);
+        fail("Exception was not thrown");
     }
 
     // TODO: test nortmal query case
@@ -244,6 +249,7 @@ public class PuerInvDAOImplTest {
         relation.setSrcType(Gateway.class);
         relation.setSrcUUID("srcuuid");
         ResultRsp result = dao.addRelation(relation);
+        fail("Exception was not thrown");
     }
 
     // TODO: test normal case of add relation
@@ -268,6 +274,7 @@ public class PuerInvDAOImplTest {
         relation.setSrcType(Gateway.class);
         relation.setSrcUUID("srcuuid");
         ResultRsp result = dao.deleteRelation(relation);
+        fail("Exception was not thrown");
     }
 
     // TODO: test normal case for delete relation
@@ -281,6 +288,7 @@ public class PuerInvDAOImplTest {
         dao.setPuerObjInvService(serviceNbiBean);
         dao.setPuerRelationService(relationNbiBean);
         ResultRsp result = dao.query("uuid", Gateway.class);
+        fail("Exception was not thrown");
     }
 
     /*
@@ -328,5 +336,6 @@ public class PuerInvDAOImplTest {
 
         BatchQueryFileterEntity filterEntity = new BatchQueryFileterEntity();
         ResultRsp result = dao.query(Gateway.class, filterEntity);
+        fail("Exception was not thrown");
     }
 }
