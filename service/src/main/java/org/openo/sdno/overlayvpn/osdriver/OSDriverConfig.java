@@ -33,7 +33,7 @@ public class OSDriverConfig {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OSDriverConfig.class);
 
-    private static final String OS_DRIVER_CONFIG = "src/main/resources/osdriver.properties";
+    private static final String OS_DRIVER_CONFIG = "etc/osdriver.properties";
 
     private Properties properties = new Properties();
 
@@ -47,53 +47,13 @@ public class OSDriverConfig {
     }
 
     /**
-     * Get OSDriver Password.<br>
+     * Get Vim Name.<br>
      * 
-     * @return OSDriver Password
+     * @return Vim Name
      * @since SDNO 0.5
      */
-    public String getOSPassword() {
-        return properties.getProperty("os_password");
-    }
-
-    /**
-     * Get OSDriver UserName.<br>
-     * 
-     * @return OS UserName
-     * @since SDNO 0.5
-     */
-    public String getOSUserName() {
-        return properties.getProperty("os_username");
-    }
-
-    /**
-     * Get OSDriver Port.<br>
-     * 
-     * @return OSDriver Port
-     * @since SDNO 0.5
-     */
-    public String getOSPort() {
-        return properties.getProperty("os_port");
-    }
-
-    /**
-     * Get OSDriver IpAddress.<br>
-     * 
-     * @return OSDriver IpAddress
-     * @since SDNO 0.5
-     */
-    public String getOSIpAddress() {
-        return properties.getProperty("os_ip");
-    }
-
-    /**
-     * Get OSDriver Domain name.<br>
-     * 
-     * @return OSDriver Domain name
-     * @since SDNO 0.5
-     */
-    public String getOSDomainName() {
-        return properties.getProperty("os_domainname");
+    public String getVimName() {
+        return properties.getProperty("vim_name");
     }
 
     private void loadProperties() {

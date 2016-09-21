@@ -19,15 +19,11 @@ package org.openo.sdno.overlayvpn.osdriver;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.commons.collections.CollectionUtils;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
-import org.openo.sdno.overlayvpn.brs.invdao.CommParamDao;
-import org.openo.sdno.overlayvpn.brs.invdao.ControllerDao;
 import org.openo.sdno.overlayvpn.brs.invdao.NetworkElementInvDao;
-import org.openo.sdno.overlayvpn.brs.model.AuthInfo;
-import org.openo.sdno.overlayvpn.brs.model.CommParamMO;
-import org.openo.sdno.overlayvpn.brs.model.ControllerMO;
 import org.openo.sdno.overlayvpn.brs.model.NetworkElementMO;
+import org.openo.sdno.overlayvpn.esr.invdao.VimInvDao;
+import org.openo.sdno.overlayvpn.esr.model.Vim;
 import org.openo.sdno.overlayvpn.model.common.enums.AdminStatus;
 import org.openo.sdno.overlayvpn.model.common.enums.OperStatus;
 import org.slf4j.Logger;
@@ -47,15 +43,11 @@ public class OSDriverConfigUtil {
 
     private static final String OS_DRIVER_NE_NATIVEID = "OSDriverNEID";
 
-    private static final String OS_DRIVER_CONTROLLER_NAME = "OSController";
-
     private static OSDriverConfig osDriverConfig = new OSDriverConfig();
 
     private static NetworkElementInvDao neInvDao = new NetworkElementInvDao();
 
-    private static ControllerDao controllerDao = new ControllerDao();
-
-    private static CommParamDao commParamDao = new CommParamDao();
+    private static VimInvDao vimInvDao = new VimInvDao();
 
     private OSDriverConfigUtil() {
     }
@@ -86,50 +78,35 @@ public class OSDriverConfigUtil {
      * @since SDNO 0.5
      */
     public static String getOSDriverNeId() throws ServiceException {
-
         NetworkElementInvDao neInvDao = new NetworkElementInvDao();
         List<NetworkElementMO> neList = neInvDao.getNeByName(OS_DRIVER_NE_NAME);
-
         return neList.get(0).getId();
     }
 
     /**
-     * Get OSDriver Controller Id.<br>
+     * Query OS Controller Id.<br>
      * 
-     * @return OSDriver Controller Id
+     * @return Controller Id queried out
+     * @throws ServiceException when query failed
      * @since SDNO 0.5
      */
     public static String getOSControllerId() throws ServiceException {
-        String neId = getOSDriverNeId();
-        List<ControllerMO> controllerList = controllerDao.getControllerByNeId(neId);
-        return controllerList.get(0).getObjectId();
+        NetworkElementInvDao neInvDao = new NetworkElementInvDao();
+        List<NetworkElementMO> neList = neInvDao.getNeByName(OS_DRIVER_NE_NAME);
+        return neList.get(0).getControllerID().get(0);
     }
 
     private static void addNeAndOSController() throws ServiceException {
 
-        ControllerMO controller = new ControllerMO();
-        controller.setName(OS_DRIVER_CONTROLLER_NAME);
-        controller.setDescription(osDriverConfig.getOSDomainName());
-        controller.setHostName(osDriverConfig.getOSIpAddress());
-        String controllerId = controllerDao.addMO(controller);
-
-        CommParamMO commParam = new CommParamMO();
-        commParam.setObjectId(controllerId);
-        commParam.setProtocol("https");
-        commParam.setHostName(osDriverConfig.getOSIpAddress());
-        commParam.setPort(osDriverConfig.getOSPort());
-
-        AuthInfo authInfo = new AuthInfo();
-        authInfo.setUserName(osDriverConfig.getOSUserName());
-        authInfo.setPort(osDriverConfig.getOSPort());
-        authInfo.setPassword(osDriverConfig.getOSPassword());
-
-        commParam.setAuthInfo(authInfo);
-        commParamDao.addMO(controllerId, commParam);
+        Vim vim = vimInvDao.queryVimByName(osDriverConfig.getVimName());
+        if(null == vim) {
+            LOGGER.error("vim is null");
+            throw new ServiceException("vim is null");
+        }
 
         NetworkElementMO networkElement = new NetworkElementMO();
         networkElement.setName(OS_DRIVER_NE_NAME);
-        networkElement.setControllerID(Arrays.asList(controllerId));
+        networkElement.setControllerID(Arrays.asList(vim.getVimId()));
         networkElement.setNativeID(OS_DRIVER_NE_NATIVEID);
         networkElement.setAdminState(AdminStatus.ACTIVE.getName());
         networkElement.setOperState(OperStatus.UP.getName());
@@ -137,30 +114,17 @@ public class OSDriverConfigUtil {
         neInvDao.addMO(networkElement);
     }
 
-    private static void updateNeAndOSController(NetworkElementMO neMO) throws ServiceException {
+    private static void updateNeAndOSController(NetworkElementMO networkElement) throws ServiceException {
 
-        ControllerMO controller = controllerDao.getController(neMO.getControllerID().get(0));
-        controller.setDescription(osDriverConfig.getOSDomainName());
-        controllerDao.updateMO(controller);
-
-        String controllerId = controller.getObjectId();
-        List<CommParamMO> commParamList = commParamDao.getCommParam(controllerId);
-        if(CollectionUtils.isEmpty(commParamList)) {
-            LOGGER.error("CommParam not exist!!");
-            throw new ServiceException("CommParam not exist");
+        Vim vim = vimInvDao.queryVimByName(osDriverConfig.getVimName());
+        if(null == vim) {
+            LOGGER.error("Vim is null");
+            throw new ServiceException("Vim is null");
         }
 
-        CommParamMO commParam = commParamList.get(0);
-        commParam.setHostName(osDriverConfig.getOSIpAddress());
-        commParam.setPort(osDriverConfig.getOSPort());
+        networkElement.setControllerID(Arrays.asList(vim.getVimId()));
 
-        AuthInfo authInfo = new AuthInfo();
-        authInfo.setUserName(osDriverConfig.getOSUserName());
-        authInfo.setPort(osDriverConfig.getOSPort());
-        authInfo.setPassword(osDriverConfig.getOSPassword());
-
-        commParam.setAuthInfo(authInfo);
-        commParamDao.updateMO(controllerId, commParam);
+        neInvDao.updateMO(networkElement);
     }
 
 }
