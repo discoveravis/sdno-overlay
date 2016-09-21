@@ -1,18 +1,17 @@
 {
-	"request": {
-		"uri": "/openoapi/servicechain/v1/service-function-path",
-		"method": "post",
-		"headers": {
-			"Content-Type": "application/json;charset=UTF-8"
-		},
-		"json": {
-			"id": "servicechainId1"
-		}
-	},
-	"response": {
-		"status": 500,
-		"json": {
-			"name": "SFP1"
-		}
-	}
+    "request": {
+        "uri": "/openoapi/servicechain/v1/service-function-path",
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+        }
+    },
+    "response": {
+        "status": 500,
+        "json": {
+            "serviceChainPath" : {
+                "id": "servicechainId1"
+            }
+        }
+    }
 }

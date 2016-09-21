@@ -17,6 +17,8 @@
 package org.openo.sdno.overlayvpn.sbi.overlayvpn;
 
 import java.text.MessageFormat;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -49,13 +51,18 @@ public class ServiceChainService implements IMicroSvcBasicOper<ServiceChainPath>
 
     private static final String SERVICE_CHAIN_BASIC_PATH = "/openoapi/sdnoservicechain/v1/paths";
 
+    private static final String SERVICE_CHAIN_PATH_KEY = "serviceChainPath";
+
     @Override
     public ResultRsp<ServiceChainPath> create(HttpServletRequest req, ServiceChainPath sfp) throws ServiceException {
 
         RestfulParametes restfulParametes = new RestfulParametes();
         restfulParametes.putHttpContextHeader("Content-Type", "application/json;charset=UTF-8");
 
-        restfulParametes.setRawData(JsonUtil.toJson(sfp));
+        Map<String, ServiceChainPath> serviceChainPathMap = new HashMap<String, ServiceChainPath>();
+        serviceChainPathMap.put(SERVICE_CHAIN_PATH_KEY, sfp);
+
+        restfulParametes.setRawData(JsonUtil.toJson(serviceChainPathMap));
 
         RestfulResponse response = RestfulProxy.post(SERVICE_CHAIN_BASIC_PATH, restfulParametes);
         if(response.getStatus() == HttpCode.NOT_FOUND) {
