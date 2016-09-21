@@ -24,7 +24,7 @@
 			},
 			"sfp": {
 				"scfNeId": "aaaaaaaaa",
-				"servicePathHop": [
+				"servicePathHops": [
 					{
 						"hopNumber": "22",
 						"sfiId": "ccccccc",

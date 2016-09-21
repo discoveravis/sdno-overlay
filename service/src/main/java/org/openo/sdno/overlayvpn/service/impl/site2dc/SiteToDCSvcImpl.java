@@ -172,7 +172,7 @@ public class SiteToDCSvcImpl implements ISiteToDC {
         ServiceChainPath scp = new ServiceChainPath();
         scp.setUuid(UuidUtils.createUuid());
         scp.setName("tenantName");
-        scp.setServicePathHop(siteToDc.getSfp().getServicePathHop());
+        scp.setServicePathHops(siteToDc.getSfp().getServicePathHops());
         scp.setDescription(siteToDc.getVpc().getName());
         scp.setScfNeId(siteToDc.getSfp().getScfNeId());
         ServiceChainSiteToDcRelation serviceChainnSiteToDcRelation = new ServiceChainSiteToDcRelation();
@@ -299,7 +299,7 @@ public class SiteToDCSvcImpl implements ISiteToDC {
         ServiceChainSiteToDcRelation relation = ServiceChainDbOper.query(oSite2Dc.getUuid());
         ServiceChainPath scPath = JsonUtil.fromJson(relation.getData(), ServiceChainPath.class);
         oSite2Dc.getSfp().setScfNeId(scPath.getScfNeId());
-        oSite2Dc.getSfp().setServicePathHop(scPath.getServicePathHop());
+        oSite2Dc.getSfp().setServicePathHops(scPath.getServicePathHops());
 
         LOGGER.info("Exit query Site2DC method. Cost time = " + (System.currentTimeMillis() - infterEnterTime));
 

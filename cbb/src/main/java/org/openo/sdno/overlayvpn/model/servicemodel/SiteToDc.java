@@ -264,10 +264,10 @@ public class SiteToDc extends BaseServiceModel {
         @AString(require = true)
         String scfNeId;
 
-        List<ServicePathHop> servicePathHop;
+        List<ServicePathHop> servicePathHops;
 
         Sfp() {
-            servicePathHop = new ArrayList<ServicePathHop>();
+            servicePathHops = new ArrayList<ServicePathHop>();
         }
 
         public String getScfNeId() {
@@ -278,12 +278,12 @@ public class SiteToDc extends BaseServiceModel {
             this.scfNeId = scfNeId;
         }
 
-        public List<ServicePathHop> getServicePathHop() {
-            return servicePathHop;
+        public List<ServicePathHop> getServicePathHops() {
+            return servicePathHops;
         }
 
-        public void setServicePathHop(List<ServicePathHop> servicePathHop) {
-            this.servicePathHop = servicePathHop;
+        public void setServicePathHops(List<ServicePathHop> servicePathHops) {
+            this.servicePathHops = servicePathHops;
         }
     }
 

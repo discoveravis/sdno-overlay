@@ -44,7 +44,7 @@ public class ServiceChainPath extends AbstUuidModel {
 
     private String transportType;
 
-    private List<ServicePathHop> servicePathHop;
+    private List<ServicePathHop> servicePathHops;
 
     private List<ServiceClassifer> classifiers;
 
@@ -96,12 +96,12 @@ public class ServiceChainPath extends AbstUuidModel {
         this.transportType = transportType;
     }
 
-    public List<ServicePathHop> getServicePathHop() {
-        return servicePathHop;
+    public List<ServicePathHop> getServicePathHops() {
+        return servicePathHops;
     }
 
-    public void setServicePathHop(List<ServicePathHop> servicePathHop) {
-        this.servicePathHop = servicePathHop;
+    public void setServicePathHops(List<ServicePathHop> servicePathHops) {
+        this.servicePathHops = servicePathHops;
     }
 
     public String getDescription() {

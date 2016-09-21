@@ -274,7 +274,7 @@ public class SiteToDcRoaResource {
 
         if(null != oSiteToDc.getSfp()) {
             oSiteToDc.getSfp().setScfNeId(oSite2DcNbi.getSfp().getScfNeId());
-            oSiteToDc.getSfp().setServicePathHop(oSite2DcNbi.getSfp().getServicePathHop());
+            oSiteToDc.getSfp().setServicePathHops(oSite2DcNbi.getSfp().getServicePathHops());
         }
 
         return oSiteToDc;
@@ -302,7 +302,7 @@ public class SiteToDcRoaResource {
 
         if(null != oSiteToDcNbi.getSfp()) {
             oSiteToDcNbi.getSfp().setScfNeId(oSite2Dc.getSfp().getScfNeId());
-            oSiteToDcNbi.getSfp().setServicePathHop(oSite2Dc.getSfp().getServicePathHop());
+            oSiteToDcNbi.getSfp().setServicePathHops(oSite2Dc.getSfp().getServicePathHops());
         }
 
         return oSiteToDcNbi;

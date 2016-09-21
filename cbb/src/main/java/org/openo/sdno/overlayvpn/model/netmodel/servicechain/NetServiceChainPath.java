@@ -38,7 +38,7 @@ public class NetServiceChainPath extends AbstUuidModel {
 
     private String scfNeId;
 
-    private List<NetServicePathHop> servicePathHop;
+    private List<NetServicePathHop> servicePathHops;
 
     private List<NetServiceClassifer> classifiers;
 
@@ -82,12 +82,12 @@ public class NetServiceChainPath extends AbstUuidModel {
         this.scfNeId = scfNeId;
     }
 
-    public List<NetServicePathHop> getServicePathHop() {
-        return servicePathHop;
+    public List<NetServicePathHop> getServicePathHops() {
+        return servicePathHops;
     }
 
-    public void setServicePathHop(List<NetServicePathHop> servicePathHop) {
-        this.servicePathHop = servicePathHop;
+    public void setServicePathHops(List<NetServicePathHop> servicePathHops) {
+        this.servicePathHops = servicePathHops;
     }
 
     public List<NetServiceClassifer> getClassifiers() {
