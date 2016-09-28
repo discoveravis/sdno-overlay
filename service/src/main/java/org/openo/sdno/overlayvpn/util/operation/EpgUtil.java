@@ -196,7 +196,7 @@ public class EpgUtil {
             updateDataMap.remove("adminStatus");
         }
 
-        // Modify Fields：name description adminStatus
+        // Modify Fields: name description adminStatus
         if(MapUtils.isNotEmpty(updateDataMap)) {
             ThrowOverlayVpnExcpt.throwUpdateEpgInvalid();
         }

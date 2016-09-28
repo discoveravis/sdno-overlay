@@ -27,7 +27,7 @@ package org.openo.sdno.overlayvpn.model.netmodel.localsite;
 public class DhcpServerOption {
 
     /**
-     * DHCP Option Code, range 1～254，but 1、3、6、15、44、46、50、51、52、53、54、55、 57、58、59、61、82、121、184
+     * DHCP Option Code, range 1-254, but 1,3,6,15,44,46,50,51,52,53,54,55,57,58,59,61,82,121,184
      * are excluded
      */
     private int code;

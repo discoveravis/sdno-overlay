@@ -46,7 +46,7 @@ public class VxlanModelBase extends ModelBase {
     private String adminStatus;
 
     /**
-     * Running Status of VPN:ACTIVE、 DOWN、ERROR
+     * Running Status of VPN:ACTIVE, DOWN, ERROR
      */
     @AString(scope = "ACTIVE,DOWN,ERROR")
     private String runningStatus;

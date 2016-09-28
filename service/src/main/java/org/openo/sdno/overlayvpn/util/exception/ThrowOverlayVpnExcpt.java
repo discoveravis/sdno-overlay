@@ -208,7 +208,7 @@ public class ThrowOverlayVpnExcpt {
 
     /**
      * Throw Having MappingPolicy Exception.<br>
-     * mappingPolicyId should have if ipsec、vxlan、gre_over_ipsec are used
+     * mappingPolicyId should have if ipsec, vxlan, gre_over_ipsec are used
      * 
      * @param connectionId connection id
      * @throws ServiceException ServiceException throws

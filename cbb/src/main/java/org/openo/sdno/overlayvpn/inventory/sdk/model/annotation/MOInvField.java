@@ -25,7 +25,7 @@ import java.lang.annotation.Target;
  * <p>
  * for example: class port {
  * 
- * @MOInvField（invName="uuid"）
+ * @MOInvField(invName="uuid")
  *                             Integer id;
  *                             }
  *                             It means port.id is the same as table field uuid.

@@ -34,7 +34,7 @@ public @interface MORelationField {
     /**
      * Get Relation type.<br>
      * 
-     * @return relation type:aggregation、composition、association
+     * @return relation type:aggregation, composition, association
      * @since SDNO 0.5
      */
     String type() default "composition";

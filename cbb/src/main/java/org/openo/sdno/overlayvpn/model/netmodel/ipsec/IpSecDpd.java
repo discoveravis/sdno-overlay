@@ -33,7 +33,7 @@ import org.openo.sdno.overlayvpn.verify.annotation.AString;
 public class IpSecDpd extends AbstUuidModel {
 
     /**
-     * Action:clear、 hold、restart、 disabled or restart-by-peer
+     * Action:clear, hold, restart, disabled or restart-by-peer
      */
     @AString(scope = "clear,hold,restart,disabled,restart-by-peer")
     private String action;
