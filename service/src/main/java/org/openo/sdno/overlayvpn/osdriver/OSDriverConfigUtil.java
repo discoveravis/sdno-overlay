@@ -16,6 +16,7 @@
 
 package org.openo.sdno.overlayvpn.osdriver;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.openo.baseservice.remoteservice.exception.ServiceException;
@@ -91,8 +92,9 @@ public class OSDriverConfigUtil {
      */
     public static String getOSControllerId() throws ServiceException {
         NetworkElementInvDao neInvDao = new NetworkElementInvDao();
-        List<NetworkElementMO> neList = neInvDao.getNeByName(OS_DRIVER_NE_NAME);
-        return neList.get(0).getLogicID();
+        NetworkElementMO neMo = neInvDao.query(getOSDriverNeId());
+
+        return neMo.getControllerID().get(0);
     }
 
     private static void addNeAndOSController() throws ServiceException {
@@ -105,7 +107,7 @@ public class OSDriverConfigUtil {
 
         NetworkElementMO networkElement = new NetworkElementMO();
         networkElement.setName(OS_DRIVER_NE_NAME);
-        networkElement.setLogicID(vim.getVimId());
+        networkElement.setControllerID(Arrays.asList(vim.getVimId()));
         networkElement.setNativeID(OS_DRIVER_NE_NATIVEID);
         networkElement.setAdminState(AdminStatus.ACTIVE.getName());
         networkElement.setOperState(OperStatus.UP.getName());
@@ -121,7 +123,7 @@ public class OSDriverConfigUtil {
             throw new ServiceException("Vim is null");
         }
 
-        networkElement.setLogicID(vim.getVimId());
+        networkElement.setControllerID(Arrays.asList(vim.getVimId()));
 
         neInvDao.updateMO(networkElement);
     }

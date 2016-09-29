@@ -54,13 +54,13 @@ public class ControllerDao {
      * @since SDNO 0.5
      */
     public String addMO(ControllerMO controllerMO) throws ServiceException {
-        LOGGER.info("insert Controller begin,cur NE name:" + controllerMO.getName());
+        LOGGER.info("Insert Controller begin,cur NE name:" + controllerMO.getName());
         RestfulResponse response = BrsRestconfProxy.post(CONTROLLER_URL, controllerMO.toJsonBody());
         if(!HttpCode.isSucess(response.getStatus()) || StringUtils.isEmpty(response.getResponseContent())) {
             LOGGER.error("Add Controller Failed!!");
             throw new ServiceException("Add Controller Failed!!");
         }
-        LOGGER.info("insert Controller end");
+        LOGGER.info("Insert Controller end");
         return response.getResponseContent();
     }
 
@@ -88,14 +88,14 @@ public class ControllerDao {
     public ControllerMO getController(String uuid) throws ServiceException {
 
         if(StringUtils.isEmpty(uuid)) {
-            LOGGER.error("getController: uuid is invalid param!!");
+            LOGGER.error("Get controller: uuid is invalid param!!");
             throw new ServiceException("uuid is invalid param");
         }
 
         RestfulResponse response = BrsRestconfProxy.get(CONTROLLER_URL + "/" + uuid, "");
 
         if(!HttpCode.isSucess(response.getStatus()) || StringUtils.isEmpty(response.getResponseContent())) {
-            LOGGER.error("getController: response return error!!");
+            LOGGER.error("Get controller: response return error!!");
             throw new ServiceException("getController: response return error");
         }
 
@@ -111,18 +111,17 @@ public class ControllerDao {
      * @since SDNO 0.5
      */
     public List<ControllerMO> getControllerByNeId(String neId) throws ServiceException {
+        LOGGER.info("Query controller by ne id: " + neId);
         List<ControllerMO> controllerMolist = new ArrayList<ControllerMO>();
 
         NetworkElementInvDao neInvDao = new NetworkElementInvDao();
         NetworkElementMO neMO = neInvDao.query(neId);
-
         List<String> controllerIdList = neMO.getControllerID();
-
-        for(String controllerID : controllerIdList) {
-            ControllerMO controller = getController(controllerID);
-            if(controller != null) {
-                controllerMolist.add(controller);
-            }
+        for(String controllerId : controllerIdList) {
+            ControllerMO controller = new ControllerMO();
+            controller.setId(controllerId);
+            controller.setObjectId(controllerId);
+            controllerMolist.add(controller);
         }
 
         return controllerMolist;
@@ -137,7 +136,7 @@ public class ControllerDao {
      * @since SDNO 0.5
      */
     public List<ControllerMO> getControllerBySiteId(String siteId) throws ServiceException {
-        LOGGER.info("query controller by site id: " + siteId);
+        LOGGER.info("Query controller by site id: " + siteId);
         NetworkElementInvDao neDao = new NetworkElementInvDao();
 
         List<NetworkElementMO> nes = neDao.getNeBySiteId(siteId);
