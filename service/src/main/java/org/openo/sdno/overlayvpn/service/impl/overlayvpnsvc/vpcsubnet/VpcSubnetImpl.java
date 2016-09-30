@@ -111,9 +111,9 @@ public class VpcSubnetImpl {
         CheckStrUtil.checkUuidStr(siteToDcId);
 
         VpcSubNetMapping vpcSubNetMapping = query(req, resp, siteToDcId);
-        if (null == vpcSubNetMapping) {
+        if(null == vpcSubNetMapping) {
             LOGGER.info("Vpc and subnet not exist.");
-            return new ResultRsp<String>(ErrorCode.OVERLAYVPN_SUCCESS, "Vpc and subnet not exist.");
+            return new ResultRsp<String>(ErrorCode.OVERLAYVPN_SUCCESS, "Vpc and subnet not exist");
         }
         CheckStrUtil.checkUuidStr(vpcSubNetMapping.getSubnetId());
         CheckStrUtil.checkUuidStr(vpcSubNetMapping.getVpcId());
@@ -130,9 +130,9 @@ public class VpcSubnetImpl {
             throw new ServiceException("Delete VPC Service failed!!");
         }
 
-        inventoryDao.delete(VpcSubNetMapping.class, siteToDcId);
+        inventoryDao.delete(VpcSubNetMapping.class, vpcSubNetMapping.getUuid());
 
-        return new ResultRsp<String>(ErrorCode.OVERLAYVPN_SUCCESS, "Delete vpc and subnet success.");
+        return new ResultRsp<String>(ErrorCode.OVERLAYVPN_SUCCESS, "Delete vpc and subnet success");
     }
 
     /**
@@ -153,7 +153,8 @@ public class VpcSubnetImpl {
         Map<String, List<String>> filterMap = new HashMap<String, List<String>>();
         filterMap.put("sitetodcId", Arrays.asList(siteToDcId));
 
-        ResultRsp<List<VpcSubNetMapping>> resultList = inventoryDao.queryByFilter(VpcSubNetMapping.class, JsonUtil.toJson(filterMap), null);
+        ResultRsp<List<VpcSubNetMapping>> resultList =
+                inventoryDao.queryByFilter(VpcSubNetMapping.class, JsonUtil.toJson(filterMap), null);
         return resultList.getData().get(0);
     }
 }

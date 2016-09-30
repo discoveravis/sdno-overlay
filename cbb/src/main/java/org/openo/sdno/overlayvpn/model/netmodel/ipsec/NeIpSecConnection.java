@@ -85,6 +85,7 @@ public class NeIpSecConnection extends BaseNetModel {
     @NotNull
     private IpSecPolicy ipSecPolicy;
 
+    @NONInvField
     @AString(require = false, scope = "work, protect")
     private String workType = "work";
 
