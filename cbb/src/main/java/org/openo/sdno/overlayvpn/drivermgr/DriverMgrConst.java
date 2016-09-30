@@ -30,6 +30,8 @@ public class DriverMgrConst {
 
     public static final String DRIVER_MANAGER_URL = "/openoapi/drivermgr/v1/drivers";
 
+    public static final String DRIVER_INFO_KEY = "driverInfo";
+
     private DriverMgrConst() {
     }
 
