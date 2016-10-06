@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.transact.util.CommonTransactionContext;
-import org.openo.sdno.overlayvpn.inventory.sdk.inf.IInvDAO;
+import org.openo.sdno.overlayvpn.inventory.sdk.inf.InvDAO;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.RelationMO;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
 
@@ -41,7 +41,7 @@ public class PuerAddMOContext<T> extends CommonTransactionContext {
 
     private ResultRsp result;
 
-    private IInvDAO<T> dao;
+    private InvDAO<T> dao;
 
     /**
      * Constructor.<br>
@@ -51,7 +51,7 @@ public class PuerAddMOContext<T> extends CommonTransactionContext {
      * @param relation Relation collection
      * @param dao Inventory DAO handler
      */
-    public PuerAddMOContext(List<T> addmo, List<RelationMO> relation, IInvDAO<T> dao) {
+    public PuerAddMOContext(List<T> addmo, List<RelationMO> relation, InvDAO<T> dao) {
         super();
         this.molist = addmo;
         this.relations = relation;
@@ -102,11 +102,11 @@ public class PuerAddMOContext<T> extends CommonTransactionContext {
         this.relations = relation;
     }
 
-    public IInvDAO<T> getDao() {
+    public InvDAO<T> getDao() {
         return dao;
     }
 
-    public void setDao(IInvDAO<T> dao) {
+    public void setDao(InvDAO<T> dao) {
         this.dao = dao;
     }
 

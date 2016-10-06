@@ -31,7 +31,7 @@ import org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.transact.PuerAdd
 import org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.transact.PuerAddRelationTransactionListener;
 import org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.transact.util.TransactionMgr;
 import org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.transact.util.TransactionOperateType;
-import org.openo.sdno.overlayvpn.inventory.sdk.inf.IInvDAO;
+import org.openo.sdno.overlayvpn.inventory.sdk.inf.InvDAO;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.RelationMO;
 import org.openo.sdno.overlayvpn.inventory.sdk.util.MOModelProcessor;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
@@ -52,7 +52,7 @@ public class PuerInvServicesImpl<T> {
     private static final Logger LOGGER = LoggerFactory.getLogger(PuerInvServicesImpl.class);
 
     @Autowired
-    private IInvDAO<T> dao;
+    private InvDAO<T> dao;
 
     static {
         // Init transaction listener.

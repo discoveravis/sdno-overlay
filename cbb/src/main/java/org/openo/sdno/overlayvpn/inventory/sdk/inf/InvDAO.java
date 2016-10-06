@@ -35,7 +35,7 @@ import org.openo.sdno.overlayvpn.result.ResultRsp;
  * @author
  * @version SDNO 0.5 2016-6-3
  */
-public interface IInvDAO<T> {
+public interface InvDAO<T> {
 
     /**
      * Add relative relation. <br>
