@@ -16,7 +16,7 @@
 
 package org.openo.sdno.overlayvpn.security.tenant;
 
-import org.openo.sdno.overlayvpn.log.inf.IOperObject;
+import org.openo.sdno.overlayvpn.log.inf.OperObject;
 import org.openo.sdno.overlayvpn.model.tenant.TenantMO;
 
 /**
@@ -27,7 +27,7 @@ import org.openo.sdno.overlayvpn.model.tenant.TenantMO;
  * @author
  * @version SDNO 0.5 Jun 2, 2016
  */
-public class TenantMsg implements IOperObject {
+public class TenantMsg implements OperObject {
 
     private TenantMO tenantMO;
 

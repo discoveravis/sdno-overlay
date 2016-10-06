@@ -22,7 +22,7 @@ package org.openo.sdno.overlayvpn.log.inf;
  * @author
  * @version SDNO 0.5 2016-6-6
  */
-public interface IOperObject {
+public interface OperObject {
 
     /**
      * It is used to get operation name. <br>

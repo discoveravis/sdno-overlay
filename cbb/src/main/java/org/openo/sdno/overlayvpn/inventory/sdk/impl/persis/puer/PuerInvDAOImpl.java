@@ -26,7 +26,7 @@ import org.openo.sdno.exception.InnerErrorServiceException;
 import org.openo.sdno.overlayvpn.errorcode.ErrorCode;
 import org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.nbi.PuerInvRelationNbiBean;
 import org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.nbi.PuerInvServiceNbiBean;
-import org.openo.sdno.overlayvpn.inventory.sdk.inf.IInvDAO;
+import org.openo.sdno.overlayvpn.inventory.sdk.inf.InvDAO;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.BatchQueryFileterEntity;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.QueryParams;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.RelationMO;
@@ -44,7 +44,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author
  * @version SDNO 0.5 May 26, 2016
  */
-public class PuerInvDAOImpl<T> implements IInvDAO<T> {
+public class PuerInvDAOImpl<T> implements InvDAO<T> {
 
     /**
      * Max number of every package.
