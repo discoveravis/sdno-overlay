@@ -90,9 +90,9 @@ public class WanSubInterface {
 
     @Override
     public String toString() {
-        return "WanSubInterface [neId=" + neId + ", name=" + name + ", ceHighVlan=" + ceHighVlan + ", ip=" + ipAddress
-                + ", mask=" + mask + ", mac=" + mac + ", ipv6address=" + ipv6address + ", prifexlength=" + prefixlength
-                + ", type=" + type + "]";
+        return "WanSubInterface [neId=" + neId + ", name=" + name + ", ceHighVlan=" + ceHighVlan + ", ceLowVlan="
+                + ceLowVlan + ", ip=" + ipAddress + ", mask=" + mask + ", mac=" + mac + ", ipv6address=" + ipv6address
+                + ", prifexlength=" + prefixlength + ", type=" + type + "]";
     }
 
     public String getType() {
