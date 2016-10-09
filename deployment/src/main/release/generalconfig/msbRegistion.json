@@ -1,0 +1,14 @@
+{
+  "serviceName": "sdnooverlay",
+  "version": "v1",
+  "url": "/openoapi/sdnooverlay/v1",
+  "protocol": "REST",
+  "visualRange": "1",
+  "nodes": [
+    {
+      "ip": "",
+      "port": "8503",
+      "ttl": 0
+    }
+  ]
+}
