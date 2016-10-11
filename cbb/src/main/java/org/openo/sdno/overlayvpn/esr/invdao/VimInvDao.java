@@ -32,7 +32,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Dao Class of VIM.<br>
+ * DAO Class of VIM.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-9-21
@@ -46,8 +46,8 @@ public class VimInvDao {
     /**
      * Query VIM by name.<br>
      * 
-     * @param vimName Vim name
-     * @return Vim Object queried out
+     * @param vimName VIM name
+     * @return VIM Object queried out
      * @since SDNO 0.5
      */
     public Vim queryVimByName(String vimName) throws ServiceException {
@@ -78,8 +78,8 @@ public class VimInvDao {
     /**
      * Query VIM by Id.<br>
      * 
-     * @param vimId Vim Id
-     * @return Vim Object queried out
+     * @param vimId VIM Id
+     * @return VIM Object queried out
      * @since SDNO 0.5
      */
     public Vim queryVimById(String vimId) throws ServiceException {

@@ -31,7 +31,7 @@ import org.slf4j.LoggerFactory;
  * Class of Relation Operation.<br>
  * 
  * @author
- * @version SDNO 0.5 Jun 7, 2016
+ * @version SDNO 0.5 June 7, 2016
  */
 public class GetAddRelationProcessor {
 
@@ -137,7 +137,7 @@ public class GetAddRelationProcessor {
     }
 
     /**
-     * Get relations of ordenary object.<br>
+     * Get relations of ordinary object.<br>
      * 
      * @throws InnerErrorServiceException if add relation failed.
      * @since SDNO 0.5
@@ -151,8 +151,7 @@ public class GetAddRelationProcessor {
                 GetAddRelationProcessor.getRelation(reObject, this.getAllAddRelationMO());
             }
         } else {
-            LOGGER.info("PuerInvServicesImpl.getChildMO to get relation object value is null for " + this.toString()
-                    + ".");
+            LOGGER.info("PuerInvServicesImpl.getChildMO to get relation object value is null for " + this.toString() + ".");
         }
     }
 

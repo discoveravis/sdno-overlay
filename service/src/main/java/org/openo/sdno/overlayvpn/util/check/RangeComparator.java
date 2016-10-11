@@ -23,7 +23,7 @@ import java.util.Comparator;
  * 
  * @param <T> Class need to compare
  * @author
- * @version SDNO 0.5 Jun 1, 2016
+ * @version SDNO 0.5 June 1, 2016
  */
 public interface RangeComparator<T> extends Comparator<T> {
 }

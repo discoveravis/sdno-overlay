@@ -32,7 +32,7 @@ import org.openo.sdno.overlayvpn.verify.annotation.AString;
  * Class of DcGwIpSecConnection Model Data.<br>
  * 
  * @author
- * @version SDNO 0.5 Jun 16, 2016
+ * @version SDNO 0.5 June 16, 2016
  */
 @MOResType(infoModelName = "dcgwipsecconnection")
 public class DcGwIpSecConnection extends BaseNetModel {
@@ -138,14 +138,14 @@ public class DcGwIpSecConnection extends BaseNetModel {
     }
 
     /**
-     * @return Returns the psk.
+     * @return Returns the PSK.
      */
     public String getPsk() {
         return psk;
     }
 
     /**
-     * @param psk The psk to set.
+     * @param psk The PSK to set.
      */
     public void setPsk(String psk) {
         this.psk = psk;

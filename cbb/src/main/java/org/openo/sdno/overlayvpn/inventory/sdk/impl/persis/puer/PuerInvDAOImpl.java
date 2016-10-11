@@ -38,7 +38,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Puer Inventory DAO Implementation Class.<br>
+ * PUER Inventory DAO Implementation Class.<br>
  * 
  * @param <T> Inventory Model Class
  * @author

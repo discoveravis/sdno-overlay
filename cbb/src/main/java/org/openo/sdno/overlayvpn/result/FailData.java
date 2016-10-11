@@ -21,7 +21,7 @@ package org.openo.sdno.overlayvpn.result;
  * 
  * @param <T> User Data Class
  * @author
- * @version SDNO 0.5 Jun 3, 2016
+ * @version SDNO 0.5 June 3, 2016
  */
 public class FailData<T> {
 

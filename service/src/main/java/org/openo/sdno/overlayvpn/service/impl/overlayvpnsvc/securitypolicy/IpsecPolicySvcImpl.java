@@ -37,7 +37,7 @@ import org.springframework.stereotype.Service;
  * </p>
  * 
  * @author
- * @version SDNO 0.5 Jun 7, 2016
+ * @version SDNO 0.5 June 7, 2016
  */
 @Service
 public class IpsecPolicySvcImpl implements IIpsecPolicy {

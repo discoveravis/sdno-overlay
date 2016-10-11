@@ -22,7 +22,7 @@ import java.util.List;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
- * The definition of relative relation about puer MO. <br>
+ * The definition of relative relation about PUER MO. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-6
@@ -57,8 +57,8 @@ public class RelationPuerMO {
      * Constructor<br>
      * 
      * @since SDNO 0.5
-     * @param srcUuid The source uuid
-     * @param dstUuid The destination uuid
+     * @param srcUuid The source UUID
+     * @param dstUuid The destination UUID
      * @param dstType The destination type
      * @param relation The relation
      * @param servicetype The service type

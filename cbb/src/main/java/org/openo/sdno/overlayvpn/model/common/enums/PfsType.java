@@ -17,7 +17,7 @@
 package org.openo.sdno.overlayvpn.model.common.enums;
 
 /**
- * The class of pfs type. <br>
+ * The class of PFS type. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-7
@@ -31,16 +31,16 @@ public enum PfsType {
      * Constructor<br>
      * 
      * @since SDNO 0.5
-     * @param value The pfs value
+     * @param value The PFS value
      */
     PfsType(int value) {
         this.value = value;
     }
 
     /**
-     * It is used to get pfs type name. <br>
+     * It is used to get PFS type name. <br>
      * 
-     * @return The pfs type name.
+     * @return The PFS type name.
      * @since SDNO 0.5
      */
     public String getName() {
@@ -57,10 +57,10 @@ public enum PfsType {
     }
 
     /**
-     * It is used to check the pfs type name is valid or not. <br>
+     * It is used to check the PFS type name is valid or not. <br>
      * 
-     * @param name The pfs type name
-     * @return true if the pfs type name is valid.
+     * @param name The PFS type name
+     * @return true if the PFS type name is valid.
      * @since SDNO 0.5
      */
     public static boolean validateName(String name) {

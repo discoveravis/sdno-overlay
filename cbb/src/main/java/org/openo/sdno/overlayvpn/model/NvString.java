@@ -25,7 +25,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * The class of NvString, It is used to save the type, endpoints and uuid of EndpointGroup. <br>
+ * The class of NvString, It is used to save the type, end points and uuid of EndpointGroup. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-6

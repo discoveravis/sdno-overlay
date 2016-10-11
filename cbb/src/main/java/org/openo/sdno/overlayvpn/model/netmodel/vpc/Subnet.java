@@ -76,7 +76,7 @@ public class Subnet extends AbstUuidModel {
     private String cidr = null;
 
     /**
-     * Vxlan ID.
+     * VXLAN ID.
      */
     @AString(require = true)
     private Integer vni;

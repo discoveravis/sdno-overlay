@@ -95,7 +95,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     private String direction;
 
     /**
-     * Physical bandwidth without the unit, the default is bps.
+     * Physical bandwidth without the unit, the default is BPS.
      */
     @AString(require = false, min = 0, max = 64)
     private String phyBW;
@@ -121,7 +121,7 @@ public class LogicalTernminationPointMO extends BaseMO {
     private String nativeID;
 
     /**
-     * Mac address
+     * MAC address
      */
     private String macAddress;
 

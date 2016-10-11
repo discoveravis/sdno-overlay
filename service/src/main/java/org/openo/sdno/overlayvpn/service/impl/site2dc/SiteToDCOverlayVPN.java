@@ -334,7 +334,7 @@ public class SiteToDCOverlayVPN {
         // 2. Validate the UUID
         CheckStrUtil.checkUuidStr(strEpgId);
 
-        // 3. Query the Endpoint group from database
+        // 3. Query the End point group from database
         ResultRsp<EndpointGroup> endpointGrpRsp = endpointGroupSvc.query(req, resp, strEpgId, tenantId);
         EndpointGroup invEpg = endpointGrpRsp.getData();
         if(null == invEpg) {
@@ -407,8 +407,8 @@ public class SiteToDCOverlayVPN {
      * @param resp HttpServletResponse Object
      * @param siteToDc SiteToDc data
      * @param overlayVpn OverlayVpn data
-     * @param vpc Vpc network info
-     * @return Epg for IpSec
+     * @param vpc VPC network info
+     * @return EPG for IpSec
      * @throws ServiceException throws when create failed
      */
     public List<EndpointGroup> createEpgForIpSec(HttpServletRequest req, HttpServletResponse resp, SiteToDc siteToDc,

@@ -29,7 +29,7 @@ import org.openo.sdno.overlayvpn.model.BaseServiceModel;
  * Class of OverlayVpn Model.<br>
  * 
  * @author
- * @version SDNO 0.5 Jun 3, 2016
+ * @version SDNO 0.5 June 3, 2016
  */
 @MOResType(infoModelName = "overlayvpn_tenant_overlayvpn")
 public class OverlayVpn extends BaseServiceModel {

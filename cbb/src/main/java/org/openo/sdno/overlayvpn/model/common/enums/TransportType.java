@@ -17,10 +17,10 @@
 package org.openo.sdno.overlayvpn.model.common.enums;
 
 /**
- * Enum class of Transport Type.<br>
+ * Enumeration class of Transport Type.<br>
  * 
  * @author
- * @version SDNO 0.5 Aug 19, 2016
+ * @version SDNO 0.5 August 19, 2016
  */
 public enum TransportType {
     VXLAN_GPE(0);

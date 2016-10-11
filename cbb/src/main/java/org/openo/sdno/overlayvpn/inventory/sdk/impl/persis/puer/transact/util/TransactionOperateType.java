@@ -17,7 +17,7 @@
 package org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.transact.util;
 
 /**
- * Enum class for the operation types of transaction.<br>
+ * Enumeration class for the operation types of transaction.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-4-25

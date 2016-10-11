@@ -30,7 +30,7 @@ import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
  * Class of NeVxlanTunnel Model.<br>
  * 
  * @author
- * @version SDNO 0.5 Jun 6, 2016
+ * @version SDNO 0.5 June 6, 2016
  */
 @MOResType(infoModelName = "overlayvpn_tenant_nevxlantunnel")
 public class NeVxlanTunnel extends BaseNetModel {

@@ -19,7 +19,7 @@ package org.openo.sdno.overlayvpn.model;
 import org.openo.sdno.overlayvpn.model.uuid.AbstUuidModel;
 
 /**
- * It is used to save port and vlan. <br>
+ * It is used to save port and VLAN. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-6

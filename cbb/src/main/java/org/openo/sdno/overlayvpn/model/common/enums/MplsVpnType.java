@@ -17,7 +17,7 @@
 package org.openo.sdno.overlayvpn.model.common.enums;
 
 /**
- * The class of vpn type. <br>
+ * The class of VPN type. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-7
@@ -31,16 +31,16 @@ public enum MplsVpnType {
      * Constructor<br>
      * 
      * @since SDNO 0.5
-     * @param value The vpn type
+     * @param value The VPN type
      */
     MplsVpnType(int value) {
         this.value = value;
     }
 
     /**
-     * It is used to get vpn type name. <br>
+     * It is used to get VPN type name. <br>
      * 
-     * @return The vpn type name.
+     * @return The VPN type name.
      * @since SDNO 0.5
      */
     public String getName() {

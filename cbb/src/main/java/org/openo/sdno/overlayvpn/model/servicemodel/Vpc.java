@@ -28,10 +28,10 @@ import org.openo.sdno.overlayvpn.verify.annotation.AString;
 import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
 /**
- * Vpc model.<br>
+ * VPC model.<br>
  * 
  * @author
- * @version     SDNO 0.5  Aug 24, 2016
+ * @version SDNO 0.5 August 24, 2016
  */
 public class Vpc {
 
@@ -40,13 +40,13 @@ public class Vpc {
     protected String uuid;
 
     /**
-     * SiteToDC DC details: Vpc Name.
+     * SiteToDC DC details: VPC Name.
      */
     @AString(require = true)
     private String name;
 
     /**
-     * SiteToDC DC details: Vpc Description
+     * SiteToDC DC details: VPC Description
      */
     @AString(require = false)
     private String description;
@@ -71,7 +71,7 @@ public class Vpc {
     private String osControllerId;
 
     /**
-     * VPC external Ip address in v4.
+     * VPC external IP address in v4.
      */
     @AString(require = true)
     private String externalIp = null;
@@ -172,7 +172,7 @@ public class Vpc {
      * The model of underlay resource.<br>
      * 
      * @author
-     * @version SDNO 0.5 Aug 18, 2016
+     * @version SDNO 0.5 August 18, 2016
      */
     @JsonRootName(value = "underlay_resources")
     public class UnderlayResources extends AbstUuidModel {

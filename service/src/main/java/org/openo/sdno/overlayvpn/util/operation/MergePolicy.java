@@ -38,7 +38,7 @@ import org.springframework.util.StringUtils;
  * Class of merge Policy Operations.<br>
  * 
  * @author
- * @version SDNO 0.5 Jun 1, 2016
+ * @version SDNO 0.5 June 1, 2016
  */
 public class MergePolicy {
 
@@ -69,7 +69,7 @@ public class MergePolicy {
         // encryptionAlgorithm
         mergeEncryptionAlgorithm(mergedSecurityPolicy, updateNameValueMap);
 
-        // pfs
+        // PFS
         String pfs = updateNameValueMap.get("pfs");
         if(StringUtils.hasLength(pfs)) {
             if(!PfsType.validateName(pfs)) {
@@ -96,7 +96,7 @@ public class MergePolicy {
      * @param description resource description
      * @param authAlgorithm authentication algorithm
      * @param encryptionAlgorithm encryption algorithm
-     * @param pfs pfs value
+     * @param pfs PFS value
      * @param lifetime lifetime value
      * @return filter map of query
      * @throws ServiceException when failed
@@ -105,7 +105,7 @@ public class MergePolicy {
     public static Map<String, List<String>> buildQueryFilterMap(String tenantIdFromToken, String name,
             String description, String authAlgorithm, String encryptionAlgorithm, String pfs, String lifetime)
             throws ServiceException {
-        // construt filter map
+        // construct filter map
         Map<String, List<String>> filterMap = new HashMap<String, List<String>>();
         if(StringUtils.hasLength(tenantIdFromToken)) {
             filterMap.put("tenantId", Arrays.asList(tenantIdFromToken));
@@ -147,7 +147,7 @@ public class MergePolicy {
             filterMap.put("encryptionAlgorithm", Arrays.asList(encryptionAlgorithm));
         }
 
-        // pfs
+        // PFS
         if(StringUtils.hasLength(pfs)) {
             if(!PfsType.validateName(pfs)) {
                 ThrowOverlayVpnExcpt.throwParmaterInvalid("pfs", pfs);

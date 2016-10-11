@@ -34,12 +34,12 @@ import org.springframework.util.StringUtils;
 import net.sf.json.JSONObject;
 
 /**
- * ServiceChain service db operate class.<br>
+ * ServiceChain service DB operate class.<br>
  * <p>
  * </p>
  * 
  * @author
- * @version SDNO 0.5 Aug 20, 2016
+ * @version SDNO 0.5 August 20, 2016
  */
 public class ServiceChainDbOper {
 
@@ -69,7 +69,7 @@ public class ServiceChainDbOper {
     /**
      * Query ServiceChainSiteToDcRelation data.<br>
      * 
-     * @param vpnId vpn id
+     * @param vpnId VPN id
      * @return data queried out
      * @throws ServiceException when query data failed
      * @since SDNO 0.5

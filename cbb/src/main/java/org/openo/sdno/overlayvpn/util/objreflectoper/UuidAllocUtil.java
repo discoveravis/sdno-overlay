@@ -31,7 +31,7 @@ import org.openo.sdno.util.reflect.JavaEntityUtil;
  * </p>
  * 
  * @author
- * @version SDNO 0.5 Jun 2, 2016
+ * @version SDNO 0.5 June 2, 2016
  */
 public class UuidAllocUtil {
 

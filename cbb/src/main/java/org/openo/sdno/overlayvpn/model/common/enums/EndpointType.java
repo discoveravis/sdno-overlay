@@ -34,16 +34,16 @@ public enum EndpointType {
      * Constructor<br>
      * 
      * @since SDNO 0.5
-     * @param value The endpoint type
+     * @param value The end point type
      */
     EndpointType(int value) {
         this.value = value;
     }
 
     /**
-     * It is used to get endpoint type name. <br>
+     * It is used to get end point type name. <br>
      * 
-     * @return The endpoint type name.
+     * @return The end point type name.
      * @since SDNO 0.5
      */
     public String getName() {

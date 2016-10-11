@@ -44,7 +44,7 @@ public class QueryParams {
     private final String sort;
 
     /**
-     * The sort type, default is asc. Please input "-" if want sort by desc.
+     * The sort type, default is ascending. Please input "-" if want sort by descending.
      */
     private final String sortType;
 

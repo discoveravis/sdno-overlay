@@ -32,7 +32,7 @@ import org.springframework.util.StringUtils;
  * Annotation Validator Class of IpMask.<br>
  * 
  * @author
- * @version SDNO 0.5 Jun 2, 2016
+ * @version SDNO 0.5 June 2, 2016
  */
 public class AIpMaskValidator implements ConstraintValidator<AIpMask, String> {
 

@@ -130,7 +130,7 @@ public class PuerInvDAOImplTest {
      * public void testDeleteMOListNormal() throws ServiceException {
      * new MockUp<RestfulProxy>() {
      * @Mock
-     * public RestfulResponse delete(String url, RestfulParametes restParametes) {
+     * public RestfulResponse delete(String URL, RestfulParametes restParametes) {
      * RestfulResponse resp = new RestfulResponse();
      * List<Gateway> gwList = new ArrayList<Gateway>();
      * Gateway gw = new Gateway();
@@ -227,7 +227,7 @@ public class PuerInvDAOImplTest {
         fail("Exception was not thrown");
     }
 
-    // TODO: test nortmal query case
+    // TODO: test normal query case
 
     @Test(expected = Exception.class)
     public void testAddRelationException() throws ServiceException {
@@ -297,7 +297,7 @@ public class PuerInvDAOImplTest {
      * public void testQueryByUUIDNormal() throws ServiceException {
      * new MockUp<RestfulProxy>() {
      * @Mock
-     * public RestfulResponse get(String url, RestfulParametes restParametes) {
+     * public RestfulResponse get(String URL, RestfulParametes restParametes) {
      * RestfulResponse resp = new RestfulResponse();
      * List<Gateway> gwList = new ArrayList<Gateway>();
      * Gateway gw = new Gateway();

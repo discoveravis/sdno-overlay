@@ -24,12 +24,12 @@ import org.openo.sdno.overlayvpn.model.common.enums.topo.TopologyRole;
 import org.openo.sdno.overlayvpn.model.common.enums.topo.TopologyType;
 
 /**
- * Class of Enum Object Validation.<br>
+ * Enumeration class Object Validation.<br>
  * <p>
  * </p>
  * 
  * @author
- * @version SDNO 0.5 Jun 2, 2016
+ * @version SDNO 0.5 June 2, 2016
  */
 public class EnumsUtils {
 

@@ -45,7 +45,7 @@ import org.openo.sdno.resource.ResourceUtil;
 import org.springframework.util.StringUtils;
 
 /**
- * Util class of OverlayVpn Complex DAO.<br>
+ * Utility class of OverlayVpn Complex DAO.<br>
  * 
  * @author
  * @version SDNO 0.5 May 26, 2016

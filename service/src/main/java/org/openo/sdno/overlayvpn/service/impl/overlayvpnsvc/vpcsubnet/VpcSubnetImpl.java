@@ -43,10 +43,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Vpc subnet model implementation.<br>
+ * VPC subnet model implementation.<br>
  * 
  * @author
- * @version SDNO 0.5 Aug 24, 2016
+ * @version SDNO 0.5 August 24, 2016
  */
 public class VpcSubnetImpl {
 
@@ -56,12 +56,12 @@ public class VpcSubnetImpl {
     private InventoryDao inventoryDao;
 
     /**
-     * Create Vpc and Subnet.<br>
+     * Create VPC and Subnet.<br>
      * 
      * @param req HttpServletRequest object
      * @param resp HttpServletResponse Object
      * @param siteToDc SiteToDc object
-     * @return Vpc Object created
+     * @return VPC Object created
      * @throws ServiceException throws when create failed
      * @since SDNO 0.5
      */
@@ -96,7 +96,7 @@ public class VpcSubnetImpl {
     }
 
     /**
-     * Delete Vpc and Subnet.<br>
+     * Delete VPC and Subnet.<br>
      * 
      * @param req HttpServletRequest object
      * @param resp HttpServletResponse Object
@@ -136,7 +136,7 @@ public class VpcSubnetImpl {
     }
 
     /**
-     * Query Vpc and Subnet.<br>
+     * Query VPC and Subnet.<br>
      * 
      * @param req HttpServletRequest object
      * @param resp HttpServletResponse Object

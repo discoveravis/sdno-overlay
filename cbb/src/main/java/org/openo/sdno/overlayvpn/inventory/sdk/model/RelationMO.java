@@ -75,8 +75,8 @@ public class RelationMO {
      * @since SDNO 0.5
      * @param srcMo The source MO
      * @param dstMo The destination MO
-     * @param srcid The source uuid
-     * @param dstid The destination uuid
+     * @param srcid The source UUID
+     * @param dstid The destination UUID
      * @param relation The relation, the type are aggregation, composition and association.
      * @param serviceType The service type
      */
@@ -244,9 +244,9 @@ public class RelationMO {
     /**
      * It is used to get resource type. <br>
      * 
-     * @return It'll return destination resource type if destination uuid is null, it'll return
-     *         source resource type if source uuid is null or it'll return null if both source and
-     *         destination uuid are existed.
+     * @return It'll return destination resource type if destination UUID is null, it'll return
+     *         source resource type if source UUID is null or it'll return null if both source and
+     *         destination UUID are existed.
      * @since SDNO 0.5
      */
     public Class getQueryType() {

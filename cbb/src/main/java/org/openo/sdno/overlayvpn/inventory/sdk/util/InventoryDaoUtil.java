@@ -20,22 +20,22 @@ import org.openo.sdno.overlayvpn.dao.common.InventoryDao;
 import org.openo.sdno.overlayvpn.util.OverlayvpnContextHelper;
 
 /**
- * Util class of InventoryDao.<br>
+ * Utility class of InventoryDao.<br>
  * <p>
  * </p>
  * 
  * @param <T> template
  * @author
- * @version SDNO 0.5 Jul 27, 2016
+ * @version SDNO 0.5 July 27, 2016
  */
 public class InventoryDaoUtil<T> {
 
     private static final String INVENTORYDAO_BEAN_NAME = "inventoryDao";
 
     /**
-     * Get inventory dao bean object.<br>
+     * Get inventory DAO bean object.<br>
      * 
-     * @return inventory dao object
+     * @return inventory DAO object
      * @since SDNO 0.5
      */
     @SuppressWarnings("unchecked")

@@ -21,8 +21,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 /**
- * There are two filters in query method, one is "like" and another is "in", it need fill with json
- * object when the filter is "like", and fill with json array when the filter is "in". <br>
+ * There are two filters in query method, one is "like" and another is "in", it need fill with JSON
+ * object when the filter is "like", and fill with JSON array when the filter is "in". <br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-3

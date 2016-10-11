@@ -37,7 +37,7 @@ import org.springframework.stereotype.Service;
 /**
  * Overlay VPN status update.<br>
  * <p>
- * Methods to update the status of deployment for overlay vpn models
+ * Methods to update the status of deployment for overlay VPN models
  * </p>
  * 
  * @author
@@ -118,7 +118,7 @@ public class UpdateVpnStatus {
             ResultRsp<Map<String, OverlayVpn>> deployResult, Map<String, String> connUuidToAdmStatMap,
             Map<String, String> epgUuidToAdmStatMap) {
         if(null == tecVpnToDeployedMap) {
-            // Update the status of deployement of overlay VPN
+            // Update the status of deployment of overlay VPN
             for(Entry<String, OverlayVpn> tempEntry : deployResult.getData().entrySet()) {
                 OverlayVpn tempVpn = tempEntry.getValue();
                 doFillStatusMap(deployResult.isSuccess(), connUuidToAdmStatMap, epgUuidToAdmStatMap, tempVpn);

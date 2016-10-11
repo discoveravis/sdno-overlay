@@ -54,7 +54,7 @@ public class GetCommonConfig {
     }
 
     /**
-     * Get Cloudvpn value by key.<br>
+     * Get Cloud VPN value by key.<br>
      * 
      * @param key key
      * @return common value

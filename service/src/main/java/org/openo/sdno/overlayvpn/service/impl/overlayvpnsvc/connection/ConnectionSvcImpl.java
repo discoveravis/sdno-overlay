@@ -59,7 +59,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * </p>
  *
  * @author
- * @version SDNO 0.5 Jun 2, 2016
+ * @version SDNO 0.5 June 2, 2016
  */
 
 public class ConnectionSvcImpl implements IConnection {
@@ -120,7 +120,7 @@ public class ConnectionSvcImpl implements IConnection {
         }
         Connection queryConnection = queryDbRsp.getData();
 
-        // Find Endpoint group models associated with the connection
+        // Find End point group models associated with the connection
         Map<String, Object> filterMap = new HashMap<String, Object>();
         filterMap.put("connectionId", Arrays.asList(vpnConnUuid));
         ResultRsp<List<EndpointGroup>> endpointGrpRsp =
@@ -173,7 +173,7 @@ public class ConnectionSvcImpl implements IConnection {
         }
         List<Connection> queryConnectionLst = queryResult.getData();
 
-        // Query connections associated endpoint groups
+        // Query connections associated end point groups
         @SuppressWarnings("unchecked")
         List<String> connectionIds = new ArrayList<>(CollectionUtils.collect(queryConnectionLst, new Transformer() {
 
@@ -186,7 +186,7 @@ public class ConnectionSvcImpl implements IConnection {
         filterMap.put("connectionId", connectionIds);
         ResultRsp<List<EndpointGroup>> endpointGrpRsp =
                 inventoryDao.batchQuery(EndpointGroup.class, JsonUtil.toJson(filterMap));
-        // Fill the connection query list with edpoint groups data
+        // Fill the connection query list with end point groups data
         if(CollectionUtils.isNotEmpty(endpointGrpRsp.getData())) {
             for(Connection tempConn : queryConnectionLst) {
                 for(EndpointGroup tempEpg : endpointGrpRsp.getData()) {

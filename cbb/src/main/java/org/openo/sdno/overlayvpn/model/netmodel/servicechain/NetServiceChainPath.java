@@ -24,7 +24,7 @@ import org.openo.sdno.overlayvpn.model.uuid.AbstUuidModel;
  * NetServiceChainPath model class.<br>
  * 
  * @author
- * @version SDNO 0.5 Aug 19, 2016
+ * @version SDNO 0.5 August 19, 2016
  */
 public class NetServiceChainPath extends AbstUuidModel {
 

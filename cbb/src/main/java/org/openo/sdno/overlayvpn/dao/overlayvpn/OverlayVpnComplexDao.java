@@ -261,7 +261,7 @@ public class OverlayVpnComplexDao {
     public ResultRsp<OverlayVpn> queryComplexVpnByEpg(EndpointGroup epg) throws ServiceException {
         String connectionId = epg.getConnectionId();
         ResultRsp<OverlayVpn> retResult = new ResultRsp<>();
-        // Query Connection of epg
+        // Query Connection of EPG
         Connection parentConn = (Connection)inventoryDao.query(Connection.class, connectionId, null).getData();
         if(null == parentConn) {
             LOGGER.error("Connection not found. uuid = " + connectionId);

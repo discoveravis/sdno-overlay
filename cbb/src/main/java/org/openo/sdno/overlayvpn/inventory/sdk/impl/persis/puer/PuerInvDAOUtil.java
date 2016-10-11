@@ -38,7 +38,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Puer Inventory DAO tool Class.<br>
+ * PUER Inventory DAO tool Class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-3

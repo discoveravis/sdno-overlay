@@ -26,10 +26,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Util class of Operate.<br>
+ * Utility class of Operate.<br>
  * 
  * @author
- * @version SDNO 0.5 Aug 22, 2016
+ * @version SDNO 0.5 August 22, 2016
  */
 public class OperationUtil {
 

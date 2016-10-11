@@ -28,7 +28,7 @@ import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
  * </p>
  * 
  * @author
- * @version SDNO 0.5 Jun 3, 2016
+ * @version SDNO 0.5 June 3, 2016
  */
 @MOResType(infoModelName = "overlayvpn_tenant_gateway")
 public class Gateway extends ModelBase {
@@ -82,7 +82,7 @@ public class Gateway extends ModelBase {
      * 
      * @since SDNO 0.5
      * @param uuid Gateway UUid
-     * @param tenantId tanant id
+     * @param tenantId tenant id
      */
     public Gateway(String uuid, String tenantId) {
         super();

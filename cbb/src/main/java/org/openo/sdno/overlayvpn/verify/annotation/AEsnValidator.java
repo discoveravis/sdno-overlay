@@ -25,12 +25,12 @@ import javax.validation.ConstraintValidatorContext;
 import org.springframework.util.StringUtils;
 
 /**
- * Annotation Validator Class of Esn.<br>
+ * Annotation Validator Class of ESN.<br>
  * <p>
  * </p>
  * 
  * @author
- * @version SDNO 0.5 Jun 2, 2016
+ * @version SDNO 0.5 June 2, 2016
  */
 public class AEsnValidator implements ConstraintValidator<AEsn, String> {
 

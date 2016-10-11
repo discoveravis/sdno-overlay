@@ -34,7 +34,7 @@ import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
  * Class of NeIpSecConnection Model Data.<br>
  * 
  * @author
- * @version SDNO 0.5 Jun 6, 2016
+ * @version SDNO 0.5 June 6, 2016
  */
 @MOResType(infoModelName = "neipsecconnection")
 public class NeIpSecConnection extends BaseNetModel {
@@ -194,14 +194,14 @@ public class NeIpSecConnection extends BaseNetModel {
     }
 
     /**
-     * @param psk The psk to set.
+     * @param psk The PSK to set.
      */
     public void setPsk(String psk) {
         this.psk = psk;
     }
 
     /**
-     * @return Returns the psk.
+     * @return Returns the PSK.
      */
     public String getPsk() {
         return psk;

@@ -23,22 +23,22 @@ package org.openo.sdno.overlayvpn.consts;
  * </p>
  * 
  * @author
- * @version SDNO 0.5 Jun 1, 2016
+ * @version SDNO 0.5 June 1, 2016
  */
 public class UrlAdapterConst {
 
     /**
-     * Prefix URL of Ipsec Adapter Service
+     * Prefix URL of IPSec Adapter Service
      */
     public static final String IPSEC_ADAPTER_BASE_URL = "/openoapi/sbi-ipsec";
 
     /**
-     * Prefix URL of Ipsec Adapter Service
+     * Prefix URL of IPSec Adapter Service
      */
     public static final String VXLAN_ADAPTER_BASE_URL = "/openoapi/sbi-vxlan";
 
     /**
-     * Prefix URL of Ipsec Adapter Service
+     * Prefix URL of IPSec Adapter Service
      */
     public static final String WAN_INTERFACE_ADAPTER_BASE_URL = "/openoapi/sbi-waninterface";
 
@@ -139,7 +139,7 @@ public class UrlAdapterConst {
     public static final String REMOVE_VXLAN_INSTANCE = "/v1/vxlan/instance/{0}";
 
     /**
-     * URL of Query Vtep
+     * URL of Query VTEP
      */
     public static final String QUERY_VTEP = "/v1/vxlan/device/{0}/vtep";
 

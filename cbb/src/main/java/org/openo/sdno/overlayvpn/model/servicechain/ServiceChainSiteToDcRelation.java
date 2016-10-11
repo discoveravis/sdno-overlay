@@ -23,7 +23,7 @@ import org.openo.sdno.overlayvpn.model.uuid.AbstUuidModel;
  * ServiceChainSiteToDcRelation model class.<br>
  * 
  * @author
- * @version SDNO 0.5 Aug 20, 2016
+ * @version SDNO 0.5 August 20, 2016
  */
 @MOResType(infoModelName = "overlayvpn_servicechain_sitetodc")
 public class ServiceChainSiteToDcRelation extends AbstUuidModel {

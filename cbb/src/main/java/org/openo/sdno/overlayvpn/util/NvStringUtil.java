@@ -25,12 +25,12 @@ import org.openo.sdno.overlayvpn.model.ModelBase;
 import org.openo.sdno.overlayvpn.model.NvString;
 
 /**
- * Class of Nv String Operation.<br>
+ * Class of NV String Operation.<br>
  * <p>
  * </p>
  * 
  * @author
- * @version SDNO 0.5 Jun 2, 2016
+ * @version SDNO 0.5 June 2, 2016
  */
 public class NvStringUtil {
 

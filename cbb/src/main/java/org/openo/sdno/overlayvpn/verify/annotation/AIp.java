@@ -24,12 +24,12 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 /**
- * Annotation Validator Interface of Ipaddress.<br>
+ * Annotation Validator Interface of IP address.<br>
  * <p>
  * </p>
  * 
  * @author
- * @version SDNO 0.5 Jun 2, 2016
+ * @version SDNO 0.5 June 2, 2016
  */
 @Target(value = {java.lang.annotation.ElementType.METHOD, java.lang.annotation.ElementType.FIELD,
                 java.lang.annotation.ElementType.ANNOTATION_TYPE, java.lang.annotation.ElementType.CONSTRUCTOR,
@@ -56,9 +56,9 @@ public @interface AIp {
     Class<?>[] groups() default {};
 
     /**
-     * Get payload of the attribute.<br>
+     * Get pay-load of the attribute.<br>
      * 
-     * @return payload of the attribute
+     * @return pay-load of the attribute
      * @since SDNO 0.5
      */
     Class<? extends Payload>[] payload() default {};

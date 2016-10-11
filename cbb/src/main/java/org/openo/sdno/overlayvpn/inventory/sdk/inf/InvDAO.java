@@ -71,9 +71,9 @@ public interface InvDAO<T> {
     ResultRsp<List<String>> add(List<T> moList, Class moType) throws ServiceException;
 
     /**
-     * Delete from database by uuid. <br>
+     * Delete from database by UUID. <br>
      * 
-     * @param uuid The record uuid that want to delete
+     * @param uuid The record UUID that want to delete
      * @param moType The class type
      * @return The object of ResultRsp.
      * @throws ServiceException When delete fail.
@@ -95,9 +95,9 @@ public interface InvDAO<T> {
     ResultRsp<List<String>> delete(List<T> moList, Class moType) throws ServiceException;
 
     /**
-     * Batch delete from database by uuid list. <br>
+     * Batch delete from database by UUID list. <br>
      * 
-     * @param uuidList The list of uuid that want to delete
+     * @param uuidList The list of UUID that want to delete
      * @param moType The class type
      * @return The object of ResultRsp.
      * @throws ServiceException When delete fail.
@@ -143,9 +143,9 @@ public interface InvDAO<T> {
     ResultRsp<List<T>> query(Class moType, QueryParams queryParams) throws ServiceException;
 
     /**
-     * Query database by uuid. <br>
+     * Query database by UUID. <br>
      * 
-     * @param uuid The uuid
+     * @param uuid The UUID
      * @param moType The class type
      * @return the object of ResultRsp.
      * @throws ServiceException When query fail.

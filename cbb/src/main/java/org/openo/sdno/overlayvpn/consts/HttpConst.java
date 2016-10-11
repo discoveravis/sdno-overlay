@@ -17,7 +17,7 @@
 package org.openo.sdno.overlayvpn.consts;
 
 /**
- * Constant class of Http Context.<br>
+ * Constant class of HTTP Context.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-9-21

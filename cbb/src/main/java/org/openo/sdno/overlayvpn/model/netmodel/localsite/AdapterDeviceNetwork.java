@@ -27,7 +27,7 @@ import org.openo.sdno.overlayvpn.verify.annotation.AString;
  * </p>
  * 
  * @author
- * @version SDNO 0.5 Jun 6, 2016
+ * @version SDNO 0.5 June 6, 2016
  */
 public class AdapterDeviceNetwork {
 
@@ -42,7 +42,7 @@ public class AdapterDeviceNetwork {
     private String name;
 
     /**
-     * usage: terminal and vm
+     * usage: terminal and VM
      */
     private String use;
 

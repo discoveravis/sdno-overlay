@@ -20,7 +20,7 @@ package org.openo.sdno.overlayvpn.model.netmodel.vxlan;
  * Class of NeVtep Model.<br>
  * 
  * @author
- * @version SDNO 0.5 Jun 6, 2016
+ * @version SDNO 0.5 June 6, 2016
  */
 public class NeVtep {
 

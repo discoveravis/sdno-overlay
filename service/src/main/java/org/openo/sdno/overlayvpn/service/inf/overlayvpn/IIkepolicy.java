@@ -20,12 +20,12 @@ import org.openo.sdno.overlayvpn.model.ipsec.IkePolicy;
 import org.openo.sdno.overlayvpn.service.inf.ICommService;
 
 /**
- * Interface for the Ikepolicy Service.<br>
+ * Interface for the IKE policy Service.<br>
  * <p>
  * </p>
  * 
  * @author
- * @version SDNO 0.5 Jun 1, 2016
+ * @version SDNO 0.5 June 1, 2016
  */
 public interface IIkepolicy extends ICommService<IkePolicy> {
 

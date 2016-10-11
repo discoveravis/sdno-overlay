@@ -28,7 +28,7 @@ import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
  * </p>
  * 
  * @author
- * @version SDNO 0.5 Jun 3, 2016
+ * @version SDNO 0.5 June 3, 2016
  */
 public class WanSubInterface {
 

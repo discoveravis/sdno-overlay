@@ -22,7 +22,7 @@ import java.util.List;
  * ServiceClassifer model class.<br>
  * 
  * @author
- * @version SDNO 0.5 Aug 19, 2016
+ * @version SDNO 0.5 August 19, 2016
  */
 public class ServiceClassifer {
 

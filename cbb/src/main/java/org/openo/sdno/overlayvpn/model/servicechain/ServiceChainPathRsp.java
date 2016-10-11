@@ -24,7 +24,7 @@ import org.openo.sdno.overlayvpn.model.uuid.AbstUuidModel;
  * ServiceChainPathRsp model class.<br>
  * 
  * @author
- * @version SDNO 0.5 Aug 31, 2016
+ * @version SDNO 0.5 August 31, 2016
  */
 public class ServiceChainPathRsp extends AbstUuidModel {
 

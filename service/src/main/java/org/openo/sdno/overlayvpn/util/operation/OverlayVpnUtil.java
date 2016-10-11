@@ -33,7 +33,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
- * Util class of OverlayVpn.<br>
+ * Utility class of OverlayVpn.<br>
  * 
  * @author
  * @version SDNO 0.5 06-May-2016

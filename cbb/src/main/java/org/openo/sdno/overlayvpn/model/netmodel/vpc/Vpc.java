@@ -64,7 +64,7 @@ public class Vpc extends AbstUuidModel {
     private String statusReason = null;
 
     /**
-     * VPC external Ip address in v4.
+     * VPC external IP address in v4.
      */
     @AString(require = true)
     private String externalIp = null;
