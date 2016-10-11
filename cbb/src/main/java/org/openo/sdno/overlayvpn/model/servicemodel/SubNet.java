@@ -41,6 +41,20 @@ public class SubNet {
 
     private String vpcId;
 
+    /**
+     * @return the vpcId
+     */
+    public String getVpcId() {
+        return vpcId;
+    }
+
+    /**
+     * @param vpcId the vpcId to set
+     */
+    public void setVpcId(String vpcId) {
+        this.vpcId = vpcId;
+    }
+
     public String getUuid() {
         return uuid;
     }
@@ -81,12 +95,7 @@ public class SubNet {
         this.description = description;
     }
 
-    public String getVpcId() {
-        return vpcId;
-    }
 
-    public void setVpcId(String vpcId) {
-        this.vpcId = vpcId;
-    }
+
 
 }
