@@ -51,7 +51,7 @@ import org.springframework.util.StringUtils;
  * </p>
  * 
  * @author
- * @version SDNO 0.5 Jun 1, 2016
+ * @version SDNO 0.5 June 1, 2016
  */
 public class CheckEndPointGrpUtil {
 
@@ -101,7 +101,7 @@ public class CheckEndPointGrpUtil {
         // 5. Check whether the NEID is same or not
         checkEpgWithSameNeIdInDb(epg, invEpgs);
 
-        // 6. Check the topology and epg role
+        // 6. Check the topology and EPG role
         checkTopologyRole(epg, parentConnection, invEpgs);
 
         return new ResultRsp<EndpointGroup>(ErrorCode.OVERLAYVPN_SUCCESS, epg);
@@ -203,7 +203,7 @@ public class CheckEndPointGrpUtil {
                 LOGGER.error("port uuid format err");
                 ThrowOverlayVpnExcpt.throwParmaterInvalid("Endpoints", endpoints);
             }
-            // Verify Vlan format
+            // Verify VLAN format
             if(!vlan.matches(ValidationConsts.INT_RANGE_REGEX)) {
                 LOGGER.error("vlan format err");
                 ThrowOverlayVpnExcpt.throwParmaterInvalid("Endpoints", endpoints);
@@ -276,7 +276,7 @@ public class CheckEndPointGrpUtil {
     private static void checkEpgWithSameNeIdInDb(EndpointGroup reqEpg, List<EndpointGroup> invEpgs)
             throws ServiceException {
         String neId = reqEpg.getNeId();
-        // Check whether there is the same network element epg
+        // Check whether there is the same network element EPG
         for(EndpointGroup invEpg : invEpgs) {
             if(neId.equals(invEpg.getNeId())) {
                 LOGGER.error("epg of ne id:" + neId + " already exists");

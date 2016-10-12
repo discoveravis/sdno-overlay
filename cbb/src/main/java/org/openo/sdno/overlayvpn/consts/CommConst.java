@@ -216,7 +216,7 @@ public class CommConst {
     public static final String CREATE_OK_TYPE_IPSEC = "ipsec";
 
     /**
-     * Interval(ms) of Query WanSubInf when IP not obtained
+     * Interval(milliseconds) of Query WanSubInf when IP not obtained
      */
     public static final int GET_WAN_IP_WAIT_TIME = 500;
 

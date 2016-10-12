@@ -22,7 +22,7 @@ import org.openo.sdno.result.ErrorCodeInfo;
 import org.openo.sdno.result.InvRsp;
 
 /**
- * Super class for Northbound interface.<br>
+ * Super class for North bound interface.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-6

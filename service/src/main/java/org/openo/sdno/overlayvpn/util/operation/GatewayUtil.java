@@ -36,10 +36,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
- * Util class of Gateway.<br>
+ * Utility class of Gateway.<br>
  * 
  * @author
- * @version SDNO 0.5 Jun 1, 2016
+ * @version SDNO 0.5 June 1, 2016
  */
 public class GatewayUtil {
 
@@ -54,7 +54,7 @@ public class GatewayUtil {
      * @param tenantId tenant id
      * @param name resource name
      * @param description resource description
-     * @param ipAddress ip address of gateway
+     * @param ipAddress IP address of gateway
      * @param neId network element id
      * @return filter map of query
      * @throws ServiceException when failed

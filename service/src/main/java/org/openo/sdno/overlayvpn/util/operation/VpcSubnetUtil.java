@@ -24,10 +24,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Util class of Vpc and subnet.<br>
+ * Utility class of VPC and subnet.<br>
  * 
  * @author
- * @version SDNO 0.5 Aug 24, 2016
+ * @version SDNO 0.5 August 24, 2016
  */
 public class VpcSubnetUtil {
 

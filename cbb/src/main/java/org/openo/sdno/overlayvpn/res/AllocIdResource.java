@@ -23,7 +23,7 @@ import org.openo.sdno.overlayvpn.model.uuid.AbstUuidModel;
  * Class of AllocId Model.<br>
  * 
  * @author
- * @version SDNO 0.5 Jun 5, 2016
+ * @version SDNO 0.5 June 5, 2016
  */
 @MOResType(infoModelName = "allocidresource")
 public class AllocIdResource extends AbstUuidModel {

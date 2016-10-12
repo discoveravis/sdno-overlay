@@ -33,7 +33,7 @@ import org.slf4j.LoggerFactory;
  * Class of OverlayVpn Deploy Task.<br>
  * 
  * @author
- * @version SDNO 0.5 Jun 7, 2016
+ * @version SDNO 0.5 June 7, 2016
  */
 public class DeployCloudVpnTask extends AbstCloudVpnTask {
 

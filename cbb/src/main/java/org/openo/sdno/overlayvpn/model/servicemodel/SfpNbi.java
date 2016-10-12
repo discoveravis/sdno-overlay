@@ -25,7 +25,7 @@ import org.openo.sdno.overlayvpn.model.servicechain.ServicePathHop;
  * NBI interface for Site to DC use case<br>
  * 
  * @author
- * @version SDNO 0.5 Jul 18, 2016
+ * @version SDNO 0.5 July 18, 2016
  */
 
 public class SfpNbi {

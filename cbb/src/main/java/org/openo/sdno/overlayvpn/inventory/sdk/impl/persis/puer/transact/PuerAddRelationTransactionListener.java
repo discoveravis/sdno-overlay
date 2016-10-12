@@ -90,7 +90,7 @@ public class PuerAddRelationTransactionListener implements ITransactionListener 
      * Transaction listener implementation.<br>
      * 
      * @author
-     * @version SDNO 0.5 Jun 8, 2016
+     * @version SDNO 0.5 June 8, 2016
      */
     private class TransactionListener implements ITransactionListener {
 

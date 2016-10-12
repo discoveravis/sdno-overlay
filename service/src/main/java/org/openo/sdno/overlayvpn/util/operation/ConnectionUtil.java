@@ -38,7 +38,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
- * Util class of Connection.<br>
+ * Utility class of Connection.<br>
  * <p>
  * This class provide some functions to operation Connection Data.
  * </p>

@@ -29,7 +29,7 @@ import org.openo.sdno.overlayvpn.result.ResultRsp;
  * Abstract class of OverlayVpnTask.<br>
  * 
  * @author
- * @version SDNO 0.5 Jun 7, 2016
+ * @version SDNO 0.5 June 7, 2016
  */
 public abstract class AbstCloudVpnTask extends Task {
 

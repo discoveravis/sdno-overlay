@@ -36,7 +36,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
- * Util class of EndpointGroup.<br>
+ * Utility class of EndpointGroup.<br>
  * <p>
  * This class provide some functions to operation EndpointGroup Data
  * </p>

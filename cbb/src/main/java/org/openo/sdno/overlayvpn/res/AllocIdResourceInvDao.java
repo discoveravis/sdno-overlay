@@ -39,7 +39,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Dao class of AllocIdResource.<br>
+ * DAO class of AllocIdResource.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-7-20

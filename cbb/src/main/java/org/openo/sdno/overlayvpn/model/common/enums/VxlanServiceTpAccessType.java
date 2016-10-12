@@ -17,7 +17,7 @@
 package org.openo.sdno.overlayvpn.model.common.enums;
 
 /**
- * The class of access type in Vxlan service. <br>
+ * The class of access type in VXLAN service. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-7

@@ -85,14 +85,14 @@ public class EsrBaseModel {
     }
 
     /**
-     * @return Returns the url.
+     * @return Returns the URL.
      */
     public String getUrl() {
         return url;
     }
 
     /**
-     * @param url The url to set.
+     * @param url The URL to set.
      */
     public void setUrl(String url) {
         this.url = url;

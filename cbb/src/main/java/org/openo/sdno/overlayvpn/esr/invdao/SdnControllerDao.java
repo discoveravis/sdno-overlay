@@ -29,7 +29,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Dao Class of SDN Controller.<br>
+ * DAO Class of SDN Controller.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-9-21

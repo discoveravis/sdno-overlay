@@ -36,7 +36,7 @@ import org.openo.sdno.overlayvpn.model.common.enums.EndpointType;
  * </p>
  * 
  * @author
- * @version SDNO 0.5 Jun 1, 2016
+ * @version SDNO 0.5 June 1, 2016
  */
 public class CheckPortAndVlanUtil {
 
@@ -48,7 +48,7 @@ public class CheckPortAndVlanUtil {
     }
 
     /**
-     * Check weather port and vlan data is invalid.<br>
+     * Check weather port and VLAN data is invalid.<br>
      * 
      * @param portUuids list of Port id
      * @param portToVlanMap port to VLAN Map
@@ -56,7 +56,7 @@ public class CheckPortAndVlanUtil {
      * @since SDNO 0.5
      */
     public static void check(List<String> portUuids, Map<String, String> portToVlanMap) throws ServiceException {
-        // TODO verify vlan
+        // TODO verify VLAN
         Map<String, List<String>> filter = new HashMap<String, List<String>>();
         filter.put(POINTID_PARAM, portUuids);
         filter.put(TYPE_PARAM, Arrays.asList(EndpointType.PORT_VLAN.getName()));
@@ -68,7 +68,7 @@ public class CheckPortAndVlanUtil {
         for(Map.Entry<String, String> iter : portToVlanMap.entrySet()) {
             for(PortAndVlanUsed vlanUsed : portVlanList) {
                 if(iter.getKey().equals(vlanUsed.getPortId())) {
-                    // add vlan to list
+                    // add VLAN to list
                     vlanList.add(vlanUsed.getVlan());
                 }
             }
@@ -81,11 +81,11 @@ public class CheckPortAndVlanUtil {
     }
 
     /**
-     * Check weather vlan data is valid.<br>
+     * Check weather VLAN data is valid.<br>
      * 
-     * @param targetVlans target vlans
-     * @param vlansLst list of vlan
-     * @return true if vlan in the range, false otherwise
+     * @param targetVlans target VLAN's
+     * @param vlansLst list of VLAN
+     * @return true if VLAN in the range, false otherwise
      * @since SDNO 0.5
      */
     private static boolean checkVlan(Object targetVlans, List<String> vlansLst) {
@@ -93,10 +93,10 @@ public class CheckPortAndVlanUtil {
             return false;
         }
 
-        // target vlan range ["1-2","3"]
+        // target VLAN range ["1-2","3"]
         String[] targetVlanRanges = String.valueOf(targetVlans).split(",");
         for(String vlans : vlansLst) {
-            // destination vlan range ["1-2","3"]
+            // destination VLAN range ["1-2","3"]
             List<String> srcVlanRanges = Arrays.asList(vlans.split(","));
             Collections.sort(srcVlanRanges, new VlanRangeComparator());
 

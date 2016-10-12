@@ -46,7 +46,7 @@ public final class ControllerMO extends BaseMO {
     private String version;
 
     /**
-     * ipaddress of controller
+     * IP address of controller
      */
     private String hostName;
 

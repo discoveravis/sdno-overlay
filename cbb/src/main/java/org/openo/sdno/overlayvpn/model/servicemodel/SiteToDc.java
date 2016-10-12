@@ -32,7 +32,7 @@ import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
  * Site To DC model object for the NBI Rest interface.<br>
  * 
  * @author
- * @version SDNO 0.5 Jun 3, 2016
+ * @version SDNO 0.5 June 3, 2016
  */
 @MOResType(infoModelName = "overlayvpn_tenant_sitetodc")
 public class SiteToDc extends BaseServiceModel {
@@ -49,7 +49,7 @@ public class SiteToDc extends BaseServiceModel {
     private Site site;
 
     /**
-     * Vpc Object
+     * VPC Object
      */
     private Vpc vpc;
 
@@ -156,7 +156,7 @@ public class SiteToDc extends BaseServiceModel {
      * Class of Site NBI Model.<br>
      * 
      * @author
-     * @version SDNO 0.5 Jun 3, 2016
+     * @version SDNO 0.5 June 3, 2016
      */
     public class Site extends SiteMO {
 
@@ -182,7 +182,7 @@ public class SiteToDc extends BaseServiceModel {
         private String siteThinCPE;
 
         /**
-         * SiteToDC Site details: Port Vlan mapping of site.
+         * SiteToDC Site details: Port VLAN mapping of site.
          */
         @Valid
         @AString(require = true)
@@ -203,7 +203,7 @@ public class SiteToDc extends BaseServiceModel {
         private String siteGatewayId;
 
         /**
-         * Port and Vlans are separated by '/' .
+         * Port and VLAN's are separated by '/' .
          */
         @Valid
         @AUuid(require = true)

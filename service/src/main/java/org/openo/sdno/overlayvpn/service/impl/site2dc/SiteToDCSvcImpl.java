@@ -266,14 +266,14 @@ public class SiteToDCSvcImpl implements ISiteToDC {
             // 2.3. Query EPG and gateway information
             for(String epgId : queryedVpnConn.getEpgIds()) {
 
-                // 2.3.1 Query the endpoint group from database
+                // 2.3.1 Query the end point group from database
                 ResultRsp<EndpointGroup> endpointGrpRsp = endPointGrpSvc.query(req, resp, epgId, tenantId);
                 EndpointGroup invEpg = endpointGrpRsp.getData();
                 if(null == invEpg) {
                     continue;
                 }
 
-                // 2.3.3 Query Port/VLAN information from endpoint list
+                // 2.3.3 Query Port/VLAN information from end point list
                 if(null != invEpg.getGatewayId()) {
                     oSite2Dc.getSite().setSiteGatewayId(invEpg.getGatewayId());
                 }
@@ -291,7 +291,7 @@ public class SiteToDCSvcImpl implements ISiteToDC {
             }
         }
 
-        // 3. Query Vpc/Subnet information
+        // 3. Query VPC/Subnet information
         VpcSubNetMapping vsMapping = vpcSubNetSvc.query(req, resp, oSite2Dc.getUuid());
         VpcSubnetUtil.setSiteToDcByVpcMapping(oSite2Dc, vsMapping);
 
@@ -392,14 +392,14 @@ public class SiteToDCSvcImpl implements ISiteToDC {
             // 2.2. Validate the UUID
             CheckStrUtil.checkUuidStr(connectionId);
 
-            // 2.3. Query the EPG ids from database by connection ID filter
+            // 2.3. Query the EPG id's from database by connection ID filter
             ResultRsp<Connection> vpnConnRsp = connectionSvc.query(req, resp, connectionId, tenantId);
             Connection queryedVpnConn = vpnConnRsp.getData();
             if(null == queryedVpnConn) {
                 continue;
             }
 
-            // 2.4. Delete the EPG ids from database and adapter database
+            // 2.4. Delete the EPG id's from database and adapter database
             for(String epgId : queryedVpnConn.getEpgIds()) {
                 siteToDCOverlayVPN.deleteEpg(req, resp, epgId);
             }
@@ -409,7 +409,7 @@ public class SiteToDCSvcImpl implements ISiteToDC {
 
         }
 
-        // 3. Delete Vpc and SubNet
+        // 3. Delete VPC and SubNet
         vpcSubNetSvc.delete(req, resp, siteToDc.getUuid());
 
         // 4. Delete service chain

@@ -22,7 +22,7 @@ import org.apache.commons.lang.StringUtils;
  * Class of WanSubInf Used Type.<br>
  * 
  * @author
- * @version SDNO 0.5 Jun 7, 2016
+ * @version SDNO 0.5 June 7, 2016
  */
 public enum WanInterfaceUsedType {
     INTERNET(0), GRE(1), VXLAN(2), MANAGE(3), IPSEC(4), ALL(5);

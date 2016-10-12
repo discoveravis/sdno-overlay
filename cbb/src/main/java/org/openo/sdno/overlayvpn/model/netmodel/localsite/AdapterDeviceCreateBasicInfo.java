@@ -24,7 +24,7 @@ import org.openo.sdno.overlayvpn.verify.annotation.AString;
  * </p>
  * 
  * @author
- * @version SDNO 0.5 Jun 6, 2016
+ * @version SDNO 0.5 June 6, 2016
  */
 public class AdapterDeviceCreateBasicInfo {
 
@@ -35,7 +35,7 @@ public class AdapterDeviceCreateBasicInfo {
     private String name;
 
     /**
-     * esn
+     * ESN
      */
     @AString(require = true, min = 20, max = 20)
     private String esn;
@@ -67,14 +67,14 @@ public class AdapterDeviceCreateBasicInfo {
     }
 
     /**
-     * @return Returns the esn.
+     * @return Returns the ESN.
      */
     public String getEsn() {
         return esn;
     }
 
     /**
-     * @param esn The esn to set.
+     * @param esn The ESN to set.
      */
     public void setEsn(String esn) {
         this.esn = esn;

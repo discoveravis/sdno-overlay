@@ -48,7 +48,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
- * Util class of Mapping Policy.<br>
+ * Utility class of Mapping Policy.<br>
  * 
  * @author
  * @version SDNO 0.5 May 26, 2016
@@ -90,7 +90,7 @@ public class MappingPolicyUtil {
             }
         }
 
-        // query vxlan Mapping Policies
+        // query VXLAN Mapping Policies
         if(CollectionUtils.isNotEmpty(totalMappingPolicyUuidsForVxlan)) {
             String totalMappingPolicyFilterForVxlan =
                     FilterDataUtil.getFilterData("uuid", totalMappingPolicyUuidsForVxlan);
@@ -100,7 +100,7 @@ public class MappingPolicyUtil {
             totalMappingPolicies.addAll(vxlanMappingPolicies);
         }
 
-        // query ipsec Mapping Policies
+        // query IPSec Mapping Policies
         if(CollectionUtils.isNotEmpty(totalMappingPolicyUuidsForIpsec)) {
             String totalMappingPolicyFilterForIpsec =
                     FilterDataUtil.getFilterData("uuid", totalMappingPolicyUuidsForIpsec);

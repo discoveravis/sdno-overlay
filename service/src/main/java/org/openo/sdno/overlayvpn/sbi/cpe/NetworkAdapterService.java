@@ -39,7 +39,7 @@ import org.springframework.stereotype.Service;
  * </p>
  * 
  * @author
- * @version SDNO 0.5 01-Jun-2016
+ * @version SDNO 0.5 01-June-2016
  */
 @Service
 public class NetworkAdapterService {

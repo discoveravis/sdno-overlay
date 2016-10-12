@@ -37,7 +37,7 @@ import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
  * Class of OverlayVpn Connection Model.<br>
  * 
  * @author
- * @version SDNO 0.5 Jun 3, 2016
+ * @version SDNO 0.5 June 3, 2016
  */
 @MOResType(infoModelName = "overlayvpn_tenant_connection")
 public class Connection extends BaseServiceModel {
@@ -106,7 +106,7 @@ public class Connection extends BaseServiceModel {
     private IpsecMappingPolicy ipsecMappingPolicy;
 
     /**
-     * MappingPolicy of Vxlan
+     * MappingPolicy of VXLAN
      */
     @Valid
     @NONInvField

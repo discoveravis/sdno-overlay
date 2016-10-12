@@ -34,7 +34,7 @@ import org.springframework.util.StringUtils;
  * </p>
  * 
  * @author
- * @version SDNO 0.5 Jun 1, 2016
+ * @version SDNO 0.5 June 1, 2016
  */
 public class ThrowOverlayVpnExcpt {
 
@@ -176,7 +176,7 @@ public class ThrowOverlayVpnExcpt {
     }
 
     /**
-     * Throw Update Epg invalid Exception.<br>
+     * Throw Update EPG invalid Exception.<br>
      * 
      * @throws ServiceException ServiceException throws
      * @since SDNO 0.5
@@ -208,7 +208,7 @@ public class ThrowOverlayVpnExcpt {
 
     /**
      * Throw Having MappingPolicy Exception.<br>
-     * mappingPolicyId should have if ipsec, vxlan, gre_over_ipsec are used
+     * mappingPolicyId should have if IPSEC, VXLAN, gre_over_ipsec are used
      * 
      * @param connectionId connection id
      * @throws ServiceException ServiceException throws
@@ -246,7 +246,7 @@ public class ThrowOverlayVpnExcpt {
      * 
      * @param neUuid network element id
      * @param portUuid port id
-     * @param vlan vlan value
+     * @param vlan VLAN value
      * @throws ServiceException ServiceException throws
      * @since SDNO 0.5
      */
@@ -359,7 +359,7 @@ public class ThrowOverlayVpnExcpt {
     }
 
     /**
-     * Throw epg belongs to different connection Exception.<br>
+     * Throw EPG belongs to different connection Exception.<br>
      * 
      * @param connectionId1 connection1 id
      * @param connectionId2 connection2 id

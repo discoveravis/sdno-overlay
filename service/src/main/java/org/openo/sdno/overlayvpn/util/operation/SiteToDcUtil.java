@@ -29,10 +29,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
- * Util class of SiteToDc.<br>
+ * Utility class of SiteToDc.<br>
  * 
  * @author
- * @version SDNO 0.5 Jun 1, 2016
+ * @version SDNO 0.5 June 1, 2016
  */
 public class SiteToDcUtil {
 

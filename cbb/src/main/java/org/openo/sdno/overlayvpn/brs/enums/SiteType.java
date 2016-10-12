@@ -17,7 +17,7 @@
 package org.openo.sdno.overlayvpn.brs.enums;
 
 /**
- * Site type enum class.<br>
+ * Site type enumeration class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-4

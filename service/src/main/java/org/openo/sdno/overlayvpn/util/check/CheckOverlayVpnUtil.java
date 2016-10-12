@@ -43,7 +43,7 @@ public class CheckOverlayVpnUtil {
      * Check weather OverlayVpn data is valid.<br>
      * 
      * @param overlayVpn OverlayVpn data need to check
-     * @throws ServiceException ServiceException throws when data is invaid
+     * @throws ServiceException ServiceException throws when data is invalid
      * @since SDNO 0.5
      */
     public static void check(OverlayVpn overlayVpn) throws ServiceException {

@@ -89,7 +89,7 @@ public class PuerAddMOTransactionListener<T> implements ITransactionListener {
             Collection<AddMOContextData> value = getSimpleContextData(pcontext);
             SimpleTransactionMgr mgr = new SimpleTransactionMgr();
 
-            // For batch calling of transaction interfaces, so need to refactor the interfaces.
+            // For batch calling of transaction interfaces, so need to re-factor the interfaces.
             return mgr.transact(new TransactionListener(pcontext), value);
 
         }

@@ -26,7 +26,7 @@ import org.openo.sdno.overlayvpn.verify.annotation.AString;
  * </p>
  * 
  * @author
- * @version SDNO 0.5 Jun 3, 2016
+ * @version SDNO 0.5 June 3, 2016
  */
 @MOResType(infoModelName = "overlayvpn_tenant_gremappingpolicy")
 public class GreMappingPolicy extends BaseMappingPolicy {

@@ -35,7 +35,7 @@ import org.slf4j.LoggerFactory;
  * Overlay VPN status update.<br>
  * 
  * @author
- * @version SDNO 0.5 Jun 8, 2016
+ * @version SDNO 0.5 June 8, 2016
  */
 public class UpdateVpnStatusByEle {
 
@@ -47,7 +47,7 @@ public class UpdateVpnStatusByEle {
 
     /**
      * After a successful connection to the deployment or deployment , refresh its connection and
-     * vpn state<br>
+     * VPN state<br>
      * 
      * @param deployResult - Overlay VPN deployment result
      * @param fullOverlayVpn - Original overlay VPN model
@@ -98,9 +98,9 @@ public class UpdateVpnStatusByEle {
     }
 
     /**
-     * Update the VPN Staus<br>
+     * Update the VPN Status<br>
      * 
-     * @param deployResult Result response of the depoly operation
+     * @param deployResult Result response of the deploy operation
      * @param fullOverlayVpn Overlay VPN
      * @param epg End point group
      * @param refreshedStatus Admin Status to be updated to
@@ -121,7 +121,7 @@ public class UpdateVpnStatusByEle {
                 return;
             }
 
-            // Epg update process failed, need to refresh the connection status and vpn
+            // EPG update process failed, need to refresh the connection status and vpn
             refreshConnAndVpn(fullOverlayVpn, epg, invDao, AdminStatus.INACTIVE);
 
             return;
@@ -136,10 +136,10 @@ public class UpdateVpnStatusByEle {
     }
 
     /**
-     * Update connection status of connection and respective endpoint groups<br>
+     * Update connection status of connection and respective end point groups<br>
      * 
      * @param fullOverlayVpn - Original overlay VPN
-     * @param epg - Endpoint group
+     * @param epg - End point group
      * @param invDao - Inventory Dao
      * @param refreshedStatus - New admin status
      * @throws ServiceException
@@ -165,7 +165,7 @@ public class UpdateVpnStatusByEle {
                     continue;
                 }
 
-                // When you deploy and only two epg, another epg state should be updated with
+                // When you deploy and only two EPG, another EPG state should be updated with
                 // deployment of state
                 for(EndpointGroup tempEpg : connection.getEndpointGroups()) {
                     if(tempEpg.getUuid().equals(epg.getUuid())) {

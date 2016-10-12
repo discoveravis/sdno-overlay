@@ -17,7 +17,7 @@
 package org.openo.sdno.overlayvpn.model.common.enums;
 
 /**
- * The class of mac learning mode. <br>
+ * The class of MAC learning mode. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-7
@@ -31,16 +31,16 @@ public enum MacLearningMode {
      * Constructor<br>
      * 
      * @since SDNO 0.5
-     * @param value The mac learning mode.
+     * @param value The MAC learning mode.
      */
     MacLearningMode(int value) {
         this.value = value;
     }
 
     /**
-     * It is used to get mac learning mode name. <br>
+     * It is used to get MAC learning mode name. <br>
      * 
-     * @return The mac learning mode name.
+     * @return The MAC learning mode name.
      * @since SDNO 0.5
      */
     public String getName() {

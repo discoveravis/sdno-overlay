@@ -55,10 +55,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Endpoint group model implementation. <br>
+ * End point group model implementation. <br>
  *
  * @author
- * @version SDNO 0.5 Jun 2, 2016
+ * @version SDNO 0.5 June 2, 2016
  */
 
 public class EndPointGrpSvcImpl implements IEndPointGrp {
@@ -81,13 +81,13 @@ public class EndPointGrpSvcImpl implements IEndPointGrp {
     private InventoryDao<EndpointGroup> inventoryDao;
 
     /**
-     * Create endpoint group in INACTIVE state. Build EPG for the technology type requested. <br>
+     * Create end point group in INACTIVE state. Build EPG for the technology type requested. <br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
-     * @param reqEpg Endpoint group in the request message
+     * @param reqEpg End point group in the request message
      * @return returns created EndpointGroup
-     * @throws ServiceException When create endpoint group failed.
+     * @throws ServiceException When create end point group failed.
      * @since SDNO 0.5
      */
     @Override
@@ -108,7 +108,7 @@ public class EndPointGrpSvcImpl implements IEndPointGrp {
      * @param resp HttpServletResponse Object
      * @param reqEpgs Requested EndpointGroup list
      * @return returns list of created EndpointGroup
-     * @throws ServiceException When create endpoint group failed.
+     * @throws ServiceException When create end point group failed.
      * @since SDNO 0.5
      */
     @Override
@@ -119,7 +119,7 @@ public class EndPointGrpSvcImpl implements IEndPointGrp {
         ResultRsp<List<EndpointGroup>> totalRsp = new ResultRsp<List<EndpointGroup>>(ErrorCode.OVERLAYVPN_SUCCESS);
         List<ErrorCodeInfo> errorCodeInfoLst = new ArrayList<ErrorCodeInfo>();
 
-        // Call create Endpointgroup service implmentation in loop
+        // Call create End point group service implementation in loop
         for(EndpointGroup reqEpg : reqEpgs) {
             ResultRsp<EndpointGroup> rsp = this.create(req, resp, reqEpg);
 
@@ -140,13 +140,13 @@ public class EndPointGrpSvcImpl implements IEndPointGrp {
     }
 
     /**
-     * Query an endpoint group using UUID and tenant id. <br>
+     * Query an end point group using UUID and tenant id. <br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
      * @param epgUuid EndpointGroup UUID
      * @param tenantId Tenant id of the request
-     * @return returns the endpoint group available in DB
+     * @return returns the end point group available in DB
      * @throws ServiceException When query failed.
      * @since SDNO 0.5
      */
@@ -166,13 +166,13 @@ public class EndPointGrpSvcImpl implements IEndPointGrp {
     }
 
     /**
-     * Query endpoint groups in batch. <br>
+     * Query end point groups in batch. <br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
      * @param tenantId Tenant id of the request
      * @param filter Query filter
-     * @return The endpoint group list
+     * @return The end point group list
      * @throws ServiceException When query failed.
      * @since SDNO 0.5
      */
@@ -184,12 +184,12 @@ public class EndPointGrpSvcImpl implements IEndPointGrp {
     }
 
     /**
-     * Update an endpoint group. <br>
+     * Update an end point group. <br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
-     * @param newEpg New endpoint group model
-     * @param invEpg Original endpoint group model
+     * @param newEpg New end point group model
+     * @param invEpg Original end point group model
      * @return The ResultRsp object
      * @throws ServiceException When update failed.
      * @since SDNO 0.5
@@ -217,11 +217,11 @@ public class EndPointGrpSvcImpl implements IEndPointGrp {
     }
 
     /**
-     * Delete an endpoint group. <br>
+     * Delete an end point group. <br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
-     * @param endpointGrp Endpoint group to be deleted
+     * @param endpointGrp End point group to be deleted
      * @return The ResultRsp object
      * @throws ServiceException When delete failed.
      * @since SDNO 0.5
@@ -285,12 +285,12 @@ public class EndPointGrpSvcImpl implements IEndPointGrp {
     }
 
     /**
-     * Deploy an endpoint group. <br>
+     * Deploy an end point group. <br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
-     * @param reqEpg Endpoint group to be deployed
-     * @return Deployed endpoint group
+     * @param reqEpg End point group to be deployed
+     * @return Deployed end point group
      * @throws ServiceException When deploy failed.
      * @since SDNO 0.5
      */
@@ -338,12 +338,12 @@ public class EndPointGrpSvcImpl implements IEndPointGrp {
     }
 
     /**
-     * Undeploy an endpoint group. <br>
+     * Undeploy an end point group. <br>
      *
      * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
-     * @param reqEpg Endpoint group to be Undeploy
-     * @return Undeploy endpoint group
+     * @param reqEpg End point group to be Undeploy
+     * @return Undeploy end point group
      * @throws ServiceException When undeploy failed.
      * @since SDNO 0.5
      */

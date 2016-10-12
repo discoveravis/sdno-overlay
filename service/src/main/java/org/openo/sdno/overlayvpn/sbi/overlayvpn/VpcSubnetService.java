@@ -35,10 +35,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
- * Vpc SubNets Services with CRUD implementations.<br>
+ * VPC SubNets Services with CRUD implementations.<br>
  * 
  * @author
- * @version SDNO 0.5 08-Aug-2016
+ * @version SDNO 0.5 08-August-2016
  */
 public class VpcSubnetService implements IMicroSvcBasicOper<SubNet> {
 

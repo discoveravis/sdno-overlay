@@ -17,7 +17,7 @@
 package org.openo.sdno.overlayvpn.model.common.enums.vxlan;
 
 /**
- * The class of Vxlan access. <br>
+ * The class of VXLAN access. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-6
@@ -32,16 +32,16 @@ public enum VxlanAccessType {
      * Constructor<br>
      * 
      * @since SDNO 0.5
-     * @param value The Vxlan access type.
+     * @param value The VXLAN access type.
      */
     VxlanAccessType(int value) {
         this.value = value;
     }
 
     /**
-     * It is used to get Vxlan access type name. <br>
+     * It is used to get VXLAN access type name. <br>
      * 
-     * @return The Vxlan access type name.
+     * @return The VXLAN access type name.
      * @since SDNO 0.5
      */
     public String getName() {

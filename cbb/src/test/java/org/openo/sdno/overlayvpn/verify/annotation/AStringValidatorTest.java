@@ -146,7 +146,7 @@ public class AStringValidatorTest {
     }
 
     /*
-     * To test the isValid() method by passing an Interger value.
+     * To test the isValid() method by passing an Integer value.
      */
     @Test
     public void testIsValidInteger() {

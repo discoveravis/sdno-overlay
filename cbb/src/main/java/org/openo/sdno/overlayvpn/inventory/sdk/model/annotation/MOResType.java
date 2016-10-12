@@ -21,14 +21,14 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 /**
- * It is used to define resource name in puer about current MO. <br>
+ * It is used to define resource name in PUER about current MO. <br>
  * <p>
- * The resource name in MO must be the same as in model file of puer. for example: MO define is:
+ * The resource name in MO must be the same as in model file of PUER. for example: MO define is:
  * 
  * @MOResType(infoModelName = "overlayvpn_tenant_ipsecpolicy")
  *                          public class IpSecPolicy extends SecurityPolicy{
  *                          }
- *                          puer model file define is:
+ *                          PUER model file define is:
  *                          <datamodel name="overlayvpn_tenant_ipsecpolicy">
  *                          </p>
  * @author

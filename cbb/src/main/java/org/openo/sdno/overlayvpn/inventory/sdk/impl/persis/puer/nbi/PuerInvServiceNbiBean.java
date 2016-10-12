@@ -44,7 +44,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
- * Northbound interface implementation for inventory service.<br>
+ * North bound interface implementation for inventory service.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-6
@@ -140,10 +140,10 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
     }
 
     /**
-     * Query database by uuid.<br>
+     * Query database by UUID.<br>
      * 
      * @param uuid
-     *            The uuid
+     *            The UUID
      * @param resType
      *            Resource type
      * @param attr
@@ -241,12 +241,12 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
     }
 
     /**
-     * Query resources by Uuid.<br>
+     * Query resources by UUID.<br>
      * 
      * @param resType
      *            Resource type
      * @param uuid
-     *            Collection of Uuid
+     *            Collection of UUID
      * @return Collection of query results
      * @throws ServiceException
      *             if query resources failed.
@@ -267,12 +267,12 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
     }
 
     /**
-     * Query resources by Uuid.<br>
+     * Query resources by UUID.<br>
      * 
      * @param resType
      *            Resource type
      * @param uuid
-     *            Collection of Uuid
+     *            Collection of UUID
      * @return Collection of query results
      * @throws ServiceException
      *             if query resources failed.
@@ -285,12 +285,12 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
     }
 
     /**
-     * Delete one resource by Uuid.<br>
+     * Delete one resource by UUID.<br>
      * 
      * @param resType
      *            Resource type
      * @param uuid
-     *            The Uuid
+     *            The UUID
      * @throws ServiceException
      *             if delete resource failed.
      * @since SDNO 0.5
@@ -361,7 +361,7 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
      * @param resType
      *            Resource type
      * @param uuidList
-     *            Uuid list
+     *            UUID list
      * @return Collection of batch deleting results
      * @throws ServiceException
      *             if delete resources failed.

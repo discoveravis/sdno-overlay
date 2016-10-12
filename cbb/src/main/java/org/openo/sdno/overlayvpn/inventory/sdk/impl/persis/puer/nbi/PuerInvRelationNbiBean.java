@@ -37,7 +37,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Northbound interface for inventory relations.<br>
+ * North bound interface for inventory relations.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-6
@@ -87,7 +87,7 @@ public class PuerInvRelationNbiBean extends PuerInvSuperNbiBean {
     }
 
     /**
-     * Query the data in relation table by sepecified Uuid.<br>
+     * Query the data in relation table by specified UUID.<br>
      * 
      * @param resType Resource type
      * @param dstType Destination type

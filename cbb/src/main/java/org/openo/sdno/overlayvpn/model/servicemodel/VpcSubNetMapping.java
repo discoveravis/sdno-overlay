@@ -23,10 +23,10 @@ import org.openo.sdno.overlayvpn.verify.annotation.AString;
 import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
 /**
- * Vpc model info and site to DC id mapping.<br>
+ * VPC model info and site to DC id mapping.<br>
  * 
  * @author
- * @version SDNO 0.5 Aug 24, 2016
+ * @version SDNO 0.5 August 24, 2016
  */
 @MOResType(infoModelName = "vpcsubnetmapping")
 public class VpcSubNetMapping extends AbstUuidModel {

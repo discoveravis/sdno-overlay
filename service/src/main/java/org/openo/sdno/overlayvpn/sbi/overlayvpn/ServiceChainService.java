@@ -43,7 +43,7 @@ import org.springframework.util.StringUtils;
  * ServiceChain service SBI class.<br>
  * 
  * @author
- * @version SDNO 0.5 Aug 20, 2016
+ * @version SDNO 0.5 August 20, 2016
  */
 public class ServiceChainService implements IMicroSvcBasicOper<ServiceChainPath> {
 

@@ -19,13 +19,13 @@ package org.openo.sdno.overlayvpn.util.check;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * Util class of String.<br>
+ * Utility class of String.<br>
  * <p>
  * This class provide some functions to operate String Object.
  * </p>
  * 
  * @author
- * @version SDNO 0.5 Jun 2, 2016
+ * @version SDNO 0.5 June 2, 2016
  */
 public final class StringUtil {
 
