@@ -128,7 +128,6 @@ public class NetworkElementInvDao {
     public List<NetworkElementMO> queryMOByConntrollerId(String controllerID) throws ServiceException {
         Map<String, String> conditionMap = new HashMap<String, String>();
         conditionMap.put("controllerID", controllerID);
-
         return query(conditionMap);
     }
 
@@ -166,7 +165,6 @@ public class NetworkElementInvDao {
     @SuppressWarnings("unchecked")
     public NetworkElementMO query(String id) throws ServiceException {
         RestfulResponse response = BrsRestconfProxy.get(NEURI + "/" + id, "");
-
         Map<String, Object> contentMap = JsonUtil.fromJson(response.getResponseContent(), Map.class);
         String data = JsonUtil.toJson(contentMap.get(NE_KEY));
         return JsonUtil.fromJson(data, NetworkElementMO.class);
@@ -183,7 +181,6 @@ public class NetworkElementInvDao {
     public List<NetworkElementMO> getNeBySiteId(String siteId) throws ServiceException {
         Map<String, String> conditionMap = new HashMap<String, String>();
         conditionMap.put("siteID", siteId);
-
         return query(conditionMap);
     }
 
@@ -198,7 +195,6 @@ public class NetworkElementInvDao {
     public List<NetworkElementMO> getNeByName(String name) throws ServiceException {
         Map<String, String> conditionMap = new HashMap<String, String>();
         conditionMap.put("name", name);
-
         return query(conditionMap);
     }
 
@@ -270,6 +266,7 @@ public class NetworkElementInvDao {
         suportKeys.add("controllerID");
         suportKeys.add("siteID");
         suportKeys.add("serialNumber");
+        suportKeys.add("nativeID");
 
         for(Map.Entry<String, String> entry : condition.entrySet()) {
             if(!suportKeys.contains(entry.getKey())) {
