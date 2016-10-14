@@ -129,12 +129,12 @@ public class SiteToDCOverlayVPN {
         EndpointGroup thinCpeEpg = new EndpointGroup();
         UuidAllocUtil.allocUuid(thinCpeEpg);
         thinCpeEpg.setTenantId(overlayVpn.getTenantId());
-        thinCpeEpg.setName(overlayVpn.getName() + "_" + "vxlanthincpeepg");
+        thinCpeEpg.setName(overlayVpn.getName() + "_" + "VxLANThinCpeEpg");
         thinCpeEpg.setDescription(overlayVpn.getDescription());
 
         thinCpeEpg.setNeId(siteToDc.getSite().getSiteThinCPE());
-        thinCpeEpg.setType(EndpointType.CIDR.getName());
-        String thinCPEEndPoints = JsonUtil.toJson(Arrays.asList(siteToDc.getSite().getSiteTypeAddress()));
+        thinCpeEpg.setType(EndpointType.PORT_VLAN.getName());
+        String thinCPEEndPoints = JsonUtil.toJson(Arrays.asList(siteToDc.getSite().getPortAndVlan()));
         thinCpeEpg.setEndpoints(thinCPEEndPoints);
         thinCpeEpg.setConnectionId(overlayVpn.getConnectionIds().get(0));
 
@@ -145,12 +145,12 @@ public class SiteToDCOverlayVPN {
         EndpointGroup vCpeEpg = new EndpointGroup();
         UuidAllocUtil.allocUuid(vCpeEpg);
         vCpeEpg.setTenantId(overlayVpn.getTenantId());
-        vCpeEpg.setName(overlayVpn.getName() + "_" + "vxlanvcpeepg");
+        vCpeEpg.setName(overlayVpn.getName() + "_" + "VxLANvCpeEpg");
         vCpeEpg.setDescription(overlayVpn.getDescription());
 
         vCpeEpg.setNeId(siteToDc.getSite().getSitevCPE());
-        vCpeEpg.setType(EndpointType.CIDR.getName());
-        String vCPEEndPoints = JsonUtil.toJson(Arrays.asList(siteToDc.getSite().getSiteTypeAddress()));
+        vCpeEpg.setType(EndpointType.PORT_VLAN.getName());
+        String vCPEEndPoints = JsonUtil.toJson(Arrays.asList(siteToDc.getSite().getPortAndVlan()));
         vCpeEpg.setEndpoints(vCPEEndPoints);
         vCpeEpg.setConnectionId(overlayVpn.getConnectionIds().get(0));
 
@@ -182,7 +182,7 @@ public class SiteToDCOverlayVPN {
         Connection connection = new Connection();
 
         UuidAllocUtil.allocUuid(connection);
-        connection.setName(overlayVpn.getName() + "_" + "vxlanconnection");
+        connection.setName(overlayVpn.getName() + "_" + "VxLANConnection");
         connection.setTopology(TopologyType.POINT_TO_POINT.getName());
         connection.setTenantId(overlayVpn.getTenantId());
         connection.setTechnology(TechnologyType.VXLAN.getName());
@@ -376,7 +376,7 @@ public class SiteToDCOverlayVPN {
         Connection connection = new Connection();
 
         UuidAllocUtil.allocUuid(connection);
-        connection.setName(overlayVpn.getName() + "_" + "ipsecconnection");
+        connection.setName(overlayVpn.getName() + "_" + "IpSecConnection");
         connection.setTenantId(overlayVpn.getTenantId());
         connection.setTopology(TopologyType.POINT_TO_POINT.getName());
         connection.setTechnology(TechnologyType.IPSEC.getName());
@@ -418,7 +418,7 @@ public class SiteToDCOverlayVPN {
         UuidAllocUtil.allocUuid(vCpeEpg);
 
         vCpeEpg.setTenantId(overlayVpn.getTenantId());
-        vCpeEpg.setName(overlayVpn.getName() + "_" + "ipsecacepg");
+        vCpeEpg.setName(overlayVpn.getName() + "_" + "IpSecvCPEEpg");
         vCpeEpg.setDescription(overlayVpn.getDescription());
 
         vCpeEpg.setConnectionId(overlayVpn.getConnectionIds().get(1));
@@ -435,7 +435,7 @@ public class SiteToDCOverlayVPN {
         UuidAllocUtil.allocUuid(dcEpg);
 
         dcEpg.setTenantId(overlayVpn.getTenantId());
-        dcEpg.setName(overlayVpn.getName() + "_" + "ipsecdcepg");
+        dcEpg.setName(overlayVpn.getName() + "_" + "IpSecDcEpg");
         dcEpg.setDescription(overlayVpn.getDescription());
 
         dcEpg.setConnectionId(overlayVpn.getConnectionIds().get(1));
