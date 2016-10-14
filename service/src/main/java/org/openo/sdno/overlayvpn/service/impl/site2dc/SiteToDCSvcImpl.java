@@ -194,7 +194,6 @@ public class SiteToDCSvcImpl implements ISiteToDC {
         LOGGER.info("Exit query Site2DC method. Cost time = " + (System.currentTimeMillis() - infterEnterTime));
 
         return new ResultRsp<SiteToDc>(ErrorCode.OVERLAYVPN_SUCCESS, siteToDc);
-
     }
 
     @Override
@@ -280,14 +279,11 @@ public class SiteToDCSvcImpl implements ISiteToDC {
 
                 if(EndpointType.CIDR.getName().equals(invEpg.getType())) {
                     oSite2Dc.getSite().setSiteTypeAddress(invEpg.getEndpoints());
-                    oSite2Dc.getSite().setPortAndVlan(invEpg.getEndpoints());
-                }
-                if(invEpg.getName().contains("thincpe")) {
-                    oSite2Dc.getSite().setSiteThinCPE(invEpg.getNeId());
-                } else if(invEpg.getName().contains("vcpe")) {
-                    oSite2Dc.getSite().setSitevCPE(invEpg.getNeId());
                 }
 
+                if(EndpointType.PORT_VLAN.getName().equals(invEpg.getType())) {
+                    oSite2Dc.getSite().setPortAndVlan(invEpg.getEndpoints());
+                }
             }
         }
 
@@ -406,7 +402,6 @@ public class SiteToDCSvcImpl implements ISiteToDC {
 
             // 2.5 Delete the connection from database
             siteToDCOverlayVPN.deleteConnection(req, resp, connectionId);
-
         }
 
         // 3. Delete Vpc and SubNet
