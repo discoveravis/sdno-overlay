@@ -36,7 +36,7 @@ public class SecurityPolicy extends ModelBase {
     @AString(require = false, scope = "3des,aes-128,aes-256,aes-192")
     private String encryptionAlgorithm = EncryptionAlgorithmType.AES128.getName();
 
-    @AString(scope = "Group2,Group5,Group14")
+    @AString(scope = "group2,group5,group14")
     private String pfs = PfsType.GROUP5.getName();
 
     @AInt(require = false, min = 0, max = 3600)

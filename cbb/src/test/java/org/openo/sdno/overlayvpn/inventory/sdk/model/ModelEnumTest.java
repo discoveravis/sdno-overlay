@@ -51,7 +51,6 @@ public class ModelEnumTest extends TestCase {
 
     @Test
     public void testActionStatus() {
-
         ActionStatus siteNet = ActionStatus.NONE;
         assertEquals("None", siteNet.getName());
         siteNet = ActionStatus.NORMAL;
@@ -72,7 +71,6 @@ public class ModelEnumTest extends TestCase {
 
     @Test
     public void testAdminStatus() {
-
         AdminStatus siteNet = AdminStatus.NONE;
         assertEquals("none", siteNet.getName());
         siteNet = AdminStatus.ACTIVE;
@@ -81,27 +79,22 @@ public class ModelEnumTest extends TestCase {
         assertEquals("inactive", siteNet.getName());
         siteNet = AdminStatus.PARTIALLYINACTIVE;
         assertEquals("partially inactive", siteNet.getName());
-
     }
 
     @Test
     public void testArpSuppressMode() {
-
         ArpSuppressMode siteNet = ArpSuppressMode.NONE;
         assertEquals("none", siteNet.getName());
         siteNet = ArpSuppressMode.PROXY_REPLY;
         assertEquals("proxy_reply", siteNet.getName());
-
     }
 
     @Test
     public void testBoolStatus() {
-
         BoolStatus siteNet = BoolStatus.FALSE;
         assertEquals("false", siteNet.getName());
         siteNet = BoolStatus.TRUE;
         assertEquals("true", siteNet.getName());
-
     }
 
     @Test
@@ -125,14 +118,12 @@ public class ModelEnumTest extends TestCase {
         assertEquals(type.getName(), "vlan");
         type = EndpointType.VPC;
         assertEquals(type.getName(), "vpc");
-
     }
 
     @Test
     public void testIPVersion() {
         IPVersion type;
         type = IPVersion.IPV4;
-
         assertEquals(type.getName(), "ipv4");
         type = IPVersion.IPV6;
         assertEquals(type.getName(), "ipv6");
@@ -142,7 +133,6 @@ public class ModelEnumTest extends TestCase {
     public void testMacLearningMode() {
         MacLearningMode type;
         type = MacLearningMode.DATA_PLANE;
-
         assertEquals(type.getName(), "data-plane");
         type = MacLearningMode.CONTROL_PLANE;
         assertEquals(type.getName(), "control-plane");
@@ -163,7 +153,6 @@ public class ModelEnumTest extends TestCase {
         assertEquals(type.getName(), "vxlan_over_ipsec");
         assertTrue(MappingPolicyType.validateName("gre"));
         assertFalse(MappingPolicyType.validateName("gr"));
-
     }
 
     @Test
@@ -195,24 +184,20 @@ public class ModelEnumTest extends TestCase {
         assertEquals(type.getName(), "mpls_te");
         type = MplsTunnelType.VXLAN;
         assertEquals(type.getName(), "VxLAN");
-
     }
 
     @Test
     public void testMplsVpnType() {
-
         MplsVpnType type = MplsVpnType.NONE;
         assertEquals(type.getName(), "none");
         type = MplsVpnType.BGP_MPLS_VPN;
         assertEquals(type.getName(), "bgp_mpls_vpn");
         type = MplsVpnType.VLL;
         assertEquals(type.getName(), "vll");
-
     }
 
     @Test
     public void testOperStatus() {
-
         OperStatus type = OperStatus.NONE;
         assertEquals(type.getName(), "none");
         type = OperStatus.UP;
@@ -221,25 +206,22 @@ public class ModelEnumTest extends TestCase {
         assertEquals(type.getName(), "down");
         type = OperStatus.PARTIALLYDOWN;
         assertEquals(type.getName(), "partially down");
-
     }
 
     @Test
     public void testPfsType() {
-
         PfsType type = PfsType.GROUP2;
-        assertEquals(type.getName(), "Group2");
+        assertEquals(type.getName(), "group2");
         type = PfsType.GROUP5;
-        assertEquals(type.getName(), "Group5");
+        assertEquals(type.getName(), "group5");
         type = PfsType.GROUP14;
-        assertEquals(type.getName(), "Group14");
-        assertTrue(PfsType.validateName("Group2"));
-        assertFalse(PfsType.validateName("Group3"));
+        assertEquals(type.getName(), "group14");
+        assertTrue(PfsType.validateName("group2"));
+        assertFalse(PfsType.validateName("group3"));
     }
 
     @Test
     public void testPhase1NegotiationModeType() {
-
         Phase1NegotiationModeType type = Phase1NegotiationModeType.MAINMODE;
         assertEquals(type.getName(), "Main Mode");
     }
@@ -314,7 +296,6 @@ public class ModelEnumTest extends TestCase {
 
     @Test
     public void testVxlanServiceTpAccessType() {
-
         VxlanServiceTpAccessType type = VxlanServiceTpAccessType.UNTAG;
         assertEquals(type.getName(), "untag");
         type = VxlanServiceTpAccessType.DOT1Q;
@@ -327,12 +308,10 @@ public class ModelEnumTest extends TestCase {
         assertEquals(type.getName(), "global-vlan");
         type = VxlanServiceTpAccessType.VXLAN;
         assertEquals(type.getName(), "vxlan");
-
     }
 
     @Test
     public void testAuthAlgorithmType() {
-
         AuthAlgorithmType type = AuthAlgorithmType.SHA1;
         assertEquals(type.getName(), "sha1");
         assertTrue(AuthAlgorithmType.validateName("sha1"));
@@ -374,7 +353,6 @@ public class ModelEnumTest extends TestCase {
         assertEquals(type.getName(), "bi-directional");
         type = InitiatorType.RESPONSEONLY;
         assertEquals(type.getName(), "response-only");
-
     }
 
     @Test
@@ -394,6 +372,5 @@ public class ModelEnumTest extends TestCase {
         assertEquals(type.getName(), "port");
         type = VxlanAccessType.DOT1Q;
         assertEquals(type.getName(), "dot1q");
-
     }
 }
