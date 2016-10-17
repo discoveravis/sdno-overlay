@@ -46,11 +46,11 @@ public enum PfsType {
     public String getName() {
         switch(value) {
             case 0:
-                return "Group2";
+                return "group2";
             case 1:
-                return "Group5";
+                return "group5";
             case 2:
-                return "Group14";
+                return "group14";
             default:
                 return "";
         }
