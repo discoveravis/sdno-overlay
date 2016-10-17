@@ -26,6 +26,7 @@ import org.openo.sdno.overlayvpn.model.common.enums.ipsec.AuthModeType;
 import org.openo.sdno.overlayvpn.model.ipsec.IkePolicy;
 import org.openo.sdno.overlayvpn.model.ipsec.IpSecPolicy;
 import org.openo.sdno.overlayvpn.model.netmodel.BaseNetModel;
+import org.openo.sdno.overlayvpn.verify.annotation.AIp;
 import org.openo.sdno.overlayvpn.verify.annotation.AIpMask;
 import org.openo.sdno.overlayvpn.verify.annotation.AString;
 import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
@@ -66,7 +67,7 @@ public class NeIpSecConnection extends BaseNetModel {
     private String ikePolicyId;
 
     // Info of peer end
-    @AIpMask(require = true)
+    @AIp(require = true)
     private String peerAddress;
 
     @JsonIgnore
