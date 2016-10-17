@@ -41,16 +41,12 @@ public class SubNet {
 
     private String vpcId;
 
-    /**
-     * @return the vpcId
-     */
+    private SubNet.UnderlayResources attributes = null;
+
     public String getVpcId() {
         return vpcId;
     }
 
-    /**
-     * @param vpcId the vpcId to set
-     */
     public void setVpcId(String vpcId) {
         this.vpcId = vpcId;
     }
@@ -95,7 +91,73 @@ public class SubNet {
         this.description = description;
     }
 
+    public SubNet.UnderlayResources getAttributes() {
+        return this.attributes;
+    }
 
+    public SubNet setAttributes(SubNet.UnderlayResources attributes) {
+        this.attributes = attributes;
+        return this;
+    }
 
+    public static class UnderlayResources {
 
+        @JsonProperty(value = "id")
+        @AUuid
+        protected String uuid;
+
+        /**
+         * SubNet uuid
+         */
+        @AUuid(require = true)
+        private String parentId = null;
+
+        /**
+         * SubNet network uuid.
+         */
+        @AUuid(require = true)
+        private String networkId = null;
+
+        /**
+         * SubNet uuid.
+         */
+        @AUuid(require = true)
+        private String subnetId = null;
+
+        public String getUuid() {
+            return uuid;
+        }
+
+        public SubNet.UnderlayResources setUuid(String uuid) {
+            this.uuid = uuid;
+            return this;
+        }
+
+        public String getNetworkId() {
+            return this.networkId;
+        }
+
+        public SubNet.UnderlayResources setNetworkId(String networkId) {
+            this.networkId = networkId;
+            return this;
+        }
+
+        public String getSubnetId() {
+            return this.subnetId;
+        }
+
+        public SubNet.UnderlayResources setSubnetId(String subnetId) {
+            this.subnetId = subnetId;
+            return this;
+        }
+
+        public String getParentId() {
+            return this.parentId;
+        }
+
+        public SubNet.UnderlayResources setParentId(String parentId) {
+            this.parentId = parentId;
+            return this;
+        }
+    }
 }

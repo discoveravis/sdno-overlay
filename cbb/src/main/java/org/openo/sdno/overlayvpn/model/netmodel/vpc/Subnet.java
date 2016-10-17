@@ -99,7 +99,6 @@ public class Subnet extends AbstUuidModel {
     @NONInvField
     private Date updatedAt = null;
 
-    @JsonIgnore
     @NONInvField
     private Subnet.UnderlayResources attributes = null;
 
