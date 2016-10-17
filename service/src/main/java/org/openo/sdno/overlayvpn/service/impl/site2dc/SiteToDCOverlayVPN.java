@@ -457,7 +457,8 @@ public class SiteToDCOverlayVPN {
 
         StringBuilder endPointInfo = new StringBuilder();
         endPointInfo.append("cidr|").append(vpc.getUuid()).append('|').append(vpc.getAttributes().getRouterId())
-                .append('|').append(vpc.getExternalIp()).append('|').append(vpc.getSubnet().getUuid());
+                .append('|').append(vpc.getExternalIp()).append('|')
+                .append(vpc.getSubnet().getAttributes().getSubnetId());
 
         return endPointInfo.toString();
     }
