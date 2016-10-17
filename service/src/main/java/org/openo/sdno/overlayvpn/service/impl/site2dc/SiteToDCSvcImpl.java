@@ -241,8 +241,7 @@ public class SiteToDCSvcImpl implements ISiteToDC {
         ResultRsp<OverlayVpn> overlayVpnRsp = overlayVpnSvc.query(req, resp, uuid, tenantId);
         OverlayVpn oSite2DcVpn = overlayVpnRsp.getData();
         if(null == oSite2DcVpn) {
-            LOGGER.error("Query OverlayVpn " + uuid + " not exist!!");
-            ThrowOverlayVpnExcpt.throwResNotExistAsNotFound("Overlay VPN", uuid);
+            LOGGER.error("Query OverlayVpn " + uuid + " not exist");
             return new ResultRsp<SiteToDc>();
         }
 
@@ -293,10 +292,20 @@ public class SiteToDCSvcImpl implements ISiteToDC {
 
         // 3. Query Vpc/Subnet information
         VpcSubNetMapping vsMapping = vpcSubNetSvc.query(req, resp, oSite2Dc.getUuid());
+        if(null == vsMapping) {
+            LOGGER.error("Query vpc " + uuid + " not exist");
+            return new ResultRsp<SiteToDc>();
+        }
+
         VpcSubnetUtil.setSiteToDcByVpcMapping(oSite2Dc, vsMapping);
 
         // 4. Query ServiceChain
         ServiceChainSiteToDcRelation relation = ServiceChainDbOper.query(oSite2Dc.getUuid());
+        if((null == relation) || (null == relation.getData())) {
+            LOGGER.error("Query service chain " + uuid + " not exist");
+            return new ResultRsp<SiteToDc>();
+        }
+
         ServiceChainPath scPath = JsonUtil.fromJson(relation.getData(), ServiceChainPath.class);
         oSite2Dc.getSfp().setScfNeId(scPath.getScfNeId());
         oSite2Dc.getSfp().setServicePathHops(scPath.getServicePathHops());
