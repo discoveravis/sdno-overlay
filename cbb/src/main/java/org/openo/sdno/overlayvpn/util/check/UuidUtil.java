@@ -26,8 +26,6 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Class of UUID Validate Operation.<br>
- * <p>
- * </p>
  * 
  * @author
  * @version SDNO 0.5 June 2, 2016
@@ -50,7 +48,7 @@ public class UuidUtil {
         try {
             UuidUtils.checkUuid(uuid);
         } catch(ServiceException e) {
-            LOGGER.error("Check uuid failed", e);
+            LOGGER.error("Check uuid failed ", e.getMessage());
             return false;
         }
 
@@ -74,6 +72,7 @@ public class UuidUtil {
                 return false;
             }
         }
+
         return true;
     }
 
