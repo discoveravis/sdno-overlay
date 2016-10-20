@@ -32,6 +32,14 @@ public class SiteNbi {
 
     String vCPEId;
 
+    public String getvCPEId() {
+        return vCPEId;
+    }
+
+    public void setvCPEId(String vCPEId) {
+        this.vCPEId = vCPEId;
+    }
+
     public SiteNbi() {
 
     }
@@ -50,14 +58,6 @@ public class SiteNbi {
 
     public void setThinCpeId(String thinCpeId) {
         this.thinCpeId = thinCpeId;
-    }
-
-    public String getVCPEId() {
-        return vCPEId;
-    }
-
-    public void setVCPEId(String vCPEId) {
-        this.vCPEId = vCPEId;
     }
 
     public String getPortAndVlan() {
