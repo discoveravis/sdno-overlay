@@ -261,7 +261,7 @@ public class SiteToDcRoaResource {
         if(null != oSiteToDc.getSite()) {
             oSiteToDc.getSite().setSiteTypeAddress(oSite2DcNbi.getSite().getCidr());
             oSiteToDc.getSite().setSiteThinCPE(oSite2DcNbi.getSite().getThinCpeId());
-            oSiteToDc.getSite().setSitevCPE(oSite2DcNbi.getSite().getVCPEId());
+            oSiteToDc.getSite().setSitevCPE(oSite2DcNbi.getSite().getvCPEId());
             oSiteToDc.getSite().setPortAndVlan(oSite2DcNbi.getSite().getPortAndVlan());
         }
 
@@ -289,7 +289,7 @@ public class SiteToDcRoaResource {
         if(null != oSiteToDcNbi.getSite()) {
             oSiteToDcNbi.getSite().setCidr(oSite2Dc.getSite().getSiteTypeAddress());
             oSiteToDcNbi.getSite().setThinCpeId(oSite2Dc.getSite().getSiteThinCPE());
-            oSiteToDcNbi.getSite().setVCPEId(oSite2Dc.getSite().getSitevCPE());
+            oSiteToDcNbi.getSite().setvCPEId(oSite2Dc.getSite().getSitevCPE());
             oSiteToDcNbi.getSite().setPortAndVlan(oSite2Dc.getSite().getPortAndVlan());
         }
 
