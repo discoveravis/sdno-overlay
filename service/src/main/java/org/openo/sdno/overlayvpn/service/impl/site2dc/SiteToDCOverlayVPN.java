@@ -133,7 +133,7 @@ public class SiteToDCOverlayVPN {
         thinCpeEpg.setDescription(overlayVpn.getDescription());
 
         thinCpeEpg.setNeId(siteToDc.getSite().getSiteThinCPE());
-        thinCpeEpg.setType(EndpointType.PORT_VLAN.getName());
+        thinCpeEpg.setType(EndpointType.VLAN.getName());
         String thinCPEEndPoints = JsonUtil.toJson(Arrays.asList(siteToDc.getSite().getPortAndVlan()));
         thinCpeEpg.setEndpoints(thinCPEEndPoints);
         thinCpeEpg.setConnectionId(overlayVpn.getConnectionIds().get(0));
@@ -149,7 +149,7 @@ public class SiteToDCOverlayVPN {
         vCpeEpg.setDescription(overlayVpn.getDescription());
 
         vCpeEpg.setNeId(siteToDc.getSite().getSitevCPE());
-        vCpeEpg.setType(EndpointType.PORT_VLAN.getName());
+        vCpeEpg.setType(EndpointType.VLAN.getName());
         String vCPEEndPoints = JsonUtil.toJson(Arrays.asList(siteToDc.getSite().getPortAndVlan()));
         vCpeEpg.setEndpoints(vCPEEndPoints);
         vCpeEpg.setConnectionId(overlayVpn.getConnectionIds().get(0));
