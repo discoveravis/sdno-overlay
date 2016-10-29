@@ -28,8 +28,6 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Check OverlayVpnTask is finished.<br>
- * <p>
- * </p>
  * 
  * @author
  * @version SDNO 0.5 Jun 7, 2016
@@ -75,6 +73,7 @@ public class CheckIsTaskFinish {
             if(CollectionUtils.isEmpty(cloudVpnTaskList)) {
                 break;
             }
+
             sleepTimeInMs(SLEEP_TIME_MS);
         }
     }

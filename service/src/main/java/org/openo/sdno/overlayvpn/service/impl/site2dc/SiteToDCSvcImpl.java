@@ -171,9 +171,8 @@ public class SiteToDCSvcImpl implements ISiteToDC {
         // 7. Save data and Send data to serviceChain
         ServiceChainPath scp = new ServiceChainPath();
         scp.setUuid(UuidUtils.createUuid());
-        scp.setName("tenantName");
+        scp.setName(vpcNetwork.getAttributes().getRouterId());
         scp.setServicePathHops(siteToDc.getSfp().getServicePathHops());
-        scp.setDescription(siteToDc.getVpc().getName());
         scp.setScfNeId(siteToDc.getSfp().getScfNeId());
         ServiceChainSiteToDcRelation serviceChainnSiteToDcRelation = new ServiceChainSiteToDcRelation();
         serviceChainnSiteToDcRelation.setUuid(scp.getUuid());
