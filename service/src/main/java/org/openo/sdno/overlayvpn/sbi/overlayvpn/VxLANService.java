@@ -84,6 +84,11 @@ public class VxLANService implements IMicroSvcBasicOper<OverlayVpn> {
             return new ResultRsp<OverlayVpn>(ErrorCode.RESTFUL_COMMUNICATION_FAILED);
         }
 
+        if(!HttpCode.isSucess(response.getStatus())) {
+            LOGGER.error("Create VxLAN Return error response.");
+            throw new ServiceException("Create VxLAN Return error response.");
+        }
+
         return getResultRspFromResponse(response, request);
     }
 

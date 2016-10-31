@@ -86,6 +86,11 @@ public class IpSecService implements IMicroSvcBasicOper<OverlayVpn> {
             return new ResultRsp<OverlayVpn>(ErrorCode.RESTFUL_COMMUNICATION_FAILED);
         }
 
+        if(!HttpCode.isSucess(response.getStatus())) {
+            LOGGER.error("Create IpSec Return error response.");
+            throw new ServiceException("Create IpSec Return error response.");
+        }
+
         return getResultRspFromResponse(response, request);
     }
 

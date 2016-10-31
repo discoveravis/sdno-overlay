@@ -90,6 +90,11 @@ public class VpcSubnetService implements IMicroSvcBasicOper<SubNet> {
             return new ResultRsp<SubNet>(ErrorCode.RESTFUL_COMMUNICATION_FAILED);
         }
 
+        if(!HttpCode.isSucess(response.getStatus())) {
+            LOGGER.error("Create Subnet Return error response.");
+            throw new ServiceException("Create Subnet Return error response.");
+        }
+
         return getResultRspFromResponse(response, request);
     }
 
