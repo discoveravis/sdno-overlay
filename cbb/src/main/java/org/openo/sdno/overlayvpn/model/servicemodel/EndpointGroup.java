@@ -41,7 +41,7 @@ public class EndpointGroup extends BaseServiceModel {
     /**
      * type
      */
-    @AString(require = true, scope = "subnet,cidr,network,router,port,port-and-vlan,vni,cidr_with_l2access,vpc")
+    @AString(require = true, scope = "subnet,cidr,network,router,port,port-and-vlan,vni,cidr_with_l2access,vlan,vpc")
     private String type;
 
     /**

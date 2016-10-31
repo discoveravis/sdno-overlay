@@ -95,8 +95,6 @@ public class SiteToDCSvcImpl implements ISiteToDC {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SiteToDCSvcImpl.class);
 
-    private static final int HOP_NUMBER = 1;
-
     /**
      * Constructor<br>
      *
@@ -144,8 +142,12 @@ public class SiteToDCSvcImpl implements ISiteToDC {
         OSDriverConfigUtil.loadOSDriverConfigData();
         siteToDc.getVpc().setOsControllerId(OSDriverConfigUtil.getOSControllerId());
 
+        LOGGER.debug("Begin to deploy Overlay business");
+
         // 4. Create VPC & VPC Subnet
         Vpc vpcNetwork = vpcSubNetSvc.create(req, resp, siteToDc);
+
+        LOGGER.debug("Vpc Create Successful");
 
         // 5. Create IpSec Connection
         Connection ipSecConnection = siteToDCOverlayVPN.createIpSecConnection(req, resp, overlayVpn);
@@ -168,6 +170,8 @@ public class SiteToDCSvcImpl implements ISiteToDC {
         ResultRsp<OverlayVpn> resultRsp = overlayVpnSvc.deploy(req, resp, overlayVpn);
         ThrowOverlayVpnExcpt.checkRspThrowException(resultRsp);
 
+        LOGGER.debug("VxLAN and IpSec Create Successful");
+
         // 7. Save data and Send data to serviceChain
         ServiceChainPath scp = new ServiceChainPath();
         scp.setUuid(UuidUtils.createUuid());
@@ -181,6 +185,8 @@ public class SiteToDCSvcImpl implements ISiteToDC {
         ServiceChainDbOper.create(serviceChainnSiteToDcRelation);
 
         serviceChainServiceSbi.create(req, scp);
+
+        LOGGER.debug("ServiceChain Create Successful");
 
         // 8. Update OverlayVpn Status
         overlayVpn.setAdminStatus(AdminStatus.ACTIVE.getName());

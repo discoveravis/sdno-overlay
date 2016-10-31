@@ -69,20 +69,23 @@ public class ServiceChainService implements IMicroSvcBasicOper<ServiceChainPath>
             return new ResultRsp<ServiceChainPath>(ErrorCode.RESTFUL_COMMUNICATION_FAILED);
         }
 
+        if(!HttpCode.isSucess(response.getStatus())) {
+            LOGGER.error("Create ServiceChain Return error response.");
+            throw new ServiceException("Create ServiceChain Return error response.");
+        }
+
         return getResultRspFromResponse(response, sfp);
 
     }
 
     @Override
     public ResultRsp<ServiceChainPath> query(HttpServletRequest req, String uuid) throws ServiceException {
-
         return null;
     }
 
     @Override
     public ResultRsp<ServiceChainPath> update(HttpServletRequest req, ServiceChainPath request)
             throws ServiceException {
-
         return null;
     }
 
@@ -103,6 +106,7 @@ public class ServiceChainService implements IMicroSvcBasicOper<ServiceChainPath>
         }
 
         if(!HttpCode.isSucess(response.getStatus())) {
+            LOGGER.error("Delete ServiceChain Return error response.");
             return new ResultRsp<ServiceChainPath>(ErrorCode.OVERLAYVPN_FAILED);
         }
 
@@ -112,14 +116,12 @@ public class ServiceChainService implements IMicroSvcBasicOper<ServiceChainPath>
     @Override
     public ResultRsp<ServiceChainPath> deploy(HttpServletRequest req, ServiceChainPath request)
             throws ServiceException {
-
         return null;
     }
 
     @Override
     public ResultRsp<ServiceChainPath> undeploy(HttpServletRequest req, ServiceChainPath request)
             throws ServiceException {
-
         return null;
     }
 

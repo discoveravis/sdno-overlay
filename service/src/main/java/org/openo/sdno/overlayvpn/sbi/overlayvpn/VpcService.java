@@ -91,6 +91,11 @@ public class VpcService implements IMicroSvcBasicOper<Vpc> {
             return new ResultRsp<Vpc>(ErrorCode.RESTFUL_COMMUNICATION_FAILED);
         }
 
+        if(!HttpCode.isSucess(response.getStatus())) {
+            LOGGER.error("Create Vpc Return error response.");
+            throw new ServiceException("Create Vpc Return error response.");
+        }
+
         return getResultRspFromResponse(response, request);
     }
 
