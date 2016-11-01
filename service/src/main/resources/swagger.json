@@ -197,6 +197,10 @@
                 "sfp"
             ],
             "properties": {
+                "uuid": {
+                    "type": "string",
+                    "description": "uuid of Site2DC"
+                },
                 "name": {
                     "type": "string",
                     "description": "name of Site2DC"

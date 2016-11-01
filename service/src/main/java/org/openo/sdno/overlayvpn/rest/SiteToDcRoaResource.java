@@ -93,15 +93,6 @@ public class SiteToDcRoaResource {
         SiteToDcNbi oSite2DcNbi = JsonUtil.fromJson(s2Dc, SiteToDcNbi.class);
         SiteToDc siteToDC = convertFromNbi(oSite2DcNbi);
 
-        // Step 1. validate the input data
-        // For create operation UUID should be null...
-        if(StringUtils.hasLength(siteToDC.getUuid())) {
-            ThrowOverlayVpnExcpt.throwParmaterInvalid("UUID", null);
-        }
-
-        // Step 2. set a UUID from the resource pool
-        siteToDC.setUuid(UuidUtils.createUuid());
-
         // Step 3. call the service method to perform create operation
         ResultRsp<SiteToDc> resultRsp = service.create(req, resp, siteToDC);
         LOGGER.debug("Exit create method. cost time = " + (System.currentTimeMillis() - infterEnterTime));
@@ -255,6 +246,12 @@ public class SiteToDcRoaResource {
     private SiteToDc convertFromNbi(SiteToDcNbi oSite2DcNbi) {
         SiteToDc oSiteToDc = new SiteToDc("");
 
+        String uuid = oSite2DcNbi.getUuid();
+        if(!StringUtils.hasLength(uuid)) {
+            uuid = UuidUtils.createUuid();
+        }
+        oSiteToDc.setUuid(uuid);
+
         oSiteToDc.setName(oSite2DcNbi.getName());
         oSiteToDc.setDescription(oSite2DcNbi.getDescription());
 
@@ -283,6 +280,7 @@ public class SiteToDcRoaResource {
     private SiteToDcNbi convertToNbi(SiteToDc oSite2Dc) {
         SiteToDcNbi oSiteToDcNbi = new SiteToDcNbi();
 
+        oSiteToDcNbi.setUuid(oSite2Dc.getUuid());
         oSiteToDcNbi.setName(oSite2Dc.getName());
         oSiteToDcNbi.setDescription(oSite2Dc.getDescription());
 

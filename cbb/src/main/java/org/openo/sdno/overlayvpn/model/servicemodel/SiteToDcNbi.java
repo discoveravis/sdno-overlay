@@ -24,6 +24,9 @@ package org.openo.sdno.overlayvpn.model.servicemodel;
  */
 public class SiteToDcNbi {
 
+    // UUID
+    String uuid;
+
     // Name of Site2DC
     String name;
 
@@ -43,6 +46,14 @@ public class SiteToDcNbi {
         site = new SiteNbi();
         vpc = new VpcNbi();
         sfp = new SfpNbi();
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public String getName() {
