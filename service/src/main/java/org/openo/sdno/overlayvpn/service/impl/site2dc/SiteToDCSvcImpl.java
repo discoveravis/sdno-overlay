@@ -418,15 +418,15 @@ public class SiteToDCSvcImpl implements ISiteToDC {
             siteToDCOverlayVPN.deleteConnection(req, resp, connectionId);
         }
 
-        // 3. Delete VPC and SubNet
-        vpcSubNetSvc.delete(req, resp, siteToDc.getUuid());
-
-        // 4. Delete service chain
+        // 3. Delete service chain
         ServiceChainSiteToDcRelation serviceChainDbData = ServiceChainDbOper.query(siteToDc.getUuid());
         if(null != serviceChainDbData) {
             serviceChainServiceSbi.delete(req, serviceChainDbData.getUuid());
             ServiceChainDbOper.delete(serviceChainDbData.getUuid());
         }
+
+        // 4. Delete VPC and SubNet
+        vpcSubNetSvc.delete(req, resp, siteToDc.getUuid());
 
         // 5. Delete OverlayVPN from database
         ResultRsp<String> resultRsp = siteToDCOverlayVPN.deleteOverlayVpn(req, resp, siteToDc.getUuid());
