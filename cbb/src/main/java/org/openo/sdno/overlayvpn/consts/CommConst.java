@@ -165,7 +165,7 @@ public class CommConst {
     /**
      * Minimum VNI value
      */
-    public static final Long VXLAN_VNI_MIN = 1L;
+    public static final Long VXLAN_VNI_MIN = 2L;
 
     /**
      * Maximum VLAN ID
