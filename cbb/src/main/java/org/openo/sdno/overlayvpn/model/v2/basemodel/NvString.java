@@ -16,35 +16,93 @@
 
 package org.openo.sdno.overlayvpn.model.v2.basemodel;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import org.openo.sdno.framework.container.util.UuidUtils;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
+import org.openo.sdno.overlayvpn.model.uuid.AbstUuidModel;
+import org.openo.sdno.overlayvpn.util.check.UuidUtil;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import io.swagger.annotations.ApiModelProperty;
+/**
+ * The class of NvString, It is used to save the type, end points and uuid of EndpointGroup. <br>
+ * 
+ * @author
+ * @version SDNO 0.5 2016-6-6
+ */
+@MOResType(infoModelName = "overlayvpn_nvstring")
+public class NvString extends AbstUuidModel implements Cloneable {
 
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "NvString", propOrder = {"name", "value", "firstParentUuid"})
+    private static final Logger LOGGER = LoggerFactory.getLogger(NvString.class);
 
-public class NvString extends UuidModel {
+    @AString(require = true, min = 1, max = 36)
+    private String name;
 
-    @XmlElement(name = "name")
-    @ApiModelProperty(example = "null", required = true, value = "")
-    private String name = null;
+    @AString(min = 0, max = 255)
+    private String value;
 
-    @XmlElement(name = "value")
-    @ApiModelProperty(example = "null", value = "")
-    private String value = null;
-
-    @XmlElement(name = "firstParentUuid")
-    @ApiModelProperty(example = "null", value = "")
-    private String firstParentUuid = null;
+    @AString(min = 0, max = 36)
+    private String firstParentUuid;
 
     /**
-     * Get name
+     * Constructor<br>
      * 
-     * @return name
-     **/
+     * @since SDNO 0.5
+     */
+    public NvString() {
+        super();
+    }
+
+    /**
+     * Constructor<br>
+     * 
+     * @since SDNO 0.5
+     * @param tempName The value name
+     * @param tempValue The value
+     */
+    public NvString(String tempName, String tempValue) {
+        super();
+        name = tempName;
+        value = tempValue;
+    }
+
+    /**
+     * Constructor<br>
+     * 
+     * @since SDNO 0.5
+     * @param tempName The value name
+     * @param tempValue The value
+     * @param parentUuid The uuid of parent
+     */
+    public NvString(String tempName, String tempValue, String parentUuid) {
+        super();
+        name = tempName;
+        value = tempValue;
+        firstParentUuid = parentUuid;
+    }
+
+    /**
+     * Constructor<br>
+     * 
+     * @since SDNO 0.5
+     * @param tempUuid The uuid of current data
+     * @param tempName The value name
+     * @param tempValue The value
+     * @param parentUuid The uuid of parent
+     */
+    public NvString(String tempUuid, String tempName, String tempValue, String parentUuid) {
+        super();
+        uuid = tempUuid;
+        name = tempName;
+        value = tempValue;
+        firstParentUuid = parentUuid;
+    }
+
+    @Override
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
     public String getName() {
         return name;
     }
@@ -53,11 +111,6 @@ public class NvString extends UuidModel {
         this.name = name;
     }
 
-    /**
-     * Get value
-     * 
-     * @return value
-     **/
     public String getValue() {
         return value;
     }
@@ -66,11 +119,56 @@ public class NvString extends UuidModel {
         this.value = value;
     }
 
-    /**
-     * Get firstParentUuid
-     * 
-     * @return firstParentUuid
-     **/
+    @Override
+    public Object clone() {
+        try {
+            return super.clone();
+        } catch(CloneNotSupportedException e) {
+            LOGGER.error("Clone not support", e);
+            return new Object();
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = (prime * result) + ((name == null) ? 0 : name.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(null == obj) {
+            return false;
+        }
+
+        if(this == obj) {
+            return true;
+        }
+
+        if(getClass() != obj.getClass()) {
+            return false;
+        }
+
+        NvString other = (NvString)obj;
+        if(name == null) {
+            if(other.name != null) {
+                return false;
+            }
+        } else if(!name.equals(other.name)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void allocateUuid() {
+        if(!UuidUtil.validate(uuid)) {
+            setUuid(UuidUtils.createUuid());
+        }
+    }
+
     public String getFirstParentUuid() {
         return firstParentUuid;
     }
@@ -80,25 +178,8 @@ public class NvString extends UuidModel {
     }
 
     @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class NvString {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    value: ").append(toIndentedString(value)).append("\n");
-        sb.append("    firstParentUuid: ").append(toIndentedString(firstParentUuid)).append("\n");
-        sb.append("}");
-        return sb.toString();
+    public String getUuid() {
+        return uuid;
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
 }

@@ -16,44 +16,46 @@
 
 package org.openo.sdno.overlayvpn.model.v2.basemodel;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SbiBaseNetModel", propOrder = {"deviceId", "peerDeviceId", "controllerId", "connectionId",
-                "externalId"})
-
+/**
+ * Sbi Basic Service Model.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 2017-1-6
+ */
 public class SbiBaseNetModel extends BaseModel {
 
-    @XmlElement(name = "deviceId")
-    @ApiModelProperty(example = "null", required = true, value = "device ID")
-    private String deviceId = null;
-
-    @XmlElement(name = "peerDeviceId")
-    @ApiModelProperty(example = "null", value = "peerDevice ID")
-    private String peerDeviceId = null;
-
-    @XmlElement(name = "controllerId")
-    @ApiModelProperty(example = "null", value = "controller ID")
-    private String controllerId = null;
-
-    @XmlElement(name = "connectionId")
-    @ApiModelProperty(example = "null", value = "connection ID")
-    private String connectionId = null;
-
-    @XmlElement(name = "externalId")
-    @ApiModelProperty(example = "null", value = "external ID")
-    private String externalId = null;
+    /**
+     * Source Device Id
+     */
+    @AUuid(require = true)
+    private String deviceId;
 
     /**
-     * device ID
-     * 
-     * @return deviceId
-     **/
+     * Peer Device Id
+     */
+    @AUuid(require = false)
+    private String peerDeviceId;
+
+    /**
+     * Controller Id
+     */
+    @AUuid(require = false)
+    private String controllerId;
+
+    /**
+     * Connection Id
+     */
+    @AUuid(require = false)
+    private String connectionId = null;
+
+    /**
+     * External Id
+     */
+    @AUuid(require = false)
+    private String externalId = null;
+
     public String getDeviceId() {
         return deviceId;
     }
@@ -62,11 +64,6 @@ public class SbiBaseNetModel extends BaseModel {
         this.deviceId = deviceId;
     }
 
-    /**
-     * peerDevice ID
-     * 
-     * @return peerDeviceId
-     **/
     public String getPeerDeviceId() {
         return peerDeviceId;
     }
@@ -75,11 +72,6 @@ public class SbiBaseNetModel extends BaseModel {
         this.peerDeviceId = peerDeviceId;
     }
 
-    /**
-     * controller ID
-     * 
-     * @return controllerId
-     **/
     public String getControllerId() {
         return controllerId;
     }
@@ -88,11 +80,6 @@ public class SbiBaseNetModel extends BaseModel {
         this.controllerId = controllerId;
     }
 
-    /**
-     * connection ID
-     * 
-     * @return connectionId
-     **/
     public String getConnectionId() {
         return connectionId;
     }
@@ -101,41 +88,11 @@ public class SbiBaseNetModel extends BaseModel {
         this.connectionId = connectionId;
     }
 
-    /**
-     * external ID
-     * 
-     * @return externalId
-     **/
     public String getExternalId() {
         return externalId;
     }
 
     public void setExternalId(String externalId) {
         this.externalId = externalId;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SbiBaseNetModel {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    deviceId: ").append(toIndentedString(deviceId)).append("\n");
-        sb.append("    peerDeviceId: ").append(toIndentedString(peerDeviceId)).append("\n");
-        sb.append("    controllerId: ").append(toIndentedString(controllerId)).append("\n");
-        sb.append("    connectionId: ").append(toIndentedString(connectionId)).append("\n");
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 }

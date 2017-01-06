@@ -16,54 +16,51 @@
 
 package org.openo.sdno.overlayvpn.model.v2.basemodel;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
+import org.openo.sdno.overlayvpn.model.BaseServiceModel;
+import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "BaseNetModel", propOrder = {"controllerId", "externalId", "connectionServiceId", "neId", "peerNeId",
-                "deviceId", "peerDeviceId"})
-
-@ApiModel(description = "base net model")
-public class BaseNetModel extends BaseModel {
-
-    @XmlElement(name = "controllerId")
-    @ApiModelProperty(example = "null", value = "")
-    private String controllerId = null;
-
-    @XmlElement(name = "externalId")
-    @ApiModelProperty(example = "null", value = "")
-    private String externalId = null;
-
-    @XmlElement(name = "connectionServiceId")
-    @ApiModelProperty(example = "null", required = true, value = "")
-    private String connectionServiceId = null;
-
-    @XmlElement(name = "neId")
-    @ApiModelProperty(example = "null", required = true, value = "")
-    private String neId = null;
-
-    @XmlElement(name = "peerNeId")
-    @ApiModelProperty(example = "null", value = "")
-    private String peerNeId = null;
-
-    @XmlElement(name = "deviceId")
-    @ApiModelProperty(example = "null", required = true, value = "")
-    private String deviceId = null;
-
-    @XmlElement(name = "peerDeviceId")
-    @ApiModelProperty(example = "null", value = "")
-    private String peerDeviceId = null;
+/**
+ * Class of Base Net Model.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 June 6, 2016
+ */
+public abstract class BaseNetModel extends BaseServiceModel {
 
     /**
-     * Get controllerId
-     * 
-     * @return controllerId
-     **/
+     * Controller Id
+     */
+    @AUuid(require = false)
+    private String controllerId;
+
+    /**
+     * External Id
+     */
+    @NONInvField
+    @AUuid(require = false)
+    private String externalId;
+
+    /**
+     * Connection Id
+     */
+    @AUuid(require = true)
+    private String connectionServiceId;
+
+    /**
+     * Device Ne Id
+     */
+    @AUuid(require = true)
+    private String neId;
+
+    /**
+     * Peer Device Ne Id
+     */
+    @JsonIgnore
+    @AUuid(require = false)
+    private String peerNeId;
+
     public String getControllerId() {
         return controllerId;
     }
@@ -72,24 +69,6 @@ public class BaseNetModel extends BaseModel {
         this.controllerId = controllerId;
     }
 
-    /**
-     * Get externalId
-     * 
-     * @return externalId
-     **/
-    public String getExternalId() {
-        return externalId;
-    }
-
-    public void setExternalId(String externalId) {
-        this.externalId = externalId;
-    }
-
-    /**
-     * Get connectionServiceId
-     * 
-     * @return connectionServiceId
-     **/
     public String getConnectionServiceId() {
         return connectionServiceId;
     }
@@ -98,11 +77,14 @@ public class BaseNetModel extends BaseModel {
         this.connectionServiceId = connectionServiceId;
     }
 
-    /**
-     * Get neId
-     * 
-     * @return neId
-     **/
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
+    }
+
+    public String getExternalId() {
+        return externalId;
+    }
+
     public String getNeId() {
         return neId;
     }
@@ -111,11 +93,6 @@ public class BaseNetModel extends BaseModel {
         this.neId = neId;
     }
 
-    /**
-     * Get peerNeId
-     * 
-     * @return peerNeId
-     **/
     public String getPeerNeId() {
         return peerNeId;
     }
@@ -124,56 +101,4 @@ public class BaseNetModel extends BaseModel {
         this.peerNeId = peerNeId;
     }
 
-    /**
-     * Get deviceId
-     * 
-     * @return deviceId
-     **/
-    public String getDeviceId() {
-        return deviceId;
-    }
-
-    public void setDeviceId(String deviceId) {
-        this.deviceId = deviceId;
-    }
-
-    /**
-     * Get peerDeviceId
-     * 
-     * @return peerDeviceId
-     **/
-    public String getPeerDeviceId() {
-        return peerDeviceId;
-    }
-
-    public void setPeerDeviceId(String peerDeviceId) {
-        this.peerDeviceId = peerDeviceId;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class BaseNetModel {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    controllerId: ").append(toIndentedString(controllerId)).append("\n");
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("    connectionServiceId: ").append(toIndentedString(connectionServiceId)).append("\n");
-        sb.append("    neId: ").append(toIndentedString(neId)).append("\n");
-        sb.append("    peerNeId: ").append(toIndentedString(peerNeId)).append("\n");
-        sb.append("    deviceId: ").append(toIndentedString(deviceId)).append("\n");
-        sb.append("    peerDeviceId: ").append(toIndentedString(peerDeviceId)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
 }

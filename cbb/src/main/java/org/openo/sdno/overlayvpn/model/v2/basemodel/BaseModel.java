@@ -16,58 +16,78 @@
 
 package org.openo.sdno.overlayvpn.model.v2.basemodel;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import org.codehaus.jackson.annotate.JsonProperty;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
+import org.openo.sdno.overlayvpn.model.common.enums.ActionStatus;
+import org.openo.sdno.overlayvpn.model.common.enums.AdminStatus;
+import org.openo.sdno.overlayvpn.model.common.enums.OperStatus;
+import org.openo.sdno.overlayvpn.model.v2.uuid.UuidModel;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "BaseModel", propOrder = {"tenantId", "name", "description", "additionalInfo", "deployStatus",
-                "actionState", "activeStatus", "runningStatus"})
-
-@ApiModel(description = "base model")
+/**
+ * Basic model class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 2017-1-6
+ */
 public class BaseModel extends UuidModel {
 
-    @XmlElement(name = "tenantId")
-    @ApiModelProperty(example = "null", value = "")
-    private String tenantId = null;
-
-    @XmlElement(name = "name")
-    @ApiModelProperty(example = "null", value = "")
-    private String name = null;
-
-    @XmlElement(name = "description")
-    @ApiModelProperty(example = "null", value = "")
-    private String description = null;
-
-    @XmlElement(name = "additionalInfo")
-    @ApiModelProperty(example = "null", value = "")
-    private String additionalInfo = null;
-
-    @XmlElement(name = "deployStatus")
-    @ApiModelProperty(example = "null", required = true, value = "deploy status(deploy,undeploy)")
-    private String deployStatus = null;
-
-    @XmlElement(name = "actionState")
-    @ApiModelProperty(example = "null", value = "action state(none,normal,creating,create_exception,deleting,delete_exception,updating,update_exception,deploying,deploy_exception)")
-    private String actionState = null;
-
-    @XmlElement(name = "activeStatus")
-    @ApiModelProperty(example = "null", value = "active status(none,active,inactive,partially_inactive)")
-    private String activeStatus = null;
-
-    @XmlElement(name = "runningStatus")
-    @ApiModelProperty(example = "null", value = "running status(none,up,down,partially_down)")
-    private String runningStatus = null;
+    /**
+     * Name
+     */
+    @AString(require = true, min = 0, max = 255)
+    private String name;
 
     /**
-     * Get tenantId
-     * 
-     * @return tenantId
-     **/
+     * Tenant Id
+     */
+    @AString(min = 0, max = 255)
+    private String tenantId;
+
+    /**
+     * Description
+     */
+    @AString(min = 0, max = 255)
+    private String description;
+
+    /**
+     * Status of deploy
+     */
+    @AString(scope = "deploy,undeploy")
+    private String deployStatus;
+
+    /**
+     * Action state
+     */
+    @AString(scope = "None,Normal,Creating,Deleting,Updating,Create_Excepion,Delete_Exception,Update_Exception")
+    private String actionState = ActionStatus.NORMAL.getName();
+
+    /**
+     * Administrative status
+     */
+    @AString(scope = "none,active,inactive,partially_inactive")
+    private String activeStatus = AdminStatus.NONE.getName();
+
+    /**
+     * Running status
+     */
+    @AString(scope = "none,up,down,partially_down")
+    private String runningStatus = OperStatus.NONE.getName();
+
+    /**
+     * Create time
+     */
+    @JsonProperty("createTime")
+    @NONInvField
+    private Long createtime = 0L;
+
+    /**
+     * Update time
+     */
+    @JsonProperty("updateTime")
+    @NONInvField
+    private Long updatetime = 0L;
+
     public String getTenantId() {
         return tenantId;
     }
@@ -76,11 +96,6 @@ public class BaseModel extends UuidModel {
         this.tenantId = tenantId;
     }
 
-    /**
-     * Get name
-     * 
-     * @return name
-     **/
     public String getName() {
         return name;
     }
@@ -89,11 +104,6 @@ public class BaseModel extends UuidModel {
         this.name = name;
     }
 
-    /**
-     * Get description
-     * 
-     * @return description
-     **/
     public String getDescription() {
         return description;
     }
@@ -102,24 +112,6 @@ public class BaseModel extends UuidModel {
         this.description = description;
     }
 
-    /**
-     * Get additionalInfo
-     * 
-     * @return additionalInfo
-     **/
-    public String getAdditionalInfo() {
-        return additionalInfo;
-    }
-
-    public void setAdditionalInfo(String additionalInfo) {
-        this.additionalInfo = additionalInfo;
-    }
-
-    /**
-     * deploy status(deploy,undeploy)
-     * 
-     * @return deployStatus
-     **/
     public String getDeployStatus() {
         return deployStatus;
     }
@@ -128,12 +120,6 @@ public class BaseModel extends UuidModel {
         this.deployStatus = deployStatus;
     }
 
-    /**
-     * action
-     * state(none,normal,creating,create_exception,deleting,delete_exception,updating,update_exception,deploying,deploy_exception)
-     * 
-     * @return actionState
-     **/
     public String getActionState() {
         return actionState;
     }
@@ -142,11 +128,6 @@ public class BaseModel extends UuidModel {
         this.actionState = actionState;
     }
 
-    /**
-     * active status(none,active,inactive,partially_inactive)
-     * 
-     * @return activeStatus
-     **/
     public String getActiveStatus() {
         return activeStatus;
     }
@@ -155,11 +136,6 @@ public class BaseModel extends UuidModel {
         this.activeStatus = activeStatus;
     }
 
-    /**
-     * running status(none,up,down,partially_down)
-     * 
-     * @return runningStatus
-     **/
     public String getRunningStatus() {
         return runningStatus;
     }
@@ -168,31 +144,20 @@ public class BaseModel extends UuidModel {
         this.runningStatus = runningStatus;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class BaseModel {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    additionalInfo: ").append(toIndentedString(additionalInfo)).append("\n");
-        sb.append("    deployStatus: ").append(toIndentedString(deployStatus)).append("\n");
-        sb.append("    actionState: ").append(toIndentedString(actionState)).append("\n");
-        sb.append("    activeStatus: ").append(toIndentedString(activeStatus)).append("\n");
-        sb.append("    runningStatus: ").append(toIndentedString(runningStatus)).append("\n");
-        sb.append("}");
-        return sb.toString();
+    public Long getCreatetime() {
+        return createtime;
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+    public void setCreatetime(Long createtime) {
+        this.createtime = createtime;
     }
+
+    public Long getUpdatetime() {
+        return updatetime;
+    }
+
+    public void setUpdatetime(Long updatetime) {
+        this.updatetime = updatetime;
+    }
+
 }

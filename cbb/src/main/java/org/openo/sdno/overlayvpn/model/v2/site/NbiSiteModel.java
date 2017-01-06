@@ -24,11 +24,11 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-import org.openo.sdno.overlayvpn.model.v2.basemodel.UuidModel;
 import org.openo.sdno.overlayvpn.model.v2.cpe.NbiNeMo;
 import org.openo.sdno.overlayvpn.model.v2.internetgateway.NbiInternetGatewayModel;
 import org.openo.sdno.overlayvpn.model.v2.routeentry.NbiRouteEntryModel;
 import org.openo.sdno.overlayvpn.model.v2.subnet.NbiSubnetModel;
+import org.openo.sdno.overlayvpn.model.v2.uuid.UuidModel;
 import org.openo.sdno.overlayvpn.model.v2.vlan.NbiVlanModel;
 
 import io.swagger.annotations.ApiModelProperty;

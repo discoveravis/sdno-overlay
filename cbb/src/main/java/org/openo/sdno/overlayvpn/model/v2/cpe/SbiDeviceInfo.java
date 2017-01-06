@@ -99,21 +99,6 @@ public class SbiDeviceInfo extends SbiDeviceCreateBasicInfo {
     private String modifyTime = null;
 
     /**
-     * the Id allocated by controller
-     * 
-     * @return id
-     **/
-    @Override
-    public String getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    /**
      * Whether the tenant is displayed in the query result
      * 
      * @return showTenant

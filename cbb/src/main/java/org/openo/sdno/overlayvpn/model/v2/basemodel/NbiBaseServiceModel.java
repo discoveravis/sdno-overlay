@@ -16,35 +16,35 @@
 
 package org.openo.sdno.overlayvpn.model.v2.basemodel;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
+import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "NbiBaseServiceModel", propOrder = {"srcNeId", "srcNeRole", "connectionId"})
-
+/**
+ * Nbi Basic Service Model.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 2017-1-6
+ */
 public class NbiBaseServiceModel extends BaseModel {
 
-    @XmlElement(name = "srcNeId")
-    @ApiModelProperty(example = "null", required = true, value = "source NE Id")
-    private String srcNeId = null;
-
-    @XmlElement(name = "srcNeRole")
-    @ApiModelProperty(example = "null", required = true, value = "source NE role, the scope is localcpe,cloudcpe,vpc,dc-r")
-    private String srcNeRole = null;
-
-    @XmlElement(name = "connectionId")
-    @ApiModelProperty(example = "null", required = true, value = "connection Id")
-    private String connectionId = null;
+    /**
+     * Source NetworkEmement Id
+     */
+    @AUuid(require = true)
+    private String srcNeId;
 
     /**
-     * source NE Id
-     * 
-     * @return srcNeId
-     **/
+     * Source NetworkEmement Role
+     */
+    @AString(require = true, scope = " localcpe,cloudcpe,vpc,dc-r")
+    private String srcNeRole;
+
+    /**
+     * Connection Id
+     */
+    @AUuid(require = true)
+    private String connectionId;
+
     public String getSrcNeId() {
         return srcNeId;
     }
@@ -53,11 +53,6 @@ public class NbiBaseServiceModel extends BaseModel {
         this.srcNeId = srcNeId;
     }
 
-    /**
-     * source NE role, the scope is localcpe,cloudcpe,vpc,dc-r
-     * 
-     * @return srcNeRole
-     **/
     public String getSrcNeRole() {
         return srcNeRole;
     }
@@ -66,39 +61,11 @@ public class NbiBaseServiceModel extends BaseModel {
         this.srcNeRole = srcNeRole;
     }
 
-    /**
-     * connection Id
-     * 
-     * @return connectionId
-     **/
     public String getConnectionId() {
         return connectionId;
     }
 
     public void setConnectionId(String connectionId) {
         this.connectionId = connectionId;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class NbiBaseServiceModel {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    srcNeId: ").append(toIndentedString(srcNeId)).append("\n");
-        sb.append("    srcNeRole: ").append(toIndentedString(srcNeRole)).append("\n");
-        sb.append("    connectionId: ").append(toIndentedString(connectionId)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 }

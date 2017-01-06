@@ -16,55 +16,55 @@
 
 package org.openo.sdno.overlayvpn.model.v2.basemodel;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.validation.Valid;
 
-import io.swagger.annotations.ApiModelProperty;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MORelationField;
+import org.openo.sdno.overlayvpn.model.v2.uuid.UuidModel;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
 
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ModelBase", propOrder = {"name", "tenantId", "description", "additionalInfo"})
+/**
+ * The basic model information. <br>
+ * 
+ * @author
+ * @version SDNO 0.5 2016-6-6
+ */
+public abstract class ModelBase extends UuidModel {
 
-public class ModelBase extends UuidModel {
+    @AString(min = 0, max = 255)
+    private String tenantId;
 
-    @XmlElement(name = "name")
-    @ApiModelProperty(example = "null", value = "the name of the route")
-    private String name = null;
+    @AString(require = true, min = 1, max = 128)
+    private String name;
 
-    @XmlElement(name = "tenantId")
-    @ApiModelProperty(example = "null", value = "tenant ID")
-    private String tenantId = null;
+    @AString(min = 0, max = 256)
+    private String description;
 
-    @XmlElement(name = "description")
-    @ApiModelProperty(example = "null", value = "description info")
-    private String description = null;
-
-    @XmlElement(name = "additionalInfo")
-    @ApiModelProperty(example = "null", value = "")
-    private List<NvString> additionalInfo = new ArrayList<NvString>();
+    @Valid
+    @MORelationField
+    private List<NvString> additionalInfo;
 
     /**
-     * the name of the route
+     * Constructor.<br>
      * 
-     * @return name
-     **/
-    public String getName() {
-        return name;
+     * @since SDNO 0.5
+     */
+    public ModelBase() {
+        super();
     }
 
-    public void setName(String name) {
+    /**
+     * Constructor.<br>
+     * 
+     * @since SDNO 0.5
+     * @param name The model name
+     */
+    public ModelBase(String name) {
+        super();
         this.name = name;
     }
 
-    /**
-     * tenant ID
-     * 
-     * @return tenantId
-     **/
     public String getTenantId() {
         return tenantId;
     }
@@ -73,11 +73,6 @@ public class ModelBase extends UuidModel {
         this.tenantId = tenantId;
     }
 
-    /**
-     * description info
-     * 
-     * @return description
-     **/
     public String getDescription() {
         return description;
     }
@@ -86,11 +81,14 @@ public class ModelBase extends UuidModel {
         this.description = description;
     }
 
-    /**
-     * Get additionalInfo
-     * 
-     * @return additionalInfo
-     **/
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public List<NvString> getAdditionalInfo() {
         return additionalInfo;
     }
@@ -99,27 +97,16 @@ public class ModelBase extends UuidModel {
         this.additionalInfo = additionalInfo;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ModelBase {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    additionalInfo: ").append(toIndentedString(additionalInfo)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * It is used to copy attributes of ModelBase. <br>
+     * 
+     * @param data The original data.
+     * @since SDNO 0.5
      */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+    public void copyBasicData(ModelBase data) {
+        super.copyBasicData(data);
+        this.tenantId = data.getTenantId();
+        this.name = data.getName();
+        this.description = data.getDescription();
     }
 }

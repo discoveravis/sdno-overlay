@@ -16,39 +16,54 @@
 
 package org.openo.sdno.overlayvpn.model.v2.basemodel;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOInvField;
+import org.openo.sdno.overlayvpn.model.common.enums.ActionStatus;
+import org.openo.sdno.overlayvpn.model.common.enums.AdminStatus;
+import org.openo.sdno.overlayvpn.model.common.enums.OperStatus;
+import org.openo.sdno.overlayvpn.model.common.enums.SourceType;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
 
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "BaseServiceModel", propOrder = {"adminStatus", "operStatus", "actionState", "createTime"})
-
-public class BaseServiceModel extends ModelBase {
-
-    @XmlElement(name = "adminStatus")
-    @ApiModelProperty(example = "null", required = true, value = "the scope is none,active,inactive,partially inactive")
-    private String adminStatus = null;
-
-    @XmlElement(name = "operStatus")
-    @ApiModelProperty(example = "null", value = "the scope is none,up,down,partially down")
-    private String operStatus = null;
-
-    @XmlElement(name = "actionState")
-    @ApiModelProperty(example = "null", value = "the scope is Normal,Creating,Deleting,Updating,Checking,Create_Exception, Update_Exception,Delete_Exception,Check_Exception")
-    private String actionState = null;
-
-    @XmlElement(name = "createTime")
-    @ApiModelProperty(example = "null", value = "create time")
-    private String createTime = null;
+/**
+ * The basic service information. <br>
+ * 
+ * @author
+ * @version SDNO 0.5 2016-6-6
+ */
+public abstract class BaseServiceModel extends ModelBase {
 
     /**
-     * the scope is none,active,inactive,partially inactive
-     * 
-     * @return adminStatus
-     **/
+     * The operation status.
+     */
+    @AString(scope = "none,up,down,partially down")
+    private String operStatus = OperStatus.NONE.getName();
+
+    /**
+     * Administrative status.
+     */
+    @AString(require = true, scope = "none,active,inactive,partially inactive")
+    private String adminStatus = AdminStatus.NONE.getName();
+
+    /**
+     * Action State
+     */
+    @AString(scope = "None,Normal,Creating,Deleting,Updating,Create_Excepion,Delete_Exception,Update_Exception")
+    private String actionState = ActionStatus.NORMAL.getName();
+
+    /**
+     * Create time
+     */
+    @MOInvField(invName = "createModelTime")
+    @AString(min = 0, max = 255)
+    private String createTime;
+
+    /**
+     * Source of model
+     */
+    @JsonIgnore
+    @AString(scope = "None,User,Discovery")
+    private String source = SourceType.NONE.getName();
+
     public String getAdminStatus() {
         return adminStatus;
     }
@@ -57,11 +72,6 @@ public class BaseServiceModel extends ModelBase {
         this.adminStatus = adminStatus;
     }
 
-    /**
-     * the scope is none,up,down,partially down
-     * 
-     * @return operStatus
-     **/
     public String getOperStatus() {
         return operStatus;
     }
@@ -70,12 +80,6 @@ public class BaseServiceModel extends ModelBase {
         this.operStatus = operStatus;
     }
 
-    /**
-     * the scope is Normal,Creating,Deleting,Updating,Checking,Create_Exception,
-     * Update_Exception,Delete_Exception,Check_Exception
-     * 
-     * @return actionState
-     **/
     public String getActionState() {
         return actionState;
     }
@@ -84,11 +88,6 @@ public class BaseServiceModel extends ModelBase {
         this.actionState = actionState;
     }
 
-    /**
-     * create time
-     * 
-     * @return createTime
-     **/
     public String getCreateTime() {
         return createTime;
     }
@@ -97,27 +96,27 @@ public class BaseServiceModel extends ModelBase {
         this.createTime = createTime;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class BaseServiceModel {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    adminStatus: ").append(toIndentedString(adminStatus)).append("\n");
-        sb.append("    operStatus: ").append(toIndentedString(operStatus)).append("\n");
-        sb.append("    actionState: ").append(toIndentedString(actionState)).append("\n");
-        sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
-        sb.append("}");
-        return sb.toString();
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * It is used to copy attributes of BaseServiceModel. <br>
+     * 
+     * @param data The original data.
+     * @since SDNO 0.5
      */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+    public void copyBasicData(BaseServiceModel data) {
+        super.copyBasicData(data);
+        this.adminStatus = data.getAdminStatus();
+        this.operStatus = data.getOperStatus();
+        this.actionState = data.getActionState();
+        this.source = data.getSource();
+        this.createTime = data.getCreateTime();
     }
+
 }

@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 import org.openo.sdno.overlayvpn.model.v2.basemodel.NvString;
-import org.openo.sdno.overlayvpn.model.v2.basemodel.UuidModel;
+import org.openo.sdno.overlayvpn.model.v2.uuid.UuidModel;
 
 import io.swagger.annotations.ApiModelProperty;
 
