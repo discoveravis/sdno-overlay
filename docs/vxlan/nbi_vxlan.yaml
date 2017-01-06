@@ -1,0 +1,494 @@
+swagger: '2.0'
+info:
+  title: VxlanService
+  description: vxlan service NBI interface
+  version: 1.0.0
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+basePath: /v1
+paths:
+  /sdn/v1/vxlan/tunnel/{vxlanTunnelId}:
+    get:
+      tags:
+      - NbiVxlanTunnelRoaResource
+      summary: query  vxlan tunnel
+      description: query  vxlan tunnel
+      parameters:
+        - name: vxlanTunnelId
+          in: path
+          description: vxlan nbi models id
+          required: true
+          type: string
+      responses:
+        201:
+          description: OK
+          schema:
+            $ref: '#/definitions/NbiVxlanTunnelResultResponse'
+        400:
+          description: Bad Request
+        401:
+          description: Unauthorized
+        404:
+          description: Not Found
+        500:
+          description: Internal Server Error
+    delete:
+      tags:
+      - NbiVxlanTunnelRoaResource
+      summary: delete  vxlan tunnel
+      description: delete  vxlan tunnel
+      parameters:
+        - name: vxlanTunnelId
+          in: path
+          description: vxlan nbi models id
+          required: true
+          type: string
+      responses:
+        201:
+          description: OK
+          schema:
+            $ref: '#/definitions/NbiVxlanTunnelResultResponse'
+        400:
+          description: Bad Request
+        401:
+          description: Unauthorized
+        404:
+          description: Not Found
+        500:
+          description: Internal Server Error
+
+  /sdn/v1/vxlan/tunnel:
+    post:
+      tags:
+      - NbiVxlanTunnelRoaResource
+      summary: batch create vxlan Tunnel
+      description: batch create vxlan Tunnel
+      parameters:
+        - name: body
+          in: body
+          description: vxlan tunnels list to be created
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NbiVxlanTunnel'
+      responses:
+        201:
+          description: OK
+          schema:
+            $ref: '#/definitions/NbiVxlanTunnelResultResponse'
+        400:
+          description: Bad Request
+        401:
+          description: Unauthorized
+        404:
+          description: Not Found
+        500:
+          description: Internal Server Error
+
+  /sdn/v1/vxlan/tunnel/action:
+    post:
+      tags:
+      - NbiVxlanTunnelRoaResource
+      summary: deploy/undeploy  vxlans
+      description: deploy/undeploy  vxlans
+      parameters:
+        - name: body
+          in: body
+          description: vxlan deploy/undeploy list
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ActionModel'
+      responses:
+        201:
+          description: OK
+          schema:
+            type: array
+            items:
+              type: string
+        400:
+          description: Bad Request
+        401:
+          description: Unauthorized
+        404:
+          description: Not Found
+        500:
+          description: Internal Server Error
+
+  /sdn/v1/vxlan/tunnel/batch-query:
+    post:
+      tags:
+      - NbiVxlanTunnelRoaResource
+      summary: query  vxlans
+      description: query  vxlans
+      parameters:
+        - name: nbiTunnelIds
+          in: body
+          description: vxlan sbi models to be query
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        201:
+          description: OK
+          schema:
+            $ref: '#/definitions/NbiVxlanTunnelResultResponse'
+        400:
+          description: Bad Request
+        401:
+          description: Unauthorized
+        404:
+          description: Not Found
+        500:
+          description: Internal Server Error
+
+  /sdn/v1/vxlan/tunnel/{uuid}/repair:
+    put:
+      tags:
+      - NbiVxlanTunnelRoaResource
+      summary: repair  vxlans
+      description: repair  vxlans
+      parameters:
+        - name: uuid
+          in: path
+          description: vxlan tunnel uuid
+          required: true
+          type: string
+          format: uuid
+      responses:
+        201:
+          description: OK
+          schema:
+            $ref: '#/definitions/NbiVxlanTunnelResultResponse'
+        400:
+          description: Bad Request
+        401:
+          description: Unauthorized
+        404:
+          description: Not Found
+        500:
+          description: Internal Server Error
+
+  /sdn/v1/vxlan/tunnel/ip-change:
+    post:
+      tags:
+      - NbiVxlanTunnelRoaResource
+      summary: query  tunnel status
+      description: query  tunnel status
+      parameters:
+        - name: body
+          in: body
+          description: change cpe ip
+          required: true
+          schema:
+            type: object
+            items:
+              $ref: '#/definitions/CpeIpChange'
+      responses:
+        201:
+          description: OK
+        400:
+          description: Bad Request
+        401:
+          description: Unauthorized
+        404:
+          description: Not Found
+        500:
+          description: Internal Server Error
+  /sdn/v1/vxlan/tunnel/vtep-ip/{neid}:
+    get:
+      tags:
+      - NbiVxlanTunnelRoaResource
+      summary: query vtep ip
+      description: query vtep ip
+      parameters:
+        - name: neid
+          in: path
+          description: ne id
+          required: true
+          type: string
+          format: uuid
+      responses:
+        201:
+          description: OK
+          schema:
+            $ref: '#/definitions/Ip'
+        400:
+          description: Bad Request
+        401:
+          description: Unauthorized
+        404:
+          description: Not Found
+        500:
+          description: Internal Server Error
+definitions:
+  UuidModel:
+    type: object
+    properties:
+      id:
+        type: string
+        description: the UUID of the model
+
+  BaseModel:
+    allOf:
+      - $ref: '#/definitions/UuidModel'
+      - type: object
+        required:
+          - tenantId
+        properties:
+          name:
+            type: string
+            description: the name of the model
+          tenantId:
+            type: string
+            description: tenant ID
+          description:
+            type: string
+            description: description info
+          deployStatus:
+            type: string
+            description: deploy status(deploy,undeploy)
+          actionState:
+            type: string
+            description: operation status(scope:none,normal,creating,deleting,updating,create_exception,update_exception,delete_exception,deploying,deploy_exception,undeploying,undeploy_exception,checking,check_exception)
+          activeStatus:
+            type: string
+            description: active status(scope:none,active,inactive,partially_inactive)
+          runningStatus:
+            type: string
+            description: running status(scope:none,up,down,partially_down)
+          additionalInfo:
+            type: string
+            description: additional info
+
+  NbiBaseServiceModel:
+    allOf:
+      - $ref: '#/definitions/BaseModel'
+      - type: object
+        required:
+          - srcNeId
+          - srcNeRole
+          - connectionId
+        properties:
+          srcNeId:
+            type: string
+            description: source Ne ID
+          srcNeRole:
+            type: string
+            description: source Ne role(scope:localcpe,cloudcpe,vpc,dc-r)
+          connectionId:
+            type: string
+            description: connection ID
+
+  NbiVxlanTunnel:
+    allOf:
+      - $ref: '#/definitions/NbiBaseServiceModel'
+      - type: object
+        required:
+          - type
+          - destNeId
+          - destNeRole
+          - vni
+        properties:
+          type:
+            type: string
+            description: vxlan's type(scope:vxlan,ipv6 over ipv4,ipv4 over ipv6,l3-gw-vxlan)
+          destNeId:
+            type: string
+            description: destination ne id
+          destNeRole:
+            type: string
+            description: destination ne role(scope:localcpe,cloudcpe,vpc,dc-r)
+          srcPortName:
+            type: string
+            description: source port name
+          destPortName:
+            type: string
+            description: destination port name
+          vni:
+            type: string
+            description: vni
+          srcTunnelName:
+            type: string
+            description: source tunnel name
+          destTunnelName:
+            type: string
+            description: destination tunnel name
+          portVlanList:
+            type: string
+            description: vxlan's name on controller
+          srcVbdifIp:
+            type: string
+            description: L3 vxlan's vbdif ip, no need when creating,but need return after creating,return format is json of Ip.
+          destVbdifIp:
+            type: string
+            description: L3 vxlan's vbdif ip, no need when creating,but need return after creating,return format is json of Ip.
+
+  ErrorCodeInfo:
+    type: object
+    description: Error code information model
+    required:
+      - errorCode
+      - description
+      - objectId
+      - objectName
+      - object
+      - descArg
+      - reasonArg
+      - detailArg
+    properties:
+      errorCode:
+        type: string
+        description: error code
+      description:
+        type: string
+        description: error description
+      objectId:
+        type: string
+        description: object Id
+      objectName:
+        type: string
+        description: object Name
+      object:
+        type: object
+        description: object
+      descArg:
+        type: string
+        description: The description args
+      reasonArg:
+        type: string
+        description: The reason args
+      detailArg:
+        type: string
+        description: The detail args
+
+  ResultResponse:
+    type: object
+    description: Result response model
+    required:
+      - errorCode
+      - httpCode
+    properties:
+      errorCode:
+        type: string
+        description: result error code
+      descArg:
+        type: string
+        description: The description args
+      reasonArg:
+        type: string
+        description: The reason args
+      detailArg:
+        type: string
+        description: The detail args
+      adviceArg:
+        type: string
+        description: The advice args
+      httpCode:
+        type: integer
+        description: The http status code
+      message:
+        type: string
+        description: the exception message word
+      smallErrorCodeList:
+        $ref: "#/definitions/ErrorCodeInfo"
+
+  FailDataNbiVxlanTunnel:
+    type: object
+    description: Fail data model
+    properties:
+      errcode:
+        type: string
+        description: result error code
+      errmsg:
+        type: string
+        description: error message
+      data:
+        $ref: "#/definitions/NbiVxlanTunnel"
+  NbiVxlanTunnelResultResponse:
+    description: NbiVxlanTunnel result model
+    allOf:
+    - $ref: '#/definitions/ResultResponse'
+    - type: object
+      properties:
+        data:
+          $ref: "#/definitions/NbiVxlanTunnel"
+        successed:
+          type: array
+          items:
+            $ref: "#/definitions/NbiVxlanTunnel"
+          description: the successed list.
+        fail:
+          type: array
+          items:
+            $ref: "#/definitions/FailDataNbiVxlanTunnel"
+          description: the failed list.
+  ActionModel:
+    type: object
+    description: deploy/undeploy model
+    properties:
+      deploy:
+        type: array
+        items:
+          type: string
+        description: deploy list
+      undeploy:
+        type: array
+        items:
+          type: string
+        description: undeploy list
+  CpeIpChange:
+    type: object
+    description: deploy/undeploy model
+    required:
+      - neId
+      - devId
+    properties:
+      esn:
+        type: string
+        description: esn
+      neId:
+        type: string
+        description: ne id
+      devId:
+        type: string
+        description: device id
+      type:
+        type: string
+        description: type
+  Ip:
+    type: object
+    description: ip model
+    required:
+      - ipv4
+      - ipMask
+    properties:
+      ipv4:
+        type: string
+        description: ipv4 ip
+      ipv6:
+        type: string
+        description: ipv6 ip
+      ipMask:
+        type: string
+        description: ip mask
+      prefixLength:
+        type: string
+        description: length of prifix
+      neId:
+        type: string
+        description: id of ne
+      deviceId:
+        type: string
+        description: device id
+      vxlanTunnelId:
+        type: string
+        description: vxlan tunnel id

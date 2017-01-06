@@ -1,0 +1,606 @@
+swagger: '2.0'
+info:
+  title: OverlayVPN Service NBI
+  description: Northbound Interface for OverlayVPN
+  version: 1.0.0
+host: nbi-overlayvpn.open-o.org
+schemes:
+- https
+basePath: /openoapi/sdnooverlay/v1
+consumes:
+  - application/json;charset=UTF-8
+produces:
+  - application/json;charset=UTF-8
+paths:
+  /vpns:
+    post:
+      tags:
+      - VpnApiController
+      summary: create vpn.
+      description: create vpn.
+      parameters:
+      - name: body
+        in: body
+        description: vpn object to be created.
+        required: true
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/NbiVpn'
+      responses:
+        201:
+          description: create vpn success.
+          schema:
+            type: string
+        400:
+          description: create vpn failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: create vpn failure as can't reach server.
+        500:
+          description: create vpn failure as inner error.
+    get:
+      tags:
+      - VpnApiController
+      summary: batch query vpn.
+      description: batch query vpn info.
+      responses:
+        201:
+          description: query vpn success.
+          schema:
+            type: string
+        400:
+          description: query vpn failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: query vpn failure as can't reach server.
+        500:
+          description: query vpn failure as inner error.
+  /vpns/{uuid}:
+    get:
+      tags:
+      - VpnApiController
+      summary: query vpn.
+      description: query vpn info.
+      parameters:
+      - name: uuid
+        in: path
+        description: vpn ID.
+        required: true
+        type: string
+        format: uuid
+      responses:
+        201:
+          description: query vpn success.
+          schema:
+            type: string
+        400:
+          description: query vpn failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: query vpn failure as can't reach server.
+        500:
+          description: query vpn failure as inner error.
+    put:
+      tags:
+      - VpnApiController
+      summary: modify vpn.
+      description: modify vpn info.
+      parameters:
+      - name: uuid
+        in: path
+        description: vpn ID.
+        required: true
+        type: string
+        format: uuid
+      - name: body
+        in: body
+        description: vpn object to be modified.
+        required: true
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/NbiVpn'
+      responses:
+        201:
+          description: update vpn success.
+          schema:
+            type: string
+        400:
+          description: update vpn failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: update vpn failure as can't reach server.
+        500:
+          description: update vpn failure as inner error.
+    delete:
+      tags:
+      - VpnApiController
+      summary: delete vpn.
+      description: delete vpn.
+      parameters:
+      - name: uuid
+        in: path
+        description: vpn ID.
+        required: true
+        type: string
+        format: uuid
+      responses:
+        201:
+          description: delete vpn success.
+          schema:
+            type: string
+        400:
+          description: delete vpn failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: delete vpn failure as can't reach server.
+        500:
+          description: delete vpn failure as inner error.
+  /vpns/{uuid}/action/deploy:
+    post:
+      tags:
+      - VpnApiController
+      summary: deploy vpn.
+      description: deploy all connections in the vpn.
+      parameters:
+      - name: uuid
+        in: path
+        description: vpn ID.
+        required: true
+        type: string
+        format: uuid
+      responses:
+        201:
+          description: deploy vpn success.
+          schema:
+            type: string
+        400:
+          description: deploy vpn failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: deploy vpn failure as can't reach server.
+        500:
+          description: deploy vpn failure as inner error.
+  /vpns/{uuid}/action/undeploy:
+    post:
+      tags:
+      - VpnApiController
+      summary: undeploy vpn.
+      description: undeploy all connections in the vpn.
+      parameters:
+      - name: uuid
+        in: path
+        description: vpn ID.
+        required: true
+        type: string
+        format: uuid
+      responses:
+        201:
+          description: undeploy vpn success.
+          schema:
+            type: string
+        400:
+          description: undeploy vpn failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: undeploy vpn failure as can't reach server.
+        500:
+          description: undeploy vpn failure as inner error.
+  /vpn-connections:
+    post:
+      tags:
+      - VpnConnectionAPIController
+      summary: create vpn connection
+      description: create vpn connection.
+      parameters:
+      - name: body
+        in: body
+        description: vpn connection object to be created.
+        required: true
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/NbiVpnConnection'
+      responses:
+        201:
+          description: create vpn connection success.
+          schema:
+            type: object
+        400:
+          description: create vpn connection failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: create vpn connection failure as can't reach server.
+        500:
+          description: create vpn connection failure as inner error.
+    get:
+      tags:
+      - VpnConnectionAPIController
+      summary: batch query vpn connection
+      description: batch query vpn connection.
+      responses:
+        201:
+          description: query vpn connection success.
+          schema:
+            type: string
+        400:
+          description: query vpn connection failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: query vpn connection failure as can't reach server.
+        500:
+          description: query vpn connection failure as inner error.
+  /vpn-connections/{uuid}:
+    put:
+      tags:
+      - VpnConnectionAPIController
+      summary: modify vpn connection
+      description: modify vpn connection.
+      parameters:
+      - name: uuid
+        in: path
+        description: vpn connection ID.
+        required: true
+        type: string
+        format: uuid
+      - name: body
+        in: body
+        description: vpn connection object to be modified.
+        required: true
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/NbiVpnConnection'
+      responses:
+        201:
+          description: modify vpn connection success.
+          schema:
+            type: string
+        400:
+          description: modify vpn connection failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: modify vpn connection failure as can't reach server.
+        500:
+          description: modify vpn connection failure as inner error.
+    get:
+      tags:
+      - VpnConnectionAPIController
+      summary: query single vpn connection
+      description: query single vpn connection.
+      parameters:
+      - name: uuid
+        in: path
+        description: vpn connection ID.
+        required: true
+        type: string
+        format: uuid
+      responses:
+        201:
+          description: query vpn connection success.
+          schema:
+            type: string
+        400:
+          description: query vpn connection failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: query vpn connection failure as can't reach server.
+        500:
+          description: query vpn connection failure as inner error.
+    delete:
+      tags:
+      - VpnConnectionAPIController
+      summary: delete vpn connection
+      description: delete vpn connection.
+      parameters:
+      - name: uuid
+        in: path
+        description: vpn connection ID.
+        required: true
+        type: string
+        format: uuid
+      responses:
+        201:
+          description: delete vpn connection success.
+          schema:
+            type: string
+        400:
+          description: delete vpn connection failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: delete vpn connection failure as can't reach server.
+        500:
+          description: delete vpn connection failure as inner error.
+  /vpn-connections/{uuid}/action/deploy:
+    post:
+      tags:
+      - VpnApiController
+      summary: deploy vpn connection.
+      description: deploy vpn connection.
+      parameters:
+      - name: uuid
+        in: path
+        description: vpn connection ID.
+        required: true
+        type: string
+        format: uuid
+      responses:
+        201:
+          description: deploy vpn connection success.
+          schema:
+            type: string
+        400:
+          description: deploy vpn connection failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: deploy vpn connection failure as can't reach server.
+        500:
+          description: deploy vpn connection failure as inner error.
+  /vpn-connections/{uuid}/action/undeploy:
+    post:
+      tags:
+      - VpnApiController
+      summary: undeploy vpn connection.
+      description: undeploy vpn connection.
+      parameters:
+      - name: uuid
+        in: path
+        description: vpn connection ID.
+        required: true
+        type: string
+        format: uuid
+      responses:
+        201:
+          description: undeploy vpn connection success.
+          schema:
+            type: string
+        400:
+          description: undeploy vpn connection failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: undeploy vpn connection failure as can't reach server.
+        500:
+          description: undeploy vpn connection failure as inner error.
+  /vpn-gateways:
+    get:
+      tags:
+      - VpnGatewayController
+      summary: batch query vpn gateways
+      description: batch query vpn gateways.
+      responses:
+        201:
+          description: query vpn gateways success.
+          schema:
+            type: string
+        400:
+          description: query vpn gateways failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: query vpn gateways failure as can't reach server.
+        500:
+          description: query vpn gateways failure as inner error.
+    post:
+      tags:
+      - VpnGatewayController
+      summary: create vpn gateway
+      description: create vpn gateway.
+      parameters:
+      - name: body
+        in: body
+        description: vpn gateway object to be created.
+        required: true
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/NbiVpnGateway'
+      responses:
+        201:
+          description: create vpn gateway success.
+          schema:
+            type: object
+        400:
+          description: create vpn gateway failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: create vpn gateway failure as can't reach server.
+        500:
+          description: create vpn gateway failure as inner error.
+  /vpn-gateways/{uuid}:
+    get:
+      tags:
+      - VpnGatewayController
+      summary: query single vpn gateway
+      description: query single vpn gateway.
+      parameters:
+      - name: uuid
+        in: path
+        description: vpn gateway ID.
+        required: true
+        type: string
+        format: uuid
+      responses:
+        201:
+          description: query vpn gateway success.
+          schema:
+            type: string
+        400:
+          description: query vpn gateway failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: query vpn gateway failure as can't reach server.
+        500:
+          description: query vpn gateway failure as inner error.
+    delete:
+      tags:
+      - VpnGatewayController
+      summary: delete vpn gateway
+      description: delete vpn gateway.
+      parameters:
+      - name: uuid
+        in: path
+        description: vpn gateway ID.
+        required: true
+        type: string
+        format: uuid
+      responses:
+        201:
+          description: delete vpn gateway success.
+          schema:
+            type: string
+        400:
+          description: delete vpn gateway failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: delete vpn gateway failure as can't reach server.
+        500:
+          description: delete vpn gateway failure as inner error.
+    put:
+      tags:
+      - VpnGatewayController
+      summary: modify vpn gateway
+      description: modify vpn gateway.
+      parameters:
+      - name: uuid
+        in: path
+        description: vpn gateway ID.
+        required: true
+        type: string
+        format: uuid
+      - name: body
+        in: body
+        description: vpn gateway object to be modified.
+        required: true
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/NbiVpnGateway'
+      responses:
+        201:
+          description: modify vpn gateway success.
+          schema:
+            type: object
+        400:
+          description: modify vpn gateway failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: modify vpn gateway failure as can't reach server.
+        500:
+          description: modify vpn gateway failure as inner error.
+definitions:
+  NbiVpn:
+    type: object
+    description: vpn model
+    allOf:
+    - $ref: '#/definitions/ServiceModel'
+    properties:
+      vpnDescriptor:
+        type: string
+        description: vpn template name
+
+  NbiVpnConnection:
+    type: object
+    description: vpn connection model
+    allOf:
+    - $ref: '#/definitions/NbiServiceConnection'
+    properties:
+      vpnId:
+        type: string
+      aEndVpnGatewayId:
+        type: string
+      zEndVpnGatewayId:
+        type: string
+      vni:
+        type: string
+
+  NbiVpnGateway:
+    type: object
+    description: vpn gateway model
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      tenantId:
+        type: string
+        format: uuid
+      description:
+        type: string
+      vpnId:
+        type: string
+      siteId:
+        type: string
+      vpcId:
+        type: string
+      deployPosition:
+        type: string
+      upstreamBandwidth:
+        type: string
+      downstreamBandwidth:
+        type: string
+      vlans:
+        type: string
+      ports:
+        description: uuid list of LAN ports
+        type: array
+        items:
+          type: string
+      portNames:
+        description: name list of LAN ports
+        type: array
+        items:
+          type: string
+      regionId:
+        type: string
+  NbiServiceConnection:
+    type: object
+    description: service connection model
+    allOf:
+    - $ref: '#/definitions/NbiBaseConnection'
+  NbiBaseConnection:
+    type: object
+    description: base connection model
+    allOf:
+    - $ref: '#/definitions/ServiceModel'
+  ServiceModel:
+    type: object
+    description: service model
+    allOf:
+    - $ref: '#/definitions/UuidModel'
+    properties:
+      name:
+        type: string
+      tenantId:
+        type: string
+        format: uuid
+      description:
+        type: string
+      deployStatus:
+        type: string
+        description: deploy status(deploy,undeploy)
+  UuidModel:
+    description: base model
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
