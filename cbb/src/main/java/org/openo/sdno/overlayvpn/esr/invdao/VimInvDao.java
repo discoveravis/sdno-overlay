@@ -30,6 +30,7 @@ import org.openo.sdno.overlayvpn.consts.HttpConst;
 import org.openo.sdno.overlayvpn.esr.model.Vim;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
 /**
  * DAO Class of VIM.<br>
@@ -37,6 +38,7 @@ import org.slf4j.LoggerFactory;
  * @author
  * @version SDNO 0.5 2016-9-21
  */
+@Repository
 public class VimInvDao {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(VimInvDao.class);

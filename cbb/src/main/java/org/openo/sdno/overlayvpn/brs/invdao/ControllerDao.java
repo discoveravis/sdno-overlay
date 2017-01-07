@@ -30,7 +30,7 @@ import org.openo.sdno.overlayvpn.brs.rest.BrsRestconfProxy;
 import org.openo.sdno.overlayvpn.consts.HttpCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 /**
  * Controller data DAO class.This class can be used to access Controller Data.<br>
@@ -38,7 +38,7 @@ import org.springframework.stereotype.Service;
  * @author
  * @version SDNO 0.5 2016-5-4
  */
-@Service
+@Repository
 public class ControllerDao {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ControllerDao.class);

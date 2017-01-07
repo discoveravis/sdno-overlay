@@ -30,7 +30,7 @@ import org.openo.sdno.overlayvpn.brs.model.CommParamMO;
 import org.openo.sdno.overlayvpn.brs.rest.BrsRestconfProxy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 /**
  * Class for querying communication parameter.<br>
@@ -38,7 +38,7 @@ import org.springframework.stereotype.Service;
  * @author
  * @version SDNO 0.5 2016-6-16
  */
-@Service
+@Repository
 public class CommParamDao {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CommParamDao.class);

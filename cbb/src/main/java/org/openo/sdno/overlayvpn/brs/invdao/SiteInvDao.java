@@ -35,6 +35,7 @@ import org.openo.sdno.overlayvpn.result.SvcExcptUtil;
 import org.openo.sdno.overlayvpn.util.check.UuidUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
 /**
  * Site data DAO class.<br>
@@ -42,6 +43,7 @@ import org.slf4j.LoggerFactory;
  * @author
  * @version SDNO 0.5 2016-5-5
  */
+@Repository
 public class SiteInvDao {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SiteInvDao.class);

@@ -27,6 +27,7 @@ import org.openo.sdno.overlayvpn.consts.HttpConst;
 import org.openo.sdno.overlayvpn.esr.model.SdnController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
 /**
  * DAO Class of SDN Controller.<br>
@@ -34,6 +35,7 @@ import org.slf4j.LoggerFactory;
  * @author
  * @version SDNO 0.5 2016-9-21
  */
+@Repository
 public class SdnControllerDao {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SdnControllerDao.class);
