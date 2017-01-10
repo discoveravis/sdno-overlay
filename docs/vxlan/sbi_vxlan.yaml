@@ -261,7 +261,7 @@ definitions:
           additionalInfo:
             type: string
             description: additional info
-  SbiBaseNetModel:
+  SbiVxlanNetModel:
     allOf:
       - $ref: '#/definitions/BaseModel'
       - type: object
@@ -286,7 +286,7 @@ definitions:
 
   SbiNeVxlanInterface:
     allOf:
-      - $ref: '#/definitions/SbiBaseNetModel'
+      - $ref: '#/definitions/SbiVxlanNetModel'
       - type: object
         required:
           - localName
@@ -310,7 +310,7 @@ definitions:
 
   SbiNeVxlanTunnel:
     allOf:
-      - $ref: '#/definitions/SbiBaseNetModel'
+      - $ref: '#/definitions/SbiVxlanNetModel'
       - type: object
         required:
           - vxlanInstanceId
@@ -343,7 +343,7 @@ definitions:
               type: string
   SbiNeVxlanGateway:
     allOf:
-      - $ref: '#/definitions/SbiBaseNetModel'
+      - $ref: '#/definitions/SbiVxlanNetModel'
       - type: object
         required:
           - vxlanInstanceId
@@ -363,7 +363,7 @@ definitions:
 
   SbiNeVxlanInstance:
     allOf:
-      - $ref: '#/definitions/SbiBaseNetModel'
+      - $ref: '#/definitions/SbiVxlanNetModel'
       - type: object
         required:
           - nbiVxlanTunnelId

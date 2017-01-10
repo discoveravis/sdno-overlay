@@ -21,14 +21,14 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-import org.openo.sdno.overlayvpn.model.v2.basemodel.SbiBaseNetModel;
+import org.openo.sdno.overlayvpn.model.v2.route.SbiRouteNetModel;
 
 import io.swagger.annotations.ApiModelProperty;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SbiNePolicyRoute", propOrder = {"trafficPolicyName", "interfaceName", "direction", "filterAction"})
 
-public class SbiNePolicyRoute extends SbiBaseNetModel {
+public class SbiNePolicyRoute extends SbiRouteNetModel {
 
     @XmlElement(name = "trafficPolicyName")
     @ApiModelProperty(example = "null", required = true, value = "traffic policy name")

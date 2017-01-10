@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-package org.openo.sdno.overlayvpn.model.v2.basemodel;
+package org.openo.sdno.overlayvpn.model.v2.vxlan;
 
+import org.openo.sdno.overlayvpn.model.v2.basemodel.BaseModel;
 import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
 /**
@@ -24,7 +25,7 @@ import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
  * @author
  * @version SDNO 0.5 2017-1-6
  */
-public class SbiBaseNetModel extends BaseModel {
+public class SbiVxlanNetModel extends BaseModel {
 
     /**
      * Source Device Id

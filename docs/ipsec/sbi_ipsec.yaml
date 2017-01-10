@@ -494,7 +494,7 @@ definitions:
   SbiNeIpSec:
     description: Sbi Ipsec data model.
     allOf:
-      - $ref: '#/definitions/BaseNetModel'
+      - $ref: '#/definitions/SbiIpSecNetModel'
       - type: object
         required:
           - sourceIfName
@@ -617,7 +617,7 @@ definitions:
             type: string
             description: running status(none,up,down,partially_down)
 
-  BaseNetModel:
+  SbiIpSecNetModel:
     description: base net model
     allOf:
       - $ref: '#/definitions/BaseModel'

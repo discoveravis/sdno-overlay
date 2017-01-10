@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,11 @@ public class UrlAdapterConst {
      * Prefix URL of IPSec Adapter Service
      */
     public static final String IPSEC_ADAPTER_BASE_URL = "/openoapi/sbi-ipsec";
+    
+    /**
+     * Prefix URL of Route Adapter Service
+     */
+    public static final String ROUTE_ADAPTER_BASE_URL = "/openoapi/sbi-route";
 
     /**
      * Prefix URL of IPSec Adapter Service
@@ -101,12 +106,12 @@ public class UrlAdapterConst {
     /**
      * URL of Create Static Route
      */
-    public static final String CREATE_STATIC_ROUTE = "/v1/overlay/batch-create-static-routes";
+    public static final String CREATE_STATIC_ROUTE = "/v1/batch-create-static-routes";
 
     /**
      * URL of Delete Static Route
      */
-    public static final String DELETE_STATIC_ROUTE = "/v1/overlay/device/{0}/static-routes/{1}";
+    public static final String DELETE_STATIC_ROUTE = "/v1/device/{0}/batch-delete-static-routes";
 
     /**
      * URL of Delete IPSEC connection in AC Branch

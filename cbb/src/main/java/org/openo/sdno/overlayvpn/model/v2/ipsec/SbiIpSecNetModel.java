@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-package org.openo.sdno.overlayvpn.model.v2.basemodel;
+package org.openo.sdno.overlayvpn.model.v2.ipsec;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
-import org.openo.sdno.overlayvpn.model.BaseServiceModel;
+import org.openo.sdno.overlayvpn.model.v2.basemodel.BaseModel;
 import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
 /**
- * Class of Base Net Model.<br>
+ * Class of IpSec Net Model.<br>
  * 
  * @author
  * @version SDNO 0.5 June 6, 2016
  */
-public abstract class BaseNetModel extends BaseServiceModel {
+public abstract class SbiIpSecNetModel extends BaseModel {
 
     /**
      * Controller Id
@@ -60,6 +60,18 @@ public abstract class BaseNetModel extends BaseServiceModel {
     @JsonIgnore
     @AUuid(require = false)
     private String peerNeId;
+
+    /**
+     * Device Id
+     */
+    @AUuid(require = true)
+    private String deviceId;
+
+    /**
+     * Peer device Id
+     */
+    @AUuid(require = false)
+    private String peerDeviceId;
 
     public String getControllerId() {
         return controllerId;
@@ -99,6 +111,22 @@ public abstract class BaseNetModel extends BaseServiceModel {
 
     public void setPeerNeId(String peerNeId) {
         this.peerNeId = peerNeId;
+    }
+
+    public String getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
+    }
+
+    public String getPeerDeviceId() {
+        return peerDeviceId;
+    }
+
+    public void setPeerDeviceId(String peerDeviceId) {
+        this.peerDeviceId = peerDeviceId;
     }
 
 }

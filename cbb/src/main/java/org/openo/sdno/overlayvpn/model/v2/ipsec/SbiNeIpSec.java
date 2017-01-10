@@ -21,8 +21,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-import org.openo.sdno.overlayvpn.model.v2.basemodel.BaseNetModel;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -32,7 +30,7 @@ import io.swagger.annotations.ApiModelProperty;
                 "isTemplateType", "nqa", "localNeRole", "tenantName", "protectionPolicy", "qosPreClassify", "regionId"})
 
 @ApiModel(description = "Sbi Ipsec data model.")
-public class SbiNeIpSec extends BaseNetModel {
+public class SbiNeIpSec extends SbiIpSecNetModel {
 
     @XmlElement(name = "externalIpSecId")
     @ApiModelProperty(example = "null", value = "")

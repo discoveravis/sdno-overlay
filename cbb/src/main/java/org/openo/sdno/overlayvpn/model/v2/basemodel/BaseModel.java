@@ -59,8 +59,9 @@ public class BaseModel extends UuidModel {
     /**
      * Action state
      */
+    @JsonProperty("actionState")
     @AString(scope = "None,Normal,Creating,Deleting,Updating,Create_Excepion,Delete_Exception,Update_Exception")
-    private String actionState = ActionStatus.NORMAL.getName();
+    private String operationStatus = ActionStatus.NORMAL.getName();
 
     /**
      * Administrative status
@@ -87,6 +88,12 @@ public class BaseModel extends UuidModel {
     @JsonProperty("updateTime")
     @NONInvField
     private Long updatetime = 0L;
+
+    /**
+     * Additional info
+     */
+    @AString(min = 0, max = 255)
+    private String additionalInfo;
 
     public String getTenantId() {
         return tenantId;
@@ -120,12 +127,12 @@ public class BaseModel extends UuidModel {
         this.deployStatus = deployStatus;
     }
 
-    public String getActionState() {
-        return actionState;
+    public String getOperationStatus() {
+        return operationStatus;
     }
 
-    public void setActionState(String actionState) {
-        this.actionState = actionState;
+    public void setOperationStatus(String operationStatus) {
+        this.operationStatus = operationStatus;
     }
 
     public String getActiveStatus() {
@@ -158,6 +165,14 @@ public class BaseModel extends UuidModel {
 
     public void setUpdatetime(Long updatetime) {
         this.updatetime = updatetime;
+    }
+
+    public String getAdditionalInfo() {
+        return additionalInfo;
+    }
+
+    public void setAdditionalInfo(String additionalInfo) {
+        this.additionalInfo = additionalInfo;
     }
 
 }

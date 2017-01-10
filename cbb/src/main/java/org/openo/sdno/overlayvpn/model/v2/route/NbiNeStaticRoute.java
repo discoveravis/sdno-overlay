@@ -16,12 +16,17 @@
 
 package org.openo.sdno.overlayvpn.model.v2.route;
 
+import javax.validation.Valid;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.openo.sdno.framework.container.util.JsonUtil;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
 import org.openo.sdno.overlayvpn.model.v2.basemodel.NbiBaseServiceModel;
+import org.springframework.util.StringUtils;
 
 import io.swagger.annotations.ApiModelProperty;
 
@@ -58,6 +63,16 @@ public class NbiNeStaticRoute extends NbiBaseServiceModel {
     @XmlElement(name = "nqa")
     @ApiModelProperty(example = "null", value = "network quality analyzer")
     private String nqa = null;
+
+    @NONInvField
+    @JsonIgnore
+    @Valid
+    private Ip destIpData;
+
+    @NONInvField
+    @JsonIgnore
+    @Valid
+    private Ip nextHopData;
 
     /**
      * the scope is static
@@ -150,6 +165,22 @@ public class NbiNeStaticRoute extends NbiBaseServiceModel {
         this.nqa = nqa;
     }
 
+    public Ip getDestIpData() {
+        return destIpData;
+    }
+
+    public void setDestIpData(Ip destIpData) {
+        this.destIpData = destIpData;
+    }
+
+    public Ip getNextHopData() {
+        return nextHopData;
+    }
+
+    public void setNextHopData(Ip nextHopData) {
+        this.nextHopData = nextHopData;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -175,5 +206,15 @@ public class NbiNeStaticRoute extends NbiBaseServiceModel {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");
+    }
+
+    public void transferJsonData() {
+        if(StringUtils.hasLength(destIp)) {
+            setDestIpData(JsonUtil.fromJson(destIp, Ip.class));
+        }
+
+        if(StringUtils.hasLength(nextHop)) {
+            setNextHopData(JsonUtil.fromJson(nextHop, Ip.class));
+        }
     }
 }

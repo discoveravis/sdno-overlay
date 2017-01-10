@@ -21,14 +21,14 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-import org.openo.sdno.overlayvpn.model.v2.basemodel.SbiBaseNetModel;
+import org.openo.sdno.overlayvpn.model.v2.route.SbiRouteNetModel;
 
 import io.swagger.annotations.ApiModelProperty;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SbiNeStaticRoute", propOrder = {"destIp", "enableDhcp", "nextHop", "outInterface", "priority", "nqa"})
 
-public class SbiNeStaticRoute extends SbiBaseNetModel {
+public class SbiNeStaticRoute extends SbiRouteNetModel {
 
     @XmlElement(name = "destIp")
     @ApiModelProperty(example = "null", required = true, value = "destination IP address")

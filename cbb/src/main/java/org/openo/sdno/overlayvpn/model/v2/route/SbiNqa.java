@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-import org.openo.sdno.overlayvpn.model.v2.basemodel.SbiBaseNetModel;
+import org.openo.sdno.overlayvpn.model.v2.vxlan.SbiVxlanNetModel;
 
 import io.swagger.annotations.ApiModelProperty;
 
@@ -29,7 +29,7 @@ import io.swagger.annotations.ApiModelProperty;
 @XmlType(name = "SbiNqa", propOrder = {"neId", "neRole", "srcIp", "srcPortName", "dstIp", "dstPortName", "testType",
                 "frequency", "probeCount", "timeout", "ttl", "tos", "interval"})
 
-public class SbiNqa extends SbiBaseNetModel {
+public class SbiNqa extends SbiVxlanNetModel {
 
     @XmlElement(name = "neId")
     @ApiModelProperty(example = "null", required = true, value = "NE Id")

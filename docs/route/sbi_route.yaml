@@ -440,7 +440,7 @@ paths:
 definitions:
   SbiNeStaticRoute:
     allOf:
-      - $ref: '#/definitions/SbiBaseNetModel'
+      - $ref: '#/definitions/SbiRouteNetModel'
       - type: object
         required:
           - destIp
@@ -467,7 +467,7 @@ definitions:
 
   SbiNePolicyRoute:
     allOf:
-      - $ref: '#/definitions/SbiBaseNetModel'
+      - $ref: '#/definitions/SbiRouteNetModel'
       - type: object
         required:
           - trafficPolicyName
@@ -490,7 +490,7 @@ definitions:
 
   SbiNqa:
     allOf:
-      - $ref: '#/definitions/SbiBaseNetModel'
+      - $ref: '#/definitions/SbiRouteNetModel'
       - type: object
         required:
           - neId
@@ -574,7 +574,7 @@ definitions:
           additionalInfo:
             type: string
             description: additional info
-  SbiBaseNetModel:
+  SbiRouteNetModel:
     allOf:
       - $ref: '#/definitions/BaseModel'
       - type: object

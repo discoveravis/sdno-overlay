@@ -24,15 +24,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-import org.openo.sdno.overlayvpn.model.v2.basemodel.SbiBaseNetModel;
-
 import io.swagger.annotations.ApiModelProperty;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SbiNeVxlanTunnel", propOrder = {"vni", "vxlanInstanceId", "sourceAddress", "destAddress", "sourceIfId",
                 "tunnelIfId", "vxlanInstances", "vnis"})
 
-public class SbiNeVxlanTunnel extends SbiBaseNetModel {
+public class SbiNeVxlanTunnel extends SbiVxlanNetModel {
 
     @XmlElement(name = "vni")
     @ApiModelProperty(example = "null", value = "vlan id")
