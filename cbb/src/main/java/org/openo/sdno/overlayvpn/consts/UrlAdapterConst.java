@@ -31,7 +31,7 @@ public class UrlAdapterConst {
      * Prefix URL of IPSec Adapter Service
      */
     public static final String IPSEC_ADAPTER_BASE_URL = "/openoapi/sbi-ipsec";
-    
+
     /**
      * Prefix URL of Route Adapter Service
      */
@@ -109,9 +109,59 @@ public class UrlAdapterConst {
     public static final String CREATE_STATIC_ROUTE = "/v1/batch-create-static-routes";
 
     /**
+     * URL of Update Static Route
+     */
+    public static final String UPDATE_STATIC_ROUTE = "/v1/batch-update-static-routes";
+
+    /**
+     * URL of Query Static Route
+     */
+    public static final String QUERY_STATIC_ROUTE = "/v1/batch-query-static-routes";
+
+    /**
      * URL of Delete Static Route
      */
     public static final String DELETE_STATIC_ROUTE = "/v1/device/{0}/batch-delete-static-routes";
+
+    /**
+     * URL of Create Policy Route
+     */
+    public static final String CREATE_POLICY_ROUTE = "/v1/batch-create-policy-routes";
+
+    /**
+     * URL of Update Policy Route
+     */
+    public static final String UPDATE_POLICY_ROUTE = "/v1/batch-update-policy-routes";
+
+    /**
+     * URL of Query Policy Route
+     */
+    public static final String QUERY_POLICY_ROUTE = "/v1/batch-query-policy-routes";
+
+    /**
+     * URL of Delete Policy Route
+     */
+    public static final String DELETE_POLICY_ROUTE = "/v1/device/{0}/batch-delete-policy-routes";
+
+    /**
+     * URL of Create NQA
+     */
+    public static final String CREATE_POLICY_NQA = "/v1/device/{0}/batch-create-nqa";
+
+    /**
+     * URL of Update NQA
+     */
+    public static final String UPDATE_POLICY_NQA = "/v1/device/{0}/batch-update-nqa";
+
+    /**
+     * URL of Query NQA
+     */
+    public static final String QUERY_POLICY_NQA = "/v1/device/{0}/batch-query-nqa";
+
+    /**
+     * URL of Delete NQA
+     */
+    public static final String DELETE_POLICY_NQA = "/v1/device/{0}/batch-delete-nqa";
 
     /**
      * URL of Delete IPSEC connection in AC Branch

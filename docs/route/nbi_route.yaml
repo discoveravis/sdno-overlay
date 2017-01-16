@@ -171,30 +171,6 @@ paths:
           description: Not Found
         500:
           description: Internal Server Error
-  /v1/static-routes/{routeid}/repair:
-    put:
-      summary: repair static route
-      description: repair static route
-      operationId: repairStaticRoute
-      parameters:
-        - name: routeid
-          in: path
-          description: the UUID of static route
-          required: true
-          type: string
-      responses:
-        201:
-          description: OK
-          schema:
-            $ref: '#/definitions/NbiNeStaticRoute'
-        400:
-          description: Bad Request
-        401:
-          description: Unauthorized
-        404:
-          description: Not Found
-        500:
-          description: Internal Server Error
 
   /v1/policy-routes:
     post:
@@ -356,30 +332,6 @@ paths:
           description: Not Found
         500:
           description: Internal Server Error
-  /v1/policy-routes/{routeid}/repair:
-    put:
-      summary: repair policy route
-      description: repair policy route
-      operationId: repairPolicyRoute
-      parameters:
-        - name: routeid
-          in: path
-          description: the UUID of policy route
-          required: true
-          type: string
-      responses:
-        201:
-          description: OK
-          schema:
-            $ref: '#/definitions/NbiNePolicyRoute'
-        400:
-          description: Bad Request
-        401:
-          description: Unauthorized
-        404:
-          description: Not Found
-        500:
-          description: Internal Server Error
 
   /v1/nqas:
     post:
@@ -533,30 +485,6 @@ paths:
             type: array
             items:
               type: string
-        400:
-          description: Bad Request
-        401:
-          description: Unauthorized
-        404:
-          description: Not Found
-        500:
-          description: Internal Server Error
-  /v1/nqas/{nqaid}/repair:
-    put:
-      summary: repair NbiNqa
-      description: repair NbiNqa
-      operationId: repairNQA
-      parameters:
-        - name: nqaid
-          in: path
-          description: the UUID of NbiNqa
-          required: true
-          type: string
-      responses:
-        201:
-          description: OK
-          schema:
-            $ref: '#/definitions/NbiNqa'
         400:
           description: Bad Request
         401:

@@ -29,7 +29,7 @@ import io.swagger.annotations.ApiModelProperty;
 @XmlType(name = "SbiNqa", propOrder = {"neId", "neRole", "srcIp", "srcPortName", "dstIp", "dstPortName", "testType",
                 "frequency", "probeCount", "timeout", "ttl", "tos", "interval"})
 
-public class SbiNqa extends SbiVxlanNetModel {
+public class SbiNqa extends SbiRouteNetModel {
 
     @XmlElement(name = "neId")
     @ApiModelProperty(example = "null", required = true, value = "NE Id")
