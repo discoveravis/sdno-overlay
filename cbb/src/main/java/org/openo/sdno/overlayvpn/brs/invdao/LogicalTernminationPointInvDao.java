@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,12 +24,12 @@ import java.util.Set;
 
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.roa.util.restclient.RestfulResponse;
+import org.openo.sdno.exception.ParameterServiceException;
 import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.overlayvpn.brs.model.LogicalTernminationPointMO;
 import org.openo.sdno.overlayvpn.brs.rest.BrsRestconfProxy;
 import org.openo.sdno.overlayvpn.consts.HttpCode;
 import org.openo.sdno.overlayvpn.errorcode.ErrorCode;
-import org.openo.sdno.overlayvpn.result.SvcExcptUtil;
 import org.openo.sdno.overlayvpn.util.check.UuidUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -88,7 +88,7 @@ public class LogicalTernminationPointInvDao {
     public void deleteMO(String uuid) throws ServiceException {
         if(!UuidUtil.validate(uuid)) {
             LOGGER.error("delete uuid is ilegal!");
-            SvcExcptUtil.throwBadRequestException("delete uuid is ilegal!");
+            throw new ParameterServiceException("delete uuid is ilegal!");
         }
 
         RestfulResponse response = BrsRestconfProxy.delete(LTPURI + "/" + uuid, null);
@@ -114,14 +114,14 @@ public class LogicalTernminationPointInvDao {
      * Query all LogicalTernminationPoints.<br>
      * 
      * @return all LogicalTernminationPoints queried out
-     * @throws ServiceException when failed
+     * @throws ServiceException when query failed
      * @since SDNO 0.5
      */
     @SuppressWarnings("unchecked")
     public List<LogicalTernminationPointMO> getAllMO() throws ServiceException {
         RestfulResponse response = BrsRestconfProxy.get(LTPURI, "");
         if(!HttpCode.isSucess(response.getStatus())) {
-            throw new ServiceException("query Mos Failed!!");
+            throw new ServiceException(response.getStatus(), "Query ltps failed!!");
         }
 
         Map<String, Object> contentMap = JsonUtil.fromJson(response.getResponseContent(), Map.class);
@@ -145,7 +145,10 @@ public class LogicalTernminationPointInvDao {
     public List<LogicalTernminationPointMO> query(Map<String, String> condition) throws ServiceException {
         checkFilterData(condition);
 
-        RestfulResponse response = BrsRestconfProxy.get(LTPURI, "", condition);
+        RestfulResponse response = BrsRestconfProxy.get(LTPURI, null, condition);
+        if(!HttpCode.isSucess(response.getStatus())) {
+            throw new ServiceException(response.getStatus(), "Batch Query Ltps failed");
+        }
 
         Map<String, Object> contentMap = JsonUtil.fromJson(response.getResponseContent(), Map.class);
         String data = JsonUtil.toJson(contentMap.get(LTPS_KEY));
@@ -165,10 +168,18 @@ public class LogicalTernminationPointInvDao {
     @SuppressWarnings("unchecked")
     public LogicalTernminationPointMO query(String id) throws ServiceException {
         RestfulResponse response = BrsRestconfProxy.get(LTPURI + "/" + id, "");
+        if(!HttpCode.isSucess(response.getStatus())) {
+            throw new ServiceException(response.getStatus(), " Query Ltp failed");
+        }
 
         Map<String, Object> contentMap = JsonUtil.fromJson(response.getResponseContent(), Map.class);
-        String data = JsonUtil.toJson(contentMap.get(LTP_KEY));
+        Map<String, Object> objectMap = (Map<String, Object>)contentMap.get(LTP_KEY);
+        if(objectMap == null || objectMap.isEmpty()) {
+            LOGGER.error("Ltp does not exist");
+            throw new ServiceException("Ltp does not exist");
+        }
 
+        String data = JsonUtil.toJson(objectMap);
         return JsonUtil.fromJson(data, LogicalTernminationPointMO.class);
     }
 

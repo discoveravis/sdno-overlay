@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,16 +43,16 @@ public class SdnControllerDao {
     private static final String SDN_CONTROLLER_URL = "/openoapi/extsys/v1/sdncontrollers";
 
     /**
-     * Query SDN Controller by Id.<br>
+     * Query Sdn Controller by Id.<br>
      * 
      * @param controllerId Controller Id
-     * @return SdnController Object queried out
+     * @return Sdn Controllers queried out
      * @since SDNO 0.5
      */
     public SdnController querySdnControllerById(String controllerId) throws ServiceException {
         if(StringUtils.isEmpty(controllerId)) {
-            LOGGER.error("SDN Controller id is invalid.");
-            throw new ServiceException("SDN Controller Id is invalid");
+            LOGGER.error("Sdn Controller id is invalid.");
+            throw new ServiceException("Sdn Controller Id is invalid");
         }
 
         String queryUrl = SDN_CONTROLLER_URL + "/" + controllerId;
@@ -62,8 +62,8 @@ public class SdnControllerDao {
         RestfulResponse queryRsp = RestfulProxy.get(queryUrl, restParametes);
 
         if(!HttpCode.isSucess(queryRsp.getStatus()) || StringUtils.isEmpty(queryRsp.getResponseContent())) {
-            LOGGER.error("SDN Controller query failed.");
-            throw new ServiceException("SDN Controller query failed");
+            LOGGER.error("Sdn Controller query failed.");
+            throw new ServiceException("Sdn Controller query failed");
         }
 
         return JsonUtil.fromJson(queryRsp.getResponseContent(), SdnController.class);

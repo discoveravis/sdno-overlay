@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -151,9 +151,14 @@ public class SiteInvDao {
     public SiteMO query(String id) throws ServiceException {
         RestfulResponse response = BrsRestconfProxy.get(SITEURI + "/" + id, "");
 
-        Map<String, Object> contentMap = JsonUtil.fromJson(response.getResponseContent(), Map.class);
-        String data = JsonUtil.toJson(contentMap.get(SITE_KEY));
-        return JsonUtil.fromJson(data, SiteMO.class);
+        Map<String, Map<String, Object>> contentMap = JsonUtil.fromJson(response.getResponseContent(), Map.class);
+        Map<String, Object> siteDataMap = contentMap.get(SITE_KEY);
+        if(null == siteDataMap || siteDataMap.isEmpty()) {
+            LOGGER.debug("Current site does not exist");
+            return null;
+        }
+
+        return JsonUtil.fromJson(JsonUtil.toJson(siteDataMap), SiteMO.class);
     }
 
     /**

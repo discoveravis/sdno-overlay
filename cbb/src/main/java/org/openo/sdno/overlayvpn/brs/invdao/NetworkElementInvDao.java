@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,13 +17,13 @@
 package org.openo.sdno.overlayvpn.brs.invdao;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.codehaus.jackson.type.TypeReference;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.roa.util.restclient.RestfulResponse;
 import org.openo.sdno.framework.container.util.JsonUtil;
@@ -63,10 +63,11 @@ public class NetworkElementInvDao {
      * @since SDNO 0.5
      */
     public void addMO(NetworkElementMO curMO) throws ServiceException {
-
-        LOGGER.info("insert NE begin,cur NE name:" + curMO.getName());
-        BrsRestconfProxy.post(NEURI, curMO.toJsonBody());
-        LOGGER.info("insert NE end");
+        RestfulResponse response = BrsRestconfProxy.post(NEURI, curMO.toJsonBody());
+        if(!HttpCode.isSucess(response.getStatus())) {
+            LOGGER.error("Add NetworkElement failed, NetworkElement Name: " + curMO.getName());
+            throw new ServiceException("Add NetworkElement failed");
+        }
     }
 
     /**
@@ -84,7 +85,8 @@ public class NetworkElementInvDao {
 
         RestfulResponse response = BrsRestconfProxy.delete(NEURI + "/" + uuid, null);
         if(!HttpCode.isSucess(response.getStatus())) {
-            LOGGER.error("delete me:" + uuid + " failed!!");
+            LOGGER.error("Delete Network Element failed");
+            throw new ServiceException(response.getStatus(), "Delete Network Element failed");
         }
     }
 
@@ -98,7 +100,11 @@ public class NetworkElementInvDao {
     public void updateMO(NetworkElementMO curNeMO) throws ServiceException {
         StringBuilder curID = new StringBuilder(curNeMO.getId());
         curNeMO.setId(null);
-        BrsRestconfProxy.put(NEURI + "/" + curID.toString(), curNeMO.toJsonBody());
+        RestfulResponse response = BrsRestconfProxy.put(NEURI + "/" + curID.toString(), curNeMO.toJsonBody());
+        if(!HttpCode.isSucess(response.getStatus())) {
+            LOGGER.error("Update Network Element failed");
+            throw new ServiceException("Update Network Element failed");
+        }
     }
 
     /**
@@ -111,12 +117,14 @@ public class NetworkElementInvDao {
     @SuppressWarnings("unchecked")
     public List<NetworkElementMO> getAllMO() throws ServiceException {
         RestfulResponse response = BrsRestconfProxy.get(NEURI, "");
+        if(!HttpCode.isSucess(response.getStatus())) {
+            LOGGER.error("Query Network Element failed");
+            throw new ServiceException("Query Network Element failed");
+        }
 
         Map<String, Object> contentMap = JsonUtil.fromJson(response.getResponseContent(), Map.class);
         String data = JsonUtil.toJson(contentMap.get(NES_KEY));
-        NetworkElementMO[] moArray = JsonUtil.fromJson(data, NetworkElementMO[].class);
-
-        return Arrays.asList(moArray);
+        return JsonUtil.fromJson(data, new TypeReference<List<NetworkElementMO>>() {});
     }
 
     /**
@@ -148,12 +156,14 @@ public class NetworkElementInvDao {
         checkFilterData(condition);
 
         RestfulResponse response = BrsRestconfProxy.get(NEURI, "", condition);
+        if(!HttpCode.isSucess(response.getStatus())) {
+            LOGGER.error("Query Network Element failed");
+            throw new ServiceException("Query Network Element failed");
+        }
 
         Map<String, Object> contentMap = JsonUtil.fromJson(response.getResponseContent(), Map.class);
         String data = JsonUtil.toJson(contentMap.get(NES_KEY));
-        NetworkElementMO[] moArray = JsonUtil.fromJson(data, NetworkElementMO[].class);
-
-        return Arrays.asList(moArray);
+        return JsonUtil.fromJson(data, new TypeReference<List<NetworkElementMO>>() {});
     }
 
     /**
@@ -166,9 +176,20 @@ public class NetworkElementInvDao {
      */
     @SuppressWarnings("unchecked")
     public NetworkElementMO query(String id) throws ServiceException {
-        RestfulResponse response = BrsRestconfProxy.get(NEURI + "/" + id, "");
+        RestfulResponse response = BrsRestconfProxy.get(NEURI + "/" + id, null);
+        if(!HttpCode.isSucess(response.getStatus())) {
+            LOGGER.error("Query Network Element failed");
+            throw new ServiceException("Query Network Element failed");
+        }
+
         Map<String, Object> contentMap = JsonUtil.fromJson(response.getResponseContent(), Map.class);
-        String data = JsonUtil.toJson(contentMap.get(NE_KEY));
+        Map<String, Object> objectMap = (Map<String, Object>)contentMap.get(NE_KEY);
+        if(objectMap == null || objectMap.isEmpty()) {
+            LOGGER.error("Network Element does not exist");
+            throw new ServiceException("Network Element does not exist");
+        }
+
+        String data = JsonUtil.toJson(objectMap);
         return JsonUtil.fromJson(data, NetworkElementMO.class);
     }
 
