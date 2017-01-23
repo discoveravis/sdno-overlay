@@ -1,11 +1,29 @@
+#
+# Copyright 2017 Huawei Technologies Co., Ltd.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
 swagger: '2.0'
 info:
   title: OverlayVPN Service NBI
   description: Northbound Interface for OverlayVPN
   version: 1.0.0
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
 host: nbi-overlayvpn.open-o.org
 schemes:
-- https
+- http
 basePath: /openoapi/sdnooverlay/v1
 consumes:
   - application/json;charset=UTF-8
@@ -14,8 +32,6 @@ produces:
 paths:
   /vpns:
     post:
-      tags:
-      - VpnApiController
       summary: create vpn.
       description: create vpn.
       parameters:
@@ -40,9 +56,8 @@ paths:
           description: create vpn failure as can't reach server.
         500:
           description: create vpn failure as inner error.
+
     get:
-      tags:
-      - VpnApiController
       summary: batch query vpn.
       description: batch query vpn info.
       responses:
@@ -58,10 +73,9 @@ paths:
           description: query vpn failure as can't reach server.
         500:
           description: query vpn failure as inner error.
+
   /vpns/{uuid}:
     get:
-      tags:
-      - VpnApiController
       summary: query vpn.
       description: query vpn info.
       parameters:
@@ -84,9 +98,8 @@ paths:
           description: query vpn failure as can't reach server.
         500:
           description: query vpn failure as inner error.
+
     put:
-      tags:
-      - VpnApiController
       summary: modify vpn.
       description: modify vpn info.
       parameters:
@@ -117,9 +130,8 @@ paths:
           description: update vpn failure as can't reach server.
         500:
           description: update vpn failure as inner error.
+
     delete:
-      tags:
-      - VpnApiController
       summary: delete vpn.
       description: delete vpn.
       parameters:
@@ -142,10 +154,9 @@ paths:
           description: delete vpn failure as can't reach server.
         500:
           description: delete vpn failure as inner error.
+
   /vpns/{uuid}/action/deploy:
     post:
-      tags:
-      - VpnApiController
       summary: deploy vpn.
       description: deploy all connections in the vpn.
       parameters:
@@ -168,10 +179,9 @@ paths:
           description: deploy vpn failure as can't reach server.
         500:
           description: deploy vpn failure as inner error.
+
   /vpns/{uuid}/action/undeploy:
     post:
-      tags:
-      - VpnApiController
       summary: undeploy vpn.
       description: undeploy all connections in the vpn.
       parameters:
@@ -194,10 +204,9 @@ paths:
           description: undeploy vpn failure as can't reach server.
         500:
           description: undeploy vpn failure as inner error.
+
   /vpn-connections:
     post:
-      tags:
-      - VpnConnectionAPIController
       summary: create vpn connection
       description: create vpn connection.
       parameters:
@@ -222,9 +231,8 @@ paths:
           description: create vpn connection failure as can't reach server.
         500:
           description: create vpn connection failure as inner error.
+
     get:
-      tags:
-      - VpnConnectionAPIController
       summary: batch query vpn connection
       description: batch query vpn connection.
       responses:
@@ -240,10 +248,9 @@ paths:
           description: query vpn connection failure as can't reach server.
         500:
           description: query vpn connection failure as inner error.
+
   /vpn-connections/{uuid}:
     put:
-      tags:
-      - VpnConnectionAPIController
       summary: modify vpn connection
       description: modify vpn connection.
       parameters:
@@ -274,9 +281,8 @@ paths:
           description: modify vpn connection failure as can't reach server.
         500:
           description: modify vpn connection failure as inner error.
+
     get:
-      tags:
-      - VpnConnectionAPIController
       summary: query single vpn connection
       description: query single vpn connection.
       parameters:
@@ -299,9 +305,8 @@ paths:
           description: query vpn connection failure as can't reach server.
         500:
           description: query vpn connection failure as inner error.
+
     delete:
-      tags:
-      - VpnConnectionAPIController
       summary: delete vpn connection
       description: delete vpn connection.
       parameters:
@@ -324,10 +329,9 @@ paths:
           description: delete vpn connection failure as can't reach server.
         500:
           description: delete vpn connection failure as inner error.
+
   /vpn-connections/{uuid}/action/deploy:
     post:
-      tags:
-      - VpnApiController
       summary: deploy vpn connection.
       description: deploy vpn connection.
       parameters:
@@ -350,10 +354,9 @@ paths:
           description: deploy vpn connection failure as can't reach server.
         500:
           description: deploy vpn connection failure as inner error.
+
   /vpn-connections/{uuid}/action/undeploy:
     post:
-      tags:
-      - VpnApiController
       summary: undeploy vpn connection.
       description: undeploy vpn connection.
       parameters:
@@ -376,10 +379,9 @@ paths:
           description: undeploy vpn connection failure as can't reach server.
         500:
           description: undeploy vpn connection failure as inner error.
+
   /vpn-gateways:
     get:
-      tags:
-      - VpnGatewayController
       summary: batch query vpn gateways
       description: batch query vpn gateways.
       responses:
@@ -395,9 +397,8 @@ paths:
           description: query vpn gateways failure as can't reach server.
         500:
           description: query vpn gateways failure as inner error.
+
     post:
-      tags:
-      - VpnGatewayController
       summary: create vpn gateway
       description: create vpn gateway.
       parameters:
@@ -422,10 +423,9 @@ paths:
           description: create vpn gateway failure as can't reach server.
         500:
           description: create vpn gateway failure as inner error.
+
   /vpn-gateways/{uuid}:
     get:
-      tags:
-      - VpnGatewayController
       summary: query single vpn gateway
       description: query single vpn gateway.
       parameters:
@@ -448,9 +448,8 @@ paths:
           description: query vpn gateway failure as can't reach server.
         500:
           description: query vpn gateway failure as inner error.
+
     delete:
-      tags:
-      - VpnGatewayController
       summary: delete vpn gateway
       description: delete vpn gateway.
       parameters:
@@ -473,9 +472,8 @@ paths:
           description: delete vpn gateway failure as can't reach server.
         500:
           description: delete vpn gateway failure as inner error.
+
     put:
-      tags:
-      - VpnGatewayController
       summary: modify vpn gateway
       description: modify vpn gateway.
       parameters:
@@ -506,101 +504,93 @@ paths:
           description: modify vpn gateway failure as can't reach server.
         500:
           description: modify vpn gateway failure as inner error.
+
 definitions:
   NbiVpn:
-    type: object
     description: vpn model
     allOf:
-    - $ref: '#/definitions/ServiceModel'
-    properties:
-      vpnDescriptor:
-        type: string
-        description: vpn template name
+    - $ref: '#/definitions/UuidModel'
+    - type: object
+      properties:
+        name:
+          type: string
+        tenantId:
+          type: string
+          format: uuid
+        description:
+          type: string
+        vpnDescriptor:
+          type: string
+          description: vpn template name
 
   NbiVpnConnection:
-    type: object
     description: vpn connection model
     allOf:
-    - $ref: '#/definitions/NbiServiceConnection'
-    properties:
-      vpnId:
-        type: string
-      aEndVpnGatewayId:
-        type: string
-      zEndVpnGatewayId:
-        type: string
-      vni:
-        type: string
+    - $ref: '#/definitions/UuidModel'
+    - type: object
+      properties:
+        name:
+          type: string
+        tenantId:
+          type: string
+          format: uuid
+        description:
+          type: string
+        deployStatus:
+          type: string
+          description: deploy status(deploy,undeploy)
+        vpnId:
+          type: string
+        aEndVpnGatewayId:
+          type: string
+        zEndVpnGatewayId:
+          type: string
+        vni:
+          type: string
 
   NbiVpnGateway:
-    type: object
     description: vpn gateway model
-    properties:
-      id:
-        type: string
-      name:
-        type: string
-      tenantId:
-        type: string
-        format: uuid
-      description:
-        type: string
-      vpnId:
-        type: string
-      siteId:
-        type: string
-      vpcId:
-        type: string
-      deployPosition:
-        type: string
-      upstreamBandwidth:
-        type: string
-      downstreamBandwidth:
-        type: string
-      vlans:
-        type: string
-      ports:
-        description: uuid list of LAN ports
-        type: array
-        items:
-          type: string
-      portNames:
-        description: name list of LAN ports
-        type: array
-        items:
-          type: string
-      regionId:
-        type: string
-  NbiServiceConnection:
-    type: object
-    description: service connection model
-    allOf:
-    - $ref: '#/definitions/NbiBaseConnection'
-  NbiBaseConnection:
-    type: object
-    description: base connection model
-    allOf:
-    - $ref: '#/definitions/ServiceModel'
-  ServiceModel:
-    type: object
-    description: service model
     allOf:
     - $ref: '#/definitions/UuidModel'
-    properties:
-      name:
-        type: string
-      tenantId:
-        type: string
-        format: uuid
-      description:
-        type: string
-      deployStatus:
-        type: string
-        description: deploy status(deploy,undeploy)
+    - type: object
+      properties:
+        name:
+          type: string
+        tenantId:
+          type: string
+          format: uuid
+        description:
+          type: string
+        vpnId:
+          type: string
+        siteId:
+          type: string
+        vpcId:
+          type: string
+        deployPosition:
+          type: string
+        upstreamBandwidth:
+          type: string
+        downstreamBandwidth:
+          type: string
+        vlans:
+          type: string
+        ports:
+          description: uuid list of LAN ports
+          type: array
+          items:
+            type: string
+        portNames:
+          description: name list of LAN ports
+          type: array
+          items:
+            type: string
+        regionId:
+          type: string
   UuidModel:
     description: base model
     type: object
     properties:
-      id:
+      uuid:
         type: string
         format: uuid
