@@ -17,51 +17,39 @@
 package org.openo.sdno.overlayvpn.model.v2.route;
 
 import javax.validation.Valid;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.openo.sdno.framework.container.util.JsonUtil;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
 import org.openo.sdno.overlayvpn.model.v2.basemodel.NbiBaseServiceModel;
+import org.openo.sdno.overlayvpn.verify.annotation.AInt;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
+import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 import org.springframework.util.StringUtils;
 
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "NbiNeStaticRoute", propOrder = {"type", "destIp", "enableDhcp", "nextHop", "outInterfaceName",
-                "priority", "nqa"})
-
+@MOResType(infoModelName = "nbinestaticroute")
 public class NbiNeStaticRoute extends NbiBaseServiceModel {
 
-    @XmlElement(name = "type")
-    @ApiModelProperty(example = "null", required = true, value = "the scope is static")
+    @AString(require = true, scope = "static")
     private String type = null;
 
-    @XmlElement(name = "destIp")
-    @ApiModelProperty(example = "null", value = "destinantion IP address")
+    @AString(max = 255)
     private String destIp = null;
 
-    @XmlElement(name = "enableDhcp")
-    @ApiModelProperty(example = "null", value = "the scope is true,false")
+    @AString(scope = "true,false")
     private String enableDhcp = null;
 
-    @XmlElement(name = "nextHop")
-    @ApiModelProperty(example = "null", value = "next hop IP address")
+    @AString(max = 255)
     private String nextHop = null;
 
-    @XmlElement(name = "outInterfaceName")
-    @ApiModelProperty(example = "null", value = "outbound interface name")
+    @AString(max = 255)
     private String outInterfaceName = null;
 
-    @XmlElement(name = "priority")
-    @ApiModelProperty(example = "null", value = "the priority of the route")
+    @AInt(min = 0, max = 255)
     private String priority = null;
 
-    @XmlElement(name = "nqa")
-    @ApiModelProperty(example = "null", value = "network quality analyzer")
+    @AUuid
     private String nqa = null;
 
     @NONInvField
@@ -73,6 +61,15 @@ public class NbiNeStaticRoute extends NbiBaseServiceModel {
     @JsonIgnore
     @Valid
     private Ip nextHopData;
+
+    /**
+     * Constructor<br/>
+     * 
+     * @since SDNO 0.5
+     */
+    public NbiNeStaticRoute() {
+        super();
+    }
 
     /**
      * the scope is static

@@ -49,4 +49,69 @@ public class Ip extends UuidModel {
 
     @AUuid
     private String routeId;
+
+    /**
+     * Constructor<br/>
+     * 
+     * @since SDNO 0.5
+     */
+    public Ip() {
+        super();
+    }
+
+    public String getIpv4() {
+        return ipv4;
+    }
+
+    public void setIpv4(String ipv4) {
+        this.ipv4 = ipv4;
+    }
+
+    public String getIpv6() {
+        return ipv6;
+    }
+
+    public void setIpv6(String ipv6) {
+        this.ipv6 = ipv6;
+    }
+
+    public String getIpMask() {
+        return ipMask;
+    }
+
+    public void setIpMask(String ipMask) {
+        this.ipMask = ipMask;
+    }
+
+    public String getPrefixLength() {
+        return prefixLength;
+    }
+
+    public void setPrefixLength(String prefixLength) {
+        this.prefixLength = prefixLength;
+    }
+
+    public String getNeId() {
+        return neId;
+    }
+
+    public void setNeId(String neId) {
+        this.neId = neId;
+    }
+
+    public String getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
+    }
+
+    public String getRouteId() {
+        return routeId;
+    }
+
+    public void setRouteId(String routeId) {
+        this.routeId = routeId;
+    }
 }

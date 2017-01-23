@@ -19,26 +19,10 @@ package org.openo.sdno.overlayvpn.model.v2.route;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "NbiActionModel", propOrder = {"deploy", "undeploy"})
-
-@XmlRootElement(name = "NbiActionModel")
 public class NbiActionModel {
 
-    @XmlElement(name = "deploy")
-    @ApiModelProperty(example = "null", value = "the UUID list needed to deploy")
     private List<String> deploy = new ArrayList<String>();
 
-    @XmlElement(name = "undeploy")
-    @ApiModelProperty(example = "null", value = "the UUID list needed to undeploy")
     private List<String> undeploy = new ArrayList<String>();
 
     /**

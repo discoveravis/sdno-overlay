@@ -17,6 +17,7 @@
 package org.openo.sdno.overlayvpn.result;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
@@ -85,9 +86,9 @@ public class ResultRsp<T> implements Serializable {
 
     private List<ErrorCodeInfo> smallErrorCodeList;
 
-    private List<T> successed = null;
+    private List<T> successed = new ArrayList<T>();
 
-    private List<FailData<T>> fail = null;
+    private List<FailData<T>> fail = new ArrayList<FailData<T>>();
 
     /**
      * Constructor<br>

@@ -16,40 +16,36 @@
 
 package org.openo.sdno.overlayvpn.model.v2.route;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
 import org.openo.sdno.overlayvpn.model.v2.basemodel.NbiBaseServiceModel;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
 
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "NbiNePolicyRoute", propOrder = {"type", "trafficPolicyName", "interfaceName", "direction",
-                "filterAction"})
-
+@MOResType(infoModelName = "nbinepolicyroute")
 public class NbiNePolicyRoute extends NbiBaseServiceModel {
 
-    @XmlElement(name = "type")
-    @ApiModelProperty(example = "null", required = true, value = "route type, the scope is policy")
+    @AString(require = true, scope = "policy")
     private String type = null;
 
-    @XmlElement(name = "trafficPolicyName")
-    @ApiModelProperty(example = "null", value = "traffic policy name")
+    @AString(require = true, min = 1, max = 26)
     private String trafficPolicyName = null;
 
-    @XmlElement(name = "interfaceName")
-    @ApiModelProperty(example = "null", required = true, value = "interface name")
+    @AString(require = true, min = 1, max = 255)
     private String interfaceName = null;
 
-    @XmlElement(name = "direction")
-    @ApiModelProperty(example = "null", required = true, value = "the scope is inbound, outbound, all")
+    @AString(require = true, scope = "inbound,outbound,all")
     private String direction = null;
 
-    @XmlElement(name = "filterAction")
-    @ApiModelProperty(example = "null", required = true, value = "filter action")
+    @AString(require = true, min = 1, max = 10000)
     private String filterAction = null;
+
+    /**
+     * Constructor<br/>
+     * 
+     * @since SDNO 0.5
+     */
+    public NbiNePolicyRoute() {
+        super();
+    }
 
     /**
      * route type, the scope is policy

@@ -16,103 +16,96 @@
 
 package org.openo.sdno.overlayvpn.model.v2.route;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.openo.sdno.overlayvpn.model.v2.basemodel.BaseModel;
-
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
- @XmlType(name = "SbiBaseNetModel", propOrder =
-    { "deviceId", "controllerId", "externalId", "nbiNeRouteId"
-})
-
+import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
 public class SbiRouteNetModel extends BaseModel {
-  
 
-  @XmlElement(name="deviceId")
-  @ApiModelProperty(example = "null", required = true, value = "device ID")
-  private String deviceId = null;
+    @AUuid(require = true)
+    private String deviceId = null;
 
-  @XmlElement(name="controllerId")
-  @ApiModelProperty(example = "null", value = "controller ID")
-  private String controllerId = null;
+    @AUuid(require = false)
+    private String controllerId = null;
 
-  @XmlElement(name="externalId")
-  @ApiModelProperty(example = "null", value = "external ID")
-  private String externalId = null;
+    @AUuid(require = false)
+    private String externalId = null;
 
-  @XmlElement(name="nbiNeRouteId")
-  @ApiModelProperty(example = "null", required = true, value = "the UUID of nbi model")
-  private String nbiNeRouteId = null;
+    @AUuid(require = true)
+    private String nbiNeRouteId = null;
 
- /**
-   * device ID
-   * @return deviceId
-  **/
-  public String getDeviceId() {
-    return deviceId;
-  }
-  public void setDeviceId(String deviceId) {
-    this.deviceId = deviceId;
-  }
- /**
-   * controller ID
-   * @return controllerId
-  **/
-  public String getControllerId() {
-    return controllerId;
-  }
-  public void setControllerId(String controllerId) {
-    this.controllerId = controllerId;
-  }
- /**
-   * external ID
-   * @return externalId
-  **/
-  public String getExternalId() {
-    return externalId;
-  }
-  public void setExternalId(String externalId) {
-    this.externalId = externalId;
-  }
- /**
-   * the UUID of nbi model
-   * @return nbiNeRouteId
-  **/
-  public String getNbiNeRouteId() {
-    return nbiNeRouteId;
-  }
-  public void setNbiNeRouteId(String nbiNeRouteId) {
-    this.nbiNeRouteId = nbiNeRouteId;
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SbiBaseNetModel {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    deviceId: ").append(toIndentedString(deviceId)).append("\n");
-    sb.append("    controllerId: ").append(toIndentedString(controllerId)).append("\n");
-    sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-    sb.append("    nbiNeRouteId: ").append(toIndentedString(nbiNeRouteId)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * device ID
+     * 
+     * @return deviceId
+     **/
+    public String getDeviceId() {
+        return deviceId;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
-}
 
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
+    }
+
+    /**
+     * controller ID
+     * 
+     * @return controllerId
+     **/
+    public String getControllerId() {
+        return controllerId;
+    }
+
+    public void setControllerId(String controllerId) {
+        this.controllerId = controllerId;
+    }
+
+    /**
+     * external ID
+     * 
+     * @return externalId
+     **/
+    public String getExternalId() {
+        return externalId;
+    }
+
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
+    }
+
+    /**
+     * the UUID of nbi model
+     * 
+     * @return nbiNeRouteId
+     **/
+    public String getNbiNeRouteId() {
+        return nbiNeRouteId;
+    }
+
+    public void setNbiNeRouteId(String nbiNeRouteId) {
+        this.nbiNeRouteId = nbiNeRouteId;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class SbiBaseNetModel {\n");
+        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+        sb.append("    deviceId: ").append(toIndentedString(deviceId)).append("\n");
+        sb.append("    controllerId: ").append(toIndentedString(controllerId)).append("\n");
+        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
+        sb.append("    nbiNeRouteId: ").append(toIndentedString(nbiNeRouteId)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private static String toIndentedString(Object o) {
+        if(o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
+}

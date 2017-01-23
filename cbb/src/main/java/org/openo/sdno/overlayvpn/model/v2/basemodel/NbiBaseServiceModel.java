@@ -36,7 +36,7 @@ public class NbiBaseServiceModel extends BaseModel {
     /**
      * Source NetworkEmement Role
      */
-    @AString(require = true, scope = " localcpe,cloudcpe,vpc,dc-r")
+    @AString(require = true, scope = "localcpe,cloudcpe,vpc,dc-r")
     private String srcNeRole;
 
     /**

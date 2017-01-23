@@ -16,72 +16,59 @@
 
 package org.openo.sdno.overlayvpn.model.v2.route;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOInvField;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
 import org.openo.sdno.overlayvpn.model.v2.basemodel.BaseModel;
+import org.openo.sdno.overlayvpn.verify.annotation.AInt;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
+import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "NbiNqa", propOrder = {"neId", "neRole", "srcIp", "srcPortName", "dstIp", "dstPortName", "testType",
-                "frequency", "probeCount", "timeout", "ttl", "tos", "interval"})
-
+@MOResType(infoModelName = "nbinqa")
 public class NbiNqa extends BaseModel {
 
-    @XmlElement(name = "neId")
-    @ApiModelProperty(example = "null", required = true, value = "NE Id")
+    @AUuid(require = true)
     private String neId = null;
 
-    @XmlElement(name = "neRole")
-    @ApiModelProperty(example = "null", value = "NE role")
     private String neRole = null;
 
-    @XmlElement(name = "srcIp")
-    @ApiModelProperty(example = "null", value = "source IP address")
     private String srcIp = null;
 
-    @XmlElement(name = "srcPortName")
-    @ApiModelProperty(example = "null", value = "source port name")
     private String srcPortName = null;
 
-    @XmlElement(name = "dstIp")
-    @ApiModelProperty(example = "null", required = true, value = "destination IP address")
+    @AString(require = true)
     private String dstIp = null;
 
-    @XmlElement(name = "dstPortName")
-    @ApiModelProperty(example = "null", value = "destination port name")
     private String dstPortName = null;
 
-    @XmlElement(name = "testType")
-    @ApiModelProperty(example = "null", value = "test type, now only support \"ping\"")
     private String testType = null;
 
-    @XmlElement(name = "frequency")
-    @ApiModelProperty(example = "null", value = "frequency, the range is 1 to 604800")
+    @AInt(min = 1, max = 604800)
     private String frequency = null;
 
-    @XmlElement(name = "probeCount")
-    @ApiModelProperty(example = "null", value = "probe count, the range is 1 to 15")
+    @AInt(min = 1, max = 15)
     private String probeCount = null;
 
-    @XmlElement(name = "timeout")
-    @ApiModelProperty(example = "null", value = "timeout, the range is 1 to 60")
+    @AInt(min = 1, max = 60)
     private String timeout = null;
 
-    @XmlElement(name = "ttl")
-    @ApiModelProperty(example = "null", value = "time to live, the range is 1 to 255")
+    @AInt(min = 1, max = 255)
     private String ttl = null;
 
-    @XmlElement(name = "tos")
-    @ApiModelProperty(example = "null", value = "type of service, the range is 1 to 255")
+    @AInt(min = 0, max = 255)
     private String tos = null;
 
-    @XmlElement(name = "interval")
-    @ApiModelProperty(example = "null", value = "interval")
+    @AInt(min = 1, max = 60)
+    @MOInvField(invName = "nqaInterval")
     private String interval = null;
+
+    /**
+     * Constructor<br/>
+     * 
+     * @since SDNO 0.5
+     */
+    public NbiNqa() {
+        super();
+    }
 
     /**
      * NE Id

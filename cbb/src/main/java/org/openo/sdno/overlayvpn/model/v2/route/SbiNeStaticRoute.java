@@ -16,43 +16,40 @@
 
 package org.openo.sdno.overlayvpn.model.v2.route;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
+import org.openo.sdno.overlayvpn.verify.annotation.AInt;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
+import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
-import org.openo.sdno.overlayvpn.model.v2.route.SbiRouteNetModel;
-
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SbiNeStaticRoute", propOrder = {"destIp", "enableDhcp", "nextHop", "outInterface", "priority", "nqa"})
-
+@MOResType(infoModelName = "sbinestaticroute")
 public class SbiNeStaticRoute extends SbiRouteNetModel {
 
-    @XmlElement(name = "destIp")
-    @ApiModelProperty(example = "null", required = true, value = "destination IP address")
+    @AString(require = true, max = 255)
     private String destIp = null;
 
-    @XmlElement(name = "enableDhcp")
-    @ApiModelProperty(example = "null", required = true, value = "enable dhcp or not")
+    @AString(require = true, scope = "true,false")
     private String enableDhcp = null;
 
-    @XmlElement(name = "nextHop")
-    @ApiModelProperty(example = "null", value = "next hop IP address")
+    @AString(min = 0, max = 255)
     private String nextHop = null;
 
-    @XmlElement(name = "outInterface")
-    @ApiModelProperty(example = "null", value = "outbound interface")
+    @AString(min = 0, max = 255)
     private String outInterface = null;
 
-    @XmlElement(name = "priority")
-    @ApiModelProperty(example = "null", value = "the priority of the route")
+    @AInt(min = 0, max = 255)
     private String priority = null;
 
-    @XmlElement(name = "nqa")
-    @ApiModelProperty(example = "null", value = "network quality analyzer")
+    @AUuid
     private String nqa = null;
+
+    /**
+     * Constructor<br/>
+     * 
+     * @since SDNO 0.5
+     */
+    public SbiNeStaticRoute() {
+        super();
+    }
 
     /**
      * destination IP address
