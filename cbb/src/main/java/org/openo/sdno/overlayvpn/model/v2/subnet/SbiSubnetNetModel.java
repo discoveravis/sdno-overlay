@@ -16,120 +16,160 @@
 
 package org.openo.sdno.overlayvpn.model.v2.subnet;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
+import org.codehaus.jackson.annotate.JsonProperty;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
 import org.openo.sdno.overlayvpn.model.v2.basemodel.BaseServiceModel;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
+import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SbiSubnetNetModel", propOrder = {"neId", "controllerId", "networkId", "serviceSubnetId", "vni",
-                "vlanId", "cidrIpAddress", "cidrMask", "gatewayIp", "enableDhcp", "ipRangeStartIp", "ipRangeEndIp",
-                "useMode", "changedMode", "dhcpMode", "dnsServerMode", "unlimit", "ipv6Address", "prefixLength",
-                "dhcp6Enable", "dhcp6Mode", "priorDnsServer", "standbyDnsServer"})
-
+/**
+ * SBI Model class of Subnet.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 2017-1-4
+ */
+@MOResType(infoModelName = "localsite_subnetnetmodel")
 public class SbiSubnetNetModel extends BaseServiceModel {
 
-    @XmlElement(name = "neId")
-    @ApiModelProperty(example = "null", required = true, value = "NE Id")
-    private String neId = null;
-
-    @XmlElement(name = "controllerId")
-    @ApiModelProperty(example = "null", required = true, value = "controller Id")
-    private String controllerId = null;
-
-    @XmlElement(name = "networkId")
-    @ApiModelProperty(example = "null", value = "network Id")
-    private String networkId = null;
-
-    @XmlElement(name = "serviceSubnetId")
-    @ApiModelProperty(example = "null", required = true, value = "The UUID of subnet service")
-    private String serviceSubnetId = null;
-
-    @XmlElement(name = "vni")
-    @ApiModelProperty(example = "null", value = "vni value")
-    private String vni = null;
-
-    @XmlElement(name = "vlanId")
-    @ApiModelProperty(example = "null", value = "The UUID of VLAN service")
-    private String vlanId = null;
-
-    @XmlElement(name = "cidrIpAddress")
-    @ApiModelProperty(example = "null", required = true, value = "The IP address of the subnet")
-    private String cidrIpAddress = null;
-
-    @XmlElement(name = "cidrMask")
-    @ApiModelProperty(example = "null", required = true, value = "The mask of the subnet")
-    private String cidrMask = null;
-
-    @XmlElement(name = "gatewayIp")
-    @ApiModelProperty(example = "null", value = "The gateway IP address")
-    private String gatewayIp = null;
-
-    @XmlElement(name = "enableDhcp")
-    @ApiModelProperty(example = "null", value = "enable dhcp or not")
-    private String enableDhcp = null;
-
-    @XmlElement(name = "ipRangeStartIp")
-    @ApiModelProperty(example = "null", value = "The start IP address of the subnet")
-    private String ipRangeStartIp = null;
-
-    @XmlElement(name = "ipRangeEndIp")
-    @ApiModelProperty(example = "null", value = "The end IP address of the subnet")
-    private String ipRangeEndIp = null;
-
-    @XmlElement(name = "useMode")
-    @ApiModelProperty(example = "null", required = true, value = "the scope is terminal,vm")
-    private String useMode = null;
-
-    @XmlElement(name = "changedMode")
-    @ApiModelProperty(example = "null", value = "change mode")
-    private String changedMode = null;
-
-    @XmlElement(name = "dhcpMode")
-    @ApiModelProperty(example = "null", required = true, value = "the scope is server,relay")
-    private String dhcpMode = null;
-
-    @XmlElement(name = "dnsServerMode")
-    @ApiModelProperty(example = "null", required = true, value = "the scope is systemsetting,custom")
-    private String dnsServerMode = null;
-
-    @XmlElement(name = "unlimit")
-    @ApiModelProperty(example = "null", value = "the scope is true,false")
-    private String unlimit = null;
-
-    @XmlElement(name = "ipv6Address")
-    @ApiModelProperty(example = "null", value = "ipv6 address")
-    private String ipv6Address = null;
-
-    @XmlElement(name = "prefixLength")
-    @ApiModelProperty(example = "null", value = "prefix length")
-    private String prefixLength = null;
-
-    @XmlElement(name = "dhcp6Enable")
-    @ApiModelProperty(example = "null", value = "the scope is true,false")
-    private String dhcp6Enable = null;
-
-    @XmlElement(name = "dhcp6Mode")
-    @ApiModelProperty(example = "null", value = "the scope is server,relay")
-    private String dhcp6Mode = null;
-
-    @XmlElement(name = "priorDnsServer")
-    @ApiModelProperty(example = "null", value = "prior dns server")
-    private String priorDnsServer = null;
-
-    @XmlElement(name = "standbyDnsServer")
-    @ApiModelProperty(example = "null", value = "standby dns server")
-    private String standbyDnsServer = null;
+    /**
+     * Device UUid
+     */
+    @AUuid(require = true)
+    private String neId;
 
     /**
-     * NE Id
-     * 
-     * @return neId
-     **/
+     * Controller Uuid
+     */
+    @AUuid(require = true)
+    private String controllerId;
+
+    /**
+     * NetworkId returned by AC
+     */
+    @AUuid(require = false)
+    private String networkId;
+
+    /**
+     * Subnet Model Uuid
+     */
+    @AUuid(require = true)
+    private String serviceSubnetId;
+
+    /**
+     * Vni
+     */
+    @AString(require = false)
+    private String vni;
+
+    /**
+     * Vlan Id
+     */
+    @AString(require = false)
+    private String vlanId;
+
+    /**
+     * Subetnet IpAddress
+     */
+    @AString(require = true)
+    private String cidrIpAddress;
+
+    /**
+     * Subnet Ip Mask
+     */
+    @AString(require = true)
+    private String cidrMask;
+
+    /**
+     * Gateway Ip Address
+     */
+    private String gatewayIp;
+
+    /**
+     * Enable Dhcp or not
+     */
+    private String enableDhcp;
+
+    /**
+     * Start of Subnet IpAddress
+     */
+    @AString(require = false)
+    private String ipRangeStartIp;
+
+    /**
+     * End of Subnet IpAddress
+     */
+    @AString(require = false)
+    private String ipRangeEndIp;
+
+    /**
+     * Use of subnet
+     */
+    @AString(require = true, scope = "terminal,vm")
+    private String useMode;
+
+    /**
+     * Enable mode change or not
+     */
+    private String changedMode = "false";
+
+    /**
+     * Mode of Dhcp
+     */
+    @AString(require = true, scope = "server,relay")
+    private String dhcpMode = "server";
+
+    /**
+     * Mode of Dns
+     */
+    @JsonProperty(value = "dnsServerMode")
+    @AString(require = true, scope = "systemsetting,custom")
+    private String dnsMode = "custom";
+
+    /**
+     * Whether tenant time is unlimited or not
+     */
+    @AString(require = false, scope = "true,false")
+    private String unlimit = "true";
+
+    /**
+     * Ipv6 Address
+     */
+    @AString(require = false)
+    private String ipv6Address;
+
+    /**
+     * Prefix length of Ipv6 Address
+     */
+    @AString(require = false)
+    private String prefixLength;
+
+    /**
+     * Enable Ipv6 Dhcp or not
+     */
+    @AString(require = false, scope = "true,false")
+    private String dhcp6Enable = "false";
+
+    /**
+     * Mode of Ipv6 Address
+     */
+    @AString(require = false, scope = "server,relay")
+    private String dhcp6Mode = "relay";
+
+    /**
+     * Prior Dns Server
+     */
+    @NONInvField
+    @AString(require = false)
+    private String priorDnsServer;
+
+    /**
+     * Standby Dns Server
+     */
+    @NONInvField
+    @AString(require = false)
+    private String standbyDnsServer;
+
     public String getNeId() {
         return neId;
     }
@@ -138,11 +178,6 @@ public class SbiSubnetNetModel extends BaseServiceModel {
         this.neId = neId;
     }
 
-    /**
-     * controller Id
-     * 
-     * @return controllerId
-     **/
     public String getControllerId() {
         return controllerId;
     }
@@ -151,11 +186,6 @@ public class SbiSubnetNetModel extends BaseServiceModel {
         this.controllerId = controllerId;
     }
 
-    /**
-     * network Id
-     * 
-     * @return networkId
-     **/
     public String getNetworkId() {
         return networkId;
     }
@@ -164,11 +194,6 @@ public class SbiSubnetNetModel extends BaseServiceModel {
         this.networkId = networkId;
     }
 
-    /**
-     * The UUID of subnet service
-     * 
-     * @return serviceSubnetId
-     **/
     public String getServiceSubnetId() {
         return serviceSubnetId;
     }
@@ -177,11 +202,6 @@ public class SbiSubnetNetModel extends BaseServiceModel {
         this.serviceSubnetId = serviceSubnetId;
     }
 
-    /**
-     * vni value
-     * 
-     * @return vni
-     **/
     public String getVni() {
         return vni;
     }
@@ -190,11 +210,6 @@ public class SbiSubnetNetModel extends BaseServiceModel {
         this.vni = vni;
     }
 
-    /**
-     * The UUID of VLAN service
-     * 
-     * @return vlanId
-     **/
     public String getVlanId() {
         return vlanId;
     }
@@ -203,11 +218,6 @@ public class SbiSubnetNetModel extends BaseServiceModel {
         this.vlanId = vlanId;
     }
 
-    /**
-     * The IP address of the subnet
-     * 
-     * @return cidrIpAddress
-     **/
     public String getCidrIpAddress() {
         return cidrIpAddress;
     }
@@ -216,11 +226,6 @@ public class SbiSubnetNetModel extends BaseServiceModel {
         this.cidrIpAddress = cidrIpAddress;
     }
 
-    /**
-     * The mask of the subnet
-     * 
-     * @return cidrMask
-     **/
     public String getCidrMask() {
         return cidrMask;
     }
@@ -229,11 +234,6 @@ public class SbiSubnetNetModel extends BaseServiceModel {
         this.cidrMask = cidrMask;
     }
 
-    /**
-     * The gateway IP address
-     * 
-     * @return gatewayIp
-     **/
     public String getGatewayIp() {
         return gatewayIp;
     }
@@ -242,11 +242,6 @@ public class SbiSubnetNetModel extends BaseServiceModel {
         this.gatewayIp = gatewayIp;
     }
 
-    /**
-     * enable dhcp or not
-     * 
-     * @return enableDhcp
-     **/
     public String getEnableDhcp() {
         return enableDhcp;
     }
@@ -255,11 +250,6 @@ public class SbiSubnetNetModel extends BaseServiceModel {
         this.enableDhcp = enableDhcp;
     }
 
-    /**
-     * The start IP address of the subnet
-     * 
-     * @return ipRangeStartIp
-     **/
     public String getIpRangeStartIp() {
         return ipRangeStartIp;
     }
@@ -268,11 +258,6 @@ public class SbiSubnetNetModel extends BaseServiceModel {
         this.ipRangeStartIp = ipRangeStartIp;
     }
 
-    /**
-     * The end IP address of the subnet
-     * 
-     * @return ipRangeEndIp
-     **/
     public String getIpRangeEndIp() {
         return ipRangeEndIp;
     }
@@ -281,11 +266,6 @@ public class SbiSubnetNetModel extends BaseServiceModel {
         this.ipRangeEndIp = ipRangeEndIp;
     }
 
-    /**
-     * the scope is terminal,vm
-     * 
-     * @return useMode
-     **/
     public String getUseMode() {
         return useMode;
     }
@@ -294,11 +274,6 @@ public class SbiSubnetNetModel extends BaseServiceModel {
         this.useMode = useMode;
     }
 
-    /**
-     * change mode
-     * 
-     * @return changedMode
-     **/
     public String getChangedMode() {
         return changedMode;
     }
@@ -307,11 +282,6 @@ public class SbiSubnetNetModel extends BaseServiceModel {
         this.changedMode = changedMode;
     }
 
-    /**
-     * the scope is server,relay
-     * 
-     * @return dhcpMode
-     **/
     public String getDhcpMode() {
         return dhcpMode;
     }
@@ -320,24 +290,14 @@ public class SbiSubnetNetModel extends BaseServiceModel {
         this.dhcpMode = dhcpMode;
     }
 
-    /**
-     * the scope is systemsetting,custom
-     * 
-     * @return dnsServerMode
-     **/
-    public String getDnsServerMode() {
-        return dnsServerMode;
+    public String getDnsMode() {
+        return dnsMode;
     }
 
-    public void setDnsServerMode(String dnsServerMode) {
-        this.dnsServerMode = dnsServerMode;
+    public void setDnsMode(String dnsMode) {
+        this.dnsMode = dnsMode;
     }
 
-    /**
-     * the scope is true,false
-     * 
-     * @return unlimit
-     **/
     public String getUnlimit() {
         return unlimit;
     }
@@ -346,11 +306,6 @@ public class SbiSubnetNetModel extends BaseServiceModel {
         this.unlimit = unlimit;
     }
 
-    /**
-     * ipv6 address
-     * 
-     * @return ipv6Address
-     **/
     public String getIpv6Address() {
         return ipv6Address;
     }
@@ -359,11 +314,6 @@ public class SbiSubnetNetModel extends BaseServiceModel {
         this.ipv6Address = ipv6Address;
     }
 
-    /**
-     * prefix length
-     * 
-     * @return prefixLength
-     **/
     public String getPrefixLength() {
         return prefixLength;
     }
@@ -372,11 +322,6 @@ public class SbiSubnetNetModel extends BaseServiceModel {
         this.prefixLength = prefixLength;
     }
 
-    /**
-     * the scope is true,false
-     * 
-     * @return dhcp6Enable
-     **/
     public String getDhcp6Enable() {
         return dhcp6Enable;
     }
@@ -385,11 +330,6 @@ public class SbiSubnetNetModel extends BaseServiceModel {
         this.dhcp6Enable = dhcp6Enable;
     }
 
-    /**
-     * the scope is server,relay
-     * 
-     * @return dhcp6Mode
-     **/
     public String getDhcp6Mode() {
         return dhcp6Mode;
     }
@@ -398,11 +338,6 @@ public class SbiSubnetNetModel extends BaseServiceModel {
         this.dhcp6Mode = dhcp6Mode;
     }
 
-    /**
-     * prior dns server
-     * 
-     * @return priorDnsServer
-     **/
     public String getPriorDnsServer() {
         return priorDnsServer;
     }
@@ -411,11 +346,6 @@ public class SbiSubnetNetModel extends BaseServiceModel {
         this.priorDnsServer = priorDnsServer;
     }
 
-    /**
-     * standby dns server
-     * 
-     * @return standbyDnsServer
-     **/
     public String getStandbyDnsServer() {
         return standbyDnsServer;
     }
@@ -424,46 +354,4 @@ public class SbiSubnetNetModel extends BaseServiceModel {
         this.standbyDnsServer = standbyDnsServer;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SbiSubnetNetModel {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    neId: ").append(toIndentedString(neId)).append("\n");
-        sb.append("    controllerId: ").append(toIndentedString(controllerId)).append("\n");
-        sb.append("    networkId: ").append(toIndentedString(networkId)).append("\n");
-        sb.append("    serviceSubnetId: ").append(toIndentedString(serviceSubnetId)).append("\n");
-        sb.append("    vni: ").append(toIndentedString(vni)).append("\n");
-        sb.append("    vlanId: ").append(toIndentedString(vlanId)).append("\n");
-        sb.append("    cidrIpAddress: ").append(toIndentedString(cidrIpAddress)).append("\n");
-        sb.append("    cidrMask: ").append(toIndentedString(cidrMask)).append("\n");
-        sb.append("    gatewayIp: ").append(toIndentedString(gatewayIp)).append("\n");
-        sb.append("    enableDhcp: ").append(toIndentedString(enableDhcp)).append("\n");
-        sb.append("    ipRangeStartIp: ").append(toIndentedString(ipRangeStartIp)).append("\n");
-        sb.append("    ipRangeEndIp: ").append(toIndentedString(ipRangeEndIp)).append("\n");
-        sb.append("    useMode: ").append(toIndentedString(useMode)).append("\n");
-        sb.append("    changedMode: ").append(toIndentedString(changedMode)).append("\n");
-        sb.append("    dhcpMode: ").append(toIndentedString(dhcpMode)).append("\n");
-        sb.append("    dnsServerMode: ").append(toIndentedString(dnsServerMode)).append("\n");
-        sb.append("    unlimit: ").append(toIndentedString(unlimit)).append("\n");
-        sb.append("    ipv6Address: ").append(toIndentedString(ipv6Address)).append("\n");
-        sb.append("    prefixLength: ").append(toIndentedString(prefixLength)).append("\n");
-        sb.append("    dhcp6Enable: ").append(toIndentedString(dhcp6Enable)).append("\n");
-        sb.append("    dhcp6Mode: ").append(toIndentedString(dhcp6Mode)).append("\n");
-        sb.append("    priorDnsServer: ").append(toIndentedString(priorDnsServer)).append("\n");
-        sb.append("    standbyDnsServer: ").append(toIndentedString(standbyDnsServer)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
 }

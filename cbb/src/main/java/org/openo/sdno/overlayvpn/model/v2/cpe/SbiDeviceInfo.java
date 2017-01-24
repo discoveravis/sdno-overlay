@@ -16,93 +16,107 @@
 
 package org.openo.sdno.overlayvpn.model.v2.cpe;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SbiDeviceInfo", propOrder = {"id", "showTenant", "serviceIp", "neType", "version", "status", "gisLon",
-                "gisLat", "vendor", "tenantId", "tenantName", "orgnizationId", "creator", "createTime", "registerTime",
-                "modifier", "modifyTime"})
-
+/**
+ * Class of Configuration Site NetworkElement Model.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 2017-1-4
+ */
 public class SbiDeviceInfo extends SbiDeviceCreateBasicInfo {
 
-    @XmlElement(name = "id")
-    @ApiModelProperty(example = "null", value = "the Id allocated by controller")
-    private String id = null;
-
-    @XmlElement(name = "showTenant")
-    @ApiModelProperty(example = "null", value = "Whether the tenant is displayed in the query result")
-    private String showTenant = null;
-
-    @XmlElement(name = "serviceIp")
-    @ApiModelProperty(example = "null", value = "device IP")
-    private String serviceIp = null;
-
-    @XmlElement(name = "neType")
-    @ApiModelProperty(example = "null", value = "device type")
-    private String neType = null;
-
-    @XmlElement(name = "version")
-    @ApiModelProperty(example = "null", value = "software version of the device")
-    private String version = null;
-
-    @XmlElement(name = "status")
-    @ApiModelProperty(example = "null", value = "device status")
-    private String status = null;
-
-    @XmlElement(name = "gisLon")
-    @ApiModelProperty(example = "null", value = "longitude of the device")
-    private Double gisLon = null;
-
-    @XmlElement(name = "gisLat")
-    @ApiModelProperty(example = "null", value = "latitude of the device")
-    private Double gisLat = null;
-
-    @XmlElement(name = "vendor")
-    @ApiModelProperty(example = "null", value = "device vendor")
-    private String vendor = null;
-
-    @XmlElement(name = "tenantId")
-    @ApiModelProperty(example = "null", value = "tenant Id")
-    private String tenantId = null;
-
-    @XmlElement(name = "tenantName")
-    @ApiModelProperty(example = "null", value = "tenant name")
-    private String tenantName = null;
-
-    @XmlElement(name = "orgnizationId")
-    @ApiModelProperty(example = "null", value = "orgnization Id")
-    private String orgnizationId = null;
-
-    @XmlElement(name = "creator")
-    @ApiModelProperty(example = "null", value = "creator")
-    private String creator = null;
-
-    @XmlElement(name = "createTime")
-    @ApiModelProperty(example = "null", value = "create time")
-    private String createTime = null;
-
-    @XmlElement(name = "registerTime")
-    @ApiModelProperty(example = "null", value = "register time")
-    private String registerTime = null;
-
-    @XmlElement(name = "modifier")
-    @ApiModelProperty(example = "null", value = "modifier")
-    private String modifier = null;
-
-    @XmlElement(name = "modifyTime")
-    @ApiModelProperty(example = "null", value = "modify time")
-    private String modifyTime = null;
+    /**
+     * Device id
+     */
+    private String id;
 
     /**
-     * Whether the tenant is displayed in the query result
-     * 
-     * @return showTenant
-     **/
+     * Show tenant or not
+     */
+    private String showTenant;
+
+    /**
+     * Service Ip
+     */
+    private String serviceIp;
+
+    /**
+     * Device type
+     */
+    private String neType;
+
+    /**
+     * Device version
+     */
+    private String version;
+
+    /**
+     * Device status
+     */
+    private String status;
+
+    /**
+     * Device longitude
+     */
+    private Double gisLon;
+
+    /**
+     * Device latitude
+     */
+    private Double gisLat;
+
+    /**
+     * Device vendor
+     */
+    private String vendor;
+
+    /**
+     * Tenant id
+     */
+    private String tenantId;
+
+    /**
+     * Tenant name
+     */
+    private String tenantName;
+
+    /**
+     * Organization id
+     */
+    private String orgnizationId;
+
+    /**
+     * Device creator
+     */
+    private String creator;
+
+    /**
+     * Device create time
+     */
+    private String createTime;
+
+    /**
+     * Device register time
+     */
+    private String registerTime;
+
+    /**
+     * Device modifier
+     */
+    private String modifier;
+
+    /**
+     * Device modifyTime
+     */
+    private String modifyTime;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getShowTenant() {
         return showTenant;
     }
@@ -111,11 +125,6 @@ public class SbiDeviceInfo extends SbiDeviceCreateBasicInfo {
         this.showTenant = showTenant;
     }
 
-    /**
-     * device IP
-     * 
-     * @return serviceIp
-     **/
     public String getServiceIp() {
         return serviceIp;
     }
@@ -124,11 +133,6 @@ public class SbiDeviceInfo extends SbiDeviceCreateBasicInfo {
         this.serviceIp = serviceIp;
     }
 
-    /**
-     * device type
-     * 
-     * @return neType
-     **/
     public String getNeType() {
         return neType;
     }
@@ -137,11 +141,6 @@ public class SbiDeviceInfo extends SbiDeviceCreateBasicInfo {
         this.neType = neType;
     }
 
-    /**
-     * software version of the device
-     * 
-     * @return version
-     **/
     public String getVersion() {
         return version;
     }
@@ -150,11 +149,6 @@ public class SbiDeviceInfo extends SbiDeviceCreateBasicInfo {
         this.version = version;
     }
 
-    /**
-     * device status
-     * 
-     * @return status
-     **/
     public String getStatus() {
         return status;
     }
@@ -163,11 +157,6 @@ public class SbiDeviceInfo extends SbiDeviceCreateBasicInfo {
         this.status = status;
     }
 
-    /**
-     * longitude of the device
-     * 
-     * @return gisLon
-     **/
     public Double getGisLon() {
         return gisLon;
     }
@@ -176,11 +165,6 @@ public class SbiDeviceInfo extends SbiDeviceCreateBasicInfo {
         this.gisLon = gisLon;
     }
 
-    /**
-     * latitude of the device
-     * 
-     * @return gisLat
-     **/
     public Double getGisLat() {
         return gisLat;
     }
@@ -189,11 +173,6 @@ public class SbiDeviceInfo extends SbiDeviceCreateBasicInfo {
         this.gisLat = gisLat;
     }
 
-    /**
-     * device vendor
-     * 
-     * @return vendor
-     **/
     public String getVendor() {
         return vendor;
     }
@@ -202,11 +181,6 @@ public class SbiDeviceInfo extends SbiDeviceCreateBasicInfo {
         this.vendor = vendor;
     }
 
-    /**
-     * tenant Id
-     * 
-     * @return tenantId
-     **/
     public String getTenantId() {
         return tenantId;
     }
@@ -215,11 +189,6 @@ public class SbiDeviceInfo extends SbiDeviceCreateBasicInfo {
         this.tenantId = tenantId;
     }
 
-    /**
-     * tenant name
-     * 
-     * @return tenantName
-     **/
     public String getTenantName() {
         return tenantName;
     }
@@ -228,11 +197,6 @@ public class SbiDeviceInfo extends SbiDeviceCreateBasicInfo {
         this.tenantName = tenantName;
     }
 
-    /**
-     * orgnization Id
-     * 
-     * @return orgnizationId
-     **/
     public String getOrgnizationId() {
         return orgnizationId;
     }
@@ -241,11 +205,6 @@ public class SbiDeviceInfo extends SbiDeviceCreateBasicInfo {
         this.orgnizationId = orgnizationId;
     }
 
-    /**
-     * creator
-     * 
-     * @return creator
-     **/
     public String getCreator() {
         return creator;
     }
@@ -254,11 +213,6 @@ public class SbiDeviceInfo extends SbiDeviceCreateBasicInfo {
         this.creator = creator;
     }
 
-    /**
-     * create time
-     * 
-     * @return createTime
-     **/
     public String getCreateTime() {
         return createTime;
     }
@@ -267,11 +221,6 @@ public class SbiDeviceInfo extends SbiDeviceCreateBasicInfo {
         this.createTime = createTime;
     }
 
-    /**
-     * register time
-     * 
-     * @return registerTime
-     **/
     public String getRegisterTime() {
         return registerTime;
     }
@@ -280,11 +229,6 @@ public class SbiDeviceInfo extends SbiDeviceCreateBasicInfo {
         this.registerTime = registerTime;
     }
 
-    /**
-     * modifier
-     * 
-     * @return modifier
-     **/
     public String getModifier() {
         return modifier;
     }
@@ -293,11 +237,6 @@ public class SbiDeviceInfo extends SbiDeviceCreateBasicInfo {
         this.modifier = modifier;
     }
 
-    /**
-     * modify time
-     * 
-     * @return modifyTime
-     **/
     public String getModifyTime() {
         return modifyTime;
     }
@@ -306,40 +245,4 @@ public class SbiDeviceInfo extends SbiDeviceCreateBasicInfo {
         this.modifyTime = modifyTime;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SbiDeviceInfo {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    showTenant: ").append(toIndentedString(showTenant)).append("\n");
-        sb.append("    serviceIp: ").append(toIndentedString(serviceIp)).append("\n");
-        sb.append("    neType: ").append(toIndentedString(neType)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("    gisLon: ").append(toIndentedString(gisLon)).append("\n");
-        sb.append("    gisLat: ").append(toIndentedString(gisLat)).append("\n");
-        sb.append("    vendor: ").append(toIndentedString(vendor)).append("\n");
-        sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-        sb.append("    tenantName: ").append(toIndentedString(tenantName)).append("\n");
-        sb.append("    orgnizationId: ").append(toIndentedString(orgnizationId)).append("\n");
-        sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
-        sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
-        sb.append("    registerTime: ").append(toIndentedString(registerTime)).append("\n");
-        sb.append("    modifier: ").append(toIndentedString(modifier)).append("\n");
-        sb.append("    modifyTime: ").append(toIndentedString(modifyTime)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
 }

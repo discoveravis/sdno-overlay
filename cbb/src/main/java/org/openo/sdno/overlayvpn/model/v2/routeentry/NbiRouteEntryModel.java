@@ -16,58 +16,69 @@
 
 package org.openo.sdno.overlayvpn.model.v2.routeentry;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
 import org.openo.sdno.overlayvpn.model.v2.basemodel.BaseServiceModel;
+import org.openo.sdno.overlayvpn.verify.annotation.AInt;
+import org.openo.sdno.overlayvpn.verify.annotation.AIp;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
+import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "NbiRouteEntryModel", propOrder = {"siteId", "subnetId", "cidr", "vpnGatewayId", "internetGatewayId",
-                "nextHop", "precedence", "routeType"})
-
+/**
+ * Model class of Site RouteEntry.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 2017-1-4
+ */
+@MOResType(infoModelName = "localsite_routeentrymodel")
 public class NbiRouteEntryModel extends BaseServiceModel {
 
-    @XmlElement(name = "siteId")
-    @ApiModelProperty(example = "null", required = true, value = "site id")
-    private String siteId = null;
-
-    @XmlElement(name = "subnetId")
-    @ApiModelProperty(example = "null", value = "subnet id")
-    private String subnetId = null;
-
-    @XmlElement(name = "cidr")
-    @ApiModelProperty(example = "null", value = "cidr")
-    private String cidr = null;
-
-    @XmlElement(name = "vpnGatewayId")
-    @ApiModelProperty(example = "null", value = "vpn gateway id")
-    private String vpnGatewayId = null;
-
-    @XmlElement(name = "internetGatewayId")
-    @ApiModelProperty(example = "null", value = "internet Gateway Id")
-    private String internetGatewayId = null;
-
-    @XmlElement(name = "nextHop")
-    @ApiModelProperty(example = "null", value = "next hop")
-    private String nextHop = null;
-
-    @XmlElement(name = "precedence")
-    @ApiModelProperty(example = "null", value = "precedence")
-    private String precedence = null;
-
-    @XmlElement(name = "routeType")
-    @ApiModelProperty(example = "null", value = "only support static-routing for now")
-    private String routeType = null;
+    /**
+     * Site Uuid
+     */
+    @AUuid(require = true)
+    private String siteId;
 
     /**
-     * site id
-     * 
-     * @return siteId
-     **/
+     * Subnet Uuid
+     */
+    @AUuid
+    private String subnetId;
+
+    /**
+     * Subnet cidr
+     */
+    private String cidr;
+
+    /**
+     * Vpn Gateway Id
+     */
+    @AUuid
+    private String vpnGatewayId;
+
+    /**
+     * Internet Gateway Id
+     */
+    @AUuid
+    private String internetGatewayId;
+
+    /**
+     * Next hop
+     */
+    @AIp
+    private String nextHop;
+
+    /**
+     * Route precedence
+     */
+    @AInt(require = false, min = 1, max = 254)
+    private int precedence;
+
+    /**
+     * Route type
+     */
+    @AString(require = false, scope = "static-routing")
+    private String routeType = "static-routing";
+
     public String getSiteId() {
         return siteId;
     }
@@ -76,11 +87,6 @@ public class NbiRouteEntryModel extends BaseServiceModel {
         this.siteId = siteId;
     }
 
-    /**
-     * subnet id
-     * 
-     * @return subnetId
-     **/
     public String getSubnetId() {
         return subnetId;
     }
@@ -89,11 +95,6 @@ public class NbiRouteEntryModel extends BaseServiceModel {
         this.subnetId = subnetId;
     }
 
-    /**
-     * cidr
-     * 
-     * @return cidr
-     **/
     public String getCidr() {
         return cidr;
     }
@@ -102,11 +103,6 @@ public class NbiRouteEntryModel extends BaseServiceModel {
         this.cidr = cidr;
     }
 
-    /**
-     * vpn gateway id
-     * 
-     * @return vpnGatewayId
-     **/
     public String getVpnGatewayId() {
         return vpnGatewayId;
     }
@@ -115,11 +111,6 @@ public class NbiRouteEntryModel extends BaseServiceModel {
         this.vpnGatewayId = vpnGatewayId;
     }
 
-    /**
-     * internet Gateway Id
-     * 
-     * @return internetGatewayId
-     **/
     public String getInternetGatewayId() {
         return internetGatewayId;
     }
@@ -128,11 +119,6 @@ public class NbiRouteEntryModel extends BaseServiceModel {
         this.internetGatewayId = internetGatewayId;
     }
 
-    /**
-     * next hop
-     * 
-     * @return nextHop
-     **/
     public String getNextHop() {
         return nextHop;
     }
@@ -141,24 +127,14 @@ public class NbiRouteEntryModel extends BaseServiceModel {
         this.nextHop = nextHop;
     }
 
-    /**
-     * precedence
-     * 
-     * @return precedence
-     **/
-    public String getPrecedence() {
+    public int getPrecedence() {
         return precedence;
     }
 
-    public void setPrecedence(String precedence) {
+    public void setPrecedence(int precedence) {
         this.precedence = precedence;
     }
 
-    /**
-     * only support static-routing for now
-     * 
-     * @return routeType
-     **/
     public String getRouteType() {
         return routeType;
     }
@@ -167,31 +143,4 @@ public class NbiRouteEntryModel extends BaseServiceModel {
         this.routeType = routeType;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class NbiRouteEntryModel {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    siteId: ").append(toIndentedString(siteId)).append("\n");
-        sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
-        sb.append("    cidr: ").append(toIndentedString(cidr)).append("\n");
-        sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");
-        sb.append("    internetGatewayId: ").append(toIndentedString(internetGatewayId)).append("\n");
-        sb.append("    nextHop: ").append(toIndentedString(nextHop)).append("\n");
-        sb.append("    precedence: ").append(toIndentedString(precedence)).append("\n");
-        sb.append("    routeType: ").append(toIndentedString(routeType)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
 }

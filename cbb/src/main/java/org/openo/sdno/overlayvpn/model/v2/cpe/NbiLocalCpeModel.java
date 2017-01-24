@@ -16,84 +16,42 @@
 
 package org.openo.sdno.overlayvpn.model.v2.cpe;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.openo.sdno.overlayvpn.model.v2.uuid.UuidModel;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
+import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "NbiLocalCpeModel", propOrder = {"tenantId", "siteId", "name", "esn", "oldEsn", "controllerId",
-                "localCpeType", "description"})
-
+/**
+ * Model class of LocalCpe.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 2017-1-4
+ */
 public class NbiLocalCpeModel extends UuidModel {
 
-    @XmlElement(name = "tenantId")
-    @ApiModelProperty(example = "null", required = true, value = "tenant id")
-    private String tenantId = null;
+    @AString(min = 0, max = 128)
+    private String name;
 
-    @XmlElement(name = "siteId")
-    @ApiModelProperty(example = "null", required = true, value = "site id")
-    private String siteId = null;
+    @AString(min = 0, max = 36)
+    private String esn;
 
-    @XmlElement(name = "name")
-    @ApiModelProperty(example = "null", value = "name")
-    private String name = null;
+    @AString(min = 0, max = 36)
+    private String oldEsn;
 
-    @XmlElement(name = "esn")
-    @ApiModelProperty(example = "null", value = "esn")
-    private String esn = null;
+    @AUuid
+    private String tenantId;
 
-    @XmlElement(name = "oldEsn")
-    @ApiModelProperty(example = "null", value = "old esn")
-    private String oldEsn = null;
+    @AUuid
+    private String controllerId;
 
-    @XmlElement(name = "controllerId")
-    @ApiModelProperty(example = "null", value = "controller id")
-    private String controllerId = null;
+    @AUuid
+    private String siteId;
 
-    @XmlElement(name = "localCpeType")
-    @ApiModelProperty(example = "null", value = "local cpe type")
-    private String localCpeType = null;
+    @AString(min = 0, max = 128)
+    private String localCpeType;
 
-    @XmlElement(name = "description")
-    @ApiModelProperty(example = "null", value = "description")
-    private String description = null;
+    @AString
+    private String description;
 
-    /**
-     * tenant id
-     * 
-     * @return tenantId
-     **/
-    public String getTenantId() {
-        return tenantId;
-    }
-
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    /**
-     * site id
-     * 
-     * @return siteId
-     **/
-    public String getSiteId() {
-        return siteId;
-    }
-
-    public void setSiteId(String siteId) {
-        this.siteId = siteId;
-    }
-
-    /**
-     * name
-     * 
-     * @return name
-     **/
     public String getName() {
         return name;
     }
@@ -102,11 +60,6 @@ public class NbiLocalCpeModel extends UuidModel {
         this.name = name;
     }
 
-    /**
-     * esn
-     * 
-     * @return esn
-     **/
     public String getEsn() {
         return esn;
     }
@@ -115,11 +68,6 @@ public class NbiLocalCpeModel extends UuidModel {
         this.esn = esn;
     }
 
-    /**
-     * old esn
-     * 
-     * @return oldEsn
-     **/
     public String getOldEsn() {
         return oldEsn;
     }
@@ -128,11 +76,14 @@ public class NbiLocalCpeModel extends UuidModel {
         this.oldEsn = oldEsn;
     }
 
-    /**
-     * controller id
-     * 
-     * @return controllerId
-     **/
+    public String getTenantId() {
+        return tenantId;
+    }
+
+    public void setTenantId(String tenantId) {
+        this.tenantId = tenantId;
+    }
+
     public String getControllerId() {
         return controllerId;
     }
@@ -141,11 +92,14 @@ public class NbiLocalCpeModel extends UuidModel {
         this.controllerId = controllerId;
     }
 
-    /**
-     * local cpe type
-     * 
-     * @return localCpeType
-     **/
+    public String getSiteId() {
+        return siteId;
+    }
+
+    public void setSiteId(String siteId) {
+        this.siteId = siteId;
+    }
+
     public String getLocalCpeType() {
         return localCpeType;
     }
@@ -154,44 +108,11 @@ public class NbiLocalCpeModel extends UuidModel {
         this.localCpeType = localCpeType;
     }
 
-    /**
-     * description
-     * 
-     * @return description
-     **/
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class NbiLocalCpeModel {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-        sb.append("    siteId: ").append(toIndentedString(siteId)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    esn: ").append(toIndentedString(esn)).append("\n");
-        sb.append("    oldEsn: ").append(toIndentedString(oldEsn)).append("\n");
-        sb.append("    controllerId: ").append(toIndentedString(controllerId)).append("\n");
-        sb.append("    localCpeType: ").append(toIndentedString(localCpeType)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 }

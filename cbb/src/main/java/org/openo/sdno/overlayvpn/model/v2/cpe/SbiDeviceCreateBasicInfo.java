@@ -16,41 +16,41 @@
 
 package org.openo.sdno.overlayvpn.model.v2.cpe;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.openo.sdno.overlayvpn.model.v2.uuid.UuidModel;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
 
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SbiDeviceCreateBasicInfo", propOrder = {"name", "esn", "orgnizationName", "description"})
-
+/**
+ * Class of SbiDevice Create Model.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 2017-1-4
+ */
 public class SbiDeviceCreateBasicInfo extends UuidModel {
 
-    @XmlElement(name = "name")
-    @ApiModelProperty(example = "null", value = "device name")
-    private String name = null;
-
-    @XmlElement(name = "esn")
-    @ApiModelProperty(example = "null", required = true, value = "electronic serial number")
-    private String esn = null;
-
-    @XmlElement(name = "orgnizationName")
-    @ApiModelProperty(example = "null", value = "orgnization name")
-    private String orgnizationName = null;
-
-    @XmlElement(name = "description")
-    @ApiModelProperty(example = "null", value = "description info")
-    private String description = null;
+    /**
+     * Name
+     */
+    @AString(min = 0, max = 64)
+    private String name;
 
     /**
-     * device name
-     * 
-     * @return name
-     **/
+     * Esn
+     */
+    @AString(require = true, min = 20, max = 20)
+    private String esn;
+
+    /**
+     * Name of organization
+     */
+    @AString(min = 0, max = 128)
+    private String orgnizationName;
+
+    /**
+     * Description
+     */
+    @AString(min = 0, max = 255)
+    private String description;
+
     public String getName() {
         return name;
     }
@@ -59,11 +59,6 @@ public class SbiDeviceCreateBasicInfo extends UuidModel {
         this.name = name;
     }
 
-    /**
-     * electronic serial number
-     * 
-     * @return esn
-     **/
     public String getEsn() {
         return esn;
     }
@@ -72,11 +67,6 @@ public class SbiDeviceCreateBasicInfo extends UuidModel {
         this.esn = esn;
     }
 
-    /**
-     * orgnization name
-     * 
-     * @return orgnizationName
-     **/
     public String getOrgnizationName() {
         return orgnizationName;
     }
@@ -85,11 +75,6 @@ public class SbiDeviceCreateBasicInfo extends UuidModel {
         this.orgnizationName = orgnizationName;
     }
 
-    /**
-     * description info
-     * 
-     * @return description
-     **/
     public String getDescription() {
         return description;
     }
@@ -99,26 +84,36 @@ public class SbiDeviceCreateBasicInfo extends UuidModel {
     }
 
     @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SbiDeviceCreateBasicInfo {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    esn: ").append(toIndentedString(esn)).append("\n");
-        sb.append("    orgnizationName: ").append(toIndentedString(orgnizationName)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("}");
-        return sb.toString();
+    public int hashCode() {
+        int result = 1;
+        result = 31 * result + (esn == null ? 0 : esn.hashCode());
+        return result;
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) {
+            return true;
         }
-        return o.toString().replace("\n", "\n    ");
+
+        if(obj == null) {
+            return false;
+        }
+
+        if(getClass() != obj.getClass()) {
+            return false;
+        }
+
+        SbiDeviceInfo other = (SbiDeviceInfo)obj;
+        if(esn == null) {
+            if(other.getEsn() != null) {
+                return false;
+            }
+        } else if(!esn.equals(other.getEsn())) {
+            return false;
+        }
+
+        return true;
     }
+
 }

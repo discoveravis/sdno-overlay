@@ -16,74 +16,96 @@
 
 package org.openo.sdno.overlayvpn.model.v2.internetgateway;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.openo.sdno.overlayvpn.brs.model.NetworkElementMO;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOConvertField;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
 import org.openo.sdno.overlayvpn.model.v2.basemodel.BaseServiceModel;
+import org.openo.sdno.overlayvpn.model.v2.site.NbiSiteModel;
+import org.openo.sdno.overlayvpn.verify.annotation.AIp;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
+import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "NbiInternetGatewayModel", propOrder = {"siteId", "protectionType", "enableSnat", "upstreamBandwidth",
-                "downstreamBandwidth", "vpnId", "publicIp", "deployPosition", "sourceSubnets", "createtime",
-                "updatetime"})
-
+/**
+ * Model class of Site Internet Gateway.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 2017-1-12
+ */
+@MOResType(infoModelName = "localsite_internetgatewaymodel")
 public class NbiInternetGatewayModel extends BaseServiceModel {
 
-    @XmlElement(name = "siteId")
-    @ApiModelProperty(example = "null", required = true, value = "site id")
-    private String siteId = null;
-
-    @XmlElement(name = "protectionType")
-    @ApiModelProperty(example = "null", value = "not support now")
-    private String protectionType = null;
-
-    @XmlElement(name = "enableSnat")
-    @ApiModelProperty(example = "null", value = "default:true")
-    private String enableSnat = null;
-
-    @XmlElement(name = "upstreamBandwidth")
-    @ApiModelProperty(example = "null", value = "up stream Bandwidth")
-    private String upstreamBandwidth = null;
-
-    @XmlElement(name = "downstreamBandwidth")
-    @ApiModelProperty(example = "null", value = "down stream Bandwidth")
-    private String downstreamBandwidth = null;
-
-    @XmlElement(name = "vpnId")
-    @ApiModelProperty(example = "null", value = "vpn id")
-    private String vpnId = null;
-
-    @XmlElement(name = "publicIp")
-    @ApiModelProperty(example = "null", value = "public ip")
-    private String publicIp = null;
-
-    @XmlElement(name = "deployPosition")
-    @ApiModelProperty(example = "null", value = "(scope=localFirst, cloudFirst)")
-    private String deployPosition = null;
-
-    @XmlElement(name = "sourceSubnets")
-    @ApiModelProperty(example = "null", value = "port name list")
-    private List<String> sourceSubnets = new ArrayList<String>();
-
-    @XmlElement(name = "createtime")
-    @ApiModelProperty(example = "null", value = "create time")
-    private Long createtime = null;
-
-    @XmlElement(name = "updatetime")
-    @ApiModelProperty(example = "null", value = "update time")
-    private Long updatetime = null;
+    /**
+     * Site Uuid
+     */
+    @AString(require = true)
+    private String siteId;
 
     /**
-     * site id
-     * 
-     * @return siteId
-     **/
+     * Protection mode, just support non-protection mode
+     */
+    @AString(require = false, scope = "non-protection")
+    private String protectionType = "non-protection";
+
+    /**
+     * Enable Snat or not
+     */
+    @AString(require = false, scope = "true,false")
+    private String enableSnat = "true";
+
+    /**
+     * Bandwidth of UpStream
+     */
+    private Long upstreamBandwidth;
+
+    /**
+     * Bandwidth of DownStream
+     */
+    private Long downstreamBandwidth;
+
+    /**
+     * List of Subnet Uuid
+     */
+    @MOConvertField
+    private List<String> sourceSubnets;
+
+    /**
+     * Vpn id inside Site
+     */
+    @AUuid(require = false)
+    private String vpnId;
+
+    /**
+     * Public Ip Address
+     */
+    @AIp
+    private String publicIP;
+
+    /**
+     * Deploy position
+     */
+    @AString(scope = "localFirst,cloudFirst")
+    private String deployPosition;
+
+    @JsonIgnore
+    @NONInvField
+    private List<NetworkElementMO> nes;
+
+    @JsonIgnore
+    @NONInvField
+    private NbiSiteModel site;
+
+    @NONInvField
+    @AString
+    private long createtime;
+
+    @NONInvField
+    @AString
+    private long updatetime;
+
     public String getSiteId() {
         return siteId;
     }
@@ -92,11 +114,6 @@ public class NbiInternetGatewayModel extends BaseServiceModel {
         this.siteId = siteId;
     }
 
-    /**
-     * not support now
-     * 
-     * @return protectionType
-     **/
     public String getProtectionType() {
         return protectionType;
     }
@@ -105,11 +122,6 @@ public class NbiInternetGatewayModel extends BaseServiceModel {
         this.protectionType = protectionType;
     }
 
-    /**
-     * default:true
-     * 
-     * @return enableSnat
-     **/
     public String getEnableSnat() {
         return enableSnat;
     }
@@ -118,76 +130,22 @@ public class NbiInternetGatewayModel extends BaseServiceModel {
         this.enableSnat = enableSnat;
     }
 
-    /**
-     * up stream Bandwidth
-     * 
-     * @return upstreamBandwidth
-     **/
-    public String getUpstreamBandwidth() {
+    public Long getUpstreamBandwidth() {
         return upstreamBandwidth;
     }
 
-    public void setUpstreamBandwidth(String upstreamBandwidth) {
+    public void setUpstreamBandwidth(Long upstreamBandwidth) {
         this.upstreamBandwidth = upstreamBandwidth;
     }
 
-    /**
-     * down stream Bandwidth
-     * 
-     * @return downstreamBandwidth
-     **/
-    public String getDownstreamBandwidth() {
+    public Long getDownstreamBandwidth() {
         return downstreamBandwidth;
     }
 
-    public void setDownstreamBandwidth(String downstreamBandwidth) {
+    public void setDownstreamBandwidth(Long downstreamBandwidth) {
         this.downstreamBandwidth = downstreamBandwidth;
     }
 
-    /**
-     * vpn id
-     * 
-     * @return vpnId
-     **/
-    public String getVpnId() {
-        return vpnId;
-    }
-
-    public void setVpnId(String vpnId) {
-        this.vpnId = vpnId;
-    }
-
-    /**
-     * public ip
-     * 
-     * @return publicIp
-     **/
-    public String getPublicIp() {
-        return publicIp;
-    }
-
-    public void setPublicIp(String publicIp) {
-        this.publicIp = publicIp;
-    }
-
-    /**
-     * (scope=localFirst, cloudFirst)
-     * 
-     * @return deployPosition
-     **/
-    public String getDeployPosition() {
-        return deployPosition;
-    }
-
-    public void setDeployPosition(String deployPosition) {
-        this.deployPosition = deployPosition;
-    }
-
-    /**
-     * port name list
-     * 
-     * @return sourceSubnets
-     **/
     public List<String> getSourceSubnets() {
         return sourceSubnets;
     }
@@ -196,60 +154,60 @@ public class NbiInternetGatewayModel extends BaseServiceModel {
         this.sourceSubnets = sourceSubnets;
     }
 
-    /**
-     * create time
-     * 
-     * @return createtime
-     **/
-    public Long getCreatetime() {
+    public String getVpnId() {
+        return vpnId;
+    }
+
+    public void setVpnId(String vpnId) {
+        this.vpnId = vpnId;
+    }
+
+    public String getPublicIP() {
+        return publicIP;
+    }
+
+    public void setPublicIP(String publicIP) {
+        this.publicIP = publicIP;
+    }
+
+    public String getDeployPosition() {
+        return deployPosition;
+    }
+
+    public void setDeployPosition(String deployPosition) {
+        this.deployPosition = deployPosition;
+    }
+
+    public List<NetworkElementMO> getNes() {
+        return nes;
+    }
+
+    public void setNes(List<NetworkElementMO> nes) {
+        this.nes = nes;
+    }
+
+    public NbiSiteModel getSite() {
+        return site;
+    }
+
+    public void setSite(NbiSiteModel site) {
+        this.site = site;
+    }
+
+    public long getCreatetime() {
         return createtime;
     }
 
-    public void setCreatetime(Long createtime) {
+    public void setCreatetime(long createtime) {
         this.createtime = createtime;
     }
 
-    /**
-     * update time
-     * 
-     * @return updatetime
-     **/
-    public Long getUpdatetime() {
+    public long getUpdatetime() {
         return updatetime;
     }
 
-    public void setUpdatetime(Long updatetime) {
+    public void setUpdatetime(long updatetime) {
         this.updatetime = updatetime;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class NbiInternetGatewayModel {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    siteId: ").append(toIndentedString(siteId)).append("\n");
-        sb.append("    protectionType: ").append(toIndentedString(protectionType)).append("\n");
-        sb.append("    enableSnat: ").append(toIndentedString(enableSnat)).append("\n");
-        sb.append("    upstreamBandwidth: ").append(toIndentedString(upstreamBandwidth)).append("\n");
-        sb.append("    downstreamBandwidth: ").append(toIndentedString(downstreamBandwidth)).append("\n");
-        sb.append("    vpnId: ").append(toIndentedString(vpnId)).append("\n");
-        sb.append("    publicIp: ").append(toIndentedString(publicIp)).append("\n");
-        sb.append("    deployPosition: ").append(toIndentedString(deployPosition)).append("\n");
-        sb.append("    sourceSubnets: ").append(toIndentedString(sourceSubnets)).append("\n");
-        sb.append("    createtime: ").append(toIndentedString(createtime)).append("\n");
-        sb.append("    updatetime: ").append(toIndentedString(updatetime)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
 }

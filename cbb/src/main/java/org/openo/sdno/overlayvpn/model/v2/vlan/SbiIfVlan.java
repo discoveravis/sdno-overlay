@@ -16,67 +16,66 @@
 
 package org.openo.sdno.overlayvpn.model.v2.vlan;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
 import org.openo.sdno.overlayvpn.model.v2.uuid.UuidModel;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
+import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SbiIfVlan", propOrder = {"serviceVlanUuid", "ethInterfaceConfigId", "ifId", "ifName", "defaultVlan",
-                "linkType", "vlans"})
-
+/**
+ * Model class of Interface Vlan.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 2017-1-4
+ */
+@MOResType(infoModelName = "localsite_ifvlan")
 public class SbiIfVlan extends UuidModel {
 
-    @XmlElement(name = "serviceVlanUuid")
-    @ApiModelProperty(example = "null", required = true, value = "The UUID of VLAN model")
-    private String serviceVlanUuid = null;
-
-    @XmlElement(name = "ethInterfaceConfigId")
-    @ApiModelProperty(example = "null", value = "The interface UUID allocated by controller")
-    private String ethInterfaceConfigId = null;
-
-    @XmlElement(name = "ifId")
-    @ApiModelProperty(example = "null", value = "The UUID of interface")
-    private String ifId = null;
-
-    @XmlElement(name = "ifName")
-    @ApiModelProperty(example = "null", value = "interface name")
-    private String ifName = null;
-
-    @XmlElement(name = "defaultVlan")
-    @ApiModelProperty(example = "null", value = "VLAN value, the range is 1 to 4094")
-    private Integer defaultVlan = null;
-
-    @XmlElement(name = "linkType")
-    @ApiModelProperty(example = "null", required = true, value = "the scope is access,trunk,hybird,dot1q,qinq")
-    private String linkType = null;
-
-    @XmlElement(name = "vlans")
-    @ApiModelProperty(example = "null", value = "vlan")
-    private String vlans = null;
+    /**
+     * Uuid of VlanModel
+     */
+    @AUuid(require = true)
+    private String serviceVlanUuId;
 
     /**
-     * The UUID of VLAN model
-     * 
-     * @return serviceVlanUuid
-     **/
-    public String getServiceVlanUuid() {
-        return serviceVlanUuid;
-    }
-
-    public void setServiceVlanUuid(String serviceVlanUuid) {
-        this.serviceVlanUuid = serviceVlanUuid;
-    }
+     * Config Id return by AC
+     */
+    @AUuid(require = true)
+    private String ethInterfaceConfigId;
 
     /**
-     * The interface UUID allocated by controller
-     * 
-     * @return ethInterfaceConfigId
-     **/
+     * Interface Id
+     */
+    private String ifId;
+
+    /**
+     * Interface Name
+     */
+    private String ifName;
+
+    /**
+     * Default Vlan
+     */
+    private Integer defaultVlan;
+
+    /**
+     * Link type
+     */
+    @AString(require = true, scope = "access,trunk,hybird,dot1q,qinq")
+    private String linkType = "trunk";
+
+    /**
+     * Vlan Id
+     */
+    private String vlans;
+
+    public String getServiceVlanUuId() {
+        return serviceVlanUuId;
+    }
+
+    public void setServiceVlanUuId(String serviceVlanUuId) {
+        this.serviceVlanUuId = serviceVlanUuId;
+    }
+
     public String getEthInterfaceConfigId() {
         return ethInterfaceConfigId;
     }
@@ -85,11 +84,6 @@ public class SbiIfVlan extends UuidModel {
         this.ethInterfaceConfigId = ethInterfaceConfigId;
     }
 
-    /**
-     * The UUID of interface
-     * 
-     * @return ifId
-     **/
     public String getIfId() {
         return ifId;
     }
@@ -98,11 +92,6 @@ public class SbiIfVlan extends UuidModel {
         this.ifId = ifId;
     }
 
-    /**
-     * interface name
-     * 
-     * @return ifName
-     **/
     public String getIfName() {
         return ifName;
     }
@@ -111,11 +100,6 @@ public class SbiIfVlan extends UuidModel {
         this.ifName = ifName;
     }
 
-    /**
-     * VLAN value, the range is 1 to 4094
-     * 
-     * @return defaultVlan
-     **/
     public Integer getDefaultVlan() {
         return defaultVlan;
     }
@@ -124,11 +108,6 @@ public class SbiIfVlan extends UuidModel {
         this.defaultVlan = defaultVlan;
     }
 
-    /**
-     * the scope is access,trunk,hybird,dot1q,qinq
-     * 
-     * @return linkType
-     **/
     public String getLinkType() {
         return linkType;
     }
@@ -137,43 +116,11 @@ public class SbiIfVlan extends UuidModel {
         this.linkType = linkType;
     }
 
-    /**
-     * vlan
-     * 
-     * @return vlans
-     **/
     public String getVlans() {
         return vlans;
     }
 
     public void setVlans(String vlans) {
         this.vlans = vlans;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SbiIfVlan {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    serviceVlanUuid: ").append(toIndentedString(serviceVlanUuid)).append("\n");
-        sb.append("    ethInterfaceConfigId: ").append(toIndentedString(ethInterfaceConfigId)).append("\n");
-        sb.append("    ifId: ").append(toIndentedString(ifId)).append("\n");
-        sb.append("    ifName: ").append(toIndentedString(ifName)).append("\n");
-        sb.append("    defaultVlan: ").append(toIndentedString(defaultVlan)).append("\n");
-        sb.append("    linkType: ").append(toIndentedString(linkType)).append("\n");
-        sb.append("    vlans: ").append(toIndentedString(vlans)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 }

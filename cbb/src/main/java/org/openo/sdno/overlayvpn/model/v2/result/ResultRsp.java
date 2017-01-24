@@ -33,7 +33,7 @@ import org.springframework.util.StringUtils;
  * 
  * @param <T> User Data Class
  * @author
- * @version SDNO 0.5 June 3, 2016
+ * @version SDNO 0.5 2017-1-6
  */
 @SuppressWarnings("serial")
 public class ResultRsp<T> implements Serializable {

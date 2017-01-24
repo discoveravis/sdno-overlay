@@ -16,52 +16,54 @@
 
 package org.openo.sdno.overlayvpn.model.v2.vlan;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
 import org.openo.sdno.overlayvpn.model.v2.basemodel.BaseServiceModel;
+import org.openo.sdno.overlayvpn.verify.annotation.AInt;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
+import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "NbiVlanModel", propOrder = {"siteId", "vlanId", "ports", "portNames", "createtime", "updatetime"})
-
+/**
+ * Model class of Site VLAN.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 2017-1-4
+ */
+@MOResType(infoModelName = "localsite_vlanmodel")
 public class NbiVlanModel extends BaseServiceModel {
 
-    @XmlElement(name = "siteId")
-    @ApiModelProperty(example = "null", value = "site id")
-    private String siteId = null;
-
-    @XmlElement(name = "vlanId")
-    @ApiModelProperty(example = "null", value = "vlan id")
-    private Integer vlanId = null;
-
-    @XmlElement(name = "ports")
-    @ApiModelProperty(example = "null", value = "ports list")
-    private List<String> ports = new ArrayList<String>();
-
-    @XmlElement(name = "portNames")
-    @ApiModelProperty(example = "null", value = "port name list")
-    private List<String> portNames = new ArrayList<String>();
-
-    @XmlElement(name = "createtime")
-    @ApiModelProperty(example = "null", value = "create time")
-    private Long createtime = null;
-
-    @XmlElement(name = "updatetime")
-    @ApiModelProperty(example = "null", value = "update time")
-    private Long updatetime = null;
+    /**
+     * Site Uuid
+     */
+    @AUuid
+    private String siteId;
 
     /**
-     * site id
-     * 
-     * @return siteId
-     **/
+     * Vlan Id
+     */
+    @AInt(min = 1, max = 4094)
+    private Integer vlanId;
+
+    /**
+     * List of port Uuid
+     */
+    @NONInvField
+    private List<String> ports;
+
+    /**
+     * List of port name
+     */
+    @NONInvField
+    private List<String> portNames;
+
+    @NONInvField
+    private long createtime;
+
+    @NONInvField
+    private long updatetime;
+
     public String getSiteId() {
         return siteId;
     }
@@ -70,11 +72,6 @@ public class NbiVlanModel extends BaseServiceModel {
         this.siteId = siteId;
     }
 
-    /**
-     * vlan id
-     * 
-     * @return vlanId
-     **/
     public Integer getVlanId() {
         return vlanId;
     }
@@ -83,24 +80,14 @@ public class NbiVlanModel extends BaseServiceModel {
         this.vlanId = vlanId;
     }
 
-    /**
-     * ports list
-     * 
-     * @return ports
-     **/
     public List<String> getPorts() {
         return ports;
     }
 
-    public void setPorts(List<String> ports) {
-        this.ports = ports;
+    public void setPorts(List<String> portList) {
+        this.ports = portList;
     }
 
-    /**
-     * port name list
-     * 
-     * @return portNames
-     **/
     public List<String> getPortNames() {
         return portNames;
     }
@@ -109,55 +96,24 @@ public class NbiVlanModel extends BaseServiceModel {
         this.portNames = portNames;
     }
 
-    /**
-     * create time
-     * 
-     * @return createtime
-     **/
-    public Long getCreatetime() {
+    public long getCreatetime() {
         return createtime;
     }
 
-    public void setCreatetime(Long createtime) {
+    public void setCreatetime(long createtime) {
         this.createtime = createtime;
     }
 
-    /**
-     * update time
-     * 
-     * @return updatetime
-     **/
-    public Long getUpdatetime() {
+    public long getUpdatetime() {
         return updatetime;
     }
 
-    public void setUpdatetime(Long updatetime) {
+    public void setUpdatetime(long updatetime) {
         this.updatetime = updatetime;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class NbiVlanModel {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    siteId: ").append(toIndentedString(siteId)).append("\n");
-        sb.append("    vlanId: ").append(toIndentedString(vlanId)).append("\n");
-        sb.append("    ports: ").append(toIndentedString(ports)).append("\n");
-        sb.append("    portNames: ").append(toIndentedString(portNames)).append("\n");
-        sb.append("    createtime: ").append(toIndentedString(createtime)).append("\n");
-        sb.append("    updatetime: ").append(toIndentedString(updatetime)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return "VlanModel [siteId=" + siteId + ",vlanId=" + vlanId + ",portNames=" + portNames + "]";
     }
 }

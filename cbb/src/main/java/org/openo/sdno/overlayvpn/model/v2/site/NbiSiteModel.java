@@ -16,141 +16,146 @@
 
 package org.openo.sdno.overlayvpn.model.v2.site;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
-import org.openo.sdno.overlayvpn.model.v2.cpe.NbiNeMo;
+import org.openo.sdno.overlayvpn.brs.model.NetworkElementMO;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOConvertField;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
+import org.openo.sdno.overlayvpn.model.common.enums.ActionStatus;
 import org.openo.sdno.overlayvpn.model.v2.internetgateway.NbiInternetGatewayModel;
 import org.openo.sdno.overlayvpn.model.v2.routeentry.NbiRouteEntryModel;
 import org.openo.sdno.overlayvpn.model.v2.subnet.NbiSubnetModel;
 import org.openo.sdno.overlayvpn.model.v2.uuid.UuidModel;
 import org.openo.sdno.overlayvpn.model.v2.vlan.NbiVlanModel;
+import org.openo.sdno.overlayvpn.verify.annotation.ALong;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
+import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "NbiSiteModel", propOrder = {"name", "tenantId", "description", "location", "actionState",
-                "deployCloudCpeByDeafult", "popId", "localCpeType", "siteDescriptor", "reliability", "isEncrypt",
-                "vpnUpstreamBandwidth", "vpnDownstreamBandwidth", "totalDownstreamBandwidth", "totalUpstreamBandwidth",
-                "createtime", "updatetime", "localCpes", "cloudCpes", "subnets", "vlans", "routes", "internetGateway"})
-
+/**
+ * Model class of Local Site.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 2017-1-6
+ */
+@MOResType(infoModelName = "localsite_sitemodel")
 public class NbiSiteModel extends UuidModel {
 
-    @XmlElement(name = "name")
-    @ApiModelProperty(example = "null", required = true, value = "the name of the model")
-    private String name = null;
-
-    @XmlElement(name = "tenantId")
-    @ApiModelProperty(example = "null", required = true, value = "tenant ID")
-    private String tenantId = null;
-
-    @XmlElement(name = "description")
-    @ApiModelProperty(example = "null", value = "description info")
-    private String description = null;
-
-    @XmlElement(name = "location")
-    @ApiModelProperty(example = "null", value = "location")
-    private String location = null;
-
-    @XmlElement(name = "actionState")
-    @ApiModelProperty(example = "null", value = "operation status(scope:none,normal,creating,deleting,updating,create_exception,update_exception,delete_exception,deploying,deploy_exception,undeploying,undeploy_exception,checking,check_exception)")
-    private String actionState = null;
-
-    @XmlElement(name = "deployCloudCpeByDeafult")
-    @ApiModelProperty(example = "null", value = "default=true")
-    private String deployCloudCpeByDeafult = null;
-
-    @XmlElement(name = "popId")
-    @ApiModelProperty(example = "null", value = "pop id")
-    private String popId = null;
-
-    @XmlElement(name = "localCpeType")
-    @ApiModelProperty(example = "null", value = "local cpe type")
-    private String localCpeType = null;
-
-    @XmlElement(name = "siteDescriptor")
-    @ApiModelProperty(example = "null", required = true, value = "site Descriptor")
-    private String siteDescriptor = null;
-
-    @XmlElement(name = "reliability")
-    @ApiModelProperty(example = "null", required = true, value = "(scope:singleFixedNetwork,dualFixedNetwork,fixedAndWirelessNetwork,EthernetNetwork,VDSLNetwork,GSHDSLNetwork,EthernetAndLTENetwork,EthernetAndEthernetNetwork,EthernetAndVDSLNetwork,VDSLAndLTENetwork)")
-    private String reliability = null;
-
-    @XmlElement(name = "isEncrypt")
-    @ApiModelProperty(example = "null", value = "is encrypt")
-    private String isEncrypt = null;
-
-    @XmlElement(name = "vpnUpstreamBandwidth")
-    @ApiModelProperty(example = "null", value = "vpn Upstream Bandwidth default=-2L")
-    private Long vpnUpstreamBandwidth = null;
-
-    @XmlElement(name = "vpnDownstreamBandwidth")
-    @ApiModelProperty(example = "null", value = "vpn Downstream Bandwidth default=-2L")
-    private Long vpnDownstreamBandwidth = null;
-
-    @XmlElement(name = "totalDownstreamBandwidth")
-    @ApiModelProperty(example = "null", value = "total Downstream Bandwidth")
-    private String totalDownstreamBandwidth = null;
-
-    @XmlElement(name = "totalUpstreamBandwidth")
-    @ApiModelProperty(example = "null", value = "total Upstream Bandwidth")
-    private String totalUpstreamBandwidth = null;
-
-    @XmlElement(name = "createtime")
-    @ApiModelProperty(example = "null", value = "create time")
-    private Long createtime = null;
-
-    @XmlElement(name = "updatetime")
-    @ApiModelProperty(example = "null", value = "update time")
-    private Long updatetime = null;
-
-    @XmlElement(name = "localCpes")
-    @ApiModelProperty(example = "null", value = "")
-    private List<NbiNeMo> localCpes = new ArrayList<NbiNeMo>();
-
-    @XmlElement(name = "cloudCpes")
-    @ApiModelProperty(example = "null", value = "")
-    private List<NbiNeMo> cloudCpes = new ArrayList<NbiNeMo>();
-
-    @XmlElement(name = "subnets")
-    @ApiModelProperty(example = "null", value = "")
-    private List<NbiSubnetModel> subnets = new ArrayList<NbiSubnetModel>();
-
-    @XmlElement(name = "vlans")
-    @ApiModelProperty(example = "null", value = "")
-    private List<NbiVlanModel> vlans = new ArrayList<NbiVlanModel>();
-
-    @XmlElement(name = "routes")
-    @ApiModelProperty(example = "null", value = "")
-    private List<NbiRouteEntryModel> routes = new ArrayList<NbiRouteEntryModel>();
-
-    @XmlElement(name = "internetGateway")
-    @ApiModelProperty(example = "null", value = "")
-    private List<NbiInternetGatewayModel> internetGateway = new ArrayList<NbiInternetGatewayModel>();
+    /**
+     * Tenant Uuid
+     */
+    @AString(require = true, min = 0, max = 36)
+    private String tenantId;
 
     /**
-     * the name of the model
-     * 
-     * @return name
-     **/
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+     * Site Name
+     */
+    @AString(require = true, min = 0, max = 128)
+    private String name;
 
     /**
-     * tenant ID
-     * 
-     * @return tenantId
-     **/
+     * Site Description
+     */
+    @AString(require = false, min = 0, max = 255)
+    private String description;
+
+    /**
+     * Site Location
+     */
+    @AString(require = false, min = 0, max = 128)
+    private String location;
+
+    /**
+     * Action State
+     */
+    @AString(scope = "None,Normal,Creating,Deleting,Updating,Create_Exception,Delete_Exception,Update_Exception")
+    private String actionState = ActionStatus.NORMAL.getName();
+
+    /**
+     * Whether start vCPE when site creation or not
+     */
+    @MOConvertField
+    private boolean deployCloudCpeByDefault = true;
+
+    /**
+     * Pop Uuid
+     */
+    @AUuid(require = false)
+    private String popId;
+
+    /**
+     * Local CPE type
+     */
+    @AString(require = false, min = 0, max = 128)
+    private String localCpeType;
+
+    /**
+     * Name of Template
+     */
+    @AString(require = true, min = 0, max = 255)
+    private String siteDescriptor;
+
+    /**
+     * Protection mode
+     */
+    @AString(require = true)
+    private String reliability;
+
+    /**
+     * Whether Encrypt in IpSec connection
+     */
+    @AString(require = false, scope = "true,false")
+    private String isEncrypt;
+
+    @ALong
+    private Long vpnUpstreamBandwidth = -1L;
+
+    @ALong
+    private Long vpnDownstreamBandwidth = -1L;
+
+    @AUuid
+    private String qosPolicyId;
+
+    @AString
+    private String totalUpstreamBandwidth;
+
+    @AString
+    private String totalDownstreamBandwidth;
+
+    @AString
+    private String upstreamQosProfile;
+
+    @AString
+    private String downstreamQosProfile;
+
+    /**
+     * Create time
+     */
+    private Long createtime;
+
+    /**
+     * Update time
+     */
+    private Long updatetime;
+
+    @NONInvField
+    private List<NetworkElementMO> localCpes;
+
+    @NONInvField
+    private List<NetworkElementMO> cloudCpes;
+
+    @NONInvField
+    private List<NbiSubnetModel> subnets;
+
+    @NONInvField
+    private List<NbiVlanModel> vlans;
+
+    @NONInvField
+    private List<NbiRouteEntryModel> routes;
+
+    @NONInvField
+    private NbiInternetGatewayModel internetGateway;
+
     public String getTenantId() {
         return tenantId;
     }
@@ -159,11 +164,14 @@ public class NbiSiteModel extends UuidModel {
         this.tenantId = tenantId;
     }
 
-    /**
-     * description info
-     * 
-     * @return description
-     **/
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -172,11 +180,6 @@ public class NbiSiteModel extends UuidModel {
         this.description = description;
     }
 
-    /**
-     * location
-     * 
-     * @return location
-     **/
     public String getLocation() {
         return location;
     }
@@ -185,12 +188,6 @@ public class NbiSiteModel extends UuidModel {
         this.location = location;
     }
 
-    /**
-     * operation
-     * status(scope:none,normal,creating,deleting,updating,create_exception,update_exception,delete_exception,deploying,deploy_exception,undeploying,undeploy_exception,checking,check_exception)
-     * 
-     * @return actionState
-     **/
     public String getActionState() {
         return actionState;
     }
@@ -199,24 +196,14 @@ public class NbiSiteModel extends UuidModel {
         this.actionState = actionState;
     }
 
-    /**
-     * default=true
-     * 
-     * @return deployCloudCpeByDeafult
-     **/
-    public String getDeployCloudCpeByDeafult() {
-        return deployCloudCpeByDeafult;
+    public boolean isDeployCloudCpeByDefault() {
+        return deployCloudCpeByDefault;
     }
 
-    public void setDeployCloudCpeByDeafult(String deployCloudCpeByDeafult) {
-        this.deployCloudCpeByDeafult = deployCloudCpeByDeafult;
+    public void setDeployCloudCpeByDefault(boolean deployCloudCpeByDefault) {
+        this.deployCloudCpeByDefault = deployCloudCpeByDefault;
     }
 
-    /**
-     * pop id
-     * 
-     * @return popId
-     **/
     public String getPopId() {
         return popId;
     }
@@ -225,11 +212,6 @@ public class NbiSiteModel extends UuidModel {
         this.popId = popId;
     }
 
-    /**
-     * local cpe type
-     * 
-     * @return localCpeType
-     **/
     public String getLocalCpeType() {
         return localCpeType;
     }
@@ -238,11 +220,6 @@ public class NbiSiteModel extends UuidModel {
         this.localCpeType = localCpeType;
     }
 
-    /**
-     * site Descriptor
-     * 
-     * @return siteDescriptor
-     **/
     public String getSiteDescriptor() {
         return siteDescriptor;
     }
@@ -251,11 +228,6 @@ public class NbiSiteModel extends UuidModel {
         this.siteDescriptor = siteDescriptor;
     }
 
-    /**
-     * (scope:singleFixedNetwork,dualFixedNetwork,fixedAndWirelessNetwork,EthernetNetwork,VDSLNetwork,GSHDSLNetwork,EthernetAndLTENetwork,EthernetAndEthernetNetwork,EthernetAndVDSLNetwork,VDSLAndLTENetwork)
-     * 
-     * @return reliability
-     **/
     public String getReliability() {
         return reliability;
     }
@@ -264,11 +236,6 @@ public class NbiSiteModel extends UuidModel {
         this.reliability = reliability;
     }
 
-    /**
-     * is encrypt
-     * 
-     * @return isEncrypt
-     **/
     public String getIsEncrypt() {
         return isEncrypt;
     }
@@ -277,11 +244,6 @@ public class NbiSiteModel extends UuidModel {
         this.isEncrypt = isEncrypt;
     }
 
-    /**
-     * vpn Upstream Bandwidth default=-2L
-     * 
-     * @return vpnUpstreamBandwidth
-     **/
     public Long getVpnUpstreamBandwidth() {
         return vpnUpstreamBandwidth;
     }
@@ -290,11 +252,6 @@ public class NbiSiteModel extends UuidModel {
         this.vpnUpstreamBandwidth = vpnUpstreamBandwidth;
     }
 
-    /**
-     * vpn Downstream Bandwidth default=-2L
-     * 
-     * @return vpnDownstreamBandwidth
-     **/
     public Long getVpnDownstreamBandwidth() {
         return vpnDownstreamBandwidth;
     }
@@ -303,24 +260,14 @@ public class NbiSiteModel extends UuidModel {
         this.vpnDownstreamBandwidth = vpnDownstreamBandwidth;
     }
 
-    /**
-     * total Downstream Bandwidth
-     * 
-     * @return totalDownstreamBandwidth
-     **/
-    public String getTotalDownstreamBandwidth() {
-        return totalDownstreamBandwidth;
+    public String getQosPolicyId() {
+        return qosPolicyId;
     }
 
-    public void setTotalDownstreamBandwidth(String totalDownstreamBandwidth) {
-        this.totalDownstreamBandwidth = totalDownstreamBandwidth;
+    public void setQosPolicyId(String qosPolicyId) {
+        this.qosPolicyId = qosPolicyId;
     }
 
-    /**
-     * total Upstream Bandwidth
-     * 
-     * @return totalUpstreamBandwidth
-     **/
     public String getTotalUpstreamBandwidth() {
         return totalUpstreamBandwidth;
     }
@@ -329,11 +276,30 @@ public class NbiSiteModel extends UuidModel {
         this.totalUpstreamBandwidth = totalUpstreamBandwidth;
     }
 
-    /**
-     * create time
-     * 
-     * @return createtime
-     **/
+    public String getTotalDownstreamBandwidth() {
+        return totalDownstreamBandwidth;
+    }
+
+    public void setTotalDownstreamBandwidth(String totalDownstreamBandwidth) {
+        this.totalDownstreamBandwidth = totalDownstreamBandwidth;
+    }
+
+    public String getUpstreamQosProfile() {
+        return upstreamQosProfile;
+    }
+
+    public void setUpstreamQosProfile(String upstreamQosProfile) {
+        this.upstreamQosProfile = upstreamQosProfile;
+    }
+
+    public String getDownstreamQosProfile() {
+        return downstreamQosProfile;
+    }
+
+    public void setDownstreamQosProfile(String downstreamQosProfile) {
+        this.downstreamQosProfile = downstreamQosProfile;
+    }
+
     public Long getCreatetime() {
         return createtime;
     }
@@ -342,11 +308,6 @@ public class NbiSiteModel extends UuidModel {
         this.createtime = createtime;
     }
 
-    /**
-     * update time
-     * 
-     * @return updatetime
-     **/
     public Long getUpdatetime() {
         return updatetime;
     }
@@ -355,37 +316,22 @@ public class NbiSiteModel extends UuidModel {
         this.updatetime = updatetime;
     }
 
-    /**
-     * Get localCpes
-     * 
-     * @return localCpes
-     **/
-    public List<NbiNeMo> getLocalCpes() {
+    public List<NetworkElementMO> getLocalCpes() {
         return localCpes;
     }
 
-    public void setLocalCpes(List<NbiNeMo> localCpes) {
+    public void setLocalCpes(List<NetworkElementMO> localCpes) {
         this.localCpes = localCpes;
     }
 
-    /**
-     * Get cloudCpes
-     * 
-     * @return cloudCpes
-     **/
-    public List<NbiNeMo> getCloudCpes() {
+    public List<NetworkElementMO> getCloudCpes() {
         return cloudCpes;
     }
 
-    public void setCloudCpes(List<NbiNeMo> cloudCpes) {
+    public void setCloudCpes(List<NetworkElementMO> cloudCpes) {
         this.cloudCpes = cloudCpes;
     }
 
-    /**
-     * Get subnets
-     * 
-     * @return subnets
-     **/
     public List<NbiSubnetModel> getSubnets() {
         return subnets;
     }
@@ -394,11 +340,6 @@ public class NbiSiteModel extends UuidModel {
         this.subnets = subnets;
     }
 
-    /**
-     * Get vlans
-     * 
-     * @return vlans
-     **/
     public List<NbiVlanModel> getVlans() {
         return vlans;
     }
@@ -407,11 +348,6 @@ public class NbiSiteModel extends UuidModel {
         this.vlans = vlans;
     }
 
-    /**
-     * Get routes
-     * 
-     * @return routes
-     **/
     public List<NbiRouteEntryModel> getRoutes() {
         return routes;
     }
@@ -420,59 +356,19 @@ public class NbiSiteModel extends UuidModel {
         this.routes = routes;
     }
 
-    /**
-     * Get internetGateway
-     * 
-     * @return internetGateway
-     **/
-    public List<NbiInternetGatewayModel> getInternetGateway() {
+    public NbiInternetGatewayModel getInternetGateway() {
         return internetGateway;
     }
 
-    public void setInternetGateway(List<NbiInternetGatewayModel> internetGateway) {
+    public void setInternetGateway(NbiInternetGatewayModel internetGateway) {
         this.internetGateway = internetGateway;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class NbiSiteModel {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    location: ").append(toIndentedString(location)).append("\n");
-        sb.append("    actionState: ").append(toIndentedString(actionState)).append("\n");
-        sb.append("    deployCloudCpeByDeafult: ").append(toIndentedString(deployCloudCpeByDeafult)).append("\n");
-        sb.append("    popId: ").append(toIndentedString(popId)).append("\n");
-        sb.append("    localCpeType: ").append(toIndentedString(localCpeType)).append("\n");
-        sb.append("    siteDescriptor: ").append(toIndentedString(siteDescriptor)).append("\n");
-        sb.append("    reliability: ").append(toIndentedString(reliability)).append("\n");
-        sb.append("    isEncrypt: ").append(toIndentedString(isEncrypt)).append("\n");
-        sb.append("    vpnUpstreamBandwidth: ").append(toIndentedString(vpnUpstreamBandwidth)).append("\n");
-        sb.append("    vpnDownstreamBandwidth: ").append(toIndentedString(vpnDownstreamBandwidth)).append("\n");
-        sb.append("    totalDownstreamBandwidth: ").append(toIndentedString(totalDownstreamBandwidth)).append("\n");
-        sb.append("    totalUpstreamBandwidth: ").append(toIndentedString(totalUpstreamBandwidth)).append("\n");
-        sb.append("    createtime: ").append(toIndentedString(createtime)).append("\n");
-        sb.append("    updatetime: ").append(toIndentedString(updatetime)).append("\n");
-        sb.append("    localCpes: ").append(toIndentedString(localCpes)).append("\n");
-        sb.append("    cloudCpes: ").append(toIndentedString(cloudCpes)).append("\n");
-        sb.append("    subnets: ").append(toIndentedString(subnets)).append("\n");
-        sb.append("    vlans: ").append(toIndentedString(vlans)).append("\n");
-        sb.append("    routes: ").append(toIndentedString(routes)).append("\n");
-        sb.append("    internetGateway: ").append(toIndentedString(internetGateway)).append("\n");
-        sb.append("}");
-        return sb.toString();
+    public void initBasicInfo(String name, String tenantId, String location, String description) {
+        this.name = name;
+        this.tenantId = tenantId;
+        this.location = location;
+        this.description = description;
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
 }

@@ -16,95 +16,130 @@
 
 package org.openo.sdno.overlayvpn.model.v2.internetgateway;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
+import org.codehaus.jackson.annotate.JsonProperty;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
 import org.openo.sdno.overlayvpn.model.v2.basemodel.BaseServiceModel;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
+import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SbiSnatNetModel", propOrder = {"neId", "deviceId", "controllerId", "natId", "internetGatewayId",
-                "subnetId", "ifName", "privateCidr", "privatePrefix", "aclNumber", "aclId", "startPublicIpAddress",
-                "endPublicIpAddress", "qosPreNat", "createtime", "updatetime", "type"})
-
+/**
+ * SBI model class of Nat Data.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 2017-1-12
+ */
+@MOResType(infoModelName = "localsite_snatnetmodel")
 public class SbiSnatNetModel extends BaseServiceModel {
 
-    @XmlElement(name = "neId")
-    @ApiModelProperty(example = "null", required = true, value = "NE Id")
-    private String neId = null;
-
-    @XmlElement(name = "deviceId")
-    @ApiModelProperty(example = "null", required = true, value = "device Id")
-    private String deviceId = null;
-
-    @XmlElement(name = "controllerId")
-    @ApiModelProperty(example = "null", required = true, value = "controller Id")
-    private String controllerId = null;
-
-    @XmlElement(name = "natId")
-    @ApiModelProperty(example = "null", value = "nat Id")
-    private String natId = null;
-
-    @XmlElement(name = "internetGatewayId")
-    @ApiModelProperty(example = "null", required = true, value = "internet gateway Id")
-    private String internetGatewayId = null;
-
-    @XmlElement(name = "subnetId")
-    @ApiModelProperty(example = "null", value = "subnet Id")
-    private String subnetId = null;
-
-    @XmlElement(name = "ifName")
-    @ApiModelProperty(example = "null", required = true, value = "interface name")
-    private String ifName = null;
-
-    @XmlElement(name = "privateCidr")
-    @ApiModelProperty(example = "null", value = "private IP address")
-    private String privateCidr = null;
-
-    @XmlElement(name = "privatePrefix")
-    @ApiModelProperty(example = "null", value = "private prefix of IP address")
-    private String privatePrefix = null;
-
-    @XmlElement(name = "aclNumber")
-    @ApiModelProperty(example = "null", required = true, value = "acl number")
-    private String aclNumber = null;
-
-    @XmlElement(name = "aclId")
-    @ApiModelProperty(example = "null", value = "acl Id")
-    private String aclId = null;
-
-    @XmlElement(name = "startPublicIpAddress")
-    @ApiModelProperty(example = "null", value = "start public IP address")
-    private String startPublicIpAddress = null;
-
-    @XmlElement(name = "endPublicIpAddress")
-    @ApiModelProperty(example = "null", value = "end public IP address")
-    private String endPublicIpAddress = null;
-
-    @XmlElement(name = "qosPreNat")
-    @ApiModelProperty(example = "null", value = "default false, true when vcpe")
-    private String qosPreNat = null;
-
-    @XmlElement(name = "createtime")
-    @ApiModelProperty(example = "null", value = "create time")
-    private Long createtime = null;
-
-    @XmlElement(name = "updatetime")
-    @ApiModelProperty(example = "null", value = "update time")
-    private Long updatetime = null;
-
-    @XmlElement(name = "type")
-    @ApiModelProperty(example = "null", value = "the scope is none,create,updateIp")
-    private String type = null;
+    /**
+     * Ne Uuid
+     */
+    @JsonProperty(value = "neId")
+    @AUuid(require = true)
+    private String neId;
 
     /**
-     * NE Id
-     * 
-     * @return neId
-     **/
+     * AC Device Id
+     */
+    @JsonProperty(value = "deviceId")
+    @AUuid(require = true)
+    private String deviceId;
+
+    /**
+     * Controller Uuid
+     */
+    @AUuid(require = true)
+    private String controllerId;
+
+    /**
+     * Nat Id
+     */
+    @AUuid(require = false)
+    private String natId;
+
+    /**
+     * Internet gateway Uuid
+     */
+    @AUuid(require = true)
+    private String internetGatewayId;
+
+    /**
+     * Sunbet Uuid
+     */
+    @AUuid(require = false)
+    private String subnetId;
+
+    /**
+     * Interface name
+     */
+    @AString(require = true)
+    private String ifName;
+
+    /**
+     * Subnet Ip Address
+     */
+    @JsonProperty(value = "privateCidr")
+    @AString(require = false)
+    private String privateIpAddress;
+
+    /**
+     * Sunbet prefix
+     */
+    @AString(require = false)
+    private String privatePrefix;
+
+    /**
+     * Acl number
+     */
+    @AString(require = true)
+    private String aclNumber;
+
+    /**
+     * Acl Id
+     */
+    @AString(require = false)
+    private String aclId;
+
+    /**
+     * Start of Public Ip
+     */
+    @AString(require = false)
+    private String startPublicIpAddress;
+
+    /**
+     * End of Public Ip
+     */
+    @AString(require = false)
+    private String endPublicIpAddress;
+
+    /**
+     * QosPreNat or not
+     */
+    @NONInvField
+    private String qosPreNat = "false";
+
+    /**
+     * Create time
+     */
+    @NONInvField
+    @AString
+    private String createtime;
+
+    /**
+     * Update time
+     */
+    @NONInvField
+    @AString
+    private String updatetime;
+
+    /**
+     * Operation type
+     */
+    @NONInvField
+    @AString(scope = "none,create,updateIp", require = false)
+    private String type;
+
     public String getNeId() {
         return neId;
     }
@@ -113,11 +148,6 @@ public class SbiSnatNetModel extends BaseServiceModel {
         this.neId = neId;
     }
 
-    /**
-     * device Id
-     * 
-     * @return deviceId
-     **/
     public String getDeviceId() {
         return deviceId;
     }
@@ -126,11 +156,6 @@ public class SbiSnatNetModel extends BaseServiceModel {
         this.deviceId = deviceId;
     }
 
-    /**
-     * controller Id
-     * 
-     * @return controllerId
-     **/
     public String getControllerId() {
         return controllerId;
     }
@@ -139,11 +164,6 @@ public class SbiSnatNetModel extends BaseServiceModel {
         this.controllerId = controllerId;
     }
 
-    /**
-     * nat Id
-     * 
-     * @return natId
-     **/
     public String getNatId() {
         return natId;
     }
@@ -152,11 +172,6 @@ public class SbiSnatNetModel extends BaseServiceModel {
         this.natId = natId;
     }
 
-    /**
-     * internet gateway Id
-     * 
-     * @return internetGatewayId
-     **/
     public String getInternetGatewayId() {
         return internetGatewayId;
     }
@@ -165,11 +180,6 @@ public class SbiSnatNetModel extends BaseServiceModel {
         this.internetGatewayId = internetGatewayId;
     }
 
-    /**
-     * subnet Id
-     * 
-     * @return subnetId
-     **/
     public String getSubnetId() {
         return subnetId;
     }
@@ -178,11 +188,6 @@ public class SbiSnatNetModel extends BaseServiceModel {
         this.subnetId = subnetId;
     }
 
-    /**
-     * interface name
-     * 
-     * @return ifName
-     **/
     public String getIfName() {
         return ifName;
     }
@@ -191,24 +196,14 @@ public class SbiSnatNetModel extends BaseServiceModel {
         this.ifName = ifName;
     }
 
-    /**
-     * private IP address
-     * 
-     * @return privateCidr
-     **/
-    public String getPrivateCidr() {
-        return privateCidr;
+    public String getPrivateIpAddress() {
+        return privateIpAddress;
     }
 
-    public void setPrivateCidr(String privateCidr) {
-        this.privateCidr = privateCidr;
+    public void setPrivateIpAddress(String privateIpAddress) {
+        this.privateIpAddress = privateIpAddress;
     }
 
-    /**
-     * private prefix of IP address
-     * 
-     * @return privatePrefix
-     **/
     public String getPrivatePrefix() {
         return privatePrefix;
     }
@@ -217,11 +212,6 @@ public class SbiSnatNetModel extends BaseServiceModel {
         this.privatePrefix = privatePrefix;
     }
 
-    /**
-     * acl number
-     * 
-     * @return aclNumber
-     **/
     public String getAclNumber() {
         return aclNumber;
     }
@@ -230,11 +220,6 @@ public class SbiSnatNetModel extends BaseServiceModel {
         this.aclNumber = aclNumber;
     }
 
-    /**
-     * acl Id
-     * 
-     * @return aclId
-     **/
     public String getAclId() {
         return aclId;
     }
@@ -243,11 +228,6 @@ public class SbiSnatNetModel extends BaseServiceModel {
         this.aclId = aclId;
     }
 
-    /**
-     * start public IP address
-     * 
-     * @return startPublicIpAddress
-     **/
     public String getStartPublicIpAddress() {
         return startPublicIpAddress;
     }
@@ -256,11 +236,6 @@ public class SbiSnatNetModel extends BaseServiceModel {
         this.startPublicIpAddress = startPublicIpAddress;
     }
 
-    /**
-     * end public IP address
-     * 
-     * @return endPublicIpAddress
-     **/
     public String getEndPublicIpAddress() {
         return endPublicIpAddress;
     }
@@ -269,11 +244,6 @@ public class SbiSnatNetModel extends BaseServiceModel {
         this.endPublicIpAddress = endPublicIpAddress;
     }
 
-    /**
-     * default false, true when vcpe
-     * 
-     * @return qosPreNat
-     **/
     public String getQosPreNat() {
         return qosPreNat;
     }
@@ -282,37 +252,22 @@ public class SbiSnatNetModel extends BaseServiceModel {
         this.qosPreNat = qosPreNat;
     }
 
-    /**
-     * create time
-     * 
-     * @return createtime
-     **/
-    public Long getCreatetime() {
+    public String getCreatetime() {
         return createtime;
     }
 
-    public void setCreatetime(Long createtime) {
+    public void setCreatetime(String createtime) {
         this.createtime = createtime;
     }
 
-    /**
-     * update time
-     * 
-     * @return updatetime
-     **/
-    public Long getUpdatetime() {
+    public String getUpdatetime() {
         return updatetime;
     }
 
-    public void setUpdatetime(Long updatetime) {
+    public void setUpdatetime(String updatetime) {
         this.updatetime = updatetime;
     }
 
-    /**
-     * the scope is none,create,updateIp
-     * 
-     * @return type
-     **/
     public String getType() {
         return type;
     }
@@ -321,40 +276,4 @@ public class SbiSnatNetModel extends BaseServiceModel {
         this.type = type;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SbiSnatNetModel {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    neId: ").append(toIndentedString(neId)).append("\n");
-        sb.append("    deviceId: ").append(toIndentedString(deviceId)).append("\n");
-        sb.append("    controllerId: ").append(toIndentedString(controllerId)).append("\n");
-        sb.append("    natId: ").append(toIndentedString(natId)).append("\n");
-        sb.append("    internetGatewayId: ").append(toIndentedString(internetGatewayId)).append("\n");
-        sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
-        sb.append("    ifName: ").append(toIndentedString(ifName)).append("\n");
-        sb.append("    privateCidr: ").append(toIndentedString(privateCidr)).append("\n");
-        sb.append("    privatePrefix: ").append(toIndentedString(privatePrefix)).append("\n");
-        sb.append("    aclNumber: ").append(toIndentedString(aclNumber)).append("\n");
-        sb.append("    aclId: ").append(toIndentedString(aclId)).append("\n");
-        sb.append("    startPublicIpAddress: ").append(toIndentedString(startPublicIpAddress)).append("\n");
-        sb.append("    endPublicIpAddress: ").append(toIndentedString(endPublicIpAddress)).append("\n");
-        sb.append("    qosPreNat: ").append(toIndentedString(qosPreNat)).append("\n");
-        sb.append("    createtime: ").append(toIndentedString(createtime)).append("\n");
-        sb.append("    updatetime: ").append(toIndentedString(updatetime)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
 }

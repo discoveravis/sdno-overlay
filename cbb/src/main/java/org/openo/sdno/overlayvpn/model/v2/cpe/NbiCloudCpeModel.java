@@ -16,166 +16,195 @@
 
 package org.openo.sdno.overlayvpn.model.v2.cpe;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
-import org.openo.sdno.overlayvpn.model.v2.basemodel.NvString;
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
+import org.openo.sdno.overlayvpn.model.NvString;
+import org.openo.sdno.overlayvpn.model.common.enums.ActionStatus;
 import org.openo.sdno.overlayvpn.model.v2.uuid.UuidModel;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
+import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "NbiCloudCpeModel", propOrder = {"tenantId", "siteId", "popId", "vCpeId", "name", "esn", "mgrIp",
-                "mgrMask", "mgrGatewayIp", "controllerId", "controllerIp", "controllerMask", "description", "vendor",
-                "type", "vnfdVersion", "callbackUrl", "vnfdId", "vnfId", "vnfmId", "dcLocation", "rangeId",
-                "referenceCount", "adminState", "actionState", "template", "additionalInfo"})
-
+/**
+ * Model class of CloudCpe.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 2017-1-4
+ */
+@MOResType(infoModelName = "localsite_cloudcpe")
 public class NbiCloudCpeModel extends UuidModel {
 
-    @XmlElement(name = "tenantId")
-    @ApiModelProperty(example = "null", required = true, value = "tenant id")
-    private String tenantId = null;
-
-    @XmlElement(name = "siteId")
-    @ApiModelProperty(example = "null", required = true, value = "site id")
-    private String siteId = null;
-
-    @XmlElement(name = "popId")
-    @ApiModelProperty(example = "null", value = "pop id")
-    private String popId = null;
-
-    @XmlElement(name = "vCpeId")
-    @ApiModelProperty(example = "null", value = "vcpe id")
-    private String vCpeId = null;
-
-    @XmlElement(name = "name")
-    @ApiModelProperty(example = "null", value = "name")
-    private String name = null;
-
-    @XmlElement(name = "esn")
-    @ApiModelProperty(example = "null", value = "esn")
-    private String esn = null;
-
-    @XmlElement(name = "mgrIp")
-    @ApiModelProperty(example = "null", value = "mgr ip")
-    private String mgrIp = null;
-
-    @XmlElement(name = "mgrMask")
-    @ApiModelProperty(example = "null", value = "mask of mgr ip")
-    private String mgrMask = null;
-
-    @XmlElement(name = "mgrGatewayIp")
-    @ApiModelProperty(example = "null", value = "mgr gateway ip")
-    private String mgrGatewayIp = null;
-
-    @XmlElement(name = "controllerId")
-    @ApiModelProperty(example = "null", value = "controller id")
-    private String controllerId = null;
-
-    @XmlElement(name = "controllerIp")
-    @ApiModelProperty(example = "null", value = "controller ip")
-    private String controllerIp = null;
-
-    @XmlElement(name = "controllerMask")
-    @ApiModelProperty(example = "null", value = "controller mask")
-    private String controllerMask = null;
-
-    @XmlElement(name = "description")
-    @ApiModelProperty(example = "null", value = "description")
-    private String description = null;
-
-    @XmlElement(name = "vendor")
-    @ApiModelProperty(example = "null", value = "vendor")
-    private String vendor = null;
-
-    @XmlElement(name = "type")
-    @ApiModelProperty(example = "null", value = "type")
-    private String type = null;
-
-    @XmlElement(name = "vnfdVersion")
-    @ApiModelProperty(example = "null", value = "vnfd Version")
-    private String vnfdVersion = null;
-
-    @XmlElement(name = "callbackUrl")
-    @ApiModelProperty(example = "null", value = "callback Url")
-    private String callbackUrl = null;
-
-    @XmlElement(name = "vnfdId")
-    @ApiModelProperty(example = "null", value = "vnfd id")
-    private String vnfdId = null;
-
-    @XmlElement(name = "vnfId")
-    @ApiModelProperty(example = "null", value = "vnf id")
-    private String vnfId = null;
-
-    @XmlElement(name = "vnfmId")
-    @ApiModelProperty(example = "null", value = "vnfm id")
-    private String vnfmId = null;
-
-    @XmlElement(name = "dcLocation")
-    @ApiModelProperty(example = "null", value = "dc location")
-    private String dcLocation = null;
-
-    @XmlElement(name = "rangeId")
-    @ApiModelProperty(example = "null", value = "range id")
-    private String rangeId = null;
-
-    @XmlElement(name = "referenceCount")
-    @ApiModelProperty(example = "null", value = "reference count")
-    private Integer referenceCount = null;
-
-    @XmlElement(name = "adminState")
-    @ApiModelProperty(example = "null", value = "scope = Active, Stopped, Building")
-    private String adminState = null;
-
-    @XmlElement(name = "actionState")
-    @ApiModelProperty(example = "null", value = "(scope = none, normal, creating, deleting, updating, create_exception, update_exception, delete_exception, deploying, deploy_exception, undeploying, undeploy_exception, checking, check_exception)")
-    private String actionState = null;
-
-    @XmlElement(name = "template")
-    @ApiModelProperty(example = "null", value = "template")
-    private String template = null;
-
-    @XmlElement(name = "additionalInfo")
-    @ApiModelProperty(example = "null", value = "additional info")
-    private List<NvString> additionalInfo = new ArrayList<NvString>();
+    /**
+     * Pop Uuid
+     */
+    @AUuid
+    private String popId;
 
     /**
-     * tenant id
-     * 
-     * @return tenantId
-     **/
-    public String getTenantId() {
-        return tenantId;
-    }
-
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
-    }
+     * Tenant Uuid
+     */
+    @AUuid(require = true)
+    private String tenantId;
 
     /**
-     * site id
-     * 
-     * @return siteId
-     **/
-    public String getSiteId() {
-        return siteId;
-    }
-
-    public void setSiteId(String siteId) {
-        this.siteId = siteId;
-    }
+     * Site Uuid
+     */
+    @AUuid(require = true)
+    private String siteId;
 
     /**
-     * pop id
-     * 
-     * @return popId
-     **/
+     * vCPE Uuid
+     */
+    @AUuid
+    private String vCpeId;
+
+    /**
+     * Name of CloudCpe
+     */
+    @AString
+    private String name;
+
+    /**
+     * Esn of CloudCpe
+     */
+    @AString
+    private String esn;
+
+    /**
+     * Manage Ip Address of CloudCpe
+     */
+    @AString
+    private String mgrIp;
+
+    /**
+     * Ip Mask of Manage Ip Address
+     */
+    @AString
+    private String mgrMask;
+
+    /**
+     * Manage Gateway Ip Address of CloudCpe
+     */
+    @AString
+    private String mgrGateWayIp;
+
+    /**
+     * Controller Uuid
+     */
+    @AString
+    private String controllerId;
+
+    /**
+     * Controller Ip Address
+     */
+    @AString
+    @NONInvField
+    private String controllerIp;
+
+    /**
+     * Controller Ip Address Mask
+     */
+    @AString
+    @NONInvField
+    private String controllerMask;
+
+    /**
+     * Description of CloudCpe
+     */
+    @AString
+    @NONInvField
+    private String description;
+
+    /**
+     * Vendor of CloudCpe
+     */
+    @AString
+    @NONInvField
+    private String vendor;
+
+    /**
+     * Type of CloudCpe
+     */
+    @AString
+    @NONInvField
+    private String type;
+
+    /**
+     * Version of Vnfd
+     */
+    @AString
+    @NONInvField
+    private String vnfdVersion;
+
+    /**
+     * Callback Url
+     */
+    @AString
+    @NONInvField
+    private String callbackUrl;
+
+    /**
+     * Vnfd Uuid
+     */
+    @AString
+    private String vnfdId;
+
+    /**
+     * Vnf Id
+     */
+    @AString
+    private String vnfId;
+
+    /**
+     * Vnfm Id
+     */
+    @AString
+    private String vnfmId;
+
+    /**
+     * Dc Location
+     */
+    @AString
+    private String dcLocation;
+
+    /**
+     * Range Id
+     */
+    @AString
+    private String rangeId;
+
+    /**
+     * Reference Count
+     */
+    @AString
+    private int referenceCount;
+
+    /**
+     * Administrative state
+     */
+    @AString(require = false, scope = "Active,Stopped,Building")
+    private String adminState;
+
+    /**
+     * Action state
+     */
+    @AString(scope = "Normal,Creating,Deleting,Updating,Create_Exception,Delete_Exception,Update_Exception")
+    private String actionState = ActionStatus.NORMAL.getName();
+
+    /**
+     * Template of CloudCpe
+     */
+    private String template;
+
+    /**
+     * Additional Information
+     */
+    @JsonIgnore
+    @NONInvField
+    private List<NvString> additionalInfo;
+
     public String getPopId() {
         return popId;
     }
@@ -184,24 +213,30 @@ public class NbiCloudCpeModel extends UuidModel {
         this.popId = popId;
     }
 
-    /**
-     * vcpe id
-     * 
-     * @return vCpeId
-     **/
-    public String getVCpeId() {
+    public String getTenantId() {
+        return tenantId;
+    }
+
+    public void setTenantId(String tenantId) {
+        this.tenantId = tenantId;
+    }
+
+    public String getSiteId() {
+        return siteId;
+    }
+
+    public void setSiteId(String siteId) {
+        this.siteId = siteId;
+    }
+
+    public String getvCpeId() {
         return vCpeId;
     }
 
-    public void setVCpeId(String vCpeId) {
+    public void setvCpeId(String vCpeId) {
         this.vCpeId = vCpeId;
     }
 
-    /**
-     * name
-     * 
-     * @return name
-     **/
     public String getName() {
         return name;
     }
@@ -210,11 +245,6 @@ public class NbiCloudCpeModel extends UuidModel {
         this.name = name;
     }
 
-    /**
-     * esn
-     * 
-     * @return esn
-     **/
     public String getEsn() {
         return esn;
     }
@@ -223,11 +253,6 @@ public class NbiCloudCpeModel extends UuidModel {
         this.esn = esn;
     }
 
-    /**
-     * mgr ip
-     * 
-     * @return mgrIp
-     **/
     public String getMgrIp() {
         return mgrIp;
     }
@@ -236,11 +261,6 @@ public class NbiCloudCpeModel extends UuidModel {
         this.mgrIp = mgrIp;
     }
 
-    /**
-     * mask of mgr ip
-     * 
-     * @return mgrMask
-     **/
     public String getMgrMask() {
         return mgrMask;
     }
@@ -249,24 +269,14 @@ public class NbiCloudCpeModel extends UuidModel {
         this.mgrMask = mgrMask;
     }
 
-    /**
-     * mgr gateway ip
-     * 
-     * @return mgrGatewayIp
-     **/
     public String getMgrGatewayIp() {
-        return mgrGatewayIp;
+        return mgrGateWayIp;
     }
 
     public void setMgrGatewayIp(String mgrGatewayIp) {
-        this.mgrGatewayIp = mgrGatewayIp;
+        this.mgrGateWayIp = mgrGatewayIp;
     }
 
-    /**
-     * controller id
-     * 
-     * @return controllerId
-     **/
     public String getControllerId() {
         return controllerId;
     }
@@ -275,11 +285,6 @@ public class NbiCloudCpeModel extends UuidModel {
         this.controllerId = controllerId;
     }
 
-    /**
-     * controller ip
-     * 
-     * @return controllerIp
-     **/
     public String getControllerIp() {
         return controllerIp;
     }
@@ -288,11 +293,6 @@ public class NbiCloudCpeModel extends UuidModel {
         this.controllerIp = controllerIp;
     }
 
-    /**
-     * controller mask
-     * 
-     * @return controllerMask
-     **/
     public String getControllerMask() {
         return controllerMask;
     }
@@ -301,11 +301,6 @@ public class NbiCloudCpeModel extends UuidModel {
         this.controllerMask = controllerMask;
     }
 
-    /**
-     * description
-     * 
-     * @return description
-     **/
     public String getDescription() {
         return description;
     }
@@ -314,11 +309,6 @@ public class NbiCloudCpeModel extends UuidModel {
         this.description = description;
     }
 
-    /**
-     * vendor
-     * 
-     * @return vendor
-     **/
     public String getVendor() {
         return vendor;
     }
@@ -327,11 +317,6 @@ public class NbiCloudCpeModel extends UuidModel {
         this.vendor = vendor;
     }
 
-    /**
-     * type
-     * 
-     * @return type
-     **/
     public String getType() {
         return type;
     }
@@ -340,11 +325,6 @@ public class NbiCloudCpeModel extends UuidModel {
         this.type = type;
     }
 
-    /**
-     * vnfd Version
-     * 
-     * @return vnfdVersion
-     **/
     public String getVnfdVersion() {
         return vnfdVersion;
     }
@@ -353,11 +333,6 @@ public class NbiCloudCpeModel extends UuidModel {
         this.vnfdVersion = vnfdVersion;
     }
 
-    /**
-     * callback Url
-     * 
-     * @return callbackUrl
-     **/
     public String getCallbackUrl() {
         return callbackUrl;
     }
@@ -366,11 +341,6 @@ public class NbiCloudCpeModel extends UuidModel {
         this.callbackUrl = callbackUrl;
     }
 
-    /**
-     * vnfd id
-     * 
-     * @return vnfdId
-     **/
     public String getVnfdId() {
         return vnfdId;
     }
@@ -379,11 +349,6 @@ public class NbiCloudCpeModel extends UuidModel {
         this.vnfdId = vnfdId;
     }
 
-    /**
-     * vnf id
-     * 
-     * @return vnfId
-     **/
     public String getVnfId() {
         return vnfId;
     }
@@ -392,11 +357,6 @@ public class NbiCloudCpeModel extends UuidModel {
         this.vnfId = vnfId;
     }
 
-    /**
-     * vnfm id
-     * 
-     * @return vnfmId
-     **/
     public String getVnfmId() {
         return vnfmId;
     }
@@ -405,11 +365,6 @@ public class NbiCloudCpeModel extends UuidModel {
         this.vnfmId = vnfmId;
     }
 
-    /**
-     * dc location
-     * 
-     * @return dcLocation
-     **/
     public String getDcLocation() {
         return dcLocation;
     }
@@ -418,11 +373,6 @@ public class NbiCloudCpeModel extends UuidModel {
         this.dcLocation = dcLocation;
     }
 
-    /**
-     * range id
-     * 
-     * @return rangeId
-     **/
     public String getRangeId() {
         return rangeId;
     }
@@ -431,24 +381,14 @@ public class NbiCloudCpeModel extends UuidModel {
         this.rangeId = rangeId;
     }
 
-    /**
-     * reference count
-     * 
-     * @return referenceCount
-     **/
-    public Integer getReferenceCount() {
+    public int getReferenceCount() {
         return referenceCount;
     }
 
-    public void setReferenceCount(Integer referenceCount) {
+    public void setReferenceCount(int referenceCount) {
         this.referenceCount = referenceCount;
     }
 
-    /**
-     * scope = Active, Stopped, Building
-     * 
-     * @return adminState
-     **/
     public String getAdminState() {
         return adminState;
     }
@@ -457,13 +397,6 @@ public class NbiCloudCpeModel extends UuidModel {
         this.adminState = adminState;
     }
 
-    /**
-     * (scope = none, normal, creating, deleting, updating, create_exception, update_exception,
-     * delete_exception, deploying, deploy_exception, undeploying, undeploy_exception, checking,
-     * check_exception)
-     * 
-     * @return actionState
-     **/
     public String getActionState() {
         return actionState;
     }
@@ -472,11 +405,6 @@ public class NbiCloudCpeModel extends UuidModel {
         this.actionState = actionState;
     }
 
-    /**
-     * template
-     * 
-     * @return template
-     **/
     public String getTemplate() {
         return template;
     }
@@ -485,11 +413,6 @@ public class NbiCloudCpeModel extends UuidModel {
         this.template = template;
     }
 
-    /**
-     * additional info
-     * 
-     * @return additionalInfo
-     **/
     public List<NvString> getAdditionalInfo() {
         return additionalInfo;
     }
@@ -498,50 +421,4 @@ public class NbiCloudCpeModel extends UuidModel {
         this.additionalInfo = additionalInfo;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class NbiCloudCpeModel {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-        sb.append("    siteId: ").append(toIndentedString(siteId)).append("\n");
-        sb.append("    popId: ").append(toIndentedString(popId)).append("\n");
-        sb.append("    vCpeId: ").append(toIndentedString(vCpeId)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    esn: ").append(toIndentedString(esn)).append("\n");
-        sb.append("    mgrIp: ").append(toIndentedString(mgrIp)).append("\n");
-        sb.append("    mgrMask: ").append(toIndentedString(mgrMask)).append("\n");
-        sb.append("    mgrGatewayIp: ").append(toIndentedString(mgrGatewayIp)).append("\n");
-        sb.append("    controllerId: ").append(toIndentedString(controllerId)).append("\n");
-        sb.append("    controllerIp: ").append(toIndentedString(controllerIp)).append("\n");
-        sb.append("    controllerMask: ").append(toIndentedString(controllerMask)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    vendor: ").append(toIndentedString(vendor)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    vnfdVersion: ").append(toIndentedString(vnfdVersion)).append("\n");
-        sb.append("    callbackUrl: ").append(toIndentedString(callbackUrl)).append("\n");
-        sb.append("    vnfdId: ").append(toIndentedString(vnfdId)).append("\n");
-        sb.append("    vnfId: ").append(toIndentedString(vnfId)).append("\n");
-        sb.append("    vnfmId: ").append(toIndentedString(vnfmId)).append("\n");
-        sb.append("    dcLocation: ").append(toIndentedString(dcLocation)).append("\n");
-        sb.append("    rangeId: ").append(toIndentedString(rangeId)).append("\n");
-        sb.append("    referenceCount: ").append(toIndentedString(referenceCount)).append("\n");
-        sb.append("    adminState: ").append(toIndentedString(adminState)).append("\n");
-        sb.append("    actionState: ").append(toIndentedString(actionState)).append("\n");
-        sb.append("    template: ").append(toIndentedString(template)).append("\n");
-        sb.append("    additionalInfo: ").append(toIndentedString(additionalInfo)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
 }

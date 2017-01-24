@@ -16,54 +16,53 @@
 
 package org.openo.sdno.overlayvpn.model.v2.interfaceip;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
 
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SbiInterfaceIpConfig", propOrder = {"interfaceName", "mode", "ip", "netMask", "mode6", "ipv6Address",
-                "prefixLength"})
-
-@XmlRootElement(name = "SbiInterfaceIpConfig")
+/**
+ * SBI model class of Interface Ip Address Configuration.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 2017-1-4
+ */
 public class SbiInterfaceIpConfig {
 
-    @XmlElement(name = "interfaceName")
-    @ApiModelProperty(example = "null", value = "interface name")
-    private String interfaceName = null;
-
-    @XmlElement(name = "mode")
-    @ApiModelProperty(example = "null", required = true, value = "IP address assignment mode, the scope is dhcp,manual")
-    private String mode = null;
-
-    @XmlElement(name = "ip")
-    @ApiModelProperty(example = "null", value = "IP address")
-    private String ip = null;
-
-    @XmlElement(name = "netMask")
-    @ApiModelProperty(example = "null", value = "the mask of IP address")
-    private String netMask = null;
-
-    @XmlElement(name = "mode6")
-    @ApiModelProperty(example = "null", required = true, value = "ipv6 address assignment mode, the scope is dhcp,manual")
-    private String mode6 = null;
-
-    @XmlElement(name = "ipv6Address")
-    @ApiModelProperty(example = "null", value = "ipv6 address")
-    private String ipv6Address = null;
-
-    @XmlElement(name = "prefixLength")
-    @ApiModelProperty(example = "null", value = "prefix length")
-    private Long prefixLength = null;
+    /**
+     * Interface name
+     */
+    private String interfaceName;
 
     /**
-     * interface name
-     * 
-     * @return interfaceName
-     **/
+     * Ipv4 address allocation mode
+     */
+    @AString(require=true, scope="dhcp,manual")
+    private String mode;
+
+    /**
+     * Ipv4 address
+     */
+    private String ip;
+
+    /**
+     * Ipv4 netMask
+     */
+    private String netMask;
+
+    /**
+     * Ipv6 address allocation mode
+     */
+    private String mode6;
+
+    /**
+     * Ipv6 address
+     */
+    @AString(require=true, scope="dhcp,manual")
+    private String ipv6Address;
+
+    /**
+     * Ipv6 prefixLength
+     */
+    private Integer prefixLength;
+
     public String getInterfaceName() {
         return interfaceName;
     }
@@ -72,11 +71,6 @@ public class SbiInterfaceIpConfig {
         this.interfaceName = interfaceName;
     }
 
-    /**
-     * IP address assignment mode, the scope is dhcp,manual
-     * 
-     * @return mode
-     **/
     public String getMode() {
         return mode;
     }
@@ -85,11 +79,6 @@ public class SbiInterfaceIpConfig {
         this.mode = mode;
     }
 
-    /**
-     * IP address
-     * 
-     * @return ip
-     **/
     public String getIp() {
         return ip;
     }
@@ -98,11 +87,6 @@ public class SbiInterfaceIpConfig {
         this.ip = ip;
     }
 
-    /**
-     * the mask of IP address
-     * 
-     * @return netMask
-     **/
     public String getNetMask() {
         return netMask;
     }
@@ -111,11 +95,6 @@ public class SbiInterfaceIpConfig {
         this.netMask = netMask;
     }
 
-    /**
-     * ipv6 address assignment mode, the scope is dhcp,manual
-     * 
-     * @return mode6
-     **/
     public String getMode6() {
         return mode6;
     }
@@ -124,11 +103,6 @@ public class SbiInterfaceIpConfig {
         this.mode6 = mode6;
     }
 
-    /**
-     * ipv6 address
-     * 
-     * @return ipv6Address
-     **/
     public String getIpv6Address() {
         return ipv6Address;
     }
@@ -137,43 +111,11 @@ public class SbiInterfaceIpConfig {
         this.ipv6Address = ipv6Address;
     }
 
-    /**
-     * prefix length
-     * 
-     * @return prefixLength
-     **/
-    public Long getPrefixLength() {
+    public Integer getPrefixLength() {
         return prefixLength;
     }
 
-    public void setPrefixLength(Long prefixLength) {
+    public void setPrefixLength(Integer prefixLength) {
         this.prefixLength = prefixLength;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SbiInterfaceIpConfig {\n");
-
-        sb.append("    interfaceName: ").append(toIndentedString(interfaceName)).append("\n");
-        sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
-        sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
-        sb.append("    netMask: ").append(toIndentedString(netMask)).append("\n");
-        sb.append("    mode6: ").append(toIndentedString(mode6)).append("\n");
-        sb.append("    ipv6Address: ").append(toIndentedString(ipv6Address)).append("\n");
-        sb.append("    prefixLength: ").append(toIndentedString(prefixLength)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 }
