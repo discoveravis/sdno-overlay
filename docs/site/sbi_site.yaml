@@ -1,17 +1,35 @@
+#
+# Copyright 2017 Huawei Technologies Co., Ltd.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
 swagger: '2.0'
 info:
   title: LocalSiteService
   description: local site service SBI interface
   version: 1.0.0
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
 schemes:
-  - https
+  - http
 consumes:
   - application/json
 produces:
   - application/json
-basePath: /openoapi/sbi-localsite
+basePath: /openoapi/sbi-localsite/v1
 paths:
-  /v1/device/{deviceuuid}/vlan:
+  /device/{deviceuuid}/vlan:
     post:
       summary: create interface vlan
       description: create interface vlan
@@ -89,7 +107,7 @@ paths:
         500:
           description: Internal Server Error
 
-  /v1/device/{deviceuuid}/vlan/{ids}:
+  /device/{deviceuuid}/vlan/{ids}:
     get:
       summary: query interface vlan
       description: query interface vlan
@@ -126,7 +144,7 @@ paths:
         500:
           description: Internal Server Error
 
-  /v1/device/{deviceuuid}/subnet:
+  /device/{deviceuuid}/subnet:
     post:
       summary: create subnet
       description: create subnet
@@ -196,7 +214,7 @@ paths:
         500:
           description: Internal Server Error
 
-  /v1/device/{deviceuuid}/subnet/{networkid}:
+  /device/{deviceuuid}/subnet/{networkid}:
     delete:
       summary: delete subnet
       description: delete subnet
@@ -264,7 +282,7 @@ paths:
         500:
           description: Internal Server Error
 
-  /v1/device/{deviceuuid}/bdinfo/vni/{vni}:
+  /device/{deviceuuid}/bdinfo/vni/{vni}:
     get:
       summary: query bdinfo
       description: query bdinfo
@@ -299,7 +317,7 @@ paths:
         500:
           description: Internal Server Error
 
-  /v1/device/{deviceuuid}/snat:
+  /device/{deviceuuid}/snat:
     post:
       summary: create snat
       description: create snat
@@ -369,7 +387,7 @@ paths:
         500:
           description: Internal Server Error
 
-  /v1/device/{deviceuuid}/snat/{natid}/acl/{aclid}:
+  /device/{deviceuuid}/snat/{natid}/acl/{aclid}:
     delete:
       summary: delete snat
       description: delete snat
@@ -447,7 +465,7 @@ paths:
         500:
           description: Internal Server Error
 
-  /v1/device/{deviceuuid}/interfaces:
+  /device/{deviceuuid}/interfaces:
     put:
       summary: update IP address of the interface
       description: update IP address of the interface
@@ -485,7 +503,7 @@ paths:
         500:
           description: Internal Server Error
 
-  /v1/devices:
+  /devices:
     get:
       summary: query CPE info
       description: query CPE info
@@ -571,7 +589,7 @@ paths:
         500:
           description: Internal Server Error
 
-  /v1/deviceid/{deviceuuid}:
+  /devices/{deviceuuid}:
     put:
       summary: update CPE info
       description: update CPE info
@@ -605,17 +623,17 @@ paths:
           description: Not Found
         500:
           description: Internal Server Error
-             
+
 definitions:
   SbiIfVlan:
     allOf:
       - $ref: '#/definitions/UuidModel'
       - type: object
         required:
-          - serviceVlanUuid
+          - serviceVlanUuId
           - linkType
         properties:
-          serviceVlanUuid:
+          serviceVlanUuId:
             type: string
             description: The UUID of VLAN model
           ethInterfaceConfigId:
