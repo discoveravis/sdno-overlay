@@ -31,12 +31,12 @@ import org.openo.sdno.overlayvpn.model.ipsec.SecurityPolicy;
 import org.openo.sdno.overlayvpn.model.netmodel.ipsec.DcGwIpSecConnection;
 import org.openo.sdno.overlayvpn.model.netmodel.ipsec.IpSecDpd;
 import org.openo.sdno.overlayvpn.model.netmodel.ipsec.NeIpSecConnection;
-import org.openo.sdno.overlayvpn.model.netmodel.localsite.AdapterDeviceCreateBasicInfo;
-import org.openo.sdno.overlayvpn.model.netmodel.localsite.AdapterDeviceInfo;
 import org.openo.sdno.overlayvpn.model.netmodel.localsite.AdapterDeviceReplaceInfo;
 import org.openo.sdno.overlayvpn.model.netmodel.localsite.DhcpConfig;
 import org.openo.sdno.overlayvpn.model.netmodel.localsite.DnsServerConfig;
 import org.openo.sdno.overlayvpn.model.netmodel.localsite.TimeConfig;
+import org.openo.sdno.overlayvpn.model.v2.cpe.SbiDeviceCreateBasicInfo;
+import org.openo.sdno.overlayvpn.model.v2.cpe.SbiDeviceInfo;
 
 public class BaseServiceModelTest {
 
@@ -251,7 +251,7 @@ public class BaseServiceModelTest {
     @Test(expected = Exception.class)
     public void AdapterDeviceCreateBasicInfo() {
 
-        AdapterDeviceCreateBasicInfo info = new AdapterDeviceCreateBasicInfo();
+        SbiDeviceCreateBasicInfo info = new SbiDeviceCreateBasicInfo();
 
         info.setName("name123");
         assertEquals("name123", info.getName());
@@ -265,7 +265,7 @@ public class BaseServiceModelTest {
         info.setDescription("desc");
         assertEquals("desc", info.getDescription());
 
-        AdapterDeviceCreateBasicInfo infoNew = new AdapterDeviceCreateBasicInfo();
+        SbiDeviceCreateBasicInfo infoNew = new SbiDeviceCreateBasicInfo();
 
         infoNew.setName("name123");
         infoNew.setEsn("esn123");
@@ -273,7 +273,7 @@ public class BaseServiceModelTest {
         infoNew.setDescription("desc");
         assertFalse(info.equals(infoNew));
 
-        Map<AdapterDeviceCreateBasicInfo, String> map = new HashMap<AdapterDeviceCreateBasicInfo, String>();
+        Map<SbiDeviceCreateBasicInfo, String> map = new HashMap<SbiDeviceCreateBasicInfo, String>();
         map.put(info, "one");
         map.put(infoNew, "two");
 
@@ -283,7 +283,7 @@ public class BaseServiceModelTest {
 
     @Test
     public void testAdapterDeviceInfo() {
-        AdapterDeviceInfo info = new AdapterDeviceInfo();
+        SbiDeviceInfo info = new SbiDeviceInfo();
 
         info.setId("1234");
         assertEquals("1234", info.getId());
