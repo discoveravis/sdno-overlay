@@ -37,7 +37,7 @@ paths:
       parameters:
         - name: X-Driver-Parameter
           in: header
-          description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
+          description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
           required: true
           type: string
         - name: deviceuuid
@@ -75,7 +75,7 @@ paths:
       parameters:
         - name: X-Driver-Parameter
           in: header
-          description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
+          description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
           required: true
           type: string
         - name: deviceuuid
@@ -115,7 +115,7 @@ paths:
       parameters:
         - name: X-Driver-Parameter
           in: header
-          description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
+          description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
           required: true
           type: string
         - name: deviceuuid
@@ -152,7 +152,7 @@ paths:
       parameters:
         - name: X-Driver-Parameter
           in: header
-          description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
+          description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
           required: true
           type: string
         - name: deviceuuid
@@ -186,7 +186,7 @@ paths:
       parameters:
         - name: X-Driver-Parameter
           in: header
-          description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
+          description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
           required: true
           type: string
         - name: deviceuuid
@@ -222,7 +222,7 @@ paths:
       parameters:
         - name: X-Driver-Parameter
           in: header
-          description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
+          description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
           required: true
           type: string
         - name: deviceuuid
@@ -255,7 +255,7 @@ paths:
       parameters:
         - name: X-Driver-Parameter
           in: header
-          description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
+          description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
           required: true
           type: string
         - name: deviceuuid
@@ -290,7 +290,7 @@ paths:
       parameters:
         - name: X-Driver-Parameter
           in: header
-          description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
+          description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
           required: true
           type: string
         - name: deviceuuid
@@ -325,7 +325,7 @@ paths:
       parameters:
         - name: X-Driver-Parameter
           in: header
-          description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
+          description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
           required: true
           type: string
         - name: deviceuuid
@@ -359,7 +359,7 @@ paths:
       parameters:
         - name: X-Driver-Parameter
           in: header
-          description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
+          description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
           required: true
           type: string
         - name: deviceuuid
@@ -395,7 +395,7 @@ paths:
       parameters:
         - name: X-Driver-Parameter
           in: header
-          description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
+          description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
           required: true
           type: string
         - name: deviceuuid
@@ -433,7 +433,7 @@ paths:
       parameters:
         - name: X-Driver-Parameter
           in: header
-          description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
+          description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
           required: true
           type: string
         - name: deviceuuid
@@ -473,7 +473,7 @@ paths:
       parameters:
         - name: X-Driver-Parameter
           in: header
-          description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
+          description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
           required: true
           type: string
         - name: deviceuuid
@@ -511,7 +511,7 @@ paths:
       parameters:
         - name: X-Driver-Parameter
           in: header
-          description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
+          description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
           required: true
           type: string
       responses:
@@ -534,7 +534,7 @@ paths:
       parameters:
         - name: X-Driver-Parameter
           in: header
-          description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
+          description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
           required: true
           type: string
         - name: basicInfos
@@ -565,7 +565,7 @@ paths:
       parameters:
         - name: X-Driver-Parameter
           in: header
-          description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
+          description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
           required: true
           type: string
         - name: deviceIds
@@ -596,7 +596,7 @@ paths:
       parameters:
         - name: X-Driver-Parameter
           in: header
-          description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
+          description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller 
           required: true
           type: string
         - name: deviceuuid
