@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,7 +46,7 @@ public class ModelEnumTest {
         siteNet = ActionStatus.UPDATING;
         assertEquals("Updating", siteNet.getName());
         siteNet = ActionStatus.CREATE_EXCEPTION;
-        assertEquals("Create_Excepion", siteNet.getName());
+        assertEquals("Create_Exception", siteNet.getName());
         siteNet = ActionStatus.DELETE_EXCEPTION;
         assertEquals("Delete_Exception", siteNet.getName());
         siteNet = ActionStatus.UPDATE_EXCEPTION;
