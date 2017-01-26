@@ -1,11 +1,29 @@
+#
+# Copyright 2017 Huawei Technologies Co., Ltd.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
 swagger: '2.0'
 info:
   title: Ipsec Service SBI
   description: Southbound Interface for Ipsec
   version: 1.0.0
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
 host: sbi-ipsec.open-o.org
 schemes:
-- https
+- http
 basePath: /openoapi/sbi-ipsec/v1
 produces:
 - application/json
@@ -17,7 +35,7 @@ paths:
       parameters:
       - name: X-Driver-parameter
         in: header
-        description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller.
+        description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller.
         required: true
         type: string
         format: uuid
@@ -27,6 +45,11 @@ paths:
         required: true
         type: string
         format: uuid
+      - name: portName
+        in: query
+        description: port name.
+        required: true
+        type: string
       responses:
         201:
           description: query Ip success.
@@ -47,7 +70,7 @@ paths:
       parameters:
       - name: X-Driver-parameter
         in: header
-        description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller.
+        description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller.
         required: true
         type: string
         format: uuid
@@ -75,11 +98,11 @@ paths:
   /device/batch-query-ipsecs:
     post:
       summary: Batch query Ipsec in AC.
-      description: It will query Ipsec connection specified in requests.
+      description: It will query Ipsec connections specified in requests.
       parameters:
       - name: X-Driver-parameter
         in: header
-        description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller.
+        description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller.
         required: true
         type: string
         format: uuid
@@ -104,46 +127,14 @@ paths:
           description: query Ipsec connection failure as can't reach server.
         500:
           description: query Ipsec connection failure as inner error.
-  /device/batch-allocation-ipsecs:
-    put:
-      summary: Batch allocate Ipsec in AC.
-      description: It will allocate Ipsec connection specified in requests.
-      parameters:
-      - name: X-Driver-parameter
-        in: header
-        description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller.
-        required: true
-        type: string
-        format: uuid
-      - name: body
-        in: body
-        description: a list of Ipsec connection objects to be allocated.
-        required: true
-        schema:
-          type: array
-          items:
-            $ref: '#/definitions/SbiNeIpSec'
-      responses:
-        201:
-          description: allocate Ipsec connection success.
-          schema:
-            $ref: '#/definitions/SbiNeIpSecResultRsp'
-        400:
-          description: allocate Ipsec connection failure as parameters invalid.
-        401:
-          description: unauthorized.
-        404:
-          description: allocate Ipsec connection failure as can't reach server.
-        500:
-          description: allocate Ipsec connection failure as inner error.
   /device/batch-update-ipsecs:
     put:
       summary: Batch update Ipsec in AC.
-      description: It will update Ipsec connection specified in requests.
+      description: It will update Ipsec connections specified in requests.
       parameters:
       - name: X-Driver-parameter
         in: header
-        description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller.
+        description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller.
         required: true
         type: string
         format: uuid
@@ -168,14 +159,14 @@ paths:
           description: update Ipsec connection failure as can't reach server.
         500:
           description: update Ipsec connection failure as inner error.
-  /device/{deviceid}/ipsecs/{extIpsecid}/batch-delete-ipsec:
+  /device/{deviceid}/ipsecs/{extipsecid}/batch-delete-ipsec:
     post:
       summary: Batch delete Ipsec in AC.
       description: It will delete Ipsec connections specified in requests.
       parameters:
       - name: X-Driver-parameter
         in: header
-        description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller.
+        description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller.
         required: true
         type: string
         format: uuid
@@ -185,7 +176,7 @@ paths:
         required: true
         type: string
         format: uuid
-      - name: extIpsecid
+      - name: extipsecid
         in: path
         description: external Ipsec ID.
         required: true
@@ -212,49 +203,17 @@ paths:
           description: delete Ipsec connection failure as can't reach server.
         500:
           description: delete Ipsec connection failure as inner error.
-  /device/{deviceid}/ipsec-connection/status:
-    post:
-      summary: Batch query Ipsec status in AC.
-      description: It will query Ipsec connections' status specified in requests.
-      parameters:
-      - name: X-Driver-parameter
-        in: header
-        description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller.
-        required: true
-        type: string
-        format: uuid
-      - name: deviceid
-        in: path
-        description: device ID.
-        required: true
-        type: string
-        format: uuid
-      - name: body
-        in: body
-        description: a list of Ipsec connection objects to be queried.
-        required: true
-        schema:
-          type: array
-          items:
-            $ref: '#/definitions/SbiNeIpSec'
-      responses:
-        201:
-          description: query Ipsec connection status success.
-          schema:
-            $ref: '#/definitions/SbiNeIpSecResultRsp'
-        400:
-          description: query Ipsec connection status failure as parameters invalid.
-        401:
-          description: unauthorized.
-        404:
-          description: query Ipsec connection status failure as can't reach server.
-        500:
-          description: query Ipsec connection status failure as inner error.
-  /fsadapter/ipsec-connections:
+  /dc-gateway/ipsec-connections:
     post:
       summary: Batch create Ipsec in FS.
       description: It will create Ipsec connection specified in requests.
       parameters:
+      - name: X-Driver-parameter
+        in: header
+        description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller.
+        required: true
+        type: string
+        format: uuid
       - name: body
         in: body
         description: a list of Ipsec connection objects to be created.
@@ -276,10 +235,24 @@ paths:
           description: create Ipsec connection failure as can't reach server.
         500:
           description: create Ipsec connection failure as inner error.
+   
+  /dc-gateway/ipsec-connections/{externalipsecid}:
     put:
       summary: Batch update Ipsec in FS.
       description: It will update Ipsec connection specified in requests.
       parameters:
+      - name: X-Driver-parameter
+        in: header
+        description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller.
+        required: true
+        type: string
+        format: uuid
+      - name: externalipsecid
+        in: path
+        description: external Ipsec ID.
+        required: true
+        type: string
+        format: uuid
       - name: body
         in: body
         description: a list of Ipsec connection objects to be updated.
@@ -301,11 +274,17 @@ paths:
           description: update Ipsec connection failure as can't reach server.
         500:
           description: update Ipsec connection failure as inner error.
-  /fsadapter/ipsec-connections/batch-delete:
+  /dc-gateway/ipsec-connections/batch-delete:
     post:
       summary: Batch delete Ipsec in FS.
       description: It will delete Ipsec connection specified in requests.
       parameters:
+      - name: X-Driver-parameter
+        in: header
+        description: additional driver-related parameters, current format is "extSysId={ctrlUuid}",and drivermgr will find out driver instance by controller.
+        required: true
+        type: string
+        format: uuid
       - name: body
         in: body
         description: a list of Ipsec connection objects to be created.
@@ -327,30 +306,6 @@ paths:
           description: delete Ipsec connection failure as can't reach server.
         500:
           description: delete Ipsec connection failure as inner error.
-  /fsadapter/ipsec-connections/allocatefloatingip:
-    post:
-      summary: allocte floating Ip.
-      description: It will allocte floating Ip in FS.
-      parameters:
-      - name: body
-        in: body
-        description: region Id.
-        required: true
-        schema:
-          type: string
-      responses:
-        201:
-          description: allocte floating Ip success.
-          schema:
-            $ref: '#/definitions/SbiNeIpSecResultRsp'
-        400:
-          description: allocte floating Ip failure as parameters invalid.
-        401:
-          description: unauthorized.
-        404:
-          description: allocte floating Ip failure as can't reach server.
-        500:
-          description: allocte floating Ip failure as inner error.
 definitions:
   SbiIpResultRsp:
     description: String result model
@@ -487,17 +442,17 @@ definitions:
             description: Ipv6 address
           ipMask:
             type: string
-            description: Ip mask
+            description: Ip mask length. Used in Ipv4. Example, if ip mask is "255.255.255.0", ip mask length is 24.
           prefixLength:
             type: string
-            description: Ip prefix length
+            description: Ipv6 prefix length. Used in Ipv6. 
   SbiNeIpSec:
     description: Sbi Ipsec data model.
     allOf:
       - $ref: '#/definitions/SbiIpSecNetModel'
       - type: object
         required:
-          - sourceIfName
+          - sourceIfId
           - sourceAddress
           - peerAddress
           - workType
@@ -506,9 +461,7 @@ definitions:
         properties:
           externalIpSecId:
             type: string
-          sourceIfName:
-            type: string
-          destIfName:
+          sourceIfId:
             type: string
           sourceAddress:
             type: string
@@ -634,8 +587,6 @@ definitions:
           connectionServiceId:
             type: string
           neId:
-            type: string
-          peerNeId:
             type: string
           deviceId:
             type: string
