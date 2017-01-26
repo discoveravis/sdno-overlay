@@ -1,24 +1,44 @@
+#
+# Copyright 2017 Huawei Technologies Co., Ltd.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
 swagger: '2.0'
 info:
   title: VxlanService
   description: vxlan service NBI interface
   version: 1.0.0
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
 schemes:
-  - https
+  - http
 consumes:
   - application/json
 produces:
   - application/json
-basePath: /v1
+basePath: /openoapi/sdnovxlan/v1
 paths:
-  /sdn/v1/vxlan/tunnel/{vxlanTunnelId}:
+  /vxlans/{vxlantunnelid}:
     get:
       tags:
       - NbiVxlanTunnelRoaResource
       summary: query  vxlan tunnel
       description: query  vxlan tunnel
       parameters:
-        - name: vxlanTunnelId
+        - name: vxlantunnelid
           in: path
           description: vxlan nbi models id
           required: true
@@ -42,7 +62,7 @@ paths:
       summary: delete  vxlan tunnel
       description: delete  vxlan tunnel
       parameters:
-        - name: vxlanTunnelId
+        - name: vxlantunnelid
           in: path
           description: vxlan nbi models id
           required: true
@@ -61,7 +81,7 @@ paths:
         500:
           description: Internal Server Error
 
-  /sdn/v1/vxlan/tunnel:
+  /vxlans/tunnel:
     post:
       tags:
       - NbiVxlanTunnelRoaResource
@@ -90,7 +110,7 @@ paths:
         500:
           description: Internal Server Error
 
-  /sdn/v1/vxlan/tunnel/action:
+  /vxlans/action:
     post:
       tags:
       - NbiVxlanTunnelRoaResource
@@ -121,7 +141,7 @@ paths:
         500:
           description: Internal Server Error
 
-  /sdn/v1/vxlan/tunnel/batch-query:
+  /vxlans/batch-query:
     post:
       tags:
       - NbiVxlanTunnelRoaResource
@@ -150,85 +170,6 @@ paths:
         500:
           description: Internal Server Error
 
-  /sdn/v1/vxlan/tunnel/{uuid}/repair:
-    put:
-      tags:
-      - NbiVxlanTunnelRoaResource
-      summary: repair  vxlans
-      description: repair  vxlans
-      parameters:
-        - name: uuid
-          in: path
-          description: vxlan tunnel uuid
-          required: true
-          type: string
-          format: uuid
-      responses:
-        201:
-          description: OK
-          schema:
-            $ref: '#/definitions/NbiVxlanTunnelResultResponse'
-        400:
-          description: Bad Request
-        401:
-          description: Unauthorized
-        404:
-          description: Not Found
-        500:
-          description: Internal Server Error
-
-  /sdn/v1/vxlan/tunnel/ip-change:
-    post:
-      tags:
-      - NbiVxlanTunnelRoaResource
-      summary: query  tunnel status
-      description: query  tunnel status
-      parameters:
-        - name: body
-          in: body
-          description: change cpe ip
-          required: true
-          schema:
-            type: object
-            items:
-              $ref: '#/definitions/CpeIpChange'
-      responses:
-        201:
-          description: OK
-        400:
-          description: Bad Request
-        401:
-          description: Unauthorized
-        404:
-          description: Not Found
-        500:
-          description: Internal Server Error
-  /sdn/v1/vxlan/tunnel/vtep-ip/{neid}:
-    get:
-      tags:
-      - NbiVxlanTunnelRoaResource
-      summary: query vtep ip
-      description: query vtep ip
-      parameters:
-        - name: neid
-          in: path
-          description: ne id
-          required: true
-          type: string
-          format: uuid
-      responses:
-        201:
-          description: OK
-          schema:
-            $ref: '#/definitions/Ip'
-        400:
-          description: Bad Request
-        401:
-          description: Unauthorized
-        404:
-          description: Not Found
-        500:
-          description: Internal Server Error
 definitions:
   UuidModel:
     type: object
@@ -445,50 +386,3 @@ definitions:
         items:
           type: string
         description: undeploy list
-  CpeIpChange:
-    type: object
-    description: deploy/undeploy model
-    required:
-      - neId
-      - devId
-    properties:
-      esn:
-        type: string
-        description: esn
-      neId:
-        type: string
-        description: ne id
-      devId:
-        type: string
-        description: device id
-      type:
-        type: string
-        description: type
-  Ip:
-    type: object
-    description: ip model
-    required:
-      - ipv4
-      - ipMask
-    properties:
-      ipv4:
-        type: string
-        description: ipv4 ip
-      ipv6:
-        type: string
-        description: ipv6 ip
-      ipMask:
-        type: string
-        description: ip mask
-      prefixLength:
-        type: string
-        description: length of prifix
-      neId:
-        type: string
-        description: id of ne
-      deviceId:
-        type: string
-        description: device id
-      vxlanTunnelId:
-        type: string
-        description: vxlan tunnel id

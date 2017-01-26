@@ -1,17 +1,35 @@
+#
+# Copyright 2017 Huawei Technologies Co., Ltd.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
 swagger: '2.0'
 info:
   title: VxlanService
   description: vxlan service SBI interface
   version: 1.0.0
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
 schemes:
-  - https
+  - http
 consumes:
   - application/json
 produces:
   - application/json
-basePath: /v1
+basePath: /openoapi/sbi-vxlan/v1
 paths:
-  /vxlan/v2/batch-create-vxlan:
+  /batch-create-vxlan:
     post:
       tags:
       - VxlanRoaResource
@@ -45,13 +63,13 @@ paths:
           description: Not Found
         500:
           description: Internal Server Error
-
-  /vxlan/v2/device/{deviceId}/port:
+          
+  /batch-query-vxlan:
     post:
       tags:
       - VxlanRoaResource
-      summary: query port
-      description: query port
+      summary: query  vxlans
+      description: query  vxlans
       parameters:
         - name: X-Driver-Parameter
           in: header
@@ -59,16 +77,11 @@ paths:
           required: true
           type: string
           format: uuid
-        - name: deviceId
-          in: path
-          description: device Id
-          required: true
-          type: string
       responses:
         201:
           description: OK
           schema:
-            $ref: '#/definitions/IpResultResponse'
+            $ref: '#/definitions/SbiNeVxlanInstanceResultResponse'
         400:
           description: Bad Request
         401:
@@ -78,7 +91,42 @@ paths:
         500:
           description: Internal Server Error
 
-  /vxlan/v2/batch-delete-vxlan:
+  /batch-update-vxlan:
+    post:
+      tags:
+      - VxlanRoaResource
+      summary: update  vxlans
+      description: update  vxlans
+      parameters:
+        - name: X-Driver-Parameter
+          in: header
+          description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller
+          required: true
+          type: string
+          format: uuid
+        - name: updateSbiNeTunnels
+          in: body
+          description: vxlan sbi models to be created
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SbiNeVxlanInstance'
+      responses:
+        201:
+          description: OK
+          schema:
+            $ref: '#/definitions/SbiNeVxlanInstanceResultResponse'
+        400:
+          description: Bad Request
+        401:
+          description: Unauthorized
+        404:
+          description: Not Found
+        500:
+          description: Internal Server Error
+
+  /device/{deviceid}/batch-delete-vxlan:
     post:
       tags:
       - VxlanRoaResource
@@ -91,6 +139,11 @@ paths:
           required: true
           type: string
           format: uuid
+        - name: deviceid
+          in: path
+          description: device Id
+          required: true
+          type: string
         - name: unDeploySbiNeVxlanInstance
           in: body
           description: vxlan sbi models to delete
@@ -113,115 +166,6 @@ paths:
         500:
           description: Internal Server Error
 
-  /vxlan/v2/batch-query-vxlan:
-    post:
-      tags:
-      - VxlanRoaResource
-      summary: query  vxlans
-      description: query  vxlans
-      parameters:
-        - name: X-Driver-Parameter
-          in: header
-          description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller
-          required: true
-          type: string
-          format: uuid
-        - name: createSbiNeTunnels
-          in: body
-          description: vxlan sbi models to be query
-          required: true
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/SbiNeVxlanInstance'
-      responses:
-        201:
-          description: OK
-          schema:
-            $ref: '#/definitions/SbiNeVxlanInstanceResultResponse'
-        400:
-          description: Bad Request
-        401:
-          description: Unauthorized
-        404:
-          description: Not Found
-        500:
-          description: Internal Server Error
-
-  /vxlan/v2/batch-update-vxlan:
-    post:
-      tags:
-      - VxlanRoaResource
-      summary: update  vxlans
-      description: update  vxlans
-      parameters:
-        - name: X-Driver-Parameter
-          in: header
-          description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller
-          required: true
-          type: string
-          format: uuid
-        - name: sbiData
-          in: body
-          description: vxlan sbi models to be update
-          required: true
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/SbiNeVxlanInstance'
-      responses:
-        201:
-          description: OK
-          schema:
-            $ref: '#/definitions/SbiNeVxlanInstanceResultResponse'
-        400:
-          description: Bad Request
-        401:
-          description: Unauthorized
-        404:
-          description: Not Found
-        500:
-          description: Internal Server Error
-
-  /vxlan/v2/device/{deviceId}/tunnel/status:
-    post:
-      tags:
-      - VxlanRoaResource
-      summary: query  tunnel status
-      description: query  tunnel status
-      parameters:
-        - name: X-Driver-Parameter
-          in: header
-          description: additional driver-related parameters, current format is "exrSysId={ctrlUuid}",and drivermgr will find out driver instance by controller
-          required: true
-          type: string
-          format: uuid
-        - name: deviceId
-          in: path
-          description: device Id
-          required: true
-          type: string
-        - name: sbiData
-          in: body
-          description: vxlan sbi models to be update
-          required: true
-          schema:
-            type: object
-            items:
-              $ref: '#/definitions/SbiNeVxlanTunnelStatusResultResponse'
-      responses:
-        201:
-          description: OK
-          schema:
-            $ref: '#/definitions/SbiNeVxlanTunnelStatusResultResponse'
-        400:
-          description: Bad Request
-        401:
-          description: Unauthorized
-        404:
-          description: Not Found
-        500:
-          description: Internal Server Error
 definitions:
   UuidModel:
     type: object
@@ -322,11 +266,9 @@ definitions:
             type: string
             description: bound vxlan instance id
           sourceAddress:
-            type: string
-            description: source address
+            $ref: "#/definitions/Ip"
           destAddress:
-            type: string
-            description: destination address
+            $ref: "#/definitions/Ip"
           sourceIfId:
             type: string
             description: source ifid
@@ -341,25 +283,6 @@ definitions:
             type: array
             items:
               type: string
-  SbiNeVxlanGateway:
-    allOf:
-      - $ref: '#/definitions/SbiVxlanNetModel'
-      - type: object
-        required:
-          - vxlanInstanceId
-        properties:
-          neRole:
-            type: string
-            description: role of Ne
-          vxlanInstanceId:
-            type: string
-            description: bound vxlan instance id
-          ipAddress:
-            type: string
-            description: ip address
-          ipMask:
-            type: string
-            description: ip mask
 
   SbiNeVxlanInstance:
     allOf:
@@ -399,11 +322,6 @@ definitions:
             type: array
             items:
               $ref: '#/definitions/SbiNeVxlanTunnel'
-          vxlanGatewayList:
-            type: array
-            items:
-              $ref: '#/definitions/SbiNeVxlanGateway'
-
   ErrorCodeInfo:
     type: object
     description: Error code information model
@@ -502,36 +420,6 @@ definitions:
         type: string
         description: vxlan tunnel id
 
-  FailDataIp:
-    type: object
-    description: Fail data model
-    properties:
-      errcode:
-        type: string
-        description: result error code
-      errmsg:
-        type: string
-        description: error message
-      data:
-        $ref: "#/definitions/Ip"
-  IpResultResponse:
-    description: Ip result model
-    allOf:
-    - $ref: '#/definitions/ResultResponse'
-    - type: object
-      properties:
-        data:
-          $ref: "#/definitions/Ip"
-        successed:
-          type: array
-          items:
-            $ref: "#/definitions/Ip"
-          description: the successed list.
-        fail:
-          type: array
-          items:
-            $ref: "#/definitions/FailDataIp"
-          description: the failed list.
 
   FailDataSbiNeVxlanInstance:
     type: object
@@ -562,49 +450,4 @@ definitions:
           type: array
           items:
             $ref: "#/definitions/FailDataSbiNeVxlanInstance"
-          description: the failed list.
-  SbiNeVxlanTunnelStatus:
-    type: object
-    description: Sbi Ne Vxlan Tunnel Status model
-    required:
-      - deviceId
-    properties:
-      deviceId:
-        type: string
-        description: device id
-      localIp:
-        type: string
-        description: local ip
-      peerIp:
-        type: string
-        description: peer ip
-  FailDataSbiNeVxlanTunnelStatus:
-    type: object
-    description: Fail data model
-    properties:
-      errcode:
-        type: string
-        description: result error code
-      errmsg:
-        type: string
-        description: error message
-      data:
-        $ref: "#/definitions/SbiNeVxlanTunnelStatus"
-  SbiNeVxlanTunnelStatusResultResponse:
-    description: SbiNeVxlanTunnelStatus result model
-    allOf:
-    - $ref: '#/definitions/ResultResponse'
-    - type: object
-      properties:
-        data:
-          $ref: "#/definitions/SbiNeVxlanTunnelStatus"
-        successed:
-          type: array
-          items:
-            $ref: "#/definitions/SbiNeVxlanTunnelStatus"
-          description: the successed list.
-        fail:
-          type: array
-          items:
-            $ref: "#/definitions/FailDataSbiNeVxlanTunnelStatus"
           description: the failed list.
