@@ -312,6 +312,7 @@ public class NetworkElementInvDao {
         suportKeys.add("siteID");
         suportKeys.add("serialNumber");
         suportKeys.add("nativeID");
+        suportKeys.add("neRole");
 
         for(Map.Entry<String, String> entry : condition.entrySet()) {
             if(!suportKeys.contains(entry.getKey())) {

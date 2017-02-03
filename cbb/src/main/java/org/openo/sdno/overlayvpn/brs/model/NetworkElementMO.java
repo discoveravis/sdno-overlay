@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,7 +48,7 @@ public class NetworkElementMO extends BaseMO {
     @AString(require = false, min = 0, max = 36)
     private String phyNeID;
 
-    private List<String> managementDomainID;
+    private String managementDomainID;
 
     private List<String> controllerID;
 
@@ -122,6 +122,14 @@ public class NetworkElementMO extends BaseMO {
     private String operState;
 
     private String nativeID;
+
+    @AString(require = true, scope = "Thin CPE,vCPE,vFW")
+    private String neRole;
+
+    private String popID;
+
+    @AString(scope = "IPV4,IPV6,IPV4/IPV6")
+    private String accessIPVersion = "IPV4";
 
     /**
      * Constructor<br>
@@ -198,7 +206,7 @@ public class NetworkElementMO extends BaseMO {
      * @return managementDomainID attribute
      * @since SDNO 0.5
      */
-    public List<String> getManagementDomainID() {
+    public String getManagementDomainID() {
         return managementDomainID;
     }
 
@@ -208,7 +216,7 @@ public class NetworkElementMO extends BaseMO {
      * @param managementDomainID String Object
      * @since SDNO 0.5
      */
-    public void setManagementDomainID(List<String> managementDomainID) {
+    public void setManagementDomainID(String managementDomainID) {
         this.managementDomainID = managementDomainID;
     }
 
@@ -493,6 +501,26 @@ public class NetworkElementMO extends BaseMO {
     }
 
     /**
+     * Get NeRole attribute.<br>
+     * 
+     * @return NeRole attribute
+     * @since SDNO 0.5
+     */
+    public String getNeRole() {
+        return neRole;
+    }
+
+    /**
+     * Set NeRole attribute.<br>
+     * 
+     * @param neRole NeRole attribute
+     * @since SDNO 0.5
+     */
+    public void setNeRole(String neRole) {
+        this.neRole = neRole;
+    }
+
+    /**
      * Get MOKEY attribute.<br>
      * 
      * @return MOKEY attribute
@@ -500,6 +528,46 @@ public class NetworkElementMO extends BaseMO {
      */
     public static String getMokey() {
         return MOKEY;
+    }
+
+    /**
+     * Get accessIPVersion attribute.<br>
+     * 
+     * @return accessIPVersion attribute
+     * @since SDNO 0.5
+     */
+    public String getAccessIPVersion() {
+        return accessIPVersion;
+    }
+
+    /**
+     * Set accessIPVersion attribute.<br>
+     * 
+     * @param accessIPVersion accessIPVersion attribute
+     * @since SDNO 0.5
+     */
+    public void setAccessIPVersion(String accessIPVersion) {
+        this.accessIPVersion = accessIPVersion;
+    }
+
+    /**
+     * Set popID attribute.<br>
+     * 
+     * @return popID attribute
+     * @since SDNO 0.5
+     */
+    public String getPopID() {
+        return popID;
+    }
+
+    /**
+     * Set popID attribute.<br>
+     * 
+     * @param popID popID attribute
+     * @since SDNO 0.5
+     */
+    public void setPopID(String popID) {
+        this.popID = popID;
     }
 
     /**
