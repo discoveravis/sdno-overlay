@@ -16,7 +16,10 @@
 
 package org.openo.sdno.overlayvpn.esr.invdao;
 
+import java.util.List;
+
 import org.apache.commons.lang3.StringUtils;
+import org.codehaus.jackson.type.TypeReference;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.roa.util.restclient.RestfulParametes;
 import org.openo.baseservice.roa.util.restclient.RestfulResponse;
@@ -67,6 +70,27 @@ public class SdnControllerDao {
         }
 
         return JsonUtil.fromJson(queryRsp.getResponseContent(), SdnController.class);
+    }
+
+    /**
+     * Query all Sdn Controllers.<br>
+     * 
+     * @return List of Sdn Controllers queried out
+     * @throws ServiceException when query failed
+     * @since SDNO 0.5
+     */
+    public List<SdnController> querySdnControllers() throws ServiceException {
+
+        RestfulParametes restParametes = new RestfulParametes();
+        restParametes.putHttpContextHeader(HttpConst.CONTEXT_TYPE_HEADER, HttpConst.MEDIA_TYPE_JSON);
+        RestfulResponse queryRsp = RestfulProxy.get(SDN_CONTROLLER_URL, restParametes);
+
+        if(!HttpCode.isSucess(queryRsp.getStatus()) || StringUtils.isEmpty(queryRsp.getResponseContent())) {
+            LOGGER.error("Sdn Controllers query failed.");
+            throw new ServiceException("Sdn Controllers query failed");
+        }
+
+        return JsonUtil.fromJson(queryRsp.getResponseContent(), new TypeReference<List<SdnController>>() {});
     }
 
 }

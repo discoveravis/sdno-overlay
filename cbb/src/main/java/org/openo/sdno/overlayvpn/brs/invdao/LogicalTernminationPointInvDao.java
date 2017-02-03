@@ -16,6 +16,7 @@
 
 package org.openo.sdno.overlayvpn.brs.invdao;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -34,6 +35,7 @@ import org.openo.sdno.overlayvpn.util.check.UuidUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.CollectionUtils;
 
 /**
  * LogicalTernminationPoint Data DAO class.<br>
@@ -181,6 +183,28 @@ public class LogicalTernminationPointInvDao {
 
         String data = JsonUtil.toJson(objectMap);
         return JsonUtil.fromJson(data, LogicalTernminationPointMO.class);
+    }
+
+    /**
+     * Batch Query LogicalTernminationPointMOs.<br>
+     * 
+     * @param ids List of Ltp Uuids
+     * @return List of LogicalTernminationPointMOs queried out
+     * @throws ServiceException when query failed
+     * @since SDNO 0.5
+     */
+    public List<LogicalTernminationPointMO> query(List<String> ids) throws ServiceException {
+
+        if(CollectionUtils.isEmpty(ids)) {
+            return new ArrayList<LogicalTernminationPointMO>();
+        }
+
+        List<LogicalTernminationPointMO> logicalTernminationPointList = new ArrayList<LogicalTernminationPointMO>();
+        for(String curLtpUuid : ids) {
+            logicalTernminationPointList.add(query(curLtpUuid));
+        }
+
+        return logicalTernminationPointList;
     }
 
     /**

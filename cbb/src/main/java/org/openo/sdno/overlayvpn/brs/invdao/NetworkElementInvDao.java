@@ -37,6 +37,7 @@ import org.openo.sdno.overlayvpn.util.check.UuidUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.CollectionUtils;
 
 /**
  * NetworkElement data DAO class.<br>
@@ -125,6 +126,27 @@ public class NetworkElementInvDao {
         Map<String, Object> contentMap = JsonUtil.fromJson(response.getResponseContent(), Map.class);
         String data = JsonUtil.toJson(contentMap.get(NES_KEY));
         return JsonUtil.fromJson(data, new TypeReference<List<NetworkElementMO>>() {});
+    }
+
+    /**
+     * Get NetworkElementMOs by Uuids.<br>
+     * 
+     * @param ids List of Uuids
+     * @return List of NetworkElementMO queried out
+     * @throws ServiceException when query failed
+     * @since SDNO 0.5
+     */
+    public List<NetworkElementMO> getMOByIds(List<String> ids) throws ServiceException {
+        if(CollectionUtils.isEmpty(ids)) {
+            return new ArrayList<NetworkElementMO>();
+        }
+
+        List<NetworkElementMO> networkElementList = new ArrayList<NetworkElementMO>();
+        for(String curNeUuid : ids) {
+            networkElementList.add(query(curNeUuid));
+        }
+
+        return networkElementList;
     }
 
     /**
