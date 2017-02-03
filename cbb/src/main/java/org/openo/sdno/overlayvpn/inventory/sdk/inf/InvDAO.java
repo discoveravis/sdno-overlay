@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.BatchQueryFileterEntity;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.QueryParams;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.RelationMO;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.RelationPuerMO;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
 
 /**
@@ -162,7 +163,7 @@ public interface InvDAO<T> {
      * @throws ServiceException When query fail.
      * @since SDNO 0.5
      */
-    ResultRsp<List<T>> queryByRelation(RelationMO relation) throws ServiceException;
+    ResultRsp<List<RelationPuerMO>> queryByRelation(RelationMO relation) throws ServiceException;
 
     /**
      * Query numbers by filter in one table. <br>

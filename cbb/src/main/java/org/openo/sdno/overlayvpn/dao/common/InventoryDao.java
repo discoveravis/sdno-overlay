@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,8 @@ import org.openo.sdno.overlayvpn.errorcode.ErrorCode;
 import org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.PuerInvDAOImpl;
 import org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.PuerInvServicesImpl;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.QueryParams;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.RelationMO;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.RelationPuerMO;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
 import org.openo.sdno.overlayvpn.result.SvcExcptUtil;
 import org.openo.sdno.overlayvpn.util.dbresultprocess.FillDbResultRsp;
@@ -363,4 +365,51 @@ public class InventoryDao<T> {
 
         return copyDataList;
     }
+
+    /**
+     * Add RelationMO.<br>
+     * 
+     * @param relationMO RelationMO Object
+     * @return operation result
+     * @throws ServiceException when add failed
+     * @since SDNO 0.5
+     */
+    @SuppressWarnings("unchecked")
+    public ResultRsp<T> addRelation(RelationMO relationMO) throws ServiceException {
+        if(null == relationMO) {
+            LOGGER.error("relationMO is null");
+            throw new ServiceException("relationMO is null");
+        }
+        return invDao.addRelation(relationMO);
+    }
+
+    /**
+     * Delete RelationMO.<br>
+     * 
+     * @param relationMO RelationMO Object
+     * @return operation result
+     * @throws ServiceException when delete failed
+     * @since SDNO 0.5
+     */
+    @SuppressWarnings("unchecked")
+    public ResultRsp<T> deleteRelation(RelationMO relationMO) throws ServiceException {
+        if(null == relationMO) {
+            LOGGER.error("relationMO is null");
+            throw new ServiceException("relationMO is null");
+        }
+        return invDao.deleteRelation(relationMO);
+    }
+
+    /**
+     * Query Relationship Objects.<br>
+     * 
+     * @param condition relationship of objects
+     * @return objects queried out
+     * @throws ServiceException when query failed
+     * @since SDNO 0.5
+     */
+    public ResultRsp<List<RelationPuerMO>> queryByRelation(RelationMO condition) throws ServiceException {
+        return invDao.queryByRelation(condition);
+    }
+
 }

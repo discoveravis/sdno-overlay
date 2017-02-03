@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,10 +29,10 @@ import org.codehaus.jackson.annotate.JsonProperty;
  */
 public class RelationPuerMO {
 
-    @JsonProperty(value = "src_uuid")
+    @JsonProperty(value = "src_id")
     private String srcUuid;
 
-    @JsonProperty(value = "dst_uuid")
+    @JsonProperty(value = "dst_id")
     private String dstUuid;
 
     @JsonProperty(value = "dst_type")
@@ -75,7 +75,6 @@ public class RelationPuerMO {
         return srcUuid;
     }
 
-    @JsonProperty(value = "src_id")
     public void setSrcUuid(String srcuuid) {
         this.srcUuid = srcuuid;
     }
@@ -84,7 +83,6 @@ public class RelationPuerMO {
         return dstUuid;
     }
 
-    @JsonProperty(value = "dst_id")
     public void setDstUuid(String dstuuid) {
         this.dstUuid = dstuuid;
     }
@@ -124,8 +122,8 @@ public class RelationPuerMO {
         List<RelationPuerMO> relationPuerMOList = new ArrayList<RelationPuerMO>();
 
         for(RelationMO mo : relationList) {
-            relationPuerMOList.add(new RelationPuerMO(mo.getSrcUUID(), mo.getDstUUID(), mo.getDstResType(), mo
-                    .getRelation(), mo.getServiceType()));
+            relationPuerMOList.add(new RelationPuerMO(mo.getSrcUUID(), mo.getDstUUID(), mo.getDstResType(),
+                    mo.getRelation(), mo.getServiceType()));
         }
 
         return relationPuerMOList;

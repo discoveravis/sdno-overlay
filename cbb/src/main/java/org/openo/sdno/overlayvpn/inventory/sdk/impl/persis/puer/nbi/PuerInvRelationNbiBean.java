@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,8 @@ import org.openo.sdno.overlayvpn.errorcode.ErrorCode;
 import org.openo.sdno.overlayvpn.inventory.sdk.DbOwerInfo;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.RelationMO;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.RelationPuerMO;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.RelationResponseMO;
+import org.openo.sdno.overlayvpn.result.ResultRsp;
 import org.openo.sdno.rest.ResponseUtils;
 import org.openo.sdno.result.InvRsp;
 import org.slf4j.Logger;
@@ -156,6 +158,37 @@ public class PuerInvRelationNbiBean extends PuerInvSuperNbiBean {
             throw new ServiceException(e);
         }
 
+    }
+
+    /**
+     * Query relation data.<br>
+     * 
+     * @param relation Relation query condition object
+     * @return RelationPuerMO queried out
+     * @throws ServiceException when query failed
+     * @since SDNO 0.5
+     */
+    public ResultRsp<List<RelationPuerMO>> queryRelation(RelationMO relation) throws ServiceException {
+
+        String queryUrl =
+                MessageFormat.format(DBURL, DbOwerInfo.getBucketName()) + relation.getSrcResType() + "/relationships";
+
+        RestfulParametes restParametes = new RestfulParametes();
+        restParametes.put("src_ids", relation.getSrcUUID());
+        restParametes.put("dst_ids", relation.getDstUUID());
+        restParametes.put("dst_type", relation.getDstResType());
+
+        RestfulResponse response = RestfulProxy.get(queryUrl, restParametes);
+        if(!HttpCode.isSucess(response.getStatus())) {
+            LOGGER.error("Query Relationships failed");
+            throw new ServiceException("Query Relationships failed");
+        }
+
+        RelationResponseMO resultRelationObject =
+                JsonUtil.fromJson(response.getResponseContent(), RelationResponseMO.class);
+
+        return new ResultRsp<List<RelationPuerMO>>(ErrorCode.OVERLAYVPN_SUCCESS,
+                resultRelationObject.getRelationships());
     }
 
     private String buildRelationListString(List<String> srcUUID) {
