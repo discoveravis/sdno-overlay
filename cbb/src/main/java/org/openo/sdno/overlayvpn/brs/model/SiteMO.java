@@ -75,12 +75,12 @@ public class SiteMO extends BaseMO {
      * @param type site type
      * @param tenantid tenant key id
      */
-    public SiteMO(String name, String type, String tenantid) {
+    public SiteMO(String name, String type, String tenantID) {
         super();
         setId(UuidUtils.createUuid());
         setName(name);
         setType(type);
-        setTenantID(tenantid);
+        setTenantID(tenantID);
     }
 
     /**
