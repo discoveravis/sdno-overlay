@@ -16,35 +16,24 @@
 
 package org.openo.sdno.overlayvpn.model.v2.ipsec;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
+import org.openo.sdno.overlayvpn.model.common.enums.ipsec.IKEVersion;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SbiIkePolicy", propOrder = {"ikeVersion", "psk", "authAlgorithm", "encryptionAlgorithm"})
-
-@ApiModel(description = "Internet Key Exchange Policy")
+@MOResType(infoModelName = "ipsec_sbi_ikepolicy")
 public class SbiIkePolicy extends SbiSecurityPolicy {
 
-    @XmlElement(name = "ikeVersion")
-    @ApiModelProperty(example = "null", value = "Ike version(v1,v2)")
-    private String ikeVersion = null;
+    @AString(scope = "v1,v2")
+    private String ikeVersion = IKEVersion.V2.getName();
 
-    @XmlElement(name = "psk")
-    @ApiModelProperty(example = "null", required = true, value = "Pre-shared-key")
-    private String psk = null;
+    @AString(require = true)
+    private String psk;
 
-    @XmlElement(name = "authAlgorithm")
-    @ApiModelProperty(example = "null", required = true, value = "auth hash algorithm (md5,sha1,sha2-256,sh2-384,sh2-512,sm3)")
-    private String authAlgorithm = null;
+    @AString(require = true, scope = "md5,sha1,sha2-256,sha2-384,sha2-512,sm3")
+    private String authAlgorithm;
 
-    @XmlElement(name = "encryptionAlgorithm")
-    @ApiModelProperty(example = "null", required = true, value = "encryption algorithm (3des,des,aes-128,aes-256,aes-192,sm1)")
-    private String encryptionAlgorithm = null;
+    @AString(require = false, scope = "3des,des,aes-128,aes-256,aes-192,sm1")
+    private String encryptionAlgorithm;
 
     /**
      * Ike version(v1,v2)
@@ -98,27 +87,4 @@ public class SbiIkePolicy extends SbiSecurityPolicy {
         this.encryptionAlgorithm = encryptionAlgorithm;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SbiIkePolicy {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    ikeVersion: ").append(toIndentedString(ikeVersion)).append("\n");
-        sb.append("    psk: ").append(toIndentedString(psk)).append("\n");
-        sb.append("    authAlgorithm: ").append(toIndentedString(authAlgorithm)).append("\n");
-        sb.append("    encryptionAlgorithm: ").append(toIndentedString(encryptionAlgorithm)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
 }

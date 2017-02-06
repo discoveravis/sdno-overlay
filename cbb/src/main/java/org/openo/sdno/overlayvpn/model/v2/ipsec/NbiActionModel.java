@@ -16,78 +16,46 @@
 
 package org.openo.sdno.overlayvpn.model.v2.ipsec;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "NbiActionModel", propOrder = {"deploy", "undeploy"})
-
-@XmlRootElement(name = "NbiActionModel")
-@ApiModel(description = "action model")
+/**
+ * Nbi Action Model.<br/>
+ * 
+ * @author
+ * @version SDNO 0.5 Jan 16, 2017
+ */
 public class NbiActionModel {
 
-    @XmlElement(name = "deploy")
-    @ApiModelProperty(example = "null", value = "list of UUIDs")
-    private List<String> deploy = new ArrayList<String>();
+    private List<String> deploy;
 
-    @XmlElement(name = "undeploy")
-    @ApiModelProperty(example = "null", value = "list of UUIDs")
-    private List<String> undeploy = new ArrayList<String>();
+    private List<String> undeploy;
 
     /**
-     * list of UUIDs
-     * 
-     * @return deploy
-     **/
+     * @return Returns the deploy.
+     */
     public List<String> getDeploy() {
         return deploy;
     }
 
+    /**
+     * @param deploy The deploy to set.
+     */
     public void setDeploy(List<String> deploy) {
         this.deploy = deploy;
     }
 
     /**
-     * list of UUIDs
-     * 
-     * @return undeploy
-     **/
+     * @return Returns the undeploy.
+     */
     public List<String> getUndeploy() {
         return undeploy;
     }
 
+    /**
+     * @param undeploy The undeploy to set.
+     */
     public void setUndeploy(List<String> undeploy) {
         this.undeploy = undeploy;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class NbiActionModel {\n");
-
-        sb.append("    deploy: ").append(toIndentedString(deploy)).append("\n");
-        sb.append("    undeploy: ").append(toIndentedString(undeploy)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
 }

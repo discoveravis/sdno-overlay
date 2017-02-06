@@ -16,37 +16,40 @@
 
 package org.openo.sdno.overlayvpn.model.v2.ipsec;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
 import org.openo.sdno.overlayvpn.model.v2.uuid.UuidModel;
+import org.openo.sdno.overlayvpn.verify.annotation.AInt;
+import org.openo.sdno.overlayvpn.verify.annotation.AIp;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SbiIp", propOrder = {"ipv4", "ipv6", "ipMask", "prefixLength"})
-
-@ApiModel(description = "Ip data model.")
+@MOResType(infoModelName = "ipsec_sbi_ip")
 public class SbiIp extends UuidModel {
 
-    @XmlElement(name = "ipv4")
-    @ApiModelProperty(example = "null", required = true, value = "Ipv4 address")
-    private String ipv4 = null;
+    @AIp(require = true)
+    private String ipv4;
 
-    @XmlElement(name = "ipv6")
-    @ApiModelProperty(example = "null", value = "Ipv6 address")
-    private String ipv6 = null;
+    private String ipv6;
 
-    @XmlElement(name = "ipMask")
-    @ApiModelProperty(example = "null", required = true, value = "Ip mask")
-    private String ipMask = null;
+    /**
+     * Use for Ipv4.
+     */
+    @AInt(require = true, min = 0, max = 32)
+    private String ipMask;
 
-    @XmlElement(name = "prefixLength")
-    @ApiModelProperty(example = "null", value = "Ip prefix length")
-    private String prefixLength = null;
+    /**
+     * Use for Ipv6.
+     */
+    @AInt(require = false, min = 0, max = 128)
+    private String prefixLength;
+
+    public SbiIp() {
+        super();
+    }
+
+    public SbiIp(String ipv4, String ipMask) {
+        this();
+        this.ipv4 = ipv4;
+        this.ipMask = ipMask;
+    }
 
     /**
      * Ipv4 address
@@ -122,5 +125,65 @@ public class SbiIp extends UuidModel {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + ((ipMask == null) ? 0 : ipMask.hashCode());
+        result = prime * result + ((ipv4 == null) ? 0 : ipv4.hashCode());
+        result = prime * result + ((ipv6 == null) ? 0 : ipv6.hashCode());
+        result = prime * result + ((prefixLength == null) ? 0 : prefixLength.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(null == obj) {
+            return false;
+        }
+
+        if(this == obj) {
+            return true;
+        }
+
+        if(getClass() != obj.getClass()) {
+            return false;
+        }
+
+        SbiIp other = (SbiIp)obj;
+
+        if((ipMask == null) && (other.ipMask != null)) {
+
+            return false;
+
+        } else if(!ipMask.equals(other.ipMask)) {
+            return false;
+        }
+
+        if((ipv4 == null) && (other.ipv4 != null)) {
+            return false;
+        } else if(!ipv4.equals(other.ipv4)) {
+            return false;
+        }
+
+        return checkOther(other);
+    }
+
+    private boolean checkOther(SbiIp other) {
+        if((ipv6 == null) && (other.ipv6 != null)) {
+            return false;
+        } else if(!ipv6.equals(other.ipv6)) {
+            return false;
+        }
+
+        if((prefixLength == null) && (other.prefixLength != null)) {
+            return false;
+        } else if(!prefixLength.equals(other.prefixLength)) {
+            return false;
+        }
+
+        return true;
     }
 }

@@ -16,37 +16,24 @@
 
 package org.openo.sdno.overlayvpn.model.v2.ipsec;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.openo.sdno.overlayvpn.model.v2.uuid.UuidModel;
+import org.openo.sdno.overlayvpn.verify.annotation.AInt;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
+import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SbiSecurityPolicy", propOrder = {"pfs", "lifeTime", "externalId", "sbiServiceId"})
-
-@ApiModel(description = "security policy model")
 public class SbiSecurityPolicy extends UuidModel {
 
-    @XmlElement(name = "pfs")
-    @ApiModelProperty(example = "null", value = "perfect forward secrecy(Group2,Group5,Group14)")
-    private String pfs = null;
+    @AString(scope = "Group2,Group5,Group14")
+    private String pfs = "Group5";
 
-    @XmlElement(name = "lifeTime")
-    @ApiModelProperty(example = "null", value = "")
-    private String lifeTime = null;
+    @AInt(require = false, min = 0, max = 3600)
+    private String lifeTime;
 
-    @XmlElement(name = "externalId")
-    @ApiModelProperty(example = "null", value = "")
-    private String externalId = null;
+    @AUuid(require = false)
+    private String externalId;
 
-    @XmlElement(name = "sbiServiceId")
-    @ApiModelProperty(example = "null", value = "")
-    private String sbiServiceId = null;
+    @AUuid(require = false)
+    private String sbiServiceId;
 
     /**
      * perfect forward secrecy(Group2,Group5,Group14)
@@ -100,27 +87,4 @@ public class SbiSecurityPolicy extends UuidModel {
         this.sbiServiceId = sbiServiceId;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SbiSecurityPolicy {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    pfs: ").append(toIndentedString(pfs)).append("\n");
-        sb.append("    lifeTime: ").append(toIndentedString(lifeTime)).append("\n");
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("    sbiServiceId: ").append(toIndentedString(sbiServiceId)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
 }

@@ -16,35 +16,22 @@
 
 package org.openo.sdno.overlayvpn.model.v2.ipsec;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SbiIpSecPolicy", propOrder = {"transformProtocol", "encapsulationMode", "authAlgorithm",
-                "encryptionAlgorithm"})
-
-@ApiModel(description = "IpSec Policy")
+@MOResType(infoModelName = "ipsec_sbi_ipsecpolicy")
 public class SbiIpSecPolicy extends SbiSecurityPolicy {
 
-    @XmlElement(name = "transformProtocol")
-    @ApiModelProperty(example = "null", value = "")
+    @AString(scope = "esp,ah,ah-esp")
     private String transformProtocol = null;
 
-    @XmlElement(name = "encapsulationMode")
-    @ApiModelProperty(example = "null", value = "")
+    @AString(scope = "tunnel, transport")
     private String encapsulationMode = null;
 
-    @XmlElement(name = "authAlgorithm")
-    @ApiModelProperty(example = "null", required = true, value = "")
+    @AString(require = true, scope = "md5,sha1,sha2-256,sha2-384,sha2-512,sm3")
     private String authAlgorithm = null;
 
-    @XmlElement(name = "encryptionAlgorithm")
-    @ApiModelProperty(example = "null", value = "")
+    @AString(require = false, scope = "3des,des,aes-128,aes-256,aes-192,sm1")
     private String encryptionAlgorithm = null;
 
     /**
@@ -99,27 +86,4 @@ public class SbiIpSecPolicy extends SbiSecurityPolicy {
         this.encryptionAlgorithm = encryptionAlgorithm;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SbiIpSecPolicy {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    transformProtocol: ").append(toIndentedString(transformProtocol)).append("\n");
-        sb.append("    encapsulationMode: ").append(toIndentedString(encapsulationMode)).append("\n");
-        sb.append("    authAlgorithm: ").append(toIndentedString(authAlgorithm)).append("\n");
-        sb.append("    encryptionAlgorithm: ").append(toIndentedString(encryptionAlgorithm)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
 }

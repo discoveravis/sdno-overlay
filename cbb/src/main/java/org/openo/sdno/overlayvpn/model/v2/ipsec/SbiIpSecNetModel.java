@@ -17,8 +17,8 @@
 package org.openo.sdno.overlayvpn.model.v2.ipsec;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
-import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
 import org.openo.sdno.overlayvpn.model.v2.basemodel.BaseModel;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
 import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
 /**
@@ -38,7 +38,6 @@ public abstract class SbiIpSecNetModel extends BaseModel {
     /**
      * External Id
      */
-    @NONInvField
     @AUuid(require = false)
     private String externalId;
 
@@ -64,13 +63,13 @@ public abstract class SbiIpSecNetModel extends BaseModel {
     /**
      * Device Id
      */
-    @AUuid(require = true)
+    @AString(require = true, min = 0, max = 255)
     private String deviceId;
 
     /**
      * Peer device Id
      */
-    @AUuid(require = false)
+    @AString(require = false, min = 0, max = 255)
     private String peerDeviceId;
 
     public String getControllerId() {

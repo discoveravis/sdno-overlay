@@ -16,89 +16,68 @@
 
 package org.openo.sdno.overlayvpn.model.v2.ipsec;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.validation.constraints.NotNull;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonProperty;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
+import org.openo.sdno.overlayvpn.verify.annotation.AIpMask;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
 
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SbiNeIpSec", propOrder = {"externalIpSecId", "sourceIfName", "destIfName", "sourceAddress",
-                "peerAddress", "ikePolicy", "ipSecPolicy", "workType", "sourceLanCidrs", "peerLanCidrs",
-                "isTemplateType", "nqa", "localNeRole", "tenantName", "protectionPolicy", "qosPreClassify", "regionId"})
-
-@ApiModel(description = "Sbi Ipsec data model.")
+@MOResType(infoModelName = "ipsec_sbi_neipsec")
 public class SbiNeIpSec extends SbiIpSecNetModel {
 
-    @XmlElement(name = "externalIpSecId")
-    @ApiModelProperty(example = "null", value = "")
-    private String externalIpSecId = null;
+    @AString(min = 0, max = 36)
+    private String externalIpSecId;
 
-    @XmlElement(name = "sourceIfName")
-    @ApiModelProperty(example = "null", required = true, value = "")
-    private String sourceIfName = null;
+    @JsonProperty(value = "sourceIfId")
+    @AString(require = true, min = 1, max = 36)
+    private String soureIfName;
 
-    @XmlElement(name = "destIfName")
-    @ApiModelProperty(example = "null", value = "")
-    private String destIfName = null;
+    @JsonIgnore
+    private String destIfName;
 
-    @XmlElement(name = "sourceAddress")
-    @ApiModelProperty(example = "null", required = true, value = "")
-    private String sourceAddress = null;
+    @AIpMask(require = true)
+    private String sourceAddress;
 
-    @XmlElement(name = "peerAddress")
-    @ApiModelProperty(example = "null", required = true, value = "")
-    private String peerAddress = null;
+    @AIpMask(require = true)
+    private String peerAddress;
 
-    @XmlElement(name = "ikePolicy")
-    @ApiModelProperty(example = "null", value = "")
-    private SbiIkePolicy ikePolicy = null;
+    @NONInvField
+    @NotNull
+    private SbiIkePolicy ikePolicy;
 
-    @XmlElement(name = "ipSecPolicy")
-    @ApiModelProperty(example = "null", value = "")
-    private SbiIpSecPolicy ipSecPolicy = null;
+    @NONInvField
+    @NotNull
+    private SbiIpSecPolicy ipSecPolicy;
 
-    @XmlElement(name = "workType")
-    @ApiModelProperty(example = "null", required = true, value = "work type(work,protect)")
-    private String workType = null;
+    @AString(require = true, scope = "work,protect")
+    private String workType = "work";
 
-    @XmlElement(name = "sourceLanCidrs")
-    @ApiModelProperty(example = "null", value = "")
-    private String sourceLanCidrs = null;
+    @AString(min = 0, max = 4096)
+    private String sourceLanCidrs;
 
-    @XmlElement(name = "peerLanCidrs")
-    @ApiModelProperty(example = "null", value = "")
-    private String peerLanCidrs = null;
+    @AString(min = 0, max = 4096)
+    private String peerLanCidrs;
 
-    @XmlElement(name = "isTemplateType")
-    @ApiModelProperty(example = "null", required = true, value = "boolean(true,false)")
-    private String isTemplateType = null;
+    @AString(require = true, scope = "true,false")
+    private String isTemplateType;
 
-    @XmlElement(name = "nqa")
-    @ApiModelProperty(example = "null", value = "")
-    private String nqa = null;
+    @NONInvField
+    private String nqa;
 
-    @XmlElement(name = "localNeRole")
-    @ApiModelProperty(example = "null", required = true, value = "local ne role(thincpe,cloudcpe,vpc)")
-    private String localNeRole = null;
+    @AString(require = true, scope = "thincpe,cloudcpe,vpc")
+    private String localNeRole;
 
-    @XmlElement(name = "tenantName")
-    @ApiModelProperty(example = "null", value = "")
-    private String tenantName = null;
+    private String tenantName;
 
-    @XmlElement(name = "protectionPolicy")
-    @ApiModelProperty(example = "null", value = "")
-    private String protectionPolicy = null;
+    private String protectionPolicy;
 
-    @XmlElement(name = "qosPreClassify")
-    @ApiModelProperty(example = "null", value = "boolean(true,false)")
-    private String qosPreClassify = null;
+    @AString(scope = "true,false")
+    private String qosPreClassify;
 
-    @XmlElement(name = "regionId")
-    @ApiModelProperty(example = "null", value = "")
-    private String regionId = null;
+    private String regionId;
 
     /**
      * Get externalIpSecId
@@ -118,12 +97,12 @@ public class SbiNeIpSec extends SbiIpSecNetModel {
      * 
      * @return sourceIfName
      **/
-    public String getSourceIfName() {
-        return sourceIfName;
+    public String getSoureIfName() {
+        return soureIfName;
     }
 
-    public void setSourceIfName(String sourceIfName) {
-        this.sourceIfName = sourceIfName;
+    public void setSoureIfName(String soureIfName) {
+        this.soureIfName = soureIfName;
     }
 
     /**
@@ -321,40 +300,4 @@ public class SbiNeIpSec extends SbiIpSecNetModel {
         this.regionId = regionId;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SbiNeIpSec {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    externalIpSecId: ").append(toIndentedString(externalIpSecId)).append("\n");
-        sb.append("    sourceIfName: ").append(toIndentedString(sourceIfName)).append("\n");
-        sb.append("    destIfName: ").append(toIndentedString(destIfName)).append("\n");
-        sb.append("    sourceAddress: ").append(toIndentedString(sourceAddress)).append("\n");
-        sb.append("    peerAddress: ").append(toIndentedString(peerAddress)).append("\n");
-        sb.append("    ikePolicy: ").append(toIndentedString(ikePolicy)).append("\n");
-        sb.append("    ipSecPolicy: ").append(toIndentedString(ipSecPolicy)).append("\n");
-        sb.append("    workType: ").append(toIndentedString(workType)).append("\n");
-        sb.append("    sourceLanCidrs: ").append(toIndentedString(sourceLanCidrs)).append("\n");
-        sb.append("    peerLanCidrs: ").append(toIndentedString(peerLanCidrs)).append("\n");
-        sb.append("    isTemplateType: ").append(toIndentedString(isTemplateType)).append("\n");
-        sb.append("    nqa: ").append(toIndentedString(nqa)).append("\n");
-        sb.append("    localNeRole: ").append(toIndentedString(localNeRole)).append("\n");
-        sb.append("    tenantName: ").append(toIndentedString(tenantName)).append("\n");
-        sb.append("    protectionPolicy: ").append(toIndentedString(protectionPolicy)).append("\n");
-        sb.append("    qosPreClassify: ").append(toIndentedString(qosPreClassify)).append("\n");
-        sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if(o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
 }
