@@ -18,11 +18,14 @@ package org.openo.sdno.overlayvpn.model.v2.site;
 
 import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.openo.sdno.overlayvpn.brs.model.NetworkElementMO;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOConvertField;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
 import org.openo.sdno.overlayvpn.model.common.enums.ActionStatus;
+import org.openo.sdno.overlayvpn.model.v2.cpe.NbiCloudCpeModel;
+import org.openo.sdno.overlayvpn.model.v2.cpe.NbiLocalCpeModel;
 import org.openo.sdno.overlayvpn.model.v2.internetgateway.NbiInternetGatewayModel;
 import org.openo.sdno.overlayvpn.model.v2.routeentry.NbiRouteEntryModel;
 import org.openo.sdno.overlayvpn.model.v2.subnet.NbiSubnetModel;
@@ -143,6 +146,14 @@ public class NbiSiteModel extends UuidModel {
 
     @NONInvField
     private List<NetworkElementMO> cloudCpes;
+
+    @NONInvField
+    @JsonIgnore
+    private List<NbiLocalCpeModel> localCpeModels;
+
+    @NONInvField
+    @JsonIgnore
+    private List<NbiCloudCpeModel> cloudCpeModels;
 
     @NONInvField
     private List<NbiSubnetModel> subnets;
@@ -362,6 +373,22 @@ public class NbiSiteModel extends UuidModel {
 
     public void setInternetGateway(NbiInternetGatewayModel internetGateway) {
         this.internetGateway = internetGateway;
+    }
+
+    public List<NbiLocalCpeModel> getLocalCpeModels() {
+        return localCpeModels;
+    }
+
+    public void setLocalCpeModels(List<NbiLocalCpeModel> localCpeModels) {
+        this.localCpeModels = localCpeModels;
+    }
+
+    public List<NbiCloudCpeModel> getCloudCpeModels() {
+        return cloudCpeModels;
+    }
+
+    public void setCloudCpeModels(List<NbiCloudCpeModel> cloudCpeModels) {
+        this.cloudCpeModels = cloudCpeModels;
     }
 
     public void initBasicInfo(String name, String tenantId, String location, String description) {
