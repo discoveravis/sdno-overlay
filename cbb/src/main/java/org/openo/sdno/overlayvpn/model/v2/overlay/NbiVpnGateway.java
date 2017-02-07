@@ -16,70 +16,65 @@
 
 package org.openo.sdno.overlayvpn.model.v2.overlay;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.openo.sdno.overlayvpn.model.v2.uuid.UuidModel;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOEditableField;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOJsonField;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
+import org.openo.sdno.overlayvpn.model.v2.basemodel.BaseModel;
+import org.openo.sdno.overlayvpn.verify.annotation.ALong;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
+import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
-/**
- * vpn gateway model
- */
 /**
  * The vpn gateway model.<br>
  * 
  * @author
- * @version SDNO 0.5 Feb 3, 2017
+ * @version SDNO 0.5 Jan 24, 2017
  */
-public class NbiVpnGateway extends UuidModel {
+@MOResType(infoModelName = "overlayvpn_vpngateway")
+public class NbiVpnGateway extends BaseModel {
 
-    private String name = null;
+    @AUuid
+    private String vpnId;
 
-    private String tenantId = null;
+    @AUuid
+    private String siteId;
 
-    private String description = null;
+    @AUuid
+    private String vpcId;
 
-    private String vpnId = null;
+    @AString(max = 64)
+    private String regionId;
 
-    private String siteId = null;
+    @AString(scope = "localFirst,cloudFirst")
+    @MOEditableField
+    private String deployPosition;
 
-    private String vpcId = null;
+    @ALong
+    @MOEditableField
+    private String upstreamBandwidth;
 
-    private String deployPosition = null;
+    @ALong
+    @MOEditableField
+    private String downstreamBandwidth;
 
-    private String upstreamBandwidth = null;
+    @MOJsonField(invName = "portList")
+    private List<String> ports;
 
-    private String downstreamBandwidth = null;
+    @MOJsonField(invName = "portNameList")
+    private List<String> portNames;
 
-    private String vlans = null;
+    @AString
+    private String ext;
 
-    private List<String> ports = new ArrayList<String>();
-
-    private List<String> portNames = new ArrayList<String>();
-
-    private String regionId = null;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getTenantId() {
-        return tenantId;
-    }
-
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    /**
+     * Constructor<br>
+     * 
+     * @since SDNO 0.5
+     */
+    public NbiVpnGateway() {
+        super();
     }
 
     public String getVpnId() {
@@ -106,6 +101,14 @@ public class NbiVpnGateway extends UuidModel {
         this.vpcId = vpcId;
     }
 
+    public String getRegionId() {
+        return regionId;
+    }
+
+    public void setRegionId(String regionId) {
+        this.regionId = regionId;
+    }
+
     public String getDeployPosition() {
         return deployPosition;
     }
@@ -130,14 +133,6 @@ public class NbiVpnGateway extends UuidModel {
         this.downstreamBandwidth = downstreamBandwidth;
     }
 
-    public String getVlans() {
-        return vlans;
-    }
-
-    public void setVlans(String vlans) {
-        this.vlans = vlans;
-    }
-
     public List<String> getPorts() {
         return ports;
     }
@@ -154,12 +149,11 @@ public class NbiVpnGateway extends UuidModel {
         this.portNames = portNames;
     }
 
-    public String getRegionId() {
-        return regionId;
+    public String getExt() {
+        return ext;
     }
 
-    public void setRegionId(String regionId) {
-        this.regionId = regionId;
+    public void setExt(String ext) {
+        this.ext = ext;
     }
-
 }

@@ -16,62 +16,55 @@
 
 package org.openo.sdno.overlayvpn.model.v2.overlay;
 
-import org.openo.sdno.overlayvpn.model.v2.uuid.UuidModel;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MORelatedField;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
+import org.openo.sdno.overlayvpn.verify.annotation.AInt;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
+import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
 /**
  * The vpn connection model.<br>
  * 
  * @author
- * @version SDNO 0.5 Feb 3, 2017
+ * @version SDNO 0.5 Jan 24, 2017
  */
-public class NbiVpnConnection extends UuidModel {
+@MOResType(infoModelName = "overlayvpn_vpnconnection")
+public class NbiVpnConnection extends NbiServiceConnection {
 
-    private String name = null;
+    @AUuid
+    private String vpnId;
 
-    private String tenantId = null;
+    @AString
+    private String routeType;
 
-    private String description = null;
+    @AUuid
+    private String aEndVpnGatewayId;
 
-    private String deployStatus = null;
+    @AUuid
+    private String zEndVpnGatewayId;
 
-    private String vpnId = null;
+    @NONInvField
+    @MORelatedField(relationId = "aEndVpnGatewayId")
+    private NbiVpnGateway aEndVpnGateway;
 
-    private String aEndVpnGatewayId = null;
+    @NONInvField
+    @MORelatedField(relationId = "zEndVpnGatewayId")
+    private NbiVpnGateway zEndVpnGateway;
 
-    private String zEndVpnGatewayId = null;
+    @AInt(min = 1, max = 16777216)
+    private String vni;
 
-    private String vni = null;
+    @AString
+    private String ext;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getTenantId() {
-        return tenantId;
-    }
-
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getDeployStatus() {
-        return deployStatus;
-    }
-
-    public void setDeployStatus(String deployStatus) {
-        this.deployStatus = deployStatus;
+    /**
+     * Constructor<br>
+     * 
+     * @since SDNO 0.5
+     */
+    public NbiVpnConnection() {
+        super();
     }
 
     public String getVpnId() {
@@ -82,12 +75,12 @@ public class NbiVpnConnection extends UuidModel {
         this.vpnId = vpnId;
     }
 
-    public String getVni() {
-        return vni;
+    public String getRouteType() {
+        return routeType;
     }
 
-    public void setVni(String vni) {
-        this.vni = vni;
+    public void setRouteType(String routeType) {
+        this.routeType = routeType;
     }
 
     public String getaEndVpnGatewayId() {
@@ -106,4 +99,35 @@ public class NbiVpnConnection extends UuidModel {
         this.zEndVpnGatewayId = zEndVpnGatewayId;
     }
 
+    public NbiVpnGateway getaEndVpnGateway() {
+        return aEndVpnGateway;
+    }
+
+    public void setaEndVpnGateway(NbiVpnGateway aEndVpnGateway) {
+        this.aEndVpnGateway = aEndVpnGateway;
+    }
+
+    public NbiVpnGateway getzEndVpnGateway() {
+        return zEndVpnGateway;
+    }
+
+    public void setzEndVpnGateway(NbiVpnGateway zEndVpnGateway) {
+        this.zEndVpnGateway = zEndVpnGateway;
+    }
+
+    public String getVni() {
+        return vni;
+    }
+
+    public void setVni(String vni) {
+        this.vni = vni;
+    }
+
+    public String getExt() {
+        return ext;
+    }
+
+    public void setExt(String ext) {
+        this.ext = ext;
+    }
 }

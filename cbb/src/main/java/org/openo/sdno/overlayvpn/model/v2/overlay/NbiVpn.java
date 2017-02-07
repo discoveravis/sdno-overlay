@@ -16,46 +16,93 @@
 
 package org.openo.sdno.overlayvpn.model.v2.overlay;
 
-import org.openo.sdno.overlayvpn.model.v2.uuid.UuidModel;
+import java.util.List;
+import java.util.Set;
+
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOEditableField;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOSubField;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
+import org.openo.sdno.overlayvpn.model.v2.basemodel.BaseModel;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
 
 /**
  * The vpn model.<br>
  * 
  * @author
- * @version SDNO 0.5 Feb 3, 2017
+ * @version SDNO 0.5 Jan 24, 2017
  */
-public class NbiVpn extends UuidModel {
+@MOResType(infoModelName = "overlayvpn_vpn")
+public class NbiVpn extends BaseModel {
 
-    private String name = null;
+    @NONInvField
+    @MOSubField(parentId = "vpnId")
+    private List<NbiVpnConnection> vpnConnections;
 
-    private String tenantId = null;
+    @NONInvField
+    @MOSubField(parentId = "vpnId")
+    private List<NbiVpnGateway> VpnGateways;
 
-    private String description = null;
+    @NONInvField
+    private Set<String> siteList;
 
-    private String vpnDescriptor = null;
+    @NONInvField
+    private Set<String> vpcList;
 
-    public String getName() {
-        return name;
+    @AString(min = 0, max = 255)
+    @MOEditableField
+    private String ext;
+
+    @AString(min = 1, max = 255)
+    private String vpnDescriptor;
+
+    /**
+     * Constructor<br>
+     * 
+     * @since SDNO 0.5
+     */
+    public NbiVpn() {
+        super();
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public List<NbiVpnConnection> getVpnConnections() {
+        return vpnConnections;
     }
 
-    public String getTenantId() {
-        return tenantId;
+    public void setVpnConnections(List<NbiVpnConnection> vpnConnections) {
+        this.vpnConnections = vpnConnections;
     }
 
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
+    public List<NbiVpnGateway> getVpnGateways() {
+        return VpnGateways;
     }
 
-    public String getDescription() {
-        return description;
+    public void setVpnGateways(List<NbiVpnGateway> vpnGateways) {
+        VpnGateways = vpnGateways;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public Set<String> getSiteList() {
+        return siteList;
+    }
+
+    public void setSiteList(Set<String> siteList) {
+        this.siteList = siteList;
+    }
+
+    public Set<String> getVpcList() {
+        return vpcList;
+    }
+
+    public void setVpcList(Set<String> vpcList) {
+        this.vpcList = vpcList;
+    }
+
+    public String getExt() {
+        return ext;
+    }
+
+    public void setExt(String ext) {
+        this.ext = ext;
     }
 
     public String getVpnDescriptor() {
@@ -65,5 +112,4 @@ public class NbiVpn extends UuidModel {
     public void setVpnDescriptor(String vpnDescriptor) {
         this.vpnDescriptor = vpnDescriptor;
     }
-
 }
