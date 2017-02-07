@@ -509,15 +509,28 @@ definitions:
   NbiVpn:
     description: vpn model
     allOf:
-    - $ref: '#/definitions/UuidModel'
+    - $ref: '#/definitions/BaseModel'
     - type: object
       properties:
-        name:
-          type: string
-        tenantId:
-          type: string
-          format: uuid
-        description:
+        vpnConnections:
+          type: array
+          items:
+              $ref: "#/definitions/NbiVpnConnection"
+        VpnGateways:
+          type: array
+          items:
+              $ref: "#/definitions/NbiVpnGateway"
+        siteList:
+          type: array
+          items:
+              type: string
+              description: siteId list
+        vpcList:
+          type: array
+          items:
+              type: string
+              description: vpcId list
+        ext:
           type: string
         vpnDescriptor:
           type: string
@@ -526,41 +539,34 @@ definitions:
   NbiVpnConnection:
     description: vpn connection model
     allOf:
-    - $ref: '#/definitions/UuidModel'
+    - $ref: '#/definitions/NbiServiceConnection'
     - type: object
       properties:
-        name:
-          type: string
-        tenantId:
-          type: string
-          format: uuid
-        description:
-          type: string
-        deployStatus:
-          type: string
-          description: deploy status(deploy,undeploy)
         vpnId:
+          type: string
+        routeType:
           type: string
         aEndVpnGatewayId:
           type: string
+          format: uuid
         zEndVpnGatewayId:
           type: string
+          format: uuid
+        aEndVpnGateway:
+          $ref: "#/definitions/NbiVpnGateway"
+        zEndVpnGateway:
+          $ref: "#/definitions/NbiVpnGateway"
         vni:
+          type: string
+        ext:
           type: string
 
   NbiVpnGateway:
     description: vpn gateway model
     allOf:
-    - $ref: '#/definitions/UuidModel'
+    - $ref: '#/definitions/BaseModel'
     - type: object
       properties:
-        name:
-          type: string
-        tenantId:
-          type: string
-          format: uuid
-        description:
-          type: string
         vpnId:
           type: string
         siteId:
@@ -573,7 +579,7 @@ definitions:
           type: string
         downstreamBandwidth:
           type: string
-        vlans:
+        ext:
           type: string
         ports:
           description: uuid list of LAN ports
@@ -587,6 +593,112 @@ definitions:
             type: string
         regionId:
           type: string
+
+  NbiServiceConnection:
+    description: service connection model
+    allOf:
+    - $ref: '#/definitions/NbiBaseConnection'
+    - type: object
+      properties:
+        technologys:
+          type: string
+        netConnections:
+          type: array
+          items:
+              $ref: "#/definitions/NbiNetConnection"
+
+  NbiNetConnection:
+    description: netconnection model
+    allOf:
+    - $ref: '#/definitions/NbiBaseConnection'
+    - type: object
+      properties:
+        type:
+          type: string
+        srcNeId:
+          type: string
+        destNeId:
+          type: string
+        srcNeRole:
+          type: string
+        destNeRole:
+          type: string
+        connectionId:
+          type: string
+        srcPortName:
+          type: string
+        destPortName:
+          type: string
+        srcSiteId:
+          type: string
+        destSiteId:
+          type: string
+        protectionPolicy:
+          type: string
+        qosPreClassify:
+          type: string
+        parentConnections:
+          type: array
+          items:
+              $ref: "#/definitions/NbiConnectionRelation"
+
+  NbiConnectionRelation:
+    description: connection relation model
+    allOf:
+    - $ref: '#/definitions/UuidModel'
+    - type: object
+      properties:
+        vpnConnectionId:
+          type: string
+        vpnConnectionType:
+          type: string
+          description: connection type(VpnConnection,InternalVpnConnection)
+        netConnectionId:
+          type: string
+        netConnectionType:
+          type: string
+          description: connection tunnel type(vxlan,ipsec)
+        ext:
+          type: string
+
+  NbiBaseConnection:
+    description: base connection model
+    allOf:
+    - $ref: '#/definitions/BaseModel'
+    - type: object
+
+  BaseModel:
+    description: base model
+    allOf:
+    - $ref: '#/definitions/UuidModel'
+    - type: object
+    properties:
+      name:
+        type: string
+      tenantId:
+        type: string
+        format: uuid
+      description:
+        type: string
+      deployStatus:
+        type: string
+        description: deploy status(deploy,undeploy)
+      operationStatus:
+        type: string
+        description: action status(None,Normal,Creating,Deleting,Updating,Create_Excepion,Delete_Exception,Update_Exception)
+      activeStatus:
+        type: string
+        description: active status(none,active,inactive,partially_inactive)
+      runningStatus:
+        type: string
+        description: running status(none,up,down,partially_down)
+      createtime:
+        type: string
+      updatetime:
+        type: string
+      additionalInfo:
+        type: string
+
   UuidModel:
     description: base model
     type: object
