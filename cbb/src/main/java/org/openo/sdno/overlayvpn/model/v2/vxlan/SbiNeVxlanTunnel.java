@@ -19,49 +19,41 @@ package org.openo.sdno.overlayvpn.model.v2.vxlan;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
+import org.openo.sdno.overlayvpn.verify.annotation.AIp;
+import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SbiNeVxlanTunnel", propOrder = {"vni", "vxlanInstanceId", "sourceAddress", "destAddress", "sourceIfId",
-                "tunnelIfId", "vxlanInstances", "vnis"})
-
+/**
+ * Class of SbiNeVxlanTunnel Model.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 June 6, 2016
+ */
+@MOResType(infoModelName = "overlayvpn_tenant_sbi_nevxlantunnel")
 public class SbiNeVxlanTunnel extends SbiVxlanNetModel {
 
-    @XmlElement(name = "vni")
-    @ApiModelProperty(example = "null", value = "vlan id")
+    @JsonIgnore
     private String vni = null;
 
-    @XmlElement(name = "vxlanInstanceId")
-    @ApiModelProperty(example = "null", required = true, value = "bound vxlan instance id")
+    @AUuid(require = true)
     private String vxlanInstanceId = null;
 
-    @XmlElement(name = "sourceAddress")
-    @ApiModelProperty(example = "null", value = "source address")
+    @AIp(require = true)
     private String sourceAddress = null;
 
-    @XmlElement(name = "destAddress")
-    @ApiModelProperty(example = "null", value = "destination address")
+    @AIp(require = true)
     private String destAddress = null;
 
-    @XmlElement(name = "sourceIfId")
-    @ApiModelProperty(example = "null", value = "source ifid")
     private String sourceIfId = null;
 
-    @XmlElement(name = "tunnelIfId")
-    @ApiModelProperty(example = "null", value = "tunnel ifid")
     private String tunnelIfId = null;
 
-    @XmlElement(name = "vxlanInstances")
-    @ApiModelProperty(example = "null", value = "")
+    @NONInvField
     private List<String> vxlanInstances = new ArrayList<String>();
 
-    @XmlElement(name = "vnis")
-    @ApiModelProperty(example = "null", value = "")
+    @NONInvField
     private List<String> vnis = new ArrayList<String>();
 
     /**

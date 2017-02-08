@@ -16,48 +16,30 @@
 
 package org.openo.sdno.overlayvpn.model.v2.vxlan;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
+import org.openo.sdno.overlayvpn.model.v2.uuid.UuidModel;
+import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Ip", propOrder = {"ipv4", "ipv6", "ipMask", "prefixLength", "neId", "deviceId", "vxlanTunnelId"})
+@MOResType(infoModelName = "overlayvpn_tenant_nbi_ip")
+public class Ip extends UuidModel implements Serializable {
 
-@XmlRootElement(name = "Ip")
-@ApiModel(description = "ip model")
-public class Ip {
-
-    @XmlElement(name = "ipv4")
-    @ApiModelProperty(example = "null", required = true, value = "ipv4 ip")
     private String ipv4 = null;
 
-    @XmlElement(name = "ipv6")
-    @ApiModelProperty(example = "null", value = "ipv6 ip")
     private String ipv6 = null;
 
-    @XmlElement(name = "ipMask")
-    @ApiModelProperty(example = "null", required = true, value = "ip mask")
     private String ipMask = null;
 
-    @XmlElement(name = "prefixLength")
-    @ApiModelProperty(example = "null", value = "length of prifix")
     private String prefixLength = null;
 
-    @XmlElement(name = "neId")
-    @ApiModelProperty(example = "null", value = "id of ne")
+    @AUuid(require = false)
     private String neId = null;
 
-    @XmlElement(name = "deviceId")
-    @ApiModelProperty(example = "null", value = "device id")
+    @AUuid(require = false)
     private String deviceId = null;
 
-    @XmlElement(name = "vxlanTunnelId")
-    @ApiModelProperty(example = "null", value = "vxlan tunnel id")
+    @AUuid(require = false)
     private String vxlanTunnelId = null;
 
     /**

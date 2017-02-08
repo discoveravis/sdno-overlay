@@ -16,64 +16,89 @@
 
 package org.openo.sdno.overlayvpn.model.v2.vxlan;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
 import org.openo.sdno.overlayvpn.model.v2.basemodel.NbiBaseServiceModel;
+import org.openo.sdno.overlayvpn.verify.annotation.AInt;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
+import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "NbiVxlanTunnel", propOrder = {"type", "destNeId", "destNeRole", "srcPortName", "destPortName", "vni",
-                "srcTunnelName", "destTunnelName", "portVlanList", "srcVbdifIp", "destVbdifIp"})
-
+/**
+ * Class of SbiNeVxlanInstance Model.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 June 6, 2016
+ */
+@MOResType(infoModelName = "overlayvpn_tenant_nbi_vxlantunnel")
 public class NbiVxlanTunnel extends NbiBaseServiceModel {
 
-    @XmlElement(name = "type")
-    @ApiModelProperty(example = "null", required = true, value = "vxlan's type(scope:vxlan,ipv6 over ipv4,ipv4 over ipv6,l3-gw-vxlan)")
+    @AString(require = true, scope = "vxlan,ipv6 over ipv4,ipv4 over ipv6")
     private String type = null;
 
-    @XmlElement(name = "destNeId")
-    @ApiModelProperty(example = "null", required = true, value = "destination ne id")
+    @AUuid(require = true)
     private String destNeId = null;
 
-    @XmlElement(name = "destNeRole")
-    @ApiModelProperty(example = "null", required = true, value = "destination ne role(scope:localcpe,cloudcpe,vpc,dc-r)")
+    @AString(require = true, scope = " localcpe,cloudcpe,vpc,dc-r")
     private String destNeRole = null;
 
-    @XmlElement(name = "srcPortName")
-    @ApiModelProperty(example = "null", value = "source port name")
+    @AString(require = false, min = 1, max = 255)
     private String srcPortName = null;
 
-    @XmlElement(name = "destPortName")
-    @ApiModelProperty(example = "null", value = "destination port name")
+    @AString(require = false, min = 1, max = 255)
     private String destPortName = null;
 
-    @XmlElement(name = "vni")
-    @ApiModelProperty(example = "null", required = true, value = "vni")
+    /**
+     * VxLAN Network Identifier
+     */
+    @AInt(require = true, min = 1, max = 16777215)
     private String vni = null;
 
-    @XmlElement(name = "srcTunnelName")
-    @ApiModelProperty(example = "null", value = "source tunnel name")
+    @AString(require = false, min = 1, max = 255)
     private String srcTunnelName = null;
 
-    @XmlElement(name = "destTunnelName")
-    @ApiModelProperty(example = "null", value = "destination tunnel name")
+    @AString(require = false, min = 1, max = 255)
     private String destTunnelName = null;
 
-    @XmlElement(name = "portVlanList")
-    @ApiModelProperty(example = "null", value = "vxlan's name on controller")
+    @NONInvField
+    @AString(require = false, min = 1, max = 4096)
     private String portVlanList = null;
 
-    @XmlElement(name = "srcVbdifIp")
-    @ApiModelProperty(example = "null", value = "L3 vxlan's vbdif ip, no need when creating,but need return after creating,return format is json of Ip.")
-    private String srcVbdifIp = null;
+    @NONInvField
+    @JsonIgnore
+    private List<PortVlan> portVlans;
 
-    @XmlElement(name = "destVbdifIp")
-    @ApiModelProperty(example = "null", value = "L3 vxlan's vbdif ip, no need when creating,but need return after creating,return format is json of Ip.")
-    private String destVbdifIp = null;
+    @NONInvField
+    @JsonIgnore
+    private Ip srcIp;
+
+    @NONInvField
+    @JsonIgnore
+    private Ip destIp;
+
+    @JsonIgnore
+    private String srcDeviceId;
+
+    @JsonIgnore
+    private String destDeviceId;
+
+    public String getSrcDeviceId() {
+        return srcDeviceId;
+    }
+
+    public void setSrcDeviceId(String srcDeviceId) {
+        this.srcDeviceId = srcDeviceId;
+    }
+
+    public String getDestDeviceId() {
+        return destDeviceId;
+    }
+
+    public void setDestDeviceId(String destDeviceId) {
+        this.destDeviceId = destDeviceId;
+    }
 
     /**
      * vxlan's type(scope:vxlan,ipv6 over ipv4,ipv4 over ipv6,l3-gw-vxlan)
@@ -99,6 +124,34 @@ public class NbiVxlanTunnel extends NbiBaseServiceModel {
 
     public void setDestNeId(String destNeId) {
         this.destNeId = destNeId;
+    }
+
+    /**
+     * @return Returns the srcIp.
+     */
+    public Ip getSrcIp() {
+        return srcIp;
+    }
+
+    /**
+     * @param srcIp The srcIp to set.
+     */
+    public void setSrcIp(Ip srcIp) {
+        this.srcIp = srcIp;
+    }
+
+    /**
+     * @return Returns the destIp.
+     */
+    public Ip getDestIp() {
+        return destIp;
+    }
+
+    /**
+     * @param destIp The destIp to set.
+     */
+    public void setDestIp(Ip destIp) {
+        this.destIp = destIp;
     }
 
     /**
@@ -193,31 +246,17 @@ public class NbiVxlanTunnel extends NbiBaseServiceModel {
     }
 
     /**
-     * L3 vxlan's vbdif ip, no need when creating,but need return after creating,return format is
-     * json of Ip.
-     * 
-     * @return srcVbdifIp
-     **/
-    public String getSrcVbdifIp() {
-        return srcVbdifIp;
-    }
-
-    public void setSrcVbdifIp(String srcVbdifIp) {
-        this.srcVbdifIp = srcVbdifIp;
+     * @return Returns the portVlans.
+     */
+    public List<PortVlan> getPortVlans() {
+        return portVlans;
     }
 
     /**
-     * L3 vxlan's vbdif ip, no need when creating,but need return after creating,return format is
-     * json of Ip.
-     * 
-     * @return destVbdifIp
-     **/
-    public String getDestVbdifIp() {
-        return destVbdifIp;
-    }
-
-    public void setDestVbdifIp(String destVbdifIp) {
-        this.destVbdifIp = destVbdifIp;
+     * @param portVlans The portVlans to set.
+     */
+    public void setPortVlans(List<PortVlan> portVlans) {
+        this.portVlans = portVlans;
     }
 
     @Override
@@ -234,8 +273,6 @@ public class NbiVxlanTunnel extends NbiBaseServiceModel {
         sb.append("    srcTunnelName: ").append(toIndentedString(srcTunnelName)).append("\n");
         sb.append("    destTunnelName: ").append(toIndentedString(destTunnelName)).append("\n");
         sb.append("    portVlanList: ").append(toIndentedString(portVlanList)).append("\n");
-        sb.append("    srcVbdifIp: ").append(toIndentedString(srcVbdifIp)).append("\n");
-        sb.append("    destVbdifIp: ").append(toIndentedString(destVbdifIp)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -19,59 +19,62 @@ package org.openo.sdno.overlayvpn.model.v2.vxlan;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
+import org.openo.sdno.overlayvpn.verify.annotation.AInt;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
 
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SbiNeVxlanInstance", propOrder = {"nbiVxlanTunnelId", "vni", "arpProxy", "arpBroadcastSuppress",
-                "keepAlive", "vxlanInterfaces", "vxlanTunnels", "vxlanInterfaceList", "vxlanTunnelList",
-                "vxlanGatewayList"})
-
+/**
+ * Class of SbiNeVxlanInstance Model.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 June 6, 2016
+ */
+@MOResType(infoModelName = "overlayvpn_tenant_sbi_vxlaninstance")
 public class SbiNeVxlanInstance extends SbiVxlanNetModel {
 
-    @XmlElement(name = "nbiVxlanTunnelId")
-    @ApiModelProperty(example = "null", required = true, value = "associated nbi vxlan ID")
     private String nbiVxlanTunnelId = null;
 
-    @XmlElement(name = "vni")
-    @ApiModelProperty(example = "null", required = true, value = "net ID which vxlan belongs to")
+    /**
+     * VxLAN Network Identifier
+     */
+    @AInt(require = true, min = 1, max = 16777215)
     private String vni = null;
 
-    @XmlElement(name = "arpProxy")
-    @ApiModelProperty(example = "null", value = "whether to enable arpProxy(default:\"false\")")
+    /**
+     * ArpProxy Enable or not, default is false
+     */
+    @AString(scope = "true,false")
     private String arpProxy = null;
 
-    @XmlElement(name = "arpBroadcastSuppress")
-    @ApiModelProperty(example = "null", value = "arp broadcast suppress enable(default:\"false\")")
+    /**
+     * ArpBroadcast Suppress Enable or not,default is false
+     */
+    @AString(scope = "true,false")
     private String arpBroadcastSuppress = null;
 
-    @XmlElement(name = "keepAlive")
-    @ApiModelProperty(example = "null", value = "")
     private String keepAlive = null;
 
-    @XmlElement(name = "vxlanInterfaces")
-    @ApiModelProperty(example = "null", value = "")
+    /**
+     * Related VxLan Interfaces
+     */
+    @NONInvField
+    @JsonIgnore
     private List<String> vxlanInterfaces = new ArrayList<String>();
 
-    @XmlElement(name = "vxlanTunnels")
-    @ApiModelProperty(example = "null", value = "")
+    /**
+     * Related VxLan Tunnels
+     */
+    @NONInvField
+    @JsonIgnore
     private List<String> vxlanTunnels = new ArrayList<String>();
 
-    @XmlElement(name = "vxlanInterfaceList")
-    @ApiModelProperty(example = "null", value = "")
+    @NONInvField
     private List<SbiNeVxlanInterface> vxlanInterfaceList = new ArrayList<SbiNeVxlanInterface>();
 
-    @XmlElement(name = "vxlanTunnelList")
-    @ApiModelProperty(example = "null", value = "")
+    @NONInvField
     private List<SbiNeVxlanTunnel> vxlanTunnelList = new ArrayList<SbiNeVxlanTunnel>();
-
-    @XmlElement(name = "vxlanGatewayList")
-    @ApiModelProperty(example = "null", value = "")
-    private List<SbiNeVxlanGateway> vxlanGatewayList = new ArrayList<SbiNeVxlanGateway>();
 
     /**
      * associated nbi vxlan ID
@@ -190,19 +193,6 @@ public class SbiNeVxlanInstance extends SbiVxlanNetModel {
         this.vxlanTunnelList = vxlanTunnelList;
     }
 
-    /**
-     * Get vxlanGatewayList
-     * 
-     * @return vxlanGatewayList
-     **/
-    public List<SbiNeVxlanGateway> getVxlanGatewayList() {
-        return vxlanGatewayList;
-    }
-
-    public void setVxlanGatewayList(List<SbiNeVxlanGateway> vxlanGatewayList) {
-        this.vxlanGatewayList = vxlanGatewayList;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -217,7 +207,6 @@ public class SbiNeVxlanInstance extends SbiVxlanNetModel {
         sb.append("    vxlanTunnels: ").append(toIndentedString(vxlanTunnels)).append("\n");
         sb.append("    vxlanInterfaceList: ").append(toIndentedString(vxlanInterfaceList)).append("\n");
         sb.append("    vxlanTunnelList: ").append(toIndentedString(vxlanTunnelList)).append("\n");
-        sb.append("    vxlanGatewayList: ").append(toIndentedString(vxlanGatewayList)).append("\n");
         sb.append("}");
         return sb.toString();
     }

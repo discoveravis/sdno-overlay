@@ -16,37 +16,44 @@
 
 package org.openo.sdno.overlayvpn.model.v2.vxlan;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
+import org.openo.sdno.overlayvpn.verify.annotation.AInt;
+import org.openo.sdno.overlayvpn.verify.annotation.AString;
+import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SbiNeVxlanInterface", propOrder = {"localName", "vxlanInstanceId", "accessType", "portNativeId",
-                "dot1qVlanBitmap"})
-
+/**
+ * Class of SbiNeVxlanInterface Model.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 June 6, 2016
+ */
+@MOResType(infoModelName = "overlayvpn_tenant_sbi_nevxlaninterface")
 public class SbiNeVxlanInterface extends SbiVxlanNetModel {
 
-    @XmlElement(name = "localName")
-    @ApiModelProperty(example = "null", required = true, value = "vxlan's name on controller")
+    @AString(min = 1, max = 36)
     private String localName = null;
 
-    @XmlElement(name = "vxlanInstanceId")
-    @ApiModelProperty(example = "null", required = true, value = "bound vxlan instance id")
+    /**
+     * VxLan Instance Id
+     */
+    @AUuid(require = true)
     private String vxlanInstanceId = null;
 
-    @XmlElement(name = "accessType")
-    @ApiModelProperty(example = "null", value = "matching access type of message")
+    /**
+     * Access type: port/dot1q
+     */
     private String accessType = null;
 
-    @XmlElement(name = "portNativeId")
-    @ApiModelProperty(example = "null", value = "physical id of associated access point")
+    /**
+     * Port Id
+     */
+    @AUuid(require = true)
     private String portNativeId = null;
 
-    @XmlElement(name = "dot1qVlanBitmap")
-    @ApiModelProperty(example = "null", value = "access vlan range, set when accessType is dot1q")
+    /**
+     * VLAN Range
+     */
+    @AInt(min = 1, max = 4094)
     private String dot1qVlanBitmap = null;
 
     /**
