@@ -16,6 +16,8 @@
 
 package org.openo.sdno.overlayvpn.model.v2.ipsec;
 
+import java.util.Objects;
+
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
 import org.openo.sdno.overlayvpn.model.v2.uuid.UuidModel;
 import org.openo.sdno.overlayvpn.verify.annotation.AInt;
@@ -154,17 +156,13 @@ public class SbiIp extends UuidModel {
 
         SbiIp other = (SbiIp)obj;
 
-        if((ipMask == null) && (other.ipMask != null)) {
+        if(!Objects.equals(ipMask, other.ipMask)) {
 
             return false;
 
-        } else if(!ipMask.equals(other.ipMask)) {
-            return false;
         }
 
-        if((ipv4 == null) && (other.ipv4 != null)) {
-            return false;
-        } else if(!ipv4.equals(other.ipv4)) {
+        if(!Objects.equals(ipv4, other.ipv4)) {
             return false;
         }
 
@@ -172,18 +170,13 @@ public class SbiIp extends UuidModel {
     }
 
     private boolean checkOther(SbiIp other) {
-        if((ipv6 == null) && (other.ipv6 != null)) {
-            return false;
-        } else if(!ipv6.equals(other.ipv6)) {
+        if(!Objects.equals(ipv6, other.ipv6)) {
             return false;
         }
 
-        if((prefixLength == null) && (other.prefixLength != null)) {
-            return false;
-        } else if(!prefixLength.equals(other.prefixLength)) {
+        if(!Objects.equals(prefixLength, other.prefixLength)) {
             return false;
         }
-
         return true;
     }
 }
