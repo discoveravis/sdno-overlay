@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    Copyright 2016 Huawei Technologies Co., Ltd.
+    Copyright 2016-2017 Huawei Technologies Co., Ltd.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -34,6 +34,7 @@
         <jaxrs:serviceBeans>
             <ref bean="siteToDcRoaResource"></ref>
             <ref bean="swaggerRoa"></ref>
+            <ref bean="overlayHealthCheckResource"></ref>
         </jaxrs:serviceBeans>
         <!-- registering providers -->
         <jaxrs:providers>
@@ -46,6 +47,9 @@
     </bean>
 
     <bean id="swaggerRoa" class="org.openo.sdno.overlayvpn.rest.SwaggerRoa">
+    </bean>
+    
+    <bean id="overlayHealthCheckResource" class="org.openo.sdno.overlayvpn.rest.OverlayHealthCheckResource">
     </bean>
 
     <bean id="siteToDcService" class="org.openo.sdno.overlayvpn.service.impl.site2dc.SiteToDCSvcImpl">
