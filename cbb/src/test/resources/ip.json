@@ -1,0 +1,10 @@
+{
+    "id": null,
+    "ipv4": "10.2.0.1",
+    "ipv6": null,
+    "ipMask": "24",
+    "prefixLength": "0",
+    "neId": "neId",
+    "deviceId": "deviceId",
+    "vxlanTunnelId": "vxlanTunnelId"
+}

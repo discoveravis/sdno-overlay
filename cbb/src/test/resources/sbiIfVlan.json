@@ -1,0 +1,10 @@
+{
+    "id": null,
+    "serviceVlanUuId": "serviceVlanUuId",
+    "ethInterfaceConfigId": "ethInterfaceConfigId",
+    "ifId": "ifId",
+    "ifName": "ifName",
+    "defaultVlan": 1,
+    "linkType": "trunk",
+    "vlans": "1"
+}

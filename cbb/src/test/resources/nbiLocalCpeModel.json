@@ -1,0 +1,11 @@
+{
+    "id": null,
+    "name": "name",
+    "esn": "esn",
+    "oldEsn": "oldEsn",
+    "tenantId": "tenantId",
+    "controllerId": "controllerId",
+    "siteId": "siteId",
+    "localCpeType": "Thin CPE",
+    "description": "description"
+}

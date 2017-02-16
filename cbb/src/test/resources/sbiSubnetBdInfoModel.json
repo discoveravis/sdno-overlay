@@ -1,0 +1,9 @@
+{
+    "controllerId": null,
+    "neId": "neId",
+    "deviceId": "deviceId",
+    "vni": "vni",
+    "subnetId": "subnetId",
+    "bdId": "bdId",
+    "vbdifName": "vbdifName"
+}

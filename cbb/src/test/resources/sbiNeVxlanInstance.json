@@ -1,0 +1,29 @@
+{
+    "deviceId": "deviceId",
+    "peerDeviceId": "peerDeviceId",
+    "controllerId": "controllerId",
+    "connectionId": "connectionId",
+    "externalId": "externalId",
+    "nbiVxlanTunnelId": "nbiVxlanTunnelId",
+    "vni": "vni",
+    "arpProxy": "true",
+    "arpBroadcastSuppress": "true",
+    "keepAlive": "true",
+    "vxlanInterfaceList": [{
+        "localName": "localName",
+        "vxlanInstanceId": "vxlanInstanceId",
+        "accessType": "port",
+        "portNativeId": "portNativeId",
+        "dot1qVlanBitmap": "1"
+    }],
+    "vxlanTunnelList": [{
+        "vni": "vni",
+        "vxlanInstanceId": "vxlanInstanceId",
+        "sourceAddress": "sourceAddress",
+        "destAddress": "10.2.1.1",
+        "sourceIfId": "sourceIfId",
+        "tunnelIfId": "tunnelIfId",
+        "vxlanInstances": ["1"],
+        "vnis": ["1"]
+    }]
+}
