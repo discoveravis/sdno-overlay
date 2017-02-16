@@ -1,0 +1,10 @@
+{
+    "srcNeId": "srcNeId",
+    "srcNeRole": "localcpe",
+    "connectionId": "connectionId",
+    "type": "policy",
+    "trafficPolicyName": "trafficPolicyName",
+    "interfaceName": "interfaceName",
+    "direction": "inbound",
+    "filterAction": "filterAction"
+}

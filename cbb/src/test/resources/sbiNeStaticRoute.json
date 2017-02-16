@@ -1,0 +1,8 @@
+{
+    "destIp": "10.2.0.1",
+    "enableDhcp": "true",
+    "nextHop": "10.5.8.4",
+    "outInterface": "0",
+    "priority": "1",
+    "nqa": "nqa"
+}

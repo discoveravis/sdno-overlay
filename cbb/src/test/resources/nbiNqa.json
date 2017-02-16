@@ -1,0 +1,15 @@
+{
+    "neId": "neId",
+    "neRole": "neRole",
+    "srcIp": "10.5.4.2",
+    "srcPortName": "srcPortName",
+    "dstIp": "10.5.6.7",
+    "dstPortName": "dstPortName",
+    "testType": "testType",
+    "frequency": "2",
+    "probeCount": "1",
+    "timeout": "3",
+    "ttl": "1",
+    "tos": "0",
+    "interval": "22"
+}

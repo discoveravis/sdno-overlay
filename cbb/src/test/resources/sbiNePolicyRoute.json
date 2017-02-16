@@ -1,0 +1,10 @@
+{
+    "deviceId": "deviceId",
+    "controllerId": "controllerId",
+    "externalId": "externalId",
+    "nbiNeRouteId": "nbiNeRouteId",
+    "trafficPolicyName": "trafficPolicyName",
+    "interfaceName": "interfaceName",
+    "direction": "outbound",
+    "filterAction": "filterAction"
+}

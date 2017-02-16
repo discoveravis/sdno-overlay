@@ -1,0 +1,62 @@
+{
+    "vpnConnections": [{
+        "technologys": "technologys",
+        "netConnections": [{
+            "type": "type",
+            "srcNeId": "srcNeId",
+            "destNeId": "destNeId",
+            "srcNeRole": "srcNeRole",
+            "destNeRole": "destNeRole",
+            "connectionId": "connectionId",
+            "srcPortName": "srcPortName",
+            "destPortName": "destPortName",
+            "srcSiteId": "srcSiteId",
+            "destSiteId": "destSiteId",
+            "protectionPolicy": "protectionPolicy",
+            "qosPreClassify": "qosPreClassify",
+            "parentConnections": [{
+                "id": null,
+                "vpnConnectionId": "vpnConnectionId",
+                "vpnConnectionType": "InternalVpnConnection",
+                "netConnectionId": "netConnectionId",
+                "netConnectionType": "gre",
+                "ext": "ext"
+            }]
+        }],
+        "vpnId": "vpnId",
+        "routeType": "routeType",
+        "aEndVpnGatewayId": "aEndVpnGatewayId",
+        "zEndVpnGatewayId": "zEndVpnGatewayId",
+        "aEndVpnGateway": {
+            "vpnId": "vpnId",
+            "siteId": "siteId",
+            "vpcId": "vpcId",
+            "regionId": "regionId",
+            "deployPosition": "localFirst",
+            "upstreamBandwidth": "1",
+            "downstreamBandwidth": "2",
+            "ports": ["1"],
+            "portNames": ["portNames"],
+            "ext": "ext"
+        },
+        "zEndVpnGateway": null,
+        "vni": "1",
+        "ext": "ext"
+    }],
+    "VpnGateways": [{
+        "vpnId": "vpnId",
+        "siteId": "siteId",
+        "vpcId": "vpcId",
+        "regionId": "regionId",
+        "deployPosition": "localFirst",
+        "upstreamBandwidth": "100",
+        "downstreamBandwidth": "200",
+        "ports": ["1"],
+        "portNames": ["2"],
+        "ext": "ext"
+    }],
+    "siteList": null,
+    "vpcList": null,
+    "ext": "ext",
+    "vpnDescriptor": "vpnDescriptor"
+}

@@ -1,0 +1,10 @@
+{
+    "type": "static",
+    "destIp": "10.2.0.1",
+    "enableDhcp": "false",
+    "nextHop": "10.2.1.5",
+    "outInterfaceName": "outInterfaceName",
+    "priority": "1",
+    "nqa": "nqa",
+    "vxlanTunnelId": "vxlanTunnelId"
+}
