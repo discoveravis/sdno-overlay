@@ -1,0 +1,23 @@
+{
+    "srcNeId": "srcNeId",
+    "connectionId": "connectionId",
+    "srcNeRole": "cloudcpe",
+    "destNeRole": "vpc",
+    "type": "ipv4_over_ipv6",
+    "destNeId": "destNeId",
+    "srcPortName": "srcPortName",
+    "destPortName": "destPortName",
+    "workType": "work",
+    "protectionPolicy": "nqa",
+    "nqa": "nqa",
+    "ikePolicy": "ikePolicy",
+    "ipsecPolicy": "ipsecPolicy",
+    "srcIsTemplateType": "true",
+    "destIsTemplateType": "true",
+    "ruleSrcPortName": "ruleSrcPortName",
+    "ruleDestPortName": "ruleDestPortName",
+    "sourceLanCidrs": "sourceLanCidrs",
+    "destLanCidrs": "destLanCidrs",
+    "qosPreClassify": "true",
+    "regionId": "regionId"
+}
