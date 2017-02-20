@@ -651,12 +651,12 @@ definitions:
           successed:
             type: array
             items:
-              $ref: '#/definitions/SbiNeStaticRouteFailData'
+              $ref: '#/definitions/SbiNeStaticRoute'
             description: the successed list.
           fail:
             type: array
             items:
-              type: object
+              $ref: '#/definitions/SbiNeStaticRouteFailData'
             description: the failed list.
   SbiNeStaticRouteFailData:
     type: object
