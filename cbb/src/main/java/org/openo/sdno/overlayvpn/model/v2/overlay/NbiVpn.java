@@ -23,7 +23,6 @@ import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOEditableField;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOSubField;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
-import org.openo.sdno.overlayvpn.model.v2.basemodel.BaseModel;
 import org.openo.sdno.overlayvpn.verify.annotation.AString;
 
 /**
@@ -33,7 +32,7 @@ import org.openo.sdno.overlayvpn.verify.annotation.AString;
  * @version SDNO 0.5 Jan 24, 2017
  */
 @MOResType(infoModelName = "overlayvpn_vpn")
-public class NbiVpn extends BaseModel {
+public class NbiVpn extends ServiceModel {
 
     @NONInvField
     @MOSubField(parentId = "vpnId")
@@ -41,7 +40,7 @@ public class NbiVpn extends BaseModel {
 
     @NONInvField
     @MOSubField(parentId = "vpnId")
-    private List<NbiVpnGateway> VpnGateways;
+    private List<NbiVpnGateway> vpnGateways;
 
     @NONInvField
     private Set<String> siteList;
@@ -74,11 +73,11 @@ public class NbiVpn extends BaseModel {
     }
 
     public List<NbiVpnGateway> getVpnGateways() {
-        return VpnGateways;
+        return vpnGateways;
     }
 
     public void setVpnGateways(List<NbiVpnGateway> vpnGateways) {
-        VpnGateways = vpnGateways;
+        this.vpnGateways = vpnGateways;
     }
 
     public Set<String> getSiteList() {

@@ -21,7 +21,6 @@ import java.util.List;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOEditableField;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOJsonField;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
-import org.openo.sdno.overlayvpn.model.v2.basemodel.BaseModel;
 import org.openo.sdno.overlayvpn.verify.annotation.ALong;
 import org.openo.sdno.overlayvpn.verify.annotation.AString;
 import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
@@ -33,7 +32,7 @@ import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
  * @version SDNO 0.5 Jan 24, 2017
  */
 @MOResType(infoModelName = "overlayvpn_vpngateway")
-public class NbiVpnGateway extends BaseModel {
+public class NbiVpnGateway extends ServiceModel {
 
     @AUuid
     private String vpnId;

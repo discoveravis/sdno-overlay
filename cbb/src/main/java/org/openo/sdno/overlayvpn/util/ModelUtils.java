@@ -21,18 +21,15 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.exception.InnerErrorServiceException;
-import org.openo.sdno.overlayvpn.model.v2.uuid.UuidModel;
+import org.openo.sdno.overlayvpn.model.v2.overlay.BaseModel;
 import org.openo.sdno.util.reflect.JavaEntityUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,10 +57,10 @@ public class ModelUtils {
      * @throws ServiceException when class has no default constructor
      * @since SDNO 0.5
      */
-    public static <T extends UuidModel> T newModel(Class<T> type, String uuid) throws ServiceException {
+    public static <T extends BaseModel> T newModel(Class<T> type, String uuid) throws ServiceException {
         try {
             T instance = type.newInstance();
-            instance.setUuid(uuid);
+            instance.setId(uuid);
             return instance;
         } catch(InstantiationException | IllegalAccessException e) {
             throw new InnerErrorServiceException(
@@ -176,58 +173,5 @@ public class ModelUtils {
                 continue;
             }
         }
-    }
-
-    /**
-     * Using the source object data to fill the empty field in destination object.<br>
-     * 
-     * @param src The source object list
-     * @param dest The destination object list
-     * @return The filled result list
-     * @throws ServiceException when construct object failed
-     * @since SDNO 0.5
-     */
-    public static <T extends UuidModel> List<T> fillAttribute(List<T> src, List<T> dest) throws ServiceException {
-        List<T> result = new ArrayList<>();
-        if(CollectionUtils.isEmpty(src) || CollectionUtils.isEmpty(dest)) {
-            return result;
-        }
-        Map<String, T> srcMap = modelsToMap(src);
-        Map<String, T> destMap = modelsToMap(dest);
-        for(String key : srcMap.keySet()) {
-            if(!destMap.containsKey(key)) {
-                continue;
-            }
-            result.add(fillAttribute(srcMap.get(key), destMap.get(key)));
-        }
-        return result;
-    }
-
-    private static <T extends UuidModel> Map<String, T> modelsToMap(List<T> datas) {
-        Map<String, T> dataMap = new HashMap<>();
-        if(CollectionUtils.isEmpty(datas)) {
-            return dataMap;
-        }
-        for(T data : datas) {
-            dataMap.put(data.getUuid(), data);
-        }
-        return dataMap;
-    }
-
-    @SuppressWarnings("unchecked")
-    private static <T extends UuidModel> T fillAttribute(T src, T dest) throws ServiceException {
-        Class<? extends UuidModel> resType = src.getClass();
-        T data = (T)newInstance(resType);
-        data.setUuid(src.getUuid());
-        List<Field> fields = JavaEntityUtil.getAllField(resType);
-        for(Field field : fields) {
-            Object srcValue = JavaEntityUtil.getFieldValue(field.getName(), src);
-            Object destValue = JavaEntityUtil.getFieldValue(field.getName(), dest);
-            if(srcValue != null && !"null".equals(srcValue) && destValue == null) {
-                JavaEntityUtil.setFieldValue(field, data, srcValue);
-                JavaEntityUtil.setFieldValue(field, dest, srcValue);
-            }
-        }
-        return data;
     }
 }

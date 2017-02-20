@@ -16,15 +16,13 @@
 
 package org.openo.sdno.overlayvpn.model.v2.overlay;
 
-import org.openo.sdno.overlayvpn.model.v2.basemodel.BaseModel;
-
 /**
  * Base connection model.<br>
  * 
  * @author
  * @version SDNO 0.5 Jan 24, 2017
  */
-public class NbiBaseConnection extends BaseModel {
+public class NbiBaseConnection extends ServiceModel {
 
     /**
      * Constructor.<br>

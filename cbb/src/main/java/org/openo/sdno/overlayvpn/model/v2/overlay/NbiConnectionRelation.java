@@ -17,7 +17,6 @@
 package org.openo.sdno.overlayvpn.model.v2.overlay;
 
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
-import org.openo.sdno.overlayvpn.model.v2.uuid.UuidModel;
 import org.openo.sdno.overlayvpn.verify.annotation.AString;
 import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
 
@@ -28,7 +27,7 @@ import org.openo.sdno.overlayvpn.verify.annotation.AUuid;
  * @version SDNO 0.5 Jan 24, 2017
  */
 @MOResType(infoModelName = "overlayvpn_connectionrelation")
-public class NbiConnectionRelation extends UuidModel {
+public class NbiConnectionRelation extends BaseModel {
 
     @AUuid
     private String vpnConnectionId;
