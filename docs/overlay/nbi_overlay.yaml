@@ -509,7 +509,7 @@ definitions:
   NbiVpn:
     description: vpn model
     allOf:
-    - $ref: '#/definitions/BaseModel'
+    - $ref: '#/definitions/ServiceModel'
     - type: object
       properties:
         vpnConnections:
@@ -564,7 +564,7 @@ definitions:
   NbiVpnGateway:
     description: vpn gateway model
     allOf:
-    - $ref: '#/definitions/BaseModel'
+    - $ref: '#/definitions/ServiceModel'
     - type: object
       properties:
         vpnId:
@@ -645,7 +645,7 @@ definitions:
   NbiConnectionRelation:
     description: connection relation model
     allOf:
-    - $ref: '#/definitions/UuidModel'
+    - $ref: '#/definitions/BaseModel'
     - type: object
       properties:
         vpnConnectionId:
@@ -664,13 +664,13 @@ definitions:
   NbiBaseConnection:
     description: base connection model
     allOf:
-    - $ref: '#/definitions/BaseModel'
+    - $ref: '#/definitions/ServiceModel'
     - type: object
 
-  BaseModel:
+  ServiceModel:
     description: base model
     allOf:
-    - $ref: '#/definitions/UuidModel'
+    - $ref: '#/definitions/BaseModel'
     - type: object
     properties:
       name:
@@ -699,10 +699,10 @@ definitions:
       additionalInfo:
         type: string
 
-  UuidModel:
+  BaseModel:
     description: base model
     type: object
     properties:
-      uuid:
+      id:
         type: string
         format: uuid
