@@ -139,13 +139,11 @@ public class VpcSubnetService implements IMicroSvcBasicOper<SubNet> {
 
     @Override
     public ResultRsp<SubNet> deploy(HttpServletRequest req, SubNet request) throws ServiceException {
-        // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public ResultRsp<SubNet> undeploy(HttpServletRequest req, SubNet request) throws ServiceException {
-        // TODO Auto-generated method stub
         return null;
     }
 

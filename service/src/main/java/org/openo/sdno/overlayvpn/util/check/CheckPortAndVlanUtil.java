@@ -56,7 +56,6 @@ public class CheckPortAndVlanUtil {
      * @since SDNO 0.5
      */
     public static void check(List<String> portUuids, Map<String, String> portToVlanMap) throws ServiceException {
-        // TODO verify VLAN
         Map<String, List<String>> filter = new HashMap<String, List<String>>();
         filter.put(POINTID_PARAM, portUuids);
         filter.put(TYPE_PARAM, Arrays.asList(EndpointType.PORT_VLAN.getName()));

@@ -125,8 +125,6 @@ public class OverlayVpnTaskSvc {
             tecVpnToDeployedMap.put(tempEntry.getKey(), tempEntry.getValue().isSuccess());
         }
 
-        // TODO: need to roll back if deploy failed
-
         // package result data
         return packageResultRsp(data, rollBackRet, creatTecToResultMap);
     }
@@ -247,8 +245,6 @@ public class OverlayVpnTaskSvc {
         for(Entry<String, ResultRsp<OverlayVpn>> tempEntry : updateTecToResultMap.entrySet()) {
             tecVpnToUpdateOkMap.put(tempEntry.getKey(), tempEntry.getValue().isSuccess());
         }
-
-        // TODO: roll back is needed if operation failed
 
         // package result data
         return packageResultRsp(modifyData, rollBackRet, updateTecToResultMap);

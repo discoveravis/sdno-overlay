@@ -204,21 +204,18 @@ public class SiteToDCSvcImpl implements ISiteToDC {
     @Override
     public ResultRsp<List<SiteToDc>> batchQuery(HttpServletRequest req, HttpServletResponse resp, String tenantId,
             String filter) throws ServiceException {
-        // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public ResultRsp<SiteToDc> deploy(HttpServletRequest req, HttpServletResponse resp, SiteToDc request)
             throws ServiceException {
-        // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public ResultRsp<SiteToDc> undeploy(HttpServletRequest req, HttpServletResponse resp, SiteToDc request)
             throws ServiceException {
-        // TODO Auto-generated method stub
         return null;
     }
 

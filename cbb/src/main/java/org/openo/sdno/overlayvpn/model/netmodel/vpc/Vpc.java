@@ -206,10 +206,6 @@ public class Vpc extends AbstUuidModel {
         @AUuid(require = true)
         private String routerId = null;
 
-        // TODO(mrkanag) Add additional properties to mark the underlay
-        // resources are whether created by OpenO or existing one. during
-        // cleanup operations, remove those underlays which are created
-        // only by OpenO.
         public String getProjectId() {
             return this.projectId;
         }

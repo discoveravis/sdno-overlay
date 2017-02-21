@@ -68,7 +68,6 @@ public class TokenDataHolder {
      * @since SDNO 0.5
      */
     public static String getToken() {
-        // TODO
         return "abcd-efgh-ijk";
     }
 
@@ -99,7 +98,6 @@ public class TokenDataHolder {
      * @since SDNO 0.5
      */
     public static String getUserName() {
-        // TODO
         return null;
     }
 
@@ -110,7 +108,6 @@ public class TokenDataHolder {
      * @since SDNO 0.5
      */
     public static String getTenantID() {
-        // TODO
         return "abc-def-0123-456";
     }
 
@@ -121,7 +118,6 @@ public class TokenDataHolder {
      * @since SDNO 0.5
      */
     public static String getTenantName() {
-        // TODO
         return null;
     }
 
@@ -132,7 +128,6 @@ public class TokenDataHolder {
      * @since SDNO 0.5
      */
     public static List<?> getRoleList() {
-        // TODO
         return null;
     }
 }

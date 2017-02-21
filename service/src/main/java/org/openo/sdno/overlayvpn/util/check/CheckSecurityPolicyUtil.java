@@ -20,8 +20,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.collections.CollectionUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.overlayvpn.dao.common.InventoryDao;
 import org.openo.sdno.overlayvpn.model.ipsec.IkePolicy;
@@ -31,8 +29,9 @@ import org.openo.sdno.overlayvpn.model.servicemodel.mappingpolicy.GreMappingPoli
 import org.openo.sdno.overlayvpn.model.servicemodel.mappingpolicy.IpsecMappingPolicy;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
 import org.openo.sdno.overlayvpn.util.FilterDataUtil;
-import org.openo.sdno.overlayvpn.util.check.ValidationUtil;
 import org.openo.sdno.overlayvpn.util.exception.ThrowOverlayVpnExcpt;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * SecurityPolicy Data Verify Class.<br>
@@ -59,11 +58,6 @@ public class CheckSecurityPolicyUtil {
     public static void check(SecurityPolicy securityPolicy) throws ServiceException {
         // Check the model parameters
         checkModelData(securityPolicy);
-
-        // TODO
-        // Check whether resource exists in database or not
-
-        //
     }
 
     /**
@@ -84,8 +78,8 @@ public class CheckSecurityPolicyUtil {
         }
 
         if(CollectionUtils.isNotEmpty(greQueryResult.getData())) {
-            ThrowOverlayVpnExcpt.throwResourceIsInUsedExpt("[Ike policy]" + ikePolicy.getName(), "[Gre mapping policy]"
-                    + greQueryResult.getData().get(0).getName() + "...");
+            ThrowOverlayVpnExcpt.throwResourceIsInUsedExpt("[Ike policy]" + ikePolicy.getName(),
+                    "[Gre mapping policy]" + greQueryResult.getData().get(0).getName() + "...");
         }
 
         ResultRsp<List<IpsecMappingPolicy>> ipsecQueryResult =
@@ -122,9 +116,8 @@ public class CheckSecurityPolicyUtil {
                     "[Gre mapping policy]" + greQueryResult.getData().get(0).getName() + "...");
         }
 
-        ResultRsp<List<IpsecMappingPolicy>> ipsecQueryResult =
-                new InventoryDao<IpsecMappingPolicy>()
-                        .batchQuery(IpsecMappingPolicy.class, ipsecFilterForMappingPolicy);
+        ResultRsp<List<IpsecMappingPolicy>> ipsecQueryResult = new InventoryDao<IpsecMappingPolicy>()
+                .batchQuery(IpsecMappingPolicy.class, ipsecFilterForMappingPolicy);
         if(!ipsecQueryResult.isSuccess()) {
             ThrowOverlayVpnExcpt.checkRspThrowException(ipsecQueryResult);
         }
