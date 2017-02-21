@@ -119,7 +119,7 @@ public class NetworkElementInvDao {
     public List<NetworkElementMO> getAllMO() throws ServiceException {
         RestfulResponse response = BrsRestconfProxy.get(NEURI, "");
         if(!HttpCode.isSucess(response.getStatus())) {
-            LOGGER.error("Query Network Element failed");
+            LOGGER.error("Query all Network Element failed");
             throw new ServiceException("Query Network Element failed");
         }
 
@@ -138,10 +138,10 @@ public class NetworkElementInvDao {
      */
     public List<NetworkElementMO> getMOByIds(List<String> ids) throws ServiceException {
         if(CollectionUtils.isEmpty(ids)) {
-            return new ArrayList<NetworkElementMO>();
+            return new ArrayList<>();
         }
 
-        List<NetworkElementMO> networkElementList = new ArrayList<NetworkElementMO>();
+        List<NetworkElementMO> networkElementList = new ArrayList<>();
         for(String curNeUuid : ids) {
             networkElementList.add(query(curNeUuid));
         }
@@ -158,7 +158,7 @@ public class NetworkElementInvDao {
      * @since SDNO 0.5
      */
     public List<NetworkElementMO> queryMOByConntrollerId(String controllerID) throws ServiceException {
-        Map<String, String> conditionMap = new HashMap<String, String>();
+        Map<String, String> conditionMap = new HashMap<>();
         conditionMap.put("controllerID", controllerID);
         return query(conditionMap);
     }
@@ -179,8 +179,8 @@ public class NetworkElementInvDao {
 
         RestfulResponse response = BrsRestconfProxy.get(NEURI, "", condition);
         if(!HttpCode.isSucess(response.getStatus())) {
-            LOGGER.error("Query Network Element failed");
-            throw new ServiceException("Query Network Element failed");
+            LOGGER.error("Query Network Element by condition failed");
+            throw new ServiceException("Query Network Element through condition failed");
         }
 
         Map<String, Object> contentMap = JsonUtil.fromJson(response.getResponseContent(), Map.class);
@@ -200,8 +200,8 @@ public class NetworkElementInvDao {
     public NetworkElementMO query(String id) throws ServiceException {
         RestfulResponse response = BrsRestconfProxy.get(NEURI + "/" + id, null);
         if(!HttpCode.isSucess(response.getStatus())) {
-            LOGGER.error("Query Network Element failed");
-            throw new ServiceException("Query Network Element failed");
+            LOGGER.error("Query Network Element by uuid failed,the uuid is :" + id);
+            throw new ServiceException("Query Network Element by uuid failed");
         }
 
         Map<String, Object> contentMap = JsonUtil.fromJson(response.getResponseContent(), Map.class);
@@ -224,7 +224,7 @@ public class NetworkElementInvDao {
      * @since SDNO 0.5
      */
     public List<NetworkElementMO> getNeBySiteId(String siteId) throws ServiceException {
-        Map<String, String> conditionMap = new HashMap<String, String>();
+        Map<String, String> conditionMap = new HashMap<>();
         conditionMap.put("siteID", siteId);
         return query(conditionMap);
     }
@@ -238,7 +238,7 @@ public class NetworkElementInvDao {
      * @since SDNO 0.5
      */
     public List<NetworkElementMO> getNeByName(String name) throws ServiceException {
-        Map<String, String> conditionMap = new HashMap<String, String>();
+        Map<String, String> conditionMap = new HashMap<>();
         conditionMap.put("name", name);
         return query(conditionMap);
     }
@@ -252,7 +252,7 @@ public class NetworkElementInvDao {
      * @since SDNO 0.5
      */
     public List<SiteMO> getSiteByNeId(String neId) throws ServiceException {
-        List<SiteMO> siteList = new ArrayList<SiteMO>();
+        List<SiteMO> siteList = new ArrayList<>();
 
         SiteInvDao siteDao = new SiteInvDao();
 
@@ -299,7 +299,7 @@ public class NetworkElementInvDao {
      * @since SDNO 0.5
      */
     private void checkFilterData(Map<String, String> condition) throws ServiceException {
-        Set<String> suportKeys = new HashSet<String>();
+        Set<String> suportKeys = new HashSet<>();
 
         suportKeys.add("name");
         suportKeys.add("productName");

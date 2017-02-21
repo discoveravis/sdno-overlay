@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,6 +55,12 @@ public class OverlayVpnComplexDao {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OverlayVpnComplexDao.class);
 
+    private static final String CONNECTION = "Connection";
+
+    private static final String ENDPOINT_GROUP = "EndpointGroup";
+
+    private static final String CONNECTION_ID = "connectionId";
+
     @Autowired
     private InventoryDao inventoryDao;
 
@@ -87,13 +93,13 @@ public class OverlayVpnComplexDao {
         }
 
         // Query all connections of this OverlayVpn
-        Map<String, Object> filterConnMap = new HashMap<String, Object>();
+        Map<String, Object> filterConnMap = new HashMap<>();
         filterConnMap.put("overlayVpnId", Arrays.asList(vpnUuid));
         ResultRsp<List<Connection>> connectionRsp =
                 inventoryDao.batchQuery(Connection.class, JsonUtil.toJson(filterConnMap));
         if(CollectionUtils.isEmpty(connectionRsp.getData())) {
             LOGGER.error("OverlayVpn do not have Connection. filter = " + filterConnMap);
-            OverlayVpnComplexDaoUtil.throwCloudVpnDataMissExpt("Connecton");
+            OverlayVpnComplexDaoUtil.throwCloudVpnDataMissExpt(CONNECTION);
         }
 
         // Query EndGroups by connections
@@ -101,13 +107,13 @@ public class OverlayVpnComplexDao {
         for(Connection tempConn : connectionRsp.getData()) {
             connUuids.add(tempConn.getUuid());
         }
-        Map<String, Object> filterEpgMap = new HashMap<String, Object>();
-        filterEpgMap.put("connectionId", connUuids);
+        Map<String, Object> filterEpgMap = new HashMap<>();
+        filterEpgMap.put(CONNECTION_ID, connUuids);
         ResultRsp<List<EndpointGroup>> endpointGrpRsp =
                 inventoryDao.queryByFilter(EndpointGroup.class, JsonUtil.toJson(filterEpgMap), null);
         if(CollectionUtils.isEmpty(endpointGrpRsp.getData())) {
             LOGGER.error("OverlayVpn do not have EndpointGroup. filter = " + filterEpgMap);
-            OverlayVpnComplexDaoUtil.throwCloudVpnDataMissExpt("EndpointGroup");
+            OverlayVpnComplexDaoUtil.throwCloudVpnDataMissExpt(ENDPOINT_GROUP);
         }
 
         // Construct Complex OverlayVpn
@@ -139,7 +145,7 @@ public class OverlayVpnComplexDao {
         ResultRsp<Connection> connectionRsp = inventoryDao.query(Connection.class, connectionUuid, null);
         if(null == connectionRsp.getData()) {
             LOGGER.error("Connection do not find. filter = " + connectionUuid);
-            OverlayVpnComplexDaoUtil.throwCloudVpnDataMissExpt("Connection");
+            OverlayVpnComplexDaoUtil.throwCloudVpnDataMissExpt(CONNECTION);
         }
 
         // Query current overlayVpn
@@ -151,13 +157,13 @@ public class OverlayVpnComplexDao {
         }
 
         // Query all EndpointGroups of this Connection
-        Map<String, Object> filterEpgMap = new HashMap<String, Object>();
-        filterEpgMap.put("connectionId", Arrays.asList(connectionUuid));
+        Map<String, Object> filterEpgMap = new HashMap<>();
+        filterEpgMap.put(CONNECTION_ID, Arrays.asList(connectionUuid));
         ResultRsp<List<EndpointGroup>> endpointGrpRsp =
                 inventoryDao.queryByFilter(EndpointGroup.class, JsonUtil.toJson(filterEpgMap), null);
         if(CollectionUtils.isEmpty(endpointGrpRsp.getData())) {
             LOGGER.error("OverlayVpn do not have EndpointGroup. filter = " + filterEpgMap);
-            OverlayVpnComplexDaoUtil.throwCloudVpnDataMissExpt("EndpointGroup");
+            OverlayVpnComplexDaoUtil.throwCloudVpnDataMissExpt(ENDPOINT_GROUP);
         }
 
         // Construct complex OverlayVpn
@@ -196,7 +202,7 @@ public class OverlayVpnComplexDao {
                 (List<Connection>)inventoryDao.batchQuery(Connection.class, parentConnUuids).getData();
         if(CollectionUtils.isEmpty(parentConns)) {
             LOGGER.error("Connection not found. uuid = " + parentConnUuids);
-            OverlayVpnComplexDaoUtil.throwCloudVpnDataMissExpt("Connection");
+            OverlayVpnComplexDaoUtil.throwCloudVpnDataMissExpt(CONNECTION);
         }
 
         // Query all OverlayVpns
@@ -221,7 +227,7 @@ public class OverlayVpnComplexDao {
                 (List<Connection>)inventoryDao.batchQuery(Connection.class, totalConnFilter).getData();
         if(CollectionUtils.isEmpty(totalConns)) {
             LOGGER.error("Connection not found. filter = " + totalConnFilter);
-            OverlayVpnComplexDaoUtil.throwCloudVpnDataMissExpt("Connection");
+            OverlayVpnComplexDaoUtil.throwCloudVpnDataMissExpt(CONNECTION);
         }
 
         // Query all EndpointGroups by Connections
@@ -232,12 +238,12 @@ public class OverlayVpnComplexDao {
                 return ((Connection)arg0).getUuid();
             }
         }));
-        String totalEpgFilter = FilterDataUtil.getFilterData("connectionId", totalConnUuids);
+        String totalEpgFilter = FilterDataUtil.getFilterData(CONNECTION_ID, totalConnUuids);
         List<EndpointGroup> totalEpgs =
                 (List<EndpointGroup>)inventoryDao.queryByFilter(EndpointGroup.class, totalEpgFilter, null).getData();
         if(CollectionUtils.isEmpty(totalEpgs)) {
             LOGGER.error("EndpointGroup not found. filter = " + totalEpgFilter);
-            OverlayVpnComplexDaoUtil.throwCloudVpnDataMissExpt("EndpointGroup");
+            OverlayVpnComplexDaoUtil.throwCloudVpnDataMissExpt(ENDPOINT_GROUP);
         }
 
         OverlayVpnComplexDaoUtil.buildComplexOverlayVpn(totalOverlanVpns, totalConns, totalEpgs, isNeedMappingPolicy,
@@ -265,7 +271,7 @@ public class OverlayVpnComplexDao {
         Connection parentConn = (Connection)inventoryDao.query(Connection.class, connectionId, null).getData();
         if(null == parentConn) {
             LOGGER.error("Connection not found. uuid = " + connectionId);
-            OverlayVpnComplexDaoUtil.throwCloudVpnDataMissExpt("Connection");
+            OverlayVpnComplexDaoUtil.throwCloudVpnDataMissExpt(CONNECTION);
             return retResult;
         }
 
@@ -273,7 +279,7 @@ public class OverlayVpnComplexDao {
         String parentVpnUuid = parentConn.getCompositeVpnId();
         if(null == parentVpnUuid) {
             LOGGER.error("parentConn not found. uuid = " + connectionId);
-            OverlayVpnComplexDaoUtil.throwCloudVpnDataMissExpt("Connection");
+            OverlayVpnComplexDaoUtil.throwCloudVpnDataMissExpt(CONNECTION);
         }
 
         OverlayVpn overlanVpn = (OverlayVpn)inventoryDao.query(OverlayVpn.class, parentVpnUuid, null).getData();
@@ -284,12 +290,12 @@ public class OverlayVpnComplexDao {
         }
 
         // Query all EndpointGroups of this connection
-        String totalEpgFilter = FilterDataUtil.getFilterData("connectionId", connectionId);
+        String totalEpgFilter = FilterDataUtil.getFilterData(CONNECTION_ID, connectionId);
         List<EndpointGroup> totalEpgs =
                 (List<EndpointGroup>)inventoryDao.queryByFilter(EndpointGroup.class, totalEpgFilter, null).getData();
         if(CollectionUtils.isEmpty(totalEpgs)) {
             LOGGER.error("EndpointGroup not found. filter = " + totalEpgFilter);
-            OverlayVpnComplexDaoUtil.throwCloudVpnDataMissExpt("EndpointGroup");
+            OverlayVpnComplexDaoUtil.throwCloudVpnDataMissExpt(ENDPOINT_GROUP);
         }
 
         parentConn.setEndpointGroups(totalEpgs);

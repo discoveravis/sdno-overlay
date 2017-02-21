@@ -63,6 +63,7 @@ public class ModelUtils {
             instance.setId(uuid);
             return instance;
         } catch(InstantiationException | IllegalAccessException e) {
+            LOGGER.error("The class does not have a default contructor.", e);
             throw new InnerErrorServiceException(
                     "model.init.error,class has no default constructor :" + type.getName());
         }
@@ -109,7 +110,7 @@ public class ModelUtils {
         try {
             return type.newInstance();
         } catch(InstantiationException | IllegalAccessException e) {
-            LOGGER.error("Model.init.error,class has no default constructor :" + type.getName());
+            LOGGER.error("The class has no default constructor." + e);
             throw new InnerErrorServiceException(
                     "Model.init.error,class has no default constructor :" + type.getName());
         }
@@ -170,6 +171,7 @@ public class ModelUtils {
                 dstMethod.invoke(dst, result);
             } catch(NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
                     | InvocationTargetException e) {
+                LOGGER.error("Set the value to the source model failed." , e);
                 continue;
             }
         }

@@ -134,8 +134,8 @@ public class PopInvDao {
 
         RestfulResponse response = BrsRestconfProxy.get(POP_URL + "/" + uuid, null);
         if(!HttpCode.isSucess(response.getStatus())) {
-            LOGGER.error("Query Pop data failed");
-            throw new ServiceException("Query Pop data failed");
+            LOGGER.error("Query Pop data by uuid failed,the uuid is :" + uuid);
+            throw new ServiceException("Query Pop data by uuid failed.");
         }
 
         Map<String, Object> contentMap = JsonUtil.fromJson(response.getResponseContent(), Map.class);
@@ -160,7 +160,7 @@ public class PopInvDao {
 
         RestfulResponse response = BrsRestconfProxy.get(POP_URL, null, conditionMap);
         if(!HttpCode.isSucess(response.getStatus())) {
-            LOGGER.error("Query Pop data failed");
+            LOGGER.error("Query Pop data by condition failed.");
             throw new ServiceException("Query Pop data failed");
         }
 
@@ -171,7 +171,7 @@ public class PopInvDao {
     }
 
     private void checkFilterData(Map<String, String> conditionMap) throws ServiceException {
-        Set<String> supportKeys = new HashSet<String>();
+        Set<String> supportKeys = new HashSet<>();
         supportKeys.add("name");
         supportKeys.add("type");
         supportKeys.add("tenantID");

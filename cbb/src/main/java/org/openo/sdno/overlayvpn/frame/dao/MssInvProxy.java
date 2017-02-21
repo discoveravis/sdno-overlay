@@ -150,14 +150,13 @@ public class MssInvProxy {
      */
     public Object update(String uuid, Object data) throws ServiceException {
         if(StringUtils.isEmpty(uuid) || data == null) {
-            LOGGER.error(
-                    "Mss.update.error,update model failed,uuid or data is null:uuid=" + uuid + ",model=" + resType);
+            LOGGER.error("Update model failed,uuid or data is null:uuid=" + uuid + ", model = " + resType);
             throw new InnerErrorServiceException(
-                    "Mss.update.error,update model failed,uuid or data is null:uuid=" + uuid + ",model=" + resType);
+                    "Mss.update.error,update model failed,uuid or data is null:uuid=" + uuid + ", model = " + resType);
         }
         Object dbData = query(uuid);
         if(dbData == null) {
-            LOGGER.error("Mss.update.error,update model failed,res is not exist:uuid=" + uuid + ",model=" + resType);
+            LOGGER.error("Update model failed,res is not exist:uuid=" + uuid + ",model=" + resType);
             throw new InnerErrorServiceException(
                     "Mss.update.error,update model failed,res is not exist:uuid=" + uuid + ",model=" + resType);
         }
@@ -218,10 +217,13 @@ public class MssInvProxy {
     @SuppressWarnings({"rawtypes", "unchecked"})
     public BatchQueryResult query(Object condition, BatchQueryParam param) throws ServiceException {
         String url = String.format(MssConsts.URL_BATCH, bucketName, resType);
-        if(param == null) {
-            param = new BatchQueryParam();
+
+        BatchQueryParam parameter = new BatchQueryParam();
+        if(param != null) {
+            parameter = param;
         }
-        RestfulParametes restParam = param.toRestParam(null);
+        RestfulParametes restParam = parameter.toRestParam(null);
+
         BatchQueryFilterEntity filter = ModelInvUtil.buildComlexFilter(condition);
         restParam.put("filter", JsonUtils.toJson(filter));
         RestfulResponse response = getRestProxy().get(url, null, restParam);
@@ -290,8 +292,7 @@ public class MssInvProxy {
         }
         Map<String, InvMapping> modelMapping = getModelInvMapping();
         List<Field> fields = getAllInvFields(model.getClass());
-        Map<String, Object> reqMap = buildRequestMap(modelMapping, fields, model);
-        return reqMap;
+        return buildRequestMap(modelMapping, fields, model);
     }
 
     private Map<String, InvMapping> getModelInvMapping() {
@@ -320,15 +321,18 @@ public class MssInvProxy {
             return invData;
         }
         Map<String, Object> modelData = new HashMap<>();
-        for(String invName : invData.keySet()) {
+        for(Map.Entry<String, Object> entry : invData.entrySet()) {
+            String invName = entry.getKey();
+            Object invValue = entry.getValue();
+
             InvMapping invMapping = invMappings.get(invName);
             if(invMapping == null) {
                 continue;
             }
-            Object invValue = invData.get(invName);
             Object modelValue = invMapping.getModelValue(invValue);
             modelData.put(invMapping.getAttrName(), modelValue);
         }
+
         return modelData;
     }
 

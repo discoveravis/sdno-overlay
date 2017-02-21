@@ -95,12 +95,11 @@ public class InventoryDao<T> {
         ResultRsp<List<T>> invResult = invDao.query(clazz, new QueryParams(filter, queryResultFields, null, null));
         if(invResult.isValid()) {
             // Success, translate error code to CloudVpn's success error code.
-            return new ResultRsp<List<T>>(ErrorCode.OVERLAYVPN_SUCCESS, invResult.getData());
+            return new ResultRsp<>(ErrorCode.OVERLAYVPN_SUCCESS, invResult.getData());
         }
 
         // Program will not execute to here. If the database operation fails, it
-        // will throw
-        // exceptions.
+        // will throw exceptions.
         ResultRsp<List<T>> retRsp = new ResultRsp<>(String.valueOf(invResult.getErrorCode()));
         FillDbResultRsp.fillQueryResultRsp(retRsp, "[Filter]" + filter + "[queryResultFields]" + queryResultFields);
         SvcExcptUtil.throwSvcExptionByResultRsp(retRsp);
@@ -120,7 +119,7 @@ public class InventoryDao<T> {
     @SuppressWarnings("rawtypes")
     public ResultRsp<T> query(Class clazz, String uuid, String tenantId) throws ServiceException {
         // Construct filter.
-        Map<String, Object> filterMap = new HashMap<String, Object>();
+        Map<String, Object> filterMap = new HashMap<>();
         if(StringUtils.hasLength(uuid)) {
             filterMap.put("uuid", Arrays.asList(uuid));
         }
@@ -132,9 +131,9 @@ public class InventoryDao<T> {
         String filter = JSONObject.fromObject(filterMap).toString();
         ResultRsp<List<T>> queryRsp = queryByFilter(clazz, filter, null);
         if(CollectionUtils.isNotEmpty(queryRsp.getData())) {
-            return new ResultRsp<T>(queryRsp, queryRsp.getData().get(0));
+            return new ResultRsp<>(queryRsp, queryRsp.getData().get(0));
         }
-        return new ResultRsp<T>(queryRsp);
+        return new ResultRsp<>(queryRsp);
     }
 
     /**
@@ -167,7 +166,7 @@ public class InventoryDao<T> {
         }
 
         // Construct filter.
-        Map<String, Object> filterMap = new HashMap<String, Object>();
+        Map<String, Object> filterMap = new HashMap<>();
         filterMap.put("uuid", uuids);
         String filter = JSONObject.fromObject(filterMap).toString();
         return queryByFilter(clazz, filter, null);
@@ -213,8 +212,7 @@ public class InventoryDao<T> {
         }
 
         // Program will not execute to here. If the database operation fails, it
-        // will throw
-        // exceptions.
+        // will throw exceptions.
         ResultRsp<String> retRsp = new ResultRsp<>(String.valueOf(result.getErrorCode()));
         FillDbResultRsp.fillDeleteResultRsp(retRsp, "[UUID]" + uuids.get(0) + "...");
         SvcExcptUtil.throwSvcExptionByResultRsp(retRsp);
@@ -247,17 +245,15 @@ public class InventoryDao<T> {
             return new ResultRsp<>(ErrorCode.OVERLAYVPN_SUCCESS);
         }
 
-        ResultRsp<List<T>> retResult = new ResultRsp<List<T>>();
-        retResult = invService.add(dataList);
+        ResultRsp<List<T>> retResult = invService.add(dataList);
 
         if(retResult.isSuccess()) {
             // Success, translate error code to CloudVpn's success error code.
-            return new ResultRsp<List<T>>(ErrorCode.OVERLAYVPN_SUCCESS, dataList);
+            return new ResultRsp<>(ErrorCode.OVERLAYVPN_SUCCESS, dataList);
         }
 
         // Program will not execute to here. If the database operation fails, it
-        // will throw
-        // exceptions.
+        // will throw exceptions.
         ResultRsp<List<T>> retRsp = new ResultRsp<>(String.valueOf(retResult.getErrorCode()));
         FillDbResultRsp.fillInsertResultRsp(retRsp, null);
         SvcExcptUtil.throwSvcExptionByResultRsp(retRsp);
@@ -302,12 +298,11 @@ public class InventoryDao<T> {
         ResultRsp retResult = invDao.update(copyDataList, clazz);
         if(retResult.isSuccess()) {
             // Success, translate error code to CloudVpn's success error code.
-            return new ResultRsp<List<T>>(ErrorCode.OVERLAYVPN_SUCCESS, copyDataList);
+            return new ResultRsp<>(ErrorCode.OVERLAYVPN_SUCCESS, copyDataList);
         }
 
         // Program will not execute to here. If the database operation fails, it
-        // will throw
-        // exceptions.
+        // will throw exceptions.
         ResultRsp<List<T>> retRsp = new ResultRsp<>(String.valueOf(retResult.getErrorCode()));
         FillDbResultRsp.fillUpdateResultRsp(retRsp, null);
         SvcExcptUtil.throwSvcExptionByResultRsp(retRsp);
@@ -333,7 +328,7 @@ public class InventoryDao<T> {
         }
         // UUID can't be set to NULL.
         updateFieldSet.add("uuid");
-        List<T> copyDataList = new ArrayList<T>(oriUpdateList.size());
+        List<T> copyDataList = new ArrayList<>(oriUpdateList.size());
         for(T updateItem : oriUpdateList) {
             try {
                 T copyData = tClass.newInstance();
@@ -347,8 +342,7 @@ public class InventoryDao<T> {
                         continue;
                     }
 
-                    // Copy the fields which need to be updated from the
-                    // original data.
+                    // Copy the fields which need to be updated from the original data.
                     if(updateFieldSet.contains(tempField.getName())) {
                         Object data = JavaEntityUtil.getFieldValue(tempField.getName(), updateItem);
                         ObjectOperUtil.setValueByMethod(copyData, tempField, setMethodName, data);
@@ -377,8 +371,8 @@ public class InventoryDao<T> {
     @SuppressWarnings("unchecked")
     public ResultRsp<T> addRelation(RelationMO relationMO) throws ServiceException {
         if(null == relationMO) {
-            LOGGER.error("relationMO is null");
-            throw new ServiceException("relationMO is null");
+            LOGGER.error("The relationMO is null,can't be added.");
+            throw new ServiceException("The relationMO is null,can't be added.");
         }
         return invDao.addRelation(relationMO);
     }
@@ -394,8 +388,8 @@ public class InventoryDao<T> {
     @SuppressWarnings("unchecked")
     public ResultRsp<T> deleteRelation(RelationMO relationMO) throws ServiceException {
         if(null == relationMO) {
-            LOGGER.error("relationMO is null");
-            throw new ServiceException("relationMO is null");
+            LOGGER.error("The relationMO is null,can't be deleted.");
+            throw new ServiceException("The relationMO is null,can't be deleted.");
         }
         return invDao.deleteRelation(relationMO);
     }

@@ -42,11 +42,11 @@ import org.slf4j.LoggerFactory;
 /**
  * The dao class to deal with data base.<br>
  * 
- * @param <MO> The model to be handled
+ * @param <T> The model to be handled
  * @author
  * @version SDNO 0.5 Feb 3, 2017
  */
-public class BaseDao<MO extends BaseModel> {
+public class BaseDao<T extends BaseModel> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BaseDao.class);
 
@@ -59,7 +59,7 @@ public class BaseDao<MO extends BaseModel> {
      * @throws ServiceException when querying failed
      * @since SDNO 0.5
      */
-    public MO query(String uuid, Class<MO> resType) throws ServiceException {
+    public T query(String uuid, Class<T> resType) throws ServiceException {
         return query(uuid, resType, false);
     }
 
@@ -72,8 +72,8 @@ public class BaseDao<MO extends BaseModel> {
      * @throws ServiceException when querying failed
      * @since SDNO 0.5
      */
-    public List<MO> query(List<String> uuids, Class<MO> resType) throws ServiceException {
-        List<MO> models = new ArrayList<>();
+    public List<T> query(List<String> uuids, Class<T> resType) throws ServiceException {
+        List<T> models = new ArrayList<>();
         for(String uuid : uuids) {
             models.add(query(uuid, resType, false));
         }
@@ -91,8 +91,8 @@ public class BaseDao<MO extends BaseModel> {
      * @since SDNO 0.5
      */
     @SuppressWarnings("unchecked")
-    public MO query(String uuid, Class<MO> resType, boolean hierarchy) throws ServiceException {
-        MO data = (MO)new MssInvProxy(resType).query(uuid);
+    public T query(String uuid, Class<T> resType, boolean hierarchy) throws ServiceException {
+        T data = (T)new MssInvProxy(resType).query(uuid);
         if(hierarchy && data != null) {
             deepQuery(data);
         }
@@ -107,7 +107,7 @@ public class BaseDao<MO extends BaseModel> {
      * @throws ServiceException when querying failed
      * @since SDNO 0.5
      */
-    public List<MO> query(MO condition) throws ServiceException {
+    public List<T> query(T condition) throws ServiceException {
         return query(condition, null).getObjects();
     }
 
@@ -120,7 +120,7 @@ public class BaseDao<MO extends BaseModel> {
      * @throws ServiceException when querying failed
      * @since SDNO 0.5
      */
-    public BatchQueryResult<MO> query(MO condition, BatchQueryParam param) throws ServiceException {
+    public BatchQueryResult<T> query(T condition, BatchQueryParam param) throws ServiceException {
         return query(condition, param, false);
     }
 
@@ -135,7 +135,7 @@ public class BaseDao<MO extends BaseModel> {
      * @since SDNO 0.5
      */
     @SuppressWarnings({"rawtypes", "unchecked"})
-    public BatchQueryResult<MO> query(MO condition, BatchQueryParam param, boolean hierarchy) throws ServiceException {
+    public BatchQueryResult<T> query(T condition, BatchQueryParam param, boolean hierarchy) throws ServiceException {
         if(condition == null) {
             return new BatchQueryResult<>();
         }
@@ -155,13 +155,13 @@ public class BaseDao<MO extends BaseModel> {
      * @since SDNO 0.5
      */
     @SuppressWarnings({"unchecked", "rawtypes"})
-    public MO insert(MO data) throws ServiceException {
+    public T insert(T data) throws ServiceException {
         if(data == null) {
             return null;
         }
         initActionState(Arrays.asList(data));
         List response = new MssInvProxy(data.getClass()).insert(Arrays.asList(data));
-        return CollectionUtils.isNotEmpty(response) ? ((MO)response.get(0)) : null;
+        return CollectionUtils.isNotEmpty(response) ? ((T)response.get(0)) : null;
     }
 
     /**
@@ -173,7 +173,7 @@ public class BaseDao<MO extends BaseModel> {
      * @since SDNO 0.5
      */
     @SuppressWarnings("unchecked")
-    public List<MO> insert(List<MO> datas) throws ServiceException {
+    public List<T> insert(List<T> datas) throws ServiceException {
         if(CollectionUtils.isEmpty(datas)) {
             return datas;
         }
@@ -191,12 +191,12 @@ public class BaseDao<MO extends BaseModel> {
      * @since SDNO 0.5
      */
     @SuppressWarnings("unchecked")
-    public MO update(String uuid, MO data) throws ServiceException {
+    public T update(String uuid, T data) throws ServiceException {
         if(data == null) {
             return null;
         }
         data.setId(null);
-        return (MO)new MssInvProxy(data.getClass()).update(uuid, data);
+        return (T)new MssInvProxy(data.getClass()).update(uuid, data);
     }
 
     /**
@@ -208,7 +208,7 @@ public class BaseDao<MO extends BaseModel> {
      * @since SDNO 0.5
      */
     @SuppressWarnings("unchecked")
-    public List<MO> update(List<MO> datas) throws ServiceException {
+    public List<T> update(List<T> datas) throws ServiceException {
         if(CollectionUtils.isEmpty(datas)) {
             return datas;
         }
@@ -224,8 +224,8 @@ public class BaseDao<MO extends BaseModel> {
      * @since SDNO 0.5
      */
     @SuppressWarnings("unchecked")
-    public void delete(String uuid, Class<MO> resType) throws ServiceException {
-        MO dbData = (MO)new MssInvProxy(resType).query(uuid);
+    public void delete(String uuid, Class<T> resType) throws ServiceException {
+        T dbData = (T)new MssInvProxy(resType).query(uuid);
         if(dbData == null) {
             return;
         }
@@ -240,7 +240,7 @@ public class BaseDao<MO extends BaseModel> {
      * @throws ServiceException when deleting failed
      * @since SDNO 0.5
      */
-    public void delete(List<String> uuids, Class<MO> resType) throws ServiceException {
+    public void delete(List<String> uuids, Class<T> resType) throws ServiceException {
         new MssInvProxy(resType).delete(uuids);
     }
 
@@ -255,11 +255,11 @@ public class BaseDao<MO extends BaseModel> {
         return result;
     }
 
-    private void initActionState(List<MO> datas) {
+    private void initActionState(List<T> datas) {
         if(CollectionUtils.isEmpty(datas) || !ServiceModel.class.isAssignableFrom(datas.get(0).getClass())) {
             return;
         }
-        for(MO data : datas) {
+        for(T data : datas) {
             ((ServiceModel)data).setActionState(ActionState.CREATING.getState());
         }
     }
@@ -294,16 +294,7 @@ public class BaseDao<MO extends BaseModel> {
         }
         deepQuery(queryDatas.toArray(new BaseModel[0]));
         Map<String, List<BaseModel>> sortDataMap = sortQueryData(field, queryDatas, Arrays.asList(models));
-        for(BaseModel model : models) {
-            List<BaseModel> sortData = sortDataMap.get(model.getId());
-            if(CollectionUtils.isEmpty(sortData)) {
-                continue;
-            }
-            Object subData = buildModelSubData(sortData, field);
-            if(subData != null) {
-                JavaEntityUtil.setFieldValue(field, model, subData);
-            }
-        }
+        loadSubModel2Field(field, sortDataMap, models);
     }
 
     private Map<String, List<BaseModel>> sortQueryData(Field field, List<BaseModel> queryData, List<BaseModel> models) {
@@ -313,19 +304,8 @@ public class BaseDao<MO extends BaseModel> {
         }
         MOSubField subAnno = BaseDaoHelper.getSubModeAnno(field);
         MORelatedField relationAnno = BaseDaoHelper.getRelationModeAnno(field);
-        for(BaseModel qdata : queryData) {
-            String parentId = null;
-            if(subAnno != null) {
-                parentId = (String)JavaEntityUtil.getFieldValue(subAnno.parentId(), qdata);
-            }
-            if(StringUtils.isEmpty(parentId)) {
-                continue;
-            }
-            if(!result.containsKey(parentId)) {
-                result.put(parentId, new ArrayList<BaseModel>());
-            }
-            result.get(parentId).add(qdata);
-        }
+
+        loadQueryDataByParentId(queryData, result, subAnno);
         if(relationAnno == null) {
             return result;
         }
@@ -346,6 +326,36 @@ public class BaseDao<MO extends BaseModel> {
             }
         }
         return result;
+    }
+
+    private void loadSubModel2Field(Field field, Map<String, List<BaseModel>> sortDataMap, BaseModel... models) {
+        for(BaseModel model : models) {
+            List<BaseModel> sortData = sortDataMap.get(model.getId());
+            if(CollectionUtils.isEmpty(sortData)) {
+                continue;
+            }
+            Object subData = buildModelSubData(sortData, field);
+            if(subData != null) {
+                JavaEntityUtil.setFieldValue(field, model, subData);
+            }
+        }
+    }
+
+    private void loadQueryDataByParentId(List<BaseModel> queryData, Map<String, List<BaseModel>> result,
+            MOSubField subAnno) {
+        for(BaseModel qdata : queryData) {
+            String parentId = null;
+            if(subAnno != null) {
+                parentId = (String)JavaEntityUtil.getFieldValue(subAnno.parentId(), qdata);
+            }
+            if(StringUtils.isEmpty(parentId)) {
+                continue;
+            }
+            if(!result.containsKey(parentId)) {
+                result.put(parentId, new ArrayList<BaseModel>());
+            }
+            result.get(parentId).add(qdata);
+        }
     }
 
     private Object buildModelSubData(List<BaseModel> queryData, Field field) {

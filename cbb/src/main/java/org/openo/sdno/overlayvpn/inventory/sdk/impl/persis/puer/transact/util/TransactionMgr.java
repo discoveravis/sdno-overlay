@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -192,7 +192,7 @@ public class TransactionMgr {
             for(ITransactionListener listener : getContextListener(context)) {
                 ResultRsp<?> result = listener.fire(context);
                 if(!result.isSuccess()) {
-                    LOGGER.error(String.format("Listener %s failed in fire, error no:%d", listener.getClass().getName(),
+                    LOGGER.error(String.format("Listener %s failed in fire, error no:%s", listener.getClass().getName(),
                             result.getErrorCode()));
                     return result;
                 }
@@ -245,7 +245,7 @@ public class TransactionMgr {
         for(ITransactionListener listener : getContextListener(context)) {
             ResultRsp<?> result = listener.commit(context);
             if(!result.isSuccess()) {
-                LOGGER.warn(String.format("Listener %s failed in commit, error no:%d", listener.getClass().getName(),
+                LOGGER.warn(String.format("Listener %s failed in commit, error no:%s", listener.getClass().getName(),
                         result.getErrorCode()));
             }
         }

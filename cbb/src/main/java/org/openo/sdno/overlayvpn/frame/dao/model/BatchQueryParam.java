@@ -64,15 +64,15 @@ public class BatchQueryParam {
      */
     public BatchQueryParam(HttpServletRequest httpContext) throws ServiceException {
         Map<String, String[]> paramMap = httpContext.getParameterMap();
-        if(paramMap.containsKey("sort")) {
-            String sort = httpContext.getParameter("sort");
-            this.setSort(Arrays.asList(sort));
+        if(paramMap.containsKey(MssConsts.SORT)) {
+            String sortParam = httpContext.getParameter(MssConsts.SORT);
+            this.setSort(Arrays.asList(sortParam));
         }
-        if(paramMap.containsKey("pagenum")) {
-            this.setPagenum(Integer.parseInt(httpContext.getParameter("pagenum")));
+        if(paramMap.containsKey(MssConsts.PAGE_NUMBER)) {
+            this.setPagenum(Integer.parseInt(httpContext.getParameter(MssConsts.PAGE_NUMBER)));
         }
-        if(paramMap.containsKey("pagesize")) {
-            this.setPagenum(Integer.parseInt(httpContext.getParameter("pagesize")));
+        if(paramMap.containsKey(MssConsts.PAGE_SIZE)) {
+            this.setPagenum(Integer.parseInt(httpContext.getParameter(MssConsts.PAGE_SIZE)));
         }
     }
 
@@ -100,10 +100,10 @@ public class BatchQueryParam {
             params.put("fields", fields);
         }
         if(StringUtils.isNotEmpty(sort)) {
-            params.put("sort", sort);
+            params.put(MssConsts.SORT, sort);
         }
-        params.put("pagesize", String.valueOf(pagesize));
-        params.put("pagenum", String.valueOf(pagenum));
+        params.put(MssConsts.PAGE_SIZE, String.valueOf(pagesize));
+        params.put(MssConsts.PAGE_NUMBER, String.valueOf(pagenum));
         return params;
     }
 

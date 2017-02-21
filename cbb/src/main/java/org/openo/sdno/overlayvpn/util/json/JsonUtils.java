@@ -67,14 +67,14 @@ public class JsonUtils {
         }
         if(StringUtils.startsWith(jsonBody, "{")) {
             JSONObject jobj = toJsonObject(jsonBody);
-            return (jobj.containsKey(key)) ? jobj.getString(key) : null;
+            return jobj.containsKey(key) ? jobj.getString(key) : null;
         } else if(StringUtils.startsWith(jsonBody, "[")) {
             JSONArray jarray = toJsonArray(jsonBody);
             if(jarray == null || jarray.isEmpty()) {
                 return null;
             }
             JSONObject jobj = jarray.getJSONObject(0);
-            return (jobj.containsKey(key)) ? jobj.getString(key) : null;
+            return jobj.containsKey(key) ? jobj.getString(key) : null;
         } else {
             return null;
         }
@@ -97,7 +97,7 @@ public class JsonUtils {
             mapper.setSerializationInclusion(Inclusion.NON_NULL);
             return mapper.writeValueAsString(obj);
         } catch(IOException ex) {
-            LOGGER.error("Json.parse.error,Parser obj to json error,obj=" + obj);
+            LOGGER.error("Parser obj to json error,obj=" + obj, ex);
             throw new InnerErrorServiceException("Json.parse.error,Parser obj to json error,obj=" + obj);
         }
     }
@@ -141,10 +141,10 @@ public class JsonUtils {
      */
     @SuppressWarnings("unchecked")
     public static List<Map<String, Object>> parseJson2MapList(String jsonStr) throws ServiceException {
-        if(StringUtils.isEmpty(jsonStr)) {
-            return null;
-        }
         List<Map<String, Object>> list = new ArrayList<>();
+        if(StringUtils.isEmpty(jsonStr)) {
+            return list;
+        }
         Iterator<JSONObject> it = toJsonArray(jsonStr).iterator();
         while(it.hasNext()) {
             list.add(parseJson2SimpleMap(it.next().toString()));
@@ -197,9 +197,9 @@ public class JsonUtils {
             mapper.disable(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES);
             return mapper.readValue(jsonStr, objClass);
         } catch(IOException ex) {
-            LOGGER.error("Json.parse.error,Parser json to object error,json=" + jsonStr + ",expect class =" + objClass);
+            LOGGER.error("Parser json to object error,json=" + jsonStr + ", expect class =" + objClass, ex);
             throw new InnerErrorServiceException(
-                    "Json.parse.error,Parser json to object error,json=" + jsonStr + ",expect class =" + objClass);
+                    "Json.parse.error,Parser json to object error,json=" + jsonStr + ", expect class =" + objClass);
         }
     }
 
@@ -221,8 +221,7 @@ public class JsonUtils {
             mapper.disable(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES);
             return mapper.readValue(jsonStr, typeRef);
         } catch(IOException ex) {
-            LOGGER.error("Json.parse.error,Parser json to object error,json=" + jsonStr + ",expect class ="
-                    + typeRef.getType());
+            LOGGER.error("Parser json to object error,json=" + jsonStr + ",expect class =" + typeRef.getType(), ex);
             throw new InnerErrorServiceException("Json.parse.error,Parser json to object error,json=" + jsonStr
                     + ",expect class =" + typeRef.getType());
         }
@@ -232,7 +231,7 @@ public class JsonUtils {
         try {
             return JSONObject.fromObject(jsonBody);
         } catch(JSONException ex) {
-            LOGGER.error("Json.parse.error,parse json object failed:" + ex.getMessage());
+            LOGGER.error("Parse json object failed:", ex);
             throw new InnerErrorServiceException("Json.parse.error,parse json object failed:" + ex.getMessage());
         }
     }
@@ -241,7 +240,7 @@ public class JsonUtils {
         try {
             return JSONArray.fromObject(jsonBody);
         } catch(JSONException ex) {
-            LOGGER.error("Json.parse.error,parse json array failed:" + ex.getMessage());
+            LOGGER.error("Parse json array failed:", ex);
             throw new InnerErrorServiceException("Json.parse.error,parse json array failed:" + ex.getMessage());
         }
     }

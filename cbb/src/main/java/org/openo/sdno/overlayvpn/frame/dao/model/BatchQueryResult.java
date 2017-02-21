@@ -21,11 +21,11 @@ import java.util.List;
 /**
  * Batch query result model.<br>
  * 
- * @param <MO> The body type
+ * @param <T> The body type
  * @author
  * @version SDNO 0.5 Feb 4, 2017
  */
-public class BatchQueryResult<MO> {
+public class BatchQueryResult<T> {
 
     private int total;
 
@@ -35,7 +35,7 @@ public class BatchQueryResult<MO> {
 
     private int currentPage;
 
-    private List<MO> objects;
+    private List<T> objects;
 
     /**
      * Constructor.<br>
@@ -78,11 +78,11 @@ public class BatchQueryResult<MO> {
         this.currentPage = currentPage;
     }
 
-    public List<MO> getObjects() {
+    public List<T> getObjects() {
         return objects;
     }
 
-    public void setObjects(List<MO> objects) {
+    public void setObjects(List<T> objects) {
         this.objects = objects;
     }
 

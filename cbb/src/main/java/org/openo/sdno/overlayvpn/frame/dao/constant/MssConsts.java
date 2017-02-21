@@ -50,6 +50,21 @@ public class MssConsts {
     public static final String KEY_OBJECTS = "objects";
 
     /**
+     * The objects
+     */
+    public static final String SORT = "sort";
+
+    /**
+     * The objects
+     */
+    public static final String PAGE_NUMBER = "pagenum";
+
+    /**
+     * The objects
+     */
+    public static final String PAGE_SIZE = "pagesize";
+
+    /**
      * The basic type array.
      */
     public static final Class<?>[] BASIC_TYPES = {Boolean.class, Byte.class, Character.class, Double.class, Float.class,
