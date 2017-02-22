@@ -88,7 +88,8 @@ public class SbiSubnetNetModel extends BaseServiceModel {
     /**
      * Enable Dhcp or not
      */
-    private String enableDhcp;
+    @AString(scope = "true,false")
+    private String enableDhcp = "false";
 
     /**
      * Start of Subnet IpAddress
@@ -111,6 +112,7 @@ public class SbiSubnetNetModel extends BaseServiceModel {
     /**
      * Enable mode change or not
      */
+    @AString(scope = "true,false")
     private String changedMode = "false";
 
     /**
@@ -154,7 +156,7 @@ public class SbiSubnetNetModel extends BaseServiceModel {
      * Mode of Ipv6 Address
      */
     @AString(require = false, scope = "server,relay")
-    private String dhcp6Mode = "relay";
+    private String dhcp6Mode = "server";
 
     /**
      * Prior Dns Server

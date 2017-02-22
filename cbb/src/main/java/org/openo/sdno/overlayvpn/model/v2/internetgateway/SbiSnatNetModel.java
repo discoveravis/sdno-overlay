@@ -124,21 +124,21 @@ public class SbiSnatNetModel extends BaseServiceModel {
      */
     @NONInvField
     @AString
-    private String createtime;
+    private long createtime;
 
     /**
      * Update time
      */
     @NONInvField
     @AString
-    private String updatetime;
+    private long updatetime;
 
     /**
      * Operation type
      */
     @NONInvField
     @AString(scope = "none,create,updateIp", require = false)
-    private String type;
+    private String type = "none";
 
     public String getNeId() {
         return neId;
@@ -252,19 +252,19 @@ public class SbiSnatNetModel extends BaseServiceModel {
         this.qosPreNat = qosPreNat;
     }
 
-    public String getCreatetime() {
+    public long getCreatetime() {
         return createtime;
     }
 
-    public void setCreatetime(String createtime) {
+    public void setCreatetime(long createtime) {
         this.createtime = createtime;
     }
 
-    public String getUpdatetime() {
+    public long getUpdatetime() {
         return updatetime;
     }
 
-    public void setUpdatetime(String updatetime) {
+    public void setUpdatetime(long updatetime) {
         this.updatetime = updatetime;
     }
 
