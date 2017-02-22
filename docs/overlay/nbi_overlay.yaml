@@ -516,7 +516,7 @@ definitions:
           type: array
           items:
               $ref: "#/definitions/NbiVpnConnection"
-        VpnGateways:
+        vpnGateways:
           type: array
           items:
               $ref: "#/definitions/NbiVpnGateway"
@@ -657,7 +657,7 @@ definitions:
           type: string
         netConnectionType:
           type: string
-          description: connection tunnel type(vxlan,ipsec)
+          description: connection tunnel type(vxlan,gre,ipsec)
         ext:
           type: string
 
@@ -683,20 +683,18 @@ definitions:
       deployStatus:
         type: string
         description: deploy status(deploy,undeploy)
-      operationStatus:
+      actionState:
         type: string
-        description: action status(None,Normal,Creating,Deleting,Updating,Create_Excepion,Delete_Exception,Update_Exception)
+        description: action status
       activeStatus:
         type: string
-        description: active status(none,active,inactive,partially_inactive)
+        description: active status(active,inactive)
       runningStatus:
         type: string
-        description: running status(none,up,down,partially_down)
+        description: running status(up,down,partially_down)
       createtime:
         type: string
       updatetime:
-        type: string
-      additionalInfo:
         type: string
 
   BaseModel:
