@@ -257,7 +257,10 @@ definitions:
           description: boolean(true,false)
         regionId:
           type: string
-        
+        srcPortIp:
+          type: string  
+        destPortIp:
+          type: string
   NbiActionModel:
     type: object
     description: action model

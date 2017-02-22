@@ -97,6 +97,12 @@ public class NbiIpSec extends BaseModel {
 
     private String regionId;
 
+    @NONInvField
+    private String srcPortIp;
+
+    @NONInvField
+    private String destPortIp;
+
     // below parameters are not in yaml
     @JsonIgnore
     @NONInvField
@@ -300,6 +306,22 @@ public class NbiIpSec extends BaseModel {
 
     public void setRegionId(String regionId) {
         this.regionId = regionId;
+    }
+
+    public String getSrcPortIp() {
+        return srcPortIp;
+    }
+
+    public void setSrcPortIp(String srcPortIp) {
+        this.srcPortIp = srcPortIp;
+    }
+
+    public String getDestPortIp() {
+        return destPortIp;
+    }
+
+    public void setDestPortIp(String destPortIp) {
+        this.destPortIp = destPortIp;
     }
 
     public SbiIp getSrcIp() {
