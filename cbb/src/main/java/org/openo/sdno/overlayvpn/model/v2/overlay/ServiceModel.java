@@ -62,19 +62,18 @@ public class ServiceModel extends BaseModel {
      */
     @NONSBIField
     @MOInvField(invName = "operationStatus")
-    @AString(scope = "None,Normal,Creating,Deleting,Updating,Create_Excepion,Delete_Exception,Update_Exception")
     private String actionState;
 
     /**
      * Administrative status
      */
-    @AString(scope = "none,active,inactive,partially_inactive")
+    @AString(scope = "active,inactive")
     private String activeStatus;
 
     /**
      * Running status
      */
-    @AString(scope = "none,up,down,partially_down")
+    @AString(scope = "up,down,partially_down")
     @NONSBIField
     private String runningStatus;
 
@@ -89,12 +88,6 @@ public class ServiceModel extends BaseModel {
      */
     @NONInvField
     private Long updatetime;
-
-    /**
-     * Additional info
-     */
-    @AString(min = 0, max = 255)
-    private String additionalInfo;
 
     public String getTenantId() {
         return tenantId;
@@ -167,13 +160,4 @@ public class ServiceModel extends BaseModel {
     public void setUpdatetime(Long updatetime) {
         this.updatetime = updatetime;
     }
-
-    public String getAdditionalInfo() {
-        return additionalInfo;
-    }
-
-    public void setAdditionalInfo(String additionalInfo) {
-        this.additionalInfo = additionalInfo;
-    }
-
 }
