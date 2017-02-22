@@ -211,6 +211,7 @@ definitions:
       - type: object
         required:
           - deviceId
+          - connectionId
         properties:
           deviceId:
             type: string

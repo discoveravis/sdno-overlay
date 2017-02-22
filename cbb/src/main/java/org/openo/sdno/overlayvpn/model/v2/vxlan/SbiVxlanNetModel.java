@@ -48,7 +48,7 @@ public class SbiVxlanNetModel extends BaseModel {
     /**
      * Connection Id
      */
-    @AUuid(require = false)
+    @AUuid(require = true)
     private String connectionId = null;
 
     /**
