@@ -18,12 +18,18 @@ package org.openo.sdno.overlayvpn.util.toolkit;
 
 import java.text.Normalizer;
 import java.text.Normalizer.Form;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.math.NumberUtils;
+import org.codehaus.jackson.type.TypeReference;
+import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.openo.sdno.overlayvpn.servicemodel.base.IP;
+import org.openo.sdno.overlayvpn.util.json.JsonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -121,6 +127,21 @@ public class IpAddressUtil {
             LOGGER.warn("Invalid ip address :" + ipAddr);
         }
         return match;
+    }
+
+    /**
+     * Translate json of IP to the list of IP.<br>
+     * 
+     * @param json The json contains all the IP
+     * @return The list of IP
+     * @throws ServiceException When do translating failed
+     * @since SDNO 0.5
+     */
+    public static List<IP> jsonToIP(String json) throws ServiceException {
+        if(StringUtils.isEmpty(json)) {
+            return new ArrayList<>();
+        }
+        return JsonUtils.fromJson(json, new TypeReference<List<IP>>() {});
     }
 
     /**
