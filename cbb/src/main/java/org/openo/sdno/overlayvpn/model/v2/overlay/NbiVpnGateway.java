@@ -64,6 +64,12 @@ public class NbiVpnGateway extends ServiceModel {
     @MOJsonField(invName = "portNameList")
     private List<String> portNames;
 
+    @MOJsonField(invName = "subnetList")
+    private List<String> subnets;
+
+    @AString(min = 1, max = 255)
+    private String vpnDescriptor;
+
     @AString
     private String ext;
 
@@ -146,6 +152,22 @@ public class NbiVpnGateway extends ServiceModel {
 
     public void setPortNames(List<String> portNames) {
         this.portNames = portNames;
+    }
+
+    public List<String> getSubnets() {
+        return subnets;
+    }
+
+    public void setSubnets(List<String> subnets) {
+        this.subnets = subnets;
+    }
+
+    public String getVpnDescriptor() {
+        return vpnDescriptor;
+    }
+
+    public void setVpnDescriptor(String vpnDescriptor) {
+        this.vpnDescriptor = vpnDescriptor;
     }
 
     public String getExt() {

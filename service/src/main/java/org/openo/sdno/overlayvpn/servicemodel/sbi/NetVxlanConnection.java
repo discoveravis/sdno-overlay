@@ -18,7 +18,7 @@ package org.openo.sdno.overlayvpn.servicemodel.sbi;
 
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
-import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
+import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONSBIField;
 import org.openo.sdno.overlayvpn.model.v2.overlay.NbiNetConnection;
 
 /**
@@ -38,10 +38,10 @@ public class NetVxlanConnection extends NbiNetConnection {
 
     private String destVbdifIp;
 
-    @NONInvField
+    @NONSBIField
     private String srcPortIp;
 
-    @NONInvField
+    @NONSBIField
     private String destPortIp;
 
     /**

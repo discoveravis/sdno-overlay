@@ -591,8 +591,17 @@ definitions:
           type: array
           items:
             type: string
+        subnets:
+          description: uuid list of LAN subnets
+          type: array
+          items:
+            type: string
+        vpnDescriptor:
+          type: string
+          description: vpn template name
         regionId:
           type: string
+          description: The region uuid
 
   NbiServiceConnection:
     description: service connection model
