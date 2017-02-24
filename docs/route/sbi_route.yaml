@@ -281,14 +281,14 @@ paths:
           description: device Id
           required: true
           type: string
-        - name: sbiRoutes
+        - name: routeIds
           in: body
-          description: policy routes info
+          description: external id list of policy routes
           required: true
           schema:
             type: array
             items:
-              $ref: '#/definitions/SbiNePolicyRoute'
+              type: string
       responses:
         201:
           description: OK
