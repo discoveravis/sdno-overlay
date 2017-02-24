@@ -485,7 +485,7 @@ definitions:
             type: string
           localNeRole:
             type: string
-            description: local ne role(thincpe,cloudcpe,vpc)
+            description: local ne role(localcpe,cloudcpe,vpc,dc-r)
           tenantName:
             type: string
           protectionPolicy:

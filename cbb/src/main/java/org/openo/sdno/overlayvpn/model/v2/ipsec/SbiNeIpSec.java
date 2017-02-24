@@ -67,7 +67,7 @@ public class SbiNeIpSec extends SbiIpSecNetModel {
     @NONInvField
     private String nqa;
 
-    @AString(require = true, scope = "thincpe,cloudcpe,vpc")
+    @AString(require = true, scope = "localcpe,cloudcpe,vpc,dc-r")
     private String localNeRole;
 
     private String tenantName;

@@ -42,10 +42,10 @@ public class NbiIpSec extends BaseModel {
     @AUuid(require = true)
     private String connectionId;
 
-    @AString(require = true, scope = "localcpe,cloudcpe,vpc")
+    @AString(require = true, scope = "localcpe,cloudcpe,vpc,dc-r")
     private String srcNeRole;
 
-    @AString(require = true, scope = "localcpe,cloudcpe,vpc")
+    @AString(require = true, scope = "localcpe,cloudcpe,vpc,dc-r")
     private String destNeRole;
 
     @AString(require = true, scope = "ipsec,ipv6_over_ipv4,ipv4_over_ipv6")

@@ -213,10 +213,10 @@ definitions:
           format: uuid
         srcNeRole:
           type: string
-          description: localcpe,cloudcpe,vpc
+          description: localcpe,cloudcpe,vpc,dc-r
         destNeRole:
           type: string
-          description: localcpe,cloudcpe,vpc
+          description: localcpe,cloudcpe,vpc,dc-r
         type:
           type: string
           description: ipsec,ipv6_over_ipv4,ipv4_over_ipv6
