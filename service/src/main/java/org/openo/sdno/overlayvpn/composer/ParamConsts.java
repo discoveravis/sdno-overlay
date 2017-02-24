@@ -120,6 +120,11 @@ public class ParamConsts {
     public static final String ME_PARAM = "meID";
 
     /**
+     * name
+     */
+    public static final String NAME_PARAM = "name";
+
+    /**
      * Uuid
      */
     public static final String ATTR_ID = "id";

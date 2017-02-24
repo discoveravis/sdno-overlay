@@ -32,16 +32,67 @@
     <jaxrs:server id="restContainer" address="/">
         <!-- registering beans -->
         <jaxrs:serviceBeans>
+            <ref bean="InternalConnectionRoaResource"></ref>
+            <ref bean="TemplateRoaResource"></ref>
+            <ref bean="VpnConnectionRoaResource"></ref>
+            <ref bean="VpnGatewayRoaResource"></ref>
+            <ref bean="VpnLinksRoaResource"></ref>
+            <ref bean="VpnRoaResource"></ref>
+            <ref bean="VpnRouteRoaResource"></ref>
             <ref bean="siteToDcRoaResource"></ref>
             <ref bean="swaggerRoa"></ref>
             <ref bean="overlayHealthCheckResource"></ref>
         </jaxrs:serviceBeans>
         <!-- registering providers -->
         <jaxrs:providers>
+            <bean class="org.openo.sdno.exception.GenericExceptionMapper" />
+            <bean class="org.openo.sdno.exception.ServiceExceptionMapper" />
             <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
         </jaxrs:providers>
     </jaxrs:server>
 
+    <bean id="InternalConnectionRoaResource" class="org.openo.sdno.overlayvpn.rest.InternalConnectionRoaResource">
+        <property name="service" ref="InternalVpnConnectionServiceImpl" />
+    </bean>
+    <bean id="InternalVpnConnectionServiceImpl" class="org.openo.sdno.overlayvpn.site2dc.service.impl.InternalVpnConnectionServiceImpl">
+    </bean>
+    
+    <bean id="TemplateRoaResource" class="org.openo.sdno.overlayvpn.rest.TemplateRoaResource">
+        <property name="service" ref="TemplateServiceImpl" />
+    </bean>
+    <bean id="TemplateServiceImpl" class="org.openo.sdno.overlayvpn.site2dc.service.impl.TemplateServiceImpl">
+    </bean>
+    
+    <bean id="VpnConnectionRoaResource" class="org.openo.sdno.overlayvpn.rest.VpnConnectionRoaResource">
+        <property name="service" ref="VpnConnectionServiceImpl" />
+    </bean>
+    <bean id="VpnConnectionServiceImpl" class="org.openo.sdno.overlayvpn.site2dc.service.impl.VpnConnectionServiceImpl">
+    </bean>
+    
+    <bean id="VpnGatewayRoaResource" class="org.openo.sdno.overlayvpn.rest.VpnGatewayRoaResource">
+        <property name="service" ref="VpnGatewayServiceImpl" />
+    </bean>
+    <bean id="VpnGatewayServiceImpl" class="org.openo.sdno.overlayvpn.site2dc.service.impl.VpnGatewayServiceImpl">
+    </bean>
+    
+    <bean id="VpnLinksRoaResource" class="org.openo.sdno.overlayvpn.rest.VpnLinksRoaResource">
+        <property name="service" ref="VpnLinksServiceImpl" />
+    </bean>
+    <bean id="VpnLinksServiceImpl" class="org.openo.sdno.overlayvpn.site2dc.service.impl.VpnLinksServiceImpl">
+    </bean>
+    
+    <bean id="VpnRoaResource" class="org.openo.sdno.overlayvpn.rest.VpnRoaResource">
+        <property name="service" ref="VpnServiceImpl" />
+    </bean>
+    <bean id="VpnServiceImpl" class="org.openo.sdno.overlayvpn.site2dc.service.impl.VpnServiceImpl">
+    </bean>
+    
+    <bean id="VpnRouteRoaResource" class="org.openo.sdno.overlayvpn.rest.VpnRouteRoaResource">
+        <property name="service" ref="VpnRouteServiceImpl" />
+    </bean>
+    <bean id="VpnRouteServiceImpl" class="org.openo.sdno.overlayvpn.site2dc.service.impl.VpnRouteServiceImpl">
+    </bean>
+    
     <bean id="siteToDcRoaResource" class="org.openo.sdno.overlayvpn.rest.SiteToDcRoaResource">
         <property name="service" ref="siteToDcService" />
     </bean>

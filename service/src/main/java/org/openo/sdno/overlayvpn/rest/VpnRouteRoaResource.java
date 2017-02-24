@@ -1,0 +1,78 @@
+/*
+ * Copyright 2017 Huawei Technologies Co., Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.openo.sdno.overlayvpn.rest;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+
+import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.openo.sdno.framework.container.service.IResource;
+import org.openo.sdno.overlayvpn.composer.util.ModelServiceUtil;
+import org.openo.sdno.overlayvpn.frame.dao.model.BatchQueryParam;
+import org.openo.sdno.overlayvpn.frame.dao.model.BatchQueryResult;
+import org.openo.sdno.overlayvpn.servicemodel.sbi.NetRoute;
+import org.openo.sdno.overlayvpn.site2dc.service.inf.VpnRouteService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * Resource oriented class for vpn routes.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 Jan 16, 2017
+ */
+@Path("/sdnooverlay/v1/vpn-routes")
+public class VpnRouteRoaResource extends IResource<VpnRouteService> {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(VpnRouteRoaResource.class);
+
+    @Override
+    public String getResUri() {
+        return "/sdnooverlay/v1/vpn-routes";
+    }
+
+    /**
+     * Batch query vpn routes by conditions.<br>
+     * 
+     * @param httpContext HttpServletRequest Object
+     * @param httpContextRsp HttpServletResponse Object
+     * @return Operation result with vpn route information wrapped
+     * @throws ServiceException throws serviceException when input data is erroneous or operation on
+     *             database fails
+     * @since SDNO 0.5
+     */
+    @GET
+    @Consumes({"application/json"})
+    @Produces({"application/json"})
+    public String query(@Context HttpServletRequest httpContext, @Context HttpServletResponse httpContextRsp)
+            throws ServiceException {
+        LOGGER.info("Get vpn route begin.");
+
+        NetRoute condition = ModelServiceUtil.constructQueryCondition(httpContext, NetRoute.class);
+        BatchQueryParam param = new BatchQueryParam(httpContext);
+        BatchQueryResult<NetRoute> response = service.query(httpContext, httpContextRsp, condition, param);
+        LOGGER.info("Query NetRoute end.");
+
+        return ModelServiceUtil.processRestResponse(response);
+    }
+
+}
