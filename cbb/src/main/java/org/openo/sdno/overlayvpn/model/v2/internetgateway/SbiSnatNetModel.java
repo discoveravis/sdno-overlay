@@ -117,6 +117,7 @@ public class SbiSnatNetModel extends BaseServiceModel {
      * QosPreNat or not
      */
     @NONInvField
+    @AString(scope = "true,false")
     private String qosPreNat = "false";
 
     /**

@@ -16,6 +16,7 @@
 
 package org.openo.sdno.overlayvpn.model.v2.interfaceip;
 
+import org.openo.sdno.overlayvpn.verify.annotation.AIp;
 import org.openo.sdno.overlayvpn.verify.annotation.AString;
 
 /**
@@ -34,12 +35,13 @@ public class SbiInterfaceIpConfig {
     /**
      * Ipv4 address allocation mode
      */
-    @AString(require=true, scope="dhcp,manual")
+    @AString(require = true, scope = "dhcp,manual")
     private String mode;
 
     /**
      * Ipv4 address
      */
+    @AIp
     private String ip;
 
     /**
@@ -50,12 +52,12 @@ public class SbiInterfaceIpConfig {
     /**
      * Ipv6 address allocation mode
      */
+    @AString(require = true, scope = "dhcp,manual")
     private String mode6;
 
     /**
      * Ipv6 address
      */
-    @AString(require=true, scope="dhcp,manual")
     private String ipv6Address;
 
     /**

@@ -47,7 +47,7 @@ public class NbiSiteModel extends UuidModel {
     /**
      * Tenant Uuid
      */
-    @AString(require = true, min = 0, max = 36)
+    @AUuid(require = true)
     private String tenantId;
 
     /**
@@ -65,7 +65,7 @@ public class NbiSiteModel extends UuidModel {
     /**
      * Site Location
      */
-    @AString(require = false, min = 0, max = 128)
+    @AString(require = false, min = 0, max = 255)
     private String location;
 
     /**
@@ -95,7 +95,7 @@ public class NbiSiteModel extends UuidModel {
     /**
      * Name of Template
      */
-    @AString(require = true, min = 0, max = 255)
+    @AString(require = true, min = 0, max = 255, scope = "singleFixedNetwork,dualFixedNetwork,fixedAndWirelessNetwork,EthernetNetwork,VDSLNetwork,GSHDSLNetwork,EthernetAndLTENetwork,EthernetAndEthernetNetwork,EthernetAndVDSLNetwork,VDSLAndLTENetwork")
     private String siteDescriptor;
 
     /**
@@ -110,11 +110,19 @@ public class NbiSiteModel extends UuidModel {
     @AString(require = false, scope = "true,false")
     private String isEncrypt;
 
-    @ALong
-    private Long vpnUpstreamBandwidth = -1L;
+    /**
+     * Upstream bandwidth(kbps)
+     * -2 means null when update , -1 mean no limit
+     */
+    @ALong(min = -2L, max = 4294967295L)
+    private Long vpnUpstreamBandwidth = -2L;
 
-    @ALong
-    private Long vpnDownstreamBandwidth = -1L;
+    /**
+     * Downstream bandwidth(kbps)
+     * -2 means null when update, -1 mean no limit
+     */
+    @ALong(min = -2L, max = 4294967295L)
+    private Long vpnDownstreamBandwidth = -2L;
 
     @AUuid
     private String qosPolicyId;
