@@ -1,0 +1,10 @@
+{
+	"name": "test_name",
+	"description": "create test",
+	"vpnId":"vpnId",
+	"deployStatus":"deploy",
+	"aEndVpnGatewayId":"gateway_id",
+	"zEndVpnGatewayId":"gateway_uuid",
+	"vni":25
+}
+

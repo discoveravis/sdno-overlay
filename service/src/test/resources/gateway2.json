@@ -1,0 +1,14 @@
+{
+	"name": "test_name",
+	"description": "create test",
+	"id": "gateway_uuid",
+	"vpnId": "vpnId",
+	"siteId": "test_uuid",
+	"deployPosition": "localFirst",
+	"portList": [
+		"test_uuid"
+	],
+	"portNameList": [
+		"Port01"
+	]
+}

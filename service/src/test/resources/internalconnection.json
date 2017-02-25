@@ -1,0 +1,11 @@
+{
+	"name": "test_name",
+	"description": "create test",
+	"deployPosition": "cloudFirst",
+	"deployStatus": "deploy",
+	"srcNeId":"NeId1",
+	"destNeId":"NeId2",
+	"siteId":"test_uuid",
+	"vpnTemplateName":"enterprise_l2cpe_EthernetNetwork"
+}
+
