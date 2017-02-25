@@ -1,0 +1,190 @@
+[{
+	"request": {
+		"uri": "/openoapi/microservices/v1/services",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8",
+			"Accept": "application/json"
+		},
+		"json": {
+			"serviceName": "sdnobrs",
+				"version": "v1",
+				"url": "/openoapi/sdnobrs/v1",
+				"protocol": "REST",
+				"visualRange": "1",
+				"nodes": [
+					{
+						"ip": "10.229.33.179",
+						"port": "8527",
+						"ttl": 0
+					}
+				]
+		}
+	},
+	"response": {
+		"status": 201
+	}
+},
+{
+	"request": {
+		"uri": "/openoapi/microservices/v1/services",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8",
+			"Accept": "application/json"
+		},
+		"json": {
+			"serviceName": "sdnomss",
+				"version": "v1",
+				"url": "/openoapi/sdnomss/v1",
+				"protocol": "REST",
+				"visualRange": "1",
+				"nodes": [
+					{
+						"ip": "10.229.33.179",
+						"port": "8530",
+						"ttl": 0
+					}
+				]
+		}
+	},
+	"response": {
+		"status": 201
+	}
+},
+{
+	"request": {
+		"uri": "/openoapi/microservices/v1/services",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8",
+			"Accept": "application/json"
+		},
+		"json": {
+			"serviceName": "sdnooverlay",
+				"version": "v1",
+				"url": "/openoapi/sdnooverlay/v1",
+				"protocol": "REST",
+				"visualRange": "1",
+				"nodes": [
+					{
+						"ip": "10.229.33.179",
+						"port": "8503",
+						"ttl": 0
+					}
+				]
+		}
+	},
+	"response": {
+		"status": 201
+	}
+},
+{
+	"request": {
+		"uri": "/openoapi/microservices/v1/services",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8",
+			"Accept": "application/json"
+		},
+		"json": {
+			"serviceName": "sdnoipsec",
+				"version": "v1",
+				"url": "/openoapi/sdnoipsec/v1",
+				"protocol": "REST",
+				"visualRange": "1",
+				"nodes": [
+					{
+						"ip": "10.229.33.179",
+						"port": "12306",
+						"ttl": 0
+					}
+				]
+		}
+	},
+	"response": {
+		"status": 201
+	}
+},
+{
+	"request": {
+		"uri": "/openoapi/microservices/v1/services",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8",
+			"Accept": "application/json"
+		},
+		"json": {
+			"serviceName": "sdnoroute",
+				"version": "v1",
+				"url": "/openoapi/sdnoroute/v1",
+				"protocol": "REST",
+				"visualRange": "1",
+				"nodes": [
+					{
+						"ip": "10.229.33.179",
+						"port": "12307",
+						"ttl": 0
+					}
+				]
+		}
+	},
+	"response": {
+		"status": 201
+	}
+},
+{
+	"request": {
+		"uri": "/openoapi/microservices/v1/services",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8",
+			"Accept": "application/json"
+		},
+		"json": {
+			"serviceName": "sdnolocalsite",
+				"version": "v1",
+				"url": "/openoapi/sdnolocalsite/v1",
+				"protocol": "REST",
+				"visualRange": "1",
+				"nodes": [
+					{
+						"ip": "10.229.33.179",
+						"port": "12308",
+						"ttl": 0
+					}
+				]
+		}
+	},
+	"response": {
+		"status": 201
+	}
+},
+{
+	"request": {
+		"uri": "/openoapi/microservices/v1/services",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8",
+			"Accept": "application/json"
+		},
+		"json": {
+			"serviceName": "sdnovxlan",
+				"version": "v1",
+				"url": "/openoapi/sdnovxlan/v1",
+				"protocol": "REST",
+				"visualRange": "1",
+				"nodes": [
+					{
+						"ip": "10.229.33.179",
+						"port": "12309",
+						"ttl": 0
+					}
+				]
+		}
+	},
+	"response": {
+		"status": 201
+	}
+}
+]

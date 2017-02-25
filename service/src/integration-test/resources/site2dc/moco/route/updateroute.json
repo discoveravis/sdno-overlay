@@ -1,0 +1,15 @@
+{
+	"request": {
+		"uri": "/openoapi/sdnoroute/v1/route/[a-z0-9\\-\\_]{1,36}",
+		"method": "put",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8"
+		},
+		"json": {
+		}
+	},
+	"response": {
+		"status": 200,
+		"json":null
+	}
+}

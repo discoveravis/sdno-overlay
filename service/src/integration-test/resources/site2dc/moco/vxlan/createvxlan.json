@@ -1,0 +1,17 @@
+{
+	"request": {
+		"uri": "/openoapi/sdnovxlan/v1/vxlan/tunnel",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8"
+		},
+		"json":{}
+	},
+	"response": {
+		"status": 200,
+		"json":[{"name":"test_name",
+		"actionState":"Normal",
+		"id":"test_uuid"
+		}]
+	}
+}

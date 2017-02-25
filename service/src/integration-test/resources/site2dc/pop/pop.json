@@ -1,0 +1,13 @@
+{
+				"id": "test_uuid",
+				"name": "testpop",
+				"description": "pop for test",
+				"location": "Wuhan",
+				"area": "area",
+				"source": "source",
+				"controllerID": "controllerId",
+				"dcGW": "dcGW",
+				"internetGW": "internetGW",
+				"siteGW": "siteGw",
+				"managedGW": "managedGw"
+}

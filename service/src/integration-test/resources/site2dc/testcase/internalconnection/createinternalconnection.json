@@ -1,0 +1,23 @@
+{
+	"request": {
+		"uri": "/openoapi/sdnooverlay/v1/site-internal-connections",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8"
+		},
+		"json": {
+			"name": "test_name",
+			"description": "create test",
+			"id": "test_uuid",
+			"deployPosition": "cloudFirst",
+			"deployStatus":"deploy"
+		}
+	},
+	"response": {
+		"status": 201,
+		"json": {
+			"errorCode": "overlayvpn.operation.success",
+			"vpnId": "[^\\s]"
+		}
+	}
+}

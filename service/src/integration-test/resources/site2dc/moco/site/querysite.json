@@ -1,0 +1,111 @@
+{
+	"request": {
+		"uri": "/openoapi/sdnolocalsite/v1/sites/test_uuid",
+		"method": "get",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8"
+		},
+		"json": {
+		}
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"id": "test_uuid",
+			"name": "test_name",
+			"description": null,
+			"location": null,
+			"actionState": "Normal",
+			"popId": "test_uuid",
+			"localCpeType": "AR161FGW-L",
+			"siteDescriptor": "enterprise_ipsec",
+			"reliability": "EthernetNetwork",
+			"isEncrypt": null,
+			"upstreamBandwidth": 1,
+			"downstreamBandwidth": 1,
+			"localCpes": [
+				{
+					"id": "NeId1",
+					"name": "Ne1",
+					"description": "TestNetworkElement",
+					"productName": "AR161FGW-L",
+					"version": "V1R3",
+					"isVirtual": "true",
+					"source": "os",
+					"logicID": "849494949",
+					"phyNeID": "8965969966906",
+					"nativeID": "networkwork1id",
+					"ipAddress": "192.168.1.1",
+					"adminState": "active",
+					"operState": "up",
+					"neRole": "localcpe",
+					"controllerId": [
+						"Controller1"
+					]
+				}
+			],
+			"cloudCpes": [
+				{
+					"id": "NeId2",
+					"name": "Ne2",
+					"description": "TestNetworkElement",
+					"productName": "AR169FGW-L",
+					"version": "V1R3",
+					"isVirtual": "true",
+					"source": "os",
+					"logicID": "849494949",
+					"phyNeID": "8965969966906",
+					"nativeID": "networkwork2id",
+					"ipAddress": "192.168.2.1",
+					"adminState": "active",
+					"operState": "up",
+					"neRole": "cloudcpe",
+					"controllerId": [
+						"Controller1"
+					]
+				}
+			],
+			"subnets": [
+				{
+					"name": "test_name",
+					"adminStatus": "none",
+					"operationStatus": "Normal",
+					"siteId": "test_uuid",
+					"cidrBlock": "172.33.14.0/24",
+					"cidrBlockSize": 0,
+					"gatewayIp": "172.33.14.1",
+					"vlanId": "test_uuid",
+					"vni": 25,
+					"dhcp6Enable": "false",
+					"dhcp6Mode": "server",
+					"enableDhcp": "true",
+					"id": "test_uuid"
+				}
+			],
+			"vlans": [
+				{
+					"name": "test_name",
+					"adminStatus": "none",
+					"operationStatus": "Normal",
+					"siteId": "test_uuid",
+					"vlanId": "test_uuid",
+					"ports": [
+						"test_uuid"
+					],
+					"id": "test_uuid"
+				}
+			],
+			"internetGateway": {
+				"name": "test_name",
+				"adminStatus": "none",
+				"operationStatus": "Normal",
+				"siteId": "test_uuid",
+				"protectionType": "no-protection",
+				"enableSnat": "true",
+				"vpnId": "test_uuid",
+				"deployPosition": "cloudFirst",
+				"id": "test_uuid"
+			}
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"request": {
+		"uri": "/openoapi/sdnooverlay/v1/vpns",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8"
+		},
+		"json": {
+			"name": "test_name",
+			"description": "create test",
+			"id": "test_uuid",
+			"vpnDescriptor": "enterprise_l2cpe"
+		}
+	},
+	"response": {
+		"status": 201,
+		"json": {
+			"errorCode": "overlayvpn.operation.success",
+			"vpnId": "[^\\s]"
+		}
+	}
+}

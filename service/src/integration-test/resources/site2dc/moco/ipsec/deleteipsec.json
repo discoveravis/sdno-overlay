@@ -1,0 +1,15 @@
+{
+	"request": {
+		"uri": "/openoapi/sdnoipsec/v1/ipsec/ipsec-connections/[a-z0-9\\-\\_]{1,36}",
+		"method": "delete",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8"
+		},
+		"json": {
+		}
+	},
+	"response": {
+		"status": 200,
+		"json":null
+	}
+}

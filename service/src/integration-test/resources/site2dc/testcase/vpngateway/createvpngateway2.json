@@ -1,0 +1,26 @@
+{
+	"request": {
+		"uri": "/openoapi/sdnooverlay/v1/vpn-gateways",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8"
+		},
+		"json": {
+			"name": "test_namez",
+			"description": "create_test",
+			"id": "test_uuidz",
+			"vpnId": "test_uuid",
+			"siteId":"test_uuid",
+			"deployPosition": "cloudFirst",
+			"ports":["test_uuid"],
+			"portNames":["Port01"]
+		}
+	},
+	"response": {
+		"status": 201,
+		"json": {
+			"errorCode": "overlayvpn.operation.success",
+			"vpnId": "[^\\s]"
+		}
+	}
+}

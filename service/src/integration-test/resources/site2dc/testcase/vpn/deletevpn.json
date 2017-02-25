@@ -1,0 +1,17 @@
+{
+	"request": {
+		"uri": "/openoapi/sdnooverlay/v1/vpns/{uuid}",
+		"method": "delete",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8"
+		},
+		"json": {
+		}
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errorCode": "overlayvpn.operation.success"
+		}
+	}
+}

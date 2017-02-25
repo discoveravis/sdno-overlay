@@ -1,0 +1,19 @@
+{
+	"request": {
+		"uri": "/openoapi/sdnoipsec/v1/ipsec/ipsec-connections/batch-query",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8"
+		},
+		"json": {
+		}
+	},
+	"response": {
+		"status": 200,
+		"json": [
+			{
+				"id": "test_uuid"
+			}
+		]
+	}
+}

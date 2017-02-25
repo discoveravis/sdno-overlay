@@ -1,0 +1,19 @@
+{
+	"request": {
+		"uri": "/openoapi/sdnovxlan/v1/vxlan/tunnel/batch-query",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8"
+		},
+		"json": {
+		}
+	},
+	"response": {
+		"status": 200,
+		"json": [
+			{
+				"id": "test_uuid"
+			}
+		]
+	}
+}
