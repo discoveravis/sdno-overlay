@@ -40,10 +40,13 @@ import org.openo.baseservice.roa.util.restclient.RestfulResponse;
 import org.openo.sdno.framework.container.resthelper.RestfulProxy;
 import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.overlayvpn.brs.invdao.NetworkElementInvDao;
+import org.openo.sdno.overlayvpn.brs.invdao.PopInvDao;
 import org.openo.sdno.overlayvpn.brs.model.NetworkElementMO;
+import org.openo.sdno.overlayvpn.brs.model.PopMO;
 import org.openo.sdno.overlayvpn.composer.TemplateManager;
 import org.openo.sdno.overlayvpn.errorcode.ErrorCode;
 import org.openo.sdno.overlayvpn.model.v2.overlay.BaseModel;
+import org.openo.sdno.overlayvpn.model.v2.overlay.NbiConnectionRelation;
 import org.openo.sdno.overlayvpn.model.v2.overlay.NbiVpn;
 import org.openo.sdno.overlayvpn.model.v2.overlay.NbiVpnConnection;
 import org.openo.sdno.overlayvpn.model.v2.overlay.NbiVpnGateway;
@@ -91,6 +94,7 @@ public class VpnConnectionRoaResourceTest {
         new MockRestfulProxy();
         new MockTemplateManager();
         new MockNeDao();
+        new MockPopDao();
     }
 
     @Test
@@ -137,6 +141,59 @@ public class VpnConnectionRoaResourceTest {
                 NbiVpn vpn = JsonUtil.fromJson(FileUtils.readFile(file), NbiVpn.class);
                 Map<String, Object> responseMap = new HashMap<>();
                 responseMap.put("object", vpn);
+                response.setResponseJson(JsonUtil.toJson(responseMap));
+            } else if(uri.contains("vpnconnection")) {
+                File file = new File("src/test/resources/vpnconnection.json");
+                NbiVpnConnection vpnConnection = JsonUtil.fromJson(FileUtils.readFile(file), NbiVpnConnection.class);
+                Map<String, Object> responseMap = new HashMap<>();
+                responseMap.put("object", vpnConnection);
+                response.setResponseJson(JsonUtil.toJson(responseMap));
+            } else if(uri.contains("connectionrelation")) {
+                List<NbiConnectionRelation> relations = new ArrayList<>();
+                NbiConnectionRelation connectionRelationVxlan = new NbiConnectionRelation();
+                connectionRelationVxlan.setId("relationId");
+                connectionRelationVxlan.setNetConnectionId("vxlanId");
+                connectionRelationVxlan.setNetConnectionType("vxlan");
+                connectionRelationVxlan.setVpnConnectionId("connectionId");
+                connectionRelationVxlan.setVpnConnectionType("VpnConnection");
+                relations.add(connectionRelationVxlan);
+
+                NbiConnectionRelation connectionRelationIpsec = new NbiConnectionRelation();
+                connectionRelationIpsec.setId("relationId");
+                connectionRelationIpsec.setNetConnectionId("ipsecId");
+                connectionRelationIpsec.setNetConnectionType("ipsec");
+                connectionRelationIpsec.setVpnConnectionId("connectionId");
+                connectionRelationIpsec.setVpnConnectionType("VpnConnection");
+                relations.add(connectionRelationIpsec);
+                Map<String, Object> responseMap = new HashMap<>();
+                responseMap.put("objects", relations);
+                response.setResponseJson(JsonUtil.toJson(responseMap));
+            } else if(uri.contains("vxlanconnection")) {
+                NetVxlanConnection connectionVxlan = new NetVxlanConnection();
+                connectionVxlan.setId("vxlan_uuid");
+                connectionVxlan.setName("vxlan");
+                connectionVxlan.setType("vxlan");
+                connectionVxlan.setSrcNeId("NeId1");
+                connectionVxlan.setDestNeId("NeId2");
+                connectionVxlan.setSrcNeRole("localCpe");
+                connectionVxlan.setDestNeRole("cloudCpe");
+                connectionVxlan.setVni("25");
+
+                Map<String, Object> responseMap = new HashMap<>();
+                responseMap.put("object", connectionVxlan);
+                response.setResponseJson(JsonUtil.toJson(responseMap));
+            } else if(uri.contains("ipsecconnection")) {
+                NetIpsecConnection connectionIpsec = new NetIpsecConnection();
+                connectionIpsec.setId("ipsec_uuid");
+                connectionIpsec.setName("ipsec");
+                connectionIpsec.setType("ipsec");
+                connectionIpsec.setSrcNeId("NeId2");
+                connectionIpsec.setDestNeId("test_uuid");
+                connectionIpsec.setSrcNeRole("cloudCpe");
+                connectionIpsec.setDestNeRole("vpc");
+
+                Map<String, Object> responseMap = new HashMap<>();
+                responseMap.put("object", connectionIpsec);
                 response.setResponseJson(JsonUtil.toJson(responseMap));
             } else {
                 BaseModel model = new BaseModel();
@@ -276,6 +333,18 @@ public class VpnConnectionRoaResourceTest {
         @Mock
         public void updateMO(NetworkElementMO curNeMO) throws ServiceException {
             return;
+        }
+
+    }
+
+    private class MockPopDao extends MockUp<PopInvDao> {
+
+        @Mock
+        public PopMO query(String uuid) throws ServiceException {
+            PopMO pop = new PopMO();
+            pop.setId(uuid);
+            pop.setInternetGW("0.0.0.0");
+            return pop;
         }
 
     }
