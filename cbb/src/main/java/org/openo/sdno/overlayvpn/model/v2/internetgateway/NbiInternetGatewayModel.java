@@ -41,7 +41,7 @@ public class NbiInternetGatewayModel extends BaseServiceModel {
     /**
      * Site Uuid
      */
-    @AString(require = true)
+    @AUuid(require = true)
     private String siteId;
 
     /**
@@ -83,6 +83,17 @@ public class NbiInternetGatewayModel extends BaseServiceModel {
      */
     @AIp
     private String publicIP;
+
+    /**
+     * Gateway Ne Id
+     */
+    @AUuid
+    private String gwNeId;
+
+    /**
+     * Name of wan interface used for internet
+     */
+    private String wanNames;
 
     /**
      * Deploy position
@@ -176,6 +187,22 @@ public class NbiInternetGatewayModel extends BaseServiceModel {
 
     public void setDeployPosition(String deployPosition) {
         this.deployPosition = deployPosition;
+    }
+
+    public String getGwNeId() {
+        return gwNeId;
+    }
+
+    public void setGwNeId(String gwNeId) {
+        this.gwNeId = gwNeId;
+    }
+
+    public String getWanNames() {
+        return wanNames;
+    }
+
+    public void setWanNames(String wanNames) {
+        this.wanNames = wanNames;
     }
 
     public List<NetworkElementMO> getNes() {
