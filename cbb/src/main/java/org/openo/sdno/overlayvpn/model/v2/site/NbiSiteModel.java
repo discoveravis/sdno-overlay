@@ -95,13 +95,13 @@ public class NbiSiteModel extends UuidModel {
     /**
      * Name of Template
      */
-    @AString(require = true, min = 0, max = 255, scope = "singleFixedNetwork,dualFixedNetwork,fixedAndWirelessNetwork,EthernetNetwork,VDSLNetwork,GSHDSLNetwork,EthernetAndLTENetwork,EthernetAndEthernetNetwork,EthernetAndVDSLNetwork,VDSLAndLTENetwork")
+    @AString(require = true, min = 0, max = 255)
     private String siteDescriptor;
 
     /**
      * Protection mode
      */
-    @AString(require = true)
+    @AString(require = true, scope = "singleFixedNetwork,dualFixedNetwork,fixedAndWirelessNetwork,EthernetNetwork,VDSLNetwork,GSHDSLNetwork,EthernetAndLTENetwork,EthernetAndEthernetNetwork,EthernetAndVDSLNetwork,VDSLAndLTENetwork")
     private String reliability;
 
     /**
