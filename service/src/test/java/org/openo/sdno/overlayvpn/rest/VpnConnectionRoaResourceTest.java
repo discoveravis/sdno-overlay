@@ -49,7 +49,6 @@ import org.openo.sdno.overlayvpn.model.v2.overlay.BaseModel;
 import org.openo.sdno.overlayvpn.model.v2.overlay.NbiConnectionRelation;
 import org.openo.sdno.overlayvpn.model.v2.overlay.NbiVpn;
 import org.openo.sdno.overlayvpn.model.v2.overlay.NbiVpnConnection;
-import org.openo.sdno.overlayvpn.model.v2.overlay.NbiVpnGateway;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
 import org.openo.sdno.overlayvpn.servicemodel.base.VpnSite;
 import org.openo.sdno.overlayvpn.servicemodel.sbi.NetIpsecConnection;
@@ -347,20 +346,5 @@ public class VpnConnectionRoaResourceTest {
             return pop;
         }
 
-    }
-
-    private NbiVpnGateway buildVpnGateway() {
-        NbiVpnGateway vpnGateway = new NbiVpnGateway();
-        List<String> portlist = new ArrayList<>();
-        List<String> portNamelist = new ArrayList<>();
-        portlist.add("portId1");
-        portNamelist.add("portName1");
-        vpnGateway.setPorts(portlist);
-        vpnGateway.setPortNames(portNamelist);
-
-        vpnGateway.setName("test_name");
-        vpnGateway.setDescription("test_description");
-        vpnGateway.setVpnId("vpnId");
-        return vpnGateway;
     }
 }
