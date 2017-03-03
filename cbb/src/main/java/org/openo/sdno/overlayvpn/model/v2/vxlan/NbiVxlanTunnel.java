@@ -84,6 +84,14 @@ public class NbiVxlanTunnel extends NbiBaseServiceModel {
     @JsonIgnore
     private String destDeviceId;
 
+    @NONInvField
+    @JsonIgnore
+    private String srcVbdifIp;
+
+    @NONInvField
+    @JsonIgnore
+    private String destVbdifIp;
+
     public String getSrcDeviceId() {
         return srcDeviceId;
     }
