@@ -22,7 +22,6 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
-import org.openo.sdno.overlayvpn.verify.annotation.AIpMask;
 import org.openo.sdno.overlayvpn.verify.annotation.AString;
 
 @MOResType(infoModelName = "ipsec_sbi_neipsec")
@@ -38,10 +37,10 @@ public class SbiNeIpSec extends SbiIpSecNetModel {
     @JsonIgnore
     private String destIfName;
 
-    @AIpMask(require = true)
+    @AString(require = true)
     private String sourceAddress;
 
-    @AIpMask(require = true)
+    @AString(require = true)
     private String peerAddress;
 
     @NONInvField
