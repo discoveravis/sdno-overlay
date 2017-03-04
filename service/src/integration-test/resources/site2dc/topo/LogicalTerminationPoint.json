@@ -1,6 +1,6 @@
 [
 	{
-		"name": "Port01",
+		"name": "LoopBack1",
 		"id":"test_uuid",
 		"meID": "NeId1",
 		"logicalType": "ETH",
@@ -8,7 +8,7 @@
 		"ipMask": "24"
 	},
 	{
-		"name": "Port02",
+		"name": "LoopBack2",
 		"id":"test_uuidz",
 		"meID": "NeId2",
 		"logicalType": "ETH",

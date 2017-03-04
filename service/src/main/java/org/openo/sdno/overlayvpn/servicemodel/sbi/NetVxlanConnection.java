@@ -35,8 +35,10 @@ public class NetVxlanConnection extends NbiNetConnection {
 
     private String portVlanList;
 
+    @JsonIgnore
     private String srcVbdifIp;
 
+    @JsonIgnore
     private String destVbdifIp;
 
     @JsonIgnore
