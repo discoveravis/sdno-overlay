@@ -35,7 +35,7 @@ import org.springframework.stereotype.Service;
 @Service("policyRouteSbiService")
 public class PolicyRouteSbiService extends AbstractSbiService<PolicyRoute> implements SbiService<PolicyRoute> {
 
-    private static final String SBI_URL = "/openoapi/sdnoroute/v1/route/policy-routes";
+    private static final String SBI_URL = "/openoapi/sdnoroute/v1/policy-routes";
 
     @Override
     public void create(List<PolicyRoute> connectionList) throws ServiceException {

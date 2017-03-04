@@ -1,6 +1,6 @@
 {
 	"request": {
-		"uri": "/openoapi/sdnoipsec/v1/ipsec/ipsec-connections/batch-query",
+		"uri": "/openoapi/sdnoipsec/v1/ipsec-connections/batch-query",
 		"method": "post",
 		"headers": {
 			"Content-Type": "application/json;charset=UTF-8"

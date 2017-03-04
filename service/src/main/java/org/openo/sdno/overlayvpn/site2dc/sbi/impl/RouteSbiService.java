@@ -34,7 +34,7 @@ import org.springframework.stereotype.Service;
 @Service("routeSbiService")
 public class RouteSbiService extends AbstractSbiService<NetRoute> implements SbiService<NetRoute> {
 
-    private static final String SBI_URL = "/openoapi/sdnoroute/v1/route/static-routes";
+    private static final String SBI_URL = "/openoapi/sdnoroute/v1/static-routes";
 
     @Override
     public void create(List<NetRoute> connectionList) throws ServiceException {

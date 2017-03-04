@@ -16,6 +16,7 @@
 
 package org.openo.sdno.overlayvpn.servicemodel.sbi;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONSBIField;
@@ -38,10 +39,18 @@ public class NetVxlanConnection extends NbiNetConnection {
 
     private String destVbdifIp;
 
+    @JsonIgnore
+    private String protectionPolicy;
+
+    @JsonIgnore
+    private String qosPreClassify;
+
     @NONSBIField
+    @JsonIgnore
     private String srcPortIp;
 
     @NONSBIField
+    @JsonIgnore
     private String destPortIp;
 
     /**

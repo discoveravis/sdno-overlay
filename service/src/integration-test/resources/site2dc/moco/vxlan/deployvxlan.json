@@ -1,6 +1,6 @@
 {
 	"request": {
-		"uri": "/openoapi/sdnovxlan/v1/vxlan/tunnel/action",
+		"uri": "/openoapi/sdnovxlan/v1/vxlans/action",
 		"method": "post",
 		"headers": {
 			"Content-Type": "application/json;charset=UTF-8"

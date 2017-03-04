@@ -90,6 +90,7 @@ public class NetNqa extends ServiceModel {
     public NetNqa(NbiNetConnection connection, String srcIP, String dstIP, String srcPort) {
         super();
         setId(UuidUtils.createUuid());
+        setName(UuidUtils.createBase64Uuid());
         this.srcIp = srcIP;
         this.dstIp = dstIP;
         this.srcPortName = srcPort;

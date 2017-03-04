@@ -1,6 +1,6 @@
 {
 	"request": {
-		"uri": "/openoapi/sdnoipsec/v1/ipsec/ipsec-connections/action",
+		"uri": "/openoapi/sdnoipsec/v1/ipsec-connections/action",
 		"method": "post",
 		"headers": {
 			"Content-Type": "application/json;charset=UTF-8"

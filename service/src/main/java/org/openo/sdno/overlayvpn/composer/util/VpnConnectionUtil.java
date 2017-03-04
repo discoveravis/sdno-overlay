@@ -32,7 +32,6 @@ import org.openo.sdno.overlayvpn.model.v2.overlay.NbiNetConnection;
 import org.openo.sdno.overlayvpn.model.v2.overlay.NbiServiceConnection;
 import org.openo.sdno.overlayvpn.model.v2.overlay.NbiVpnConnection;
 import org.openo.sdno.overlayvpn.servicemodel.enums.TunnelType;
-import org.openo.sdno.overlayvpn.servicemodel.template.TemplateConnection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -110,18 +109,6 @@ public class VpnConnectionUtil {
         result.put("location", callbackUrl);
         result.put("id", vpnConnection.getId());
         return result;
-    }
-
-    /**
-     * Initialize the qosClassify.<br>
-     * 
-     * @param netConnection The vpn connection
-     * @param connectionTemplate The connection template
-     * @since SDNO 0.5
-     */
-    public static void initQosPreClassify(NbiNetConnection netConnection, TemplateConnection connectionTemplate) {
-        Boolean qosClassify = Boolean.valueOf(connectionTemplate.getQosPreClassify());
-        netConnection.setQosPreClassify(qosClassify.toString());
     }
 
     /**

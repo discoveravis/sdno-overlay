@@ -13,7 +13,7 @@
 			"siteId":"test_uuid",
 			"deployPosition": "cloudFirst",
 			"ports":["test_uuid"],
-			"portNames":["Port01"]
+			"portNames":["LoopBack1"]
 		}
 	},
 	"response": {

@@ -33,7 +33,7 @@ import org.springframework.stereotype.Service;
 @Service("nqaSbiService")
 public class NqaSbiService extends AbstractSbiService<NetNqa> implements SbiService<NetNqa> {
 
-    private static final String SBI_URL = "/openoapi/sdnoroute/v1/route/nqas";
+    private static final String SBI_URL = "/openoapi/sdnoroute/v1/nqas";
 
     @Override
     public void create(List<NetNqa> connectionList) throws ServiceException {

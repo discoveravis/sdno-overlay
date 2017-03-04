@@ -16,7 +16,6 @@
 
 package org.openo.sdno.overlayvpn.composer.util;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -28,7 +27,6 @@ import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.overlayvpn.servicemodel.base.FilterAction;
 import org.openo.sdno.overlayvpn.servicemodel.base.PolicyAction;
-import org.openo.sdno.overlayvpn.servicemodel.enums.ActionType;
 import org.openo.sdno.overlayvpn.servicemodel.sbi.PolicyRoute;
 import org.openo.sdno.overlayvpn.util.json.JsonUtils;
 
@@ -45,18 +43,9 @@ public class VpnPolicyRouteUtilTest {
     }
 
     @Test
-    public void testProcessPolicyRouteUpdate1() throws ServiceException {
-        List<PolicyRoute> routes = new ArrayList<>();
-        PolicyRoute route = new PolicyRoute();
-        routes.add(route);
-        assertEquals(routes, VpnPolicyRouteUtil.processPolicyRouteUpdate(routes));
-    }
-
-    @Test
     public void testProcessPolicyRouteUpdate2() throws ServiceException {
         List<PolicyRoute> routes = new ArrayList<>();
         PolicyRoute route = new PolicyRoute();
-        route.setUpdateAction(ActionType.CREATE);
         routes.add(route);
         assertTrue(CollectionUtils.isEmpty(VpnPolicyRouteUtil.processPolicyRouteUpdate(routes)));
     }
@@ -65,7 +54,6 @@ public class VpnPolicyRouteUtilTest {
     public void testProcessPolicyRouteUpdate3() throws ServiceException {
         List<PolicyRoute> routes = new ArrayList<>();
         PolicyRoute route = new PolicyRoute();
-        route.setUpdateAction(ActionType.CREATE);
         FilterAction filterAction = new FilterAction();
         PolicyAction policyAction = new PolicyAction();
         policyAction.setPolicy("test");

@@ -18,6 +18,7 @@ package org.openo.sdno.overlayvpn.servicemodel.sbi;
 
 import org.apache.commons.lang.StringUtils;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.openo.sdno.framework.container.util.UuidUtils;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOResType;
 import org.openo.sdno.overlayvpn.model.v2.overlay.NbiNetConnection;
 import org.openo.sdno.overlayvpn.servicemodel.base.BaseRoute;
@@ -72,6 +73,7 @@ public class NetRoute extends BaseRoute {
             String outInterfaceName, Integer priority, boolean enableDhcp) throws ServiceException {
         NetRoute route = new NetRoute();
         route.allocateUuid();
+        route.setName(UuidUtils.createBase64Uuid());
         route.setConnectionId(connection.getId());
         route.setTenantId(connection.getTenantId());
         route.setType("static");
@@ -101,6 +103,7 @@ public class NetRoute extends BaseRoute {
             Integer priority, boolean enableDhcp) throws ServiceException {
         NetRoute route = new NetRoute();
         route.allocateUuid();
+        route.setName(UuidUtils.createBase64Uuid());
         route.setConnectionId(connection.getId());
         route.setTenantId(connection.getTenantId());
         route.setType("static");

@@ -33,7 +33,7 @@ import org.springframework.stereotype.Service;
 @Service("vxlanSbiService")
 public class VxlanSbiService extends AbstractSbiService<NetVxlanConnection> implements SbiService<NetVxlanConnection> {
 
-    private static final String SBI_URL = "/openoapi/sdnovxlan/v1/vxlan/tunnel";
+    private static final String SBI_URL = "/openoapi/sdnovxlan/v1/vxlans";
 
     @Override
     public void create(List<NetVxlanConnection> connectionList) throws ServiceException {

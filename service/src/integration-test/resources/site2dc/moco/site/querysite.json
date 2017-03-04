@@ -74,7 +74,7 @@
 					"cidrBlock": "172.33.14.0/24",
 					"cidrBlockSize": 0,
 					"gatewayIp": "172.33.14.1",
-					"vlanId": "test_uuid",
+					"vlanId": "5-6",
 					"vni": 25,
 					"dhcp6Enable": "false",
 					"dhcp6Mode": "server",
@@ -88,7 +88,7 @@
 					"adminStatus": "none",
 					"operationStatus": "Normal",
 					"siteId": "test_uuid",
-					"vlanId": "test_uuid",
+					"vlanId": "5-6",
 					"ports": [
 						"test_uuid"
 					],

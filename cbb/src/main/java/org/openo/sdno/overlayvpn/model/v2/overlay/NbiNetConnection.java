@@ -18,6 +18,7 @@ package org.openo.sdno.overlayvpn.model.v2.overlay;
 
 import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONSBIField;
@@ -48,17 +49,16 @@ public class NbiNetConnection extends NbiBaseConnection {
     private String destPortName;
 
     @NONSBIField
+    @JsonIgnore
     private String srcSiteId;
 
     @NONSBIField
+    @JsonIgnore
     private String destSiteId;
-
-    private String protectionPolicy;
-
-    private String qosPreClassify;
 
     @NONInvField
     @NONSBIField
+    @JsonIgnore
     private List<NbiConnectionRelation> parentConnections;
 
     /**
@@ -209,22 +209,6 @@ public class NbiNetConnection extends NbiBaseConnection {
 
     public void setDestSiteId(String destSiteId) {
         this.destSiteId = destSiteId;
-    }
-
-    public String getProtectionPolicy() {
-        return protectionPolicy;
-    }
-
-    public void setProtectionPolicy(String protectionPolicy) {
-        this.protectionPolicy = protectionPolicy;
-    }
-
-    public String getQosPreClassify() {
-        return qosPreClassify;
-    }
-
-    public void setQosPreClassify(String qosPreClassify) {
-        this.qosPreClassify = qosPreClassify;
     }
 
     public List<NbiConnectionRelation> getParentConnections() {

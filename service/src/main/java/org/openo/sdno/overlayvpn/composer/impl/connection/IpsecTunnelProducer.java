@@ -30,7 +30,6 @@ import org.openo.sdno.framework.container.util.UuidUtils;
 import org.openo.sdno.overlayvpn.composer.inf.TunnelProducer;
 import org.openo.sdno.overlayvpn.composer.model.ConnectionGroup;
 import org.openo.sdno.overlayvpn.composer.model.NeConnection;
-import org.openo.sdno.overlayvpn.composer.util.VpnConnectionUtil;
 import org.openo.sdno.overlayvpn.composer.util.VpnCpeUtil;
 import org.openo.sdno.overlayvpn.composer.util.VpnReliabilityUtil;
 import org.openo.sdno.overlayvpn.composer.util.VpnSiteUtil;
@@ -135,7 +134,6 @@ public class IpsecTunnelProducer implements TunnelProducer {
             netIpsecConnection.setDestLanCidrs(JsonUtils.toJson(destCidrs));
         }
 
-        VpnConnectionUtil.initQosPreClassify(netIpsecConnection, connectionTemplate);
         netIpsecConnection.setName(UuidUtils.createBase64Uuid());
 
         LOGGER.info("The ipsec connection is :" + JsonUtils.toJson(netIpsecConnection));

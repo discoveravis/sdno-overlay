@@ -22,6 +22,7 @@ import java.util.List;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.type.TypeReference;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOPrivacyField;
@@ -66,6 +67,7 @@ public class NetIpsecConnection extends NbiNetConnection {
 
     @NONInvField
     @NONSBIField
+    @JsonIgnore
     private ActionType updateAction;
 
     private String regionId;
@@ -75,6 +77,10 @@ public class NetIpsecConnection extends NbiNetConnection {
 
     @NONSBIField
     private String destPortIp;
+
+    private String protectionPolicy;
+
+    private String qosPreClassify;
 
     /**
      * Constructor<br>
@@ -288,5 +294,21 @@ public class NetIpsecConnection extends NbiNetConnection {
 
     public void setDestPortIp(String destPortIp) {
         this.destPortIp = destPortIp;
+    }
+
+    public String getProtectionPolicy() {
+        return protectionPolicy;
+    }
+
+    public void setProtectionPolicy(String protectionPolicy) {
+        this.protectionPolicy = protectionPolicy;
+    }
+
+    public String getQosPreClassify() {
+        return qosPreClassify;
+    }
+
+    public void setQosPreClassify(String qosPreClassify) {
+        this.qosPreClassify = qosPreClassify;
     }
 }

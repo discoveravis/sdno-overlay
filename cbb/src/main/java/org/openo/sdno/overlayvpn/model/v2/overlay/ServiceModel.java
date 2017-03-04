@@ -16,6 +16,7 @@
 
 package org.openo.sdno.overlayvpn.model.v2.overlay;
 
+import org.codehaus.jackson.annotate.JsonProperty;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOEditableField;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.MOInvField;
 import org.openo.sdno.overlayvpn.inventory.sdk.model.annotation.NONInvField;
@@ -81,12 +82,14 @@ public class ServiceModel extends BaseModel {
      * Create time
      */
     @NONInvField
+    @JsonProperty("createTime")
     private Long createtime;
 
     /**
      * Update time
      */
     @NONInvField
+    @JsonProperty("updateTime")
     private Long updatetime;
 
     public String getTenantId() {

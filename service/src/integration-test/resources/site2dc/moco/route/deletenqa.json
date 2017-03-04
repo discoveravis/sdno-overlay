@@ -1,6 +1,6 @@
 {
 	"request": {
-		"uri": "/openoapi/sdnoroute/v1/route/nqa/[a-z0-9\\-\\_]{1,36}",
+		"uri": "/openoapi/sdnoroute/v1/nqas/[a-z0-9\\-\\_]{1,36}",
 		"method": "delete",
 		"headers": {
 			"Content-Type": "application/json;charset=UTF-8"

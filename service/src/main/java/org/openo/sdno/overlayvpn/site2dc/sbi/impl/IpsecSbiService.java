@@ -39,7 +39,7 @@ import org.springframework.stereotype.Service;
 @Service("ipsecSbiService")
 public class IpsecSbiService extends AbstractSbiService<NetIpsecConnection> implements SbiService<NetIpsecConnection> {
 
-    private static final String SBI_URL = "/openoapi/sdnoipsec/v1/ipsec/ipsec-connections";
+    private static final String SBI_URL = "/openoapi/sdnoipsec/v1/ipsec-connections";
 
     @Override
     public void create(List<NetIpsecConnection> connectionList) throws ServiceException {

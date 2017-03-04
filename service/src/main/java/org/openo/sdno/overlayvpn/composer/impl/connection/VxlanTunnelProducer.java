@@ -34,7 +34,6 @@ import org.openo.sdno.framework.container.util.UuidUtils;
 import org.openo.sdno.overlayvpn.composer.inf.TunnelProducer;
 import org.openo.sdno.overlayvpn.composer.model.ConnectionGroup;
 import org.openo.sdno.overlayvpn.composer.model.NeConnection;
-import org.openo.sdno.overlayvpn.composer.util.VpnConnectionUtil;
 import org.openo.sdno.overlayvpn.composer.util.VpnCpeUtil;
 import org.openo.sdno.overlayvpn.composer.util.VpnTunnelUtil;
 import org.openo.sdno.overlayvpn.model.v2.overlay.NbiNetConnection;
@@ -99,8 +98,6 @@ public class VxlanTunnelProducer implements TunnelProducer {
 
         netVxlanConnection.setSrcPortName(srcInterface);
         netVxlanConnection.setDestPortName(destInterface);
-
-        VpnConnectionUtil.initQosPreClassify(netVxlanConnection, connectionTemplate);
 
         Map<String, Set<PortVlan>> vniPortVlan = getVniPortVlan(neConnection, group.getNeConnections(),
                 VxlanAccessType.getAccessType(connectionTemplate.getAccessType()));

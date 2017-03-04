@@ -11,9 +11,10 @@
 			"id": "test_uuid",
 			"vpnId": "test_uuid",
 			"vpcId":"test_uuid",
+			"regionId":"test_region",
 			"deployPosition": "localFirst",
 			"ports":["test_uuid"],
-			"portNames":["Port01"]
+			"portNames":["LoopBack1"]
 		}
 	},
 	"response": {

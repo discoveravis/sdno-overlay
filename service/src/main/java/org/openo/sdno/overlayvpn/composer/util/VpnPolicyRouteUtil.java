@@ -24,7 +24,6 @@ import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.overlayvpn.frame.dao.BaseDao;
 import org.openo.sdno.overlayvpn.servicemodel.base.FilterAction;
 import org.openo.sdno.overlayvpn.servicemodel.base.PolicyRule;
-import org.openo.sdno.overlayvpn.servicemodel.enums.ActionType;
 import org.openo.sdno.overlayvpn.servicemodel.sbi.PolicyRoute;
 import org.openo.sdno.overlayvpn.util.json.JsonUtils;
 import org.slf4j.Logger;
@@ -126,10 +125,6 @@ public class VpnPolicyRouteUtil {
     }
 
     private static PolicyRoute processPolicyRouteUpdate(PolicyRoute route) throws ServiceException {
-        ActionType updateAction = route.getUpdateAction();
-        if(updateAction == null) {
-            return route;
-        }
         FilterAction filterAction = JsonUtils.fromJson(route.getFilterAction(), FilterAction.class);
         if(filterAction == null || CollectionUtils.isEmpty(filterAction.getRuleList())) {
             return null;
@@ -139,11 +134,7 @@ public class VpnPolicyRouteUtil {
             return null;
         }
         for(PolicyRule rule : filterAction.getRuleList()) {
-            if(ActionType.CREATE == updateAction) {
-                dbRoute.addRule(rule);
-            } else if(ActionType.DELETE == updateAction) {
-                dbRoute.deleteRule(rule);
-            }
+            dbRoute.addRule(rule);
         }
         dbRoute.setActionState(null);
         return dbRoute;
