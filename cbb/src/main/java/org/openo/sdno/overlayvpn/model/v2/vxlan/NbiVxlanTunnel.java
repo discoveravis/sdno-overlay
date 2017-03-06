@@ -108,11 +108,6 @@ public class NbiVxlanTunnel extends NbiBaseServiceModel {
         this.destDeviceId = destDeviceId;
     }
 
-    /**
-     * vxlan's type(scope:vxlan,ipv6 over ipv4,ipv4 over ipv6,l3-gw-vxlan)
-     * 
-     * @return type
-     **/
     public String getType() {
         return type;
     }
@@ -121,11 +116,6 @@ public class NbiVxlanTunnel extends NbiBaseServiceModel {
         this.type = type;
     }
 
-    /**
-     * destination ne id
-     * 
-     * @return destNeId
-     **/
     public String getDestNeId() {
         return destNeId;
     }
@@ -134,39 +124,22 @@ public class NbiVxlanTunnel extends NbiBaseServiceModel {
         this.destNeId = destNeId;
     }
 
-    /**
-     * @return Returns the srcIp.
-     */
     public Ip getSrcIp() {
         return srcIp;
     }
 
-    /**
-     * @param srcIp The srcIp to set.
-     */
     public void setSrcIp(Ip srcIp) {
         this.srcIp = srcIp;
     }
 
-    /**
-     * @return Returns the destIp.
-     */
     public Ip getDestIp() {
         return destIp;
     }
 
-    /**
-     * @param destIp The destIp to set.
-     */
     public void setDestIp(Ip destIp) {
         this.destIp = destIp;
     }
 
-    /**
-     * destination ne role(scope:localcpe,cloudcpe,vpc,dc-r)
-     * 
-     * @return destNeRole
-     **/
     public String getDestNeRole() {
         return destNeRole;
     }
@@ -175,11 +148,6 @@ public class NbiVxlanTunnel extends NbiBaseServiceModel {
         this.destNeRole = destNeRole;
     }
 
-    /**
-     * source port name
-     * 
-     * @return srcPortName
-     **/
     public String getSrcPortName() {
         return srcPortName;
     }
@@ -188,11 +156,6 @@ public class NbiVxlanTunnel extends NbiBaseServiceModel {
         this.srcPortName = srcPortName;
     }
 
-    /**
-     * destination port name
-     * 
-     * @return destPortName
-     **/
     public String getDestPortName() {
         return destPortName;
     }
@@ -201,11 +164,6 @@ public class NbiVxlanTunnel extends NbiBaseServiceModel {
         this.destPortName = destPortName;
     }
 
-    /**
-     * vni
-     * 
-     * @return vni
-     **/
     public String getVni() {
         return vni;
     }
@@ -214,11 +172,6 @@ public class NbiVxlanTunnel extends NbiBaseServiceModel {
         this.vni = vni;
     }
 
-    /**
-     * source tunnel name
-     * 
-     * @return srcTunnelName
-     **/
     public String getSrcTunnelName() {
         return srcTunnelName;
     }
@@ -227,11 +180,6 @@ public class NbiVxlanTunnel extends NbiBaseServiceModel {
         this.srcTunnelName = srcTunnelName;
     }
 
-    /**
-     * destination tunnel name
-     * 
-     * @return destTunnelName
-     **/
     public String getDestTunnelName() {
         return destTunnelName;
     }
@@ -240,11 +188,6 @@ public class NbiVxlanTunnel extends NbiBaseServiceModel {
         this.destTunnelName = destTunnelName;
     }
 
-    /**
-     * vxlan's name on controller
-     * 
-     * @return portVlanList
-     **/
     public String getPortVlanList() {
         return portVlanList;
     }
@@ -253,16 +196,10 @@ public class NbiVxlanTunnel extends NbiBaseServiceModel {
         this.portVlanList = portVlanList;
     }
 
-    /**
-     * @return Returns the portVlans.
-     */
     public List<PortVlan> getPortVlans() {
         return portVlans;
     }
 
-    /**
-     * @param portVlans The portVlans to set.
-     */
     public void setPortVlans(List<PortVlan> portVlans) {
         this.portVlans = portVlans;
     }
@@ -285,10 +222,6 @@ public class NbiVxlanTunnel extends NbiBaseServiceModel {
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
     private static String toIndentedString(Object o) {
         if(o == null) {
             return "null";

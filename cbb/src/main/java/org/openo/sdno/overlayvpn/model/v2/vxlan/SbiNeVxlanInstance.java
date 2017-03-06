@@ -76,11 +76,6 @@ public class SbiNeVxlanInstance extends SbiVxlanNetModel {
     @NONInvField
     private List<SbiNeVxlanTunnel> vxlanTunnelList = new ArrayList<SbiNeVxlanTunnel>();
 
-    /**
-     * associated nbi vxlan ID
-     * 
-     * @return nbiVxlanTunnelId
-     **/
     public String getNbiVxlanTunnelId() {
         return nbiVxlanTunnelId;
     }
@@ -89,11 +84,6 @@ public class SbiNeVxlanInstance extends SbiVxlanNetModel {
         this.nbiVxlanTunnelId = nbiVxlanTunnelId;
     }
 
-    /**
-     * net ID which vxlan belongs to
-     * 
-     * @return vni
-     **/
     public String getVni() {
         return vni;
     }
@@ -102,11 +92,6 @@ public class SbiNeVxlanInstance extends SbiVxlanNetModel {
         this.vni = vni;
     }
 
-    /**
-     * whether to enable arpProxy(default:\"false\")
-     * 
-     * @return arpProxy
-     **/
     public String getArpProxy() {
         return arpProxy;
     }
@@ -115,11 +100,6 @@ public class SbiNeVxlanInstance extends SbiVxlanNetModel {
         this.arpProxy = arpProxy;
     }
 
-    /**
-     * arp broadcast suppress enable(default:\"false\")
-     * 
-     * @return arpBroadcastSuppress
-     **/
     public String getArpBroadcastSuppress() {
         return arpBroadcastSuppress;
     }
@@ -128,11 +108,6 @@ public class SbiNeVxlanInstance extends SbiVxlanNetModel {
         this.arpBroadcastSuppress = arpBroadcastSuppress;
     }
 
-    /**
-     * Get keepAlive
-     * 
-     * @return keepAlive
-     **/
     public String getKeepAlive() {
         return keepAlive;
     }
@@ -141,11 +116,6 @@ public class SbiNeVxlanInstance extends SbiVxlanNetModel {
         this.keepAlive = keepAlive;
     }
 
-    /**
-     * Get vxlanInterfaces
-     * 
-     * @return vxlanInterfaces
-     **/
     public List<String> getVxlanInterfaces() {
         return vxlanInterfaces;
     }
@@ -154,11 +124,6 @@ public class SbiNeVxlanInstance extends SbiVxlanNetModel {
         this.vxlanInterfaces = vxlanInterfaces;
     }
 
-    /**
-     * Get vxlanTunnels
-     * 
-     * @return vxlanTunnels
-     **/
     public List<String> getVxlanTunnels() {
         return vxlanTunnels;
     }
@@ -167,11 +132,6 @@ public class SbiNeVxlanInstance extends SbiVxlanNetModel {
         this.vxlanTunnels = vxlanTunnels;
     }
 
-    /**
-     * Get vxlanInterfaceList
-     * 
-     * @return vxlanInterfaceList
-     **/
     public List<SbiNeVxlanInterface> getVxlanInterfaceList() {
         return vxlanInterfaceList;
     }
@@ -180,11 +140,6 @@ public class SbiNeVxlanInstance extends SbiVxlanNetModel {
         this.vxlanInterfaceList = vxlanInterfaceList;
     }
 
-    /**
-     * Get vxlanTunnelList
-     * 
-     * @return vxlanTunnelList
-     **/
     public List<SbiNeVxlanTunnel> getVxlanTunnelList() {
         return vxlanTunnelList;
     }
@@ -211,10 +166,6 @@ public class SbiNeVxlanInstance extends SbiVxlanNetModel {
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
     private static String toIndentedString(Object o) {
         if(o == null) {
             return "null";

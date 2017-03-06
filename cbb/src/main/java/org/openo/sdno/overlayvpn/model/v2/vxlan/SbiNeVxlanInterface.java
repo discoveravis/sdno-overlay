@@ -56,11 +56,6 @@ public class SbiNeVxlanInterface extends SbiVxlanNetModel {
     @AInt(min = 1, max = 4094)
     private String dot1qVlanBitmap = null;
 
-    /**
-     * vxlan's name on controller
-     * 
-     * @return localName
-     **/
     public String getLocalName() {
         return localName;
     }
@@ -69,11 +64,6 @@ public class SbiNeVxlanInterface extends SbiVxlanNetModel {
         this.localName = localName;
     }
 
-    /**
-     * bound vxlan instance id
-     * 
-     * @return vxlanInstanceId
-     **/
     public String getVxlanInstanceId() {
         return vxlanInstanceId;
     }
@@ -82,11 +72,6 @@ public class SbiNeVxlanInterface extends SbiVxlanNetModel {
         this.vxlanInstanceId = vxlanInstanceId;
     }
 
-    /**
-     * matching access type of message
-     * 
-     * @return accessType
-     **/
     public String getAccessType() {
         return accessType;
     }
@@ -95,11 +80,6 @@ public class SbiNeVxlanInterface extends SbiVxlanNetModel {
         this.accessType = accessType;
     }
 
-    /**
-     * physical id of associated access point
-     * 
-     * @return portNativeId
-     **/
     public String getPortNativeId() {
         return portNativeId;
     }
@@ -108,11 +88,6 @@ public class SbiNeVxlanInterface extends SbiVxlanNetModel {
         this.portNativeId = portNativeId;
     }
 
-    /**
-     * access vlan range, set when accessType is dot1q
-     * 
-     * @return dot1qVlanBitmap
-     **/
     public String getDot1qVlanBitmap() {
         return dot1qVlanBitmap;
     }
@@ -135,10 +110,6 @@ public class SbiNeVxlanInterface extends SbiVxlanNetModel {
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
     private static String toIndentedString(Object o) {
         if(o == null) {
             return "null";

@@ -56,11 +56,6 @@ public class SbiNeVxlanTunnel extends SbiVxlanNetModel {
     @NONInvField
     private List<String> vnis = new ArrayList<String>();
 
-    /**
-     * vlan id
-     * 
-     * @return vni
-     **/
     public String getVni() {
         return vni;
     }
@@ -69,11 +64,6 @@ public class SbiNeVxlanTunnel extends SbiVxlanNetModel {
         this.vni = vni;
     }
 
-    /**
-     * bound vxlan instance id
-     * 
-     * @return vxlanInstanceId
-     **/
     public String getVxlanInstanceId() {
         return vxlanInstanceId;
     }
@@ -82,11 +72,6 @@ public class SbiNeVxlanTunnel extends SbiVxlanNetModel {
         this.vxlanInstanceId = vxlanInstanceId;
     }
 
-    /**
-     * source address
-     * 
-     * @return sourceAddress
-     **/
     public String getSourceAddress() {
         return sourceAddress;
     }
@@ -95,11 +80,6 @@ public class SbiNeVxlanTunnel extends SbiVxlanNetModel {
         this.sourceAddress = sourceAddress;
     }
 
-    /**
-     * destination address
-     * 
-     * @return destAddress
-     **/
     public String getDestAddress() {
         return destAddress;
     }
@@ -108,11 +88,6 @@ public class SbiNeVxlanTunnel extends SbiVxlanNetModel {
         this.destAddress = destAddress;
     }
 
-    /**
-     * source ifid
-     * 
-     * @return sourceIfId
-     **/
     public String getSourceIfId() {
         return sourceIfId;
     }
@@ -121,11 +96,6 @@ public class SbiNeVxlanTunnel extends SbiVxlanNetModel {
         this.sourceIfId = sourceIfId;
     }
 
-    /**
-     * tunnel ifid
-     * 
-     * @return tunnelIfId
-     **/
     public String getTunnelIfId() {
         return tunnelIfId;
     }
@@ -134,11 +104,6 @@ public class SbiNeVxlanTunnel extends SbiVxlanNetModel {
         this.tunnelIfId = tunnelIfId;
     }
 
-    /**
-     * Get vxlanInstances
-     * 
-     * @return vxlanInstances
-     **/
     public List<String> getVxlanInstances() {
         return vxlanInstances;
     }
@@ -147,11 +112,6 @@ public class SbiNeVxlanTunnel extends SbiVxlanNetModel {
         this.vxlanInstances = vxlanInstances;
     }
 
-    /**
-     * Get vnis
-     * 
-     * @return vnis
-     **/
     public List<String> getVnis() {
         return vnis;
     }
@@ -177,10 +137,6 @@ public class SbiNeVxlanTunnel extends SbiVxlanNetModel {
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
     private static String toIndentedString(Object o) {
         if(o == null) {
             return "null";

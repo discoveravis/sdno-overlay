@@ -42,11 +42,6 @@ public class Ip extends UuidModel implements Serializable {
     @AUuid(require = false)
     private String vxlanTunnelId = null;
 
-    /**
-     * ipv4 ip
-     * 
-     * @return ipv4
-     **/
     public String getIpv4() {
         return ipv4;
     }
@@ -55,11 +50,6 @@ public class Ip extends UuidModel implements Serializable {
         this.ipv4 = ipv4;
     }
 
-    /**
-     * ipv6 ip
-     * 
-     * @return ipv6
-     **/
     public String getIpv6() {
         return ipv6;
     }
@@ -68,11 +58,6 @@ public class Ip extends UuidModel implements Serializable {
         this.ipv6 = ipv6;
     }
 
-    /**
-     * ip mask
-     * 
-     * @return ipMask
-     **/
     public String getIpMask() {
         return ipMask;
     }
@@ -81,11 +66,6 @@ public class Ip extends UuidModel implements Serializable {
         this.ipMask = ipMask;
     }
 
-    /**
-     * length of prifix
-     * 
-     * @return prefixLength
-     **/
     public String getPrefixLength() {
         return prefixLength;
     }
@@ -94,11 +74,6 @@ public class Ip extends UuidModel implements Serializable {
         this.prefixLength = prefixLength;
     }
 
-    /**
-     * id of ne
-     * 
-     * @return neId
-     **/
     public String getNeId() {
         return neId;
     }
@@ -107,11 +82,6 @@ public class Ip extends UuidModel implements Serializable {
         this.neId = neId;
     }
 
-    /**
-     * device id
-     * 
-     * @return deviceId
-     **/
     public String getDeviceId() {
         return deviceId;
     }
@@ -120,11 +90,6 @@ public class Ip extends UuidModel implements Serializable {
         this.deviceId = deviceId;
     }
 
-    /**
-     * vxlan tunnel id
-     * 
-     * @return vxlanTunnelId
-     **/
     public String getVxlanTunnelId() {
         return vxlanTunnelId;
     }
@@ -149,10 +114,6 @@ public class Ip extends UuidModel implements Serializable {
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
     private static String toIndentedString(Object o) {
         if(o == null) {
             return "null";

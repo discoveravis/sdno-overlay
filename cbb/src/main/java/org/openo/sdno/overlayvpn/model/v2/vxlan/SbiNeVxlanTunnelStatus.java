@@ -16,39 +16,29 @@
 
 package org.openo.sdno.overlayvpn.model.v2.vxlan;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SbiNeVxlanTunnelStatus", propOrder = {"deviceId", "localIp", "peerIp"})
-
-@XmlRootElement(name = "SbiNeVxlanTunnelStatus")
-@ApiModel(description = "Sbi Ne Vxlan Tunnel Status model")
+/**
+ * Model class of VxLAN tunnel status.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 June 6, 2016
+ */
 public class SbiNeVxlanTunnelStatus {
 
-    @XmlElement(name = "deviceId")
-    @ApiModelProperty(example = "null", required = true, value = "device id")
-    private String deviceId = null;
-
-    @XmlElement(name = "localIp")
-    @ApiModelProperty(example = "null", value = "local ip")
-    private String localIp = null;
-
-    @XmlElement(name = "peerIp")
-    @ApiModelProperty(example = "null", value = "peer ip")
-    private String peerIp = null;
+    /**
+     * Device Id
+     */
+    private String deviceId;
 
     /**
-     * device id
-     * 
-     * @return deviceId
-     **/
+     * Local IpAddress
+     */
+    private String localIp;
+
+    /**
+     * Peer IpAddress
+     */
+    private String peerIp;
+
     public String getDeviceId() {
         return deviceId;
     }
@@ -57,11 +47,6 @@ public class SbiNeVxlanTunnelStatus {
         this.deviceId = deviceId;
     }
 
-    /**
-     * local ip
-     * 
-     * @return localIp
-     **/
     public String getLocalIp() {
         return localIp;
     }
@@ -70,11 +55,6 @@ public class SbiNeVxlanTunnelStatus {
         this.localIp = localIp;
     }
 
-    /**
-     * peer ip
-     * 
-     * @return peerIp
-     **/
     public String getPeerIp() {
         return peerIp;
     }
@@ -95,10 +75,6 @@ public class SbiNeVxlanTunnelStatus {
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
     private static String toIndentedString(Object o) {
         if(o == null) {
             return "null";
