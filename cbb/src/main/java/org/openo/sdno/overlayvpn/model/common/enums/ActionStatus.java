@@ -26,8 +26,8 @@ public enum ActionStatus {
     NONE(0), NORMAL(1), CREATING(2), DELETING(3), UPDATING(4), CREATE_EXCEPTION(5), DELETE_EXCEPTION(6),
     UPDATE_EXCEPTION(7);
 
-    private static final String[] NAME_LIST = new String[] {"None", "Normal", "Creating", "Deleting", "Updating",
-                    "Create_Exception", "Delete_Exception", "Update_Exception"};
+    private static final String[] NAME_LIST = new String[] {"none", "normal", "creating", "deleting", "updating",
+                    "create_exception", "delete_exception", "update_exception"};
 
     private int value;
 

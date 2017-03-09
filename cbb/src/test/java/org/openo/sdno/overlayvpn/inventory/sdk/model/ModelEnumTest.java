@@ -52,21 +52,21 @@ public class ModelEnumTest extends TestCase {
     @Test
     public void testActionStatus() {
         ActionStatus siteNet = ActionStatus.NONE;
-        assertEquals("None", siteNet.getName());
+        assertEquals("none", siteNet.getName());
         siteNet = ActionStatus.NORMAL;
-        assertEquals("Normal", siteNet.getName());
+        assertEquals("normal", siteNet.getName());
         siteNet = ActionStatus.CREATING;
-        assertEquals("Creating", siteNet.getName());
+        assertEquals("creating", siteNet.getName());
         siteNet = ActionStatus.DELETING;
-        assertEquals("Deleting", siteNet.getName());
+        assertEquals("deleting", siteNet.getName());
         siteNet = ActionStatus.UPDATING;
-        assertEquals("Updating", siteNet.getName());
+        assertEquals("updating", siteNet.getName());
         siteNet = ActionStatus.CREATE_EXCEPTION;
-        assertEquals("Create_Exception", siteNet.getName());
+        assertEquals("create_exception", siteNet.getName());
         siteNet = ActionStatus.DELETE_EXCEPTION;
-        assertEquals("Delete_Exception", siteNet.getName());
+        assertEquals("delete_exception", siteNet.getName());
         siteNet = ActionStatus.UPDATE_EXCEPTION;
-        assertEquals("Update_Exception", siteNet.getName());
+        assertEquals("update_exception", siteNet.getName());
     }
 
     @Test

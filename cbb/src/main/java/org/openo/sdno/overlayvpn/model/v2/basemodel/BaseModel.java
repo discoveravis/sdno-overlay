@@ -60,7 +60,7 @@ public class BaseModel extends UuidModel {
      * Action state
      */
     @JsonProperty("actionState")
-    @AString(scope = "None,Normal,Creating,Deleting,Updating,Create_Excepion,Delete_Exception,Update_Exception")
+    @AString(scope = "none,normal,creating,deleting,updating,create_excepion,delete_exception,update_exception")
     private String operationStatus = ActionStatus.NORMAL.getName();
 
     /**
