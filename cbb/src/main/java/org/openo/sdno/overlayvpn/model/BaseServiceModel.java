@@ -47,7 +47,7 @@ public abstract class BaseServiceModel extends ModelBase {
     /**
      * Action State
      */
-    @AString(scope = "Normal,Creating,Deleting,Updating,Create_Exception,Delete_Exception,Update_Exception")
+    @AString(scope = "normal,creating,deleting,updating,create_exception,delete_exception,update_exception")
     private String actionState = ActionStatus.NORMAL.getName();
 
     /**
