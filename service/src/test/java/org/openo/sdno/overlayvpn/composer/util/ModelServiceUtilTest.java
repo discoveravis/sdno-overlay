@@ -43,7 +43,7 @@ public class ModelServiceUtilTest {
     @Test
     public void testIsOnGoingCreating() throws ServiceException {
         ServiceModel model = new ServiceModel();
-        model.setActionState("Creating");
+        model.setActionState("creating");
         model.setCreatetime(System.currentTimeMillis() / 1000L);
         assertTrue(ModelServiceUtil.isOnGoing(model));
     }
@@ -51,7 +51,7 @@ public class ModelServiceUtilTest {
     @Test
     public void testIsOnGoingUpdating() throws ServiceException {
         ServiceModel model = new ServiceModel();
-        model.setActionState("Updating");
+        model.setActionState("updating");
         model.setUpdatetime(System.currentTimeMillis() / 1000L);
         assertTrue(ModelServiceUtil.isOnGoing(model));
     }

@@ -23,31 +23,31 @@ package org.openo.sdno.overlayvpn.frame.dao.model;
  * @version SDNO 0.5 Feb 4, 2017
  */
 public enum ActionState {
-    UNKNOWN(0, "None"),
+    UNKNOWN(0, "none"),
 
-    NORMAL(1, "Normal"),
+    NORMAL(1, "normal"),
 
-    CREATING(2, "Creating"),
+    CREATING(2, "creating"),
 
-    DELETING(3, "Deleting"),
+    DELETING(3, "deleting"),
 
-    UPDATING(4, "Updating"),
+    UPDATING(4, "updating"),
 
-    DEPLOYING(5, "Deploying"),
+    DEPLOYING(5, "deploying"),
 
-    UNDEPLOYING(6, "Undeploying"),
+    UNDEPLOYING(6, "undeploying"),
 
-    CREATE_EXCEPTION(7, "Create_Exception"),
+    CREATE_EXCEPTION(7, "create_exception"),
 
-    UPDATE_EXCEPTION(8, "Update_Exception"),
+    UPDATE_EXCEPTION(8, "update_exception"),
 
-    DELETE_EXCEPTION(9, "Delete_Exception"),
+    DELETE_EXCEPTION(9, "delete_exception"),
 
-    DEPLOY_EXCEPTION(10, "Deploy_Exception"),
+    DEPLOY_EXCEPTION(10, "deploy_exception"),
 
-    UNDEPLOY_EXCEPTION(11, "Undeploy_Exception"),
+    UNDEPLOY_EXCEPTION(11, "undeploy_exception"),
 
-    CHECK_EXCEPTION(12, "Check_Exception");
+    CHECK_EXCEPTION(12, "check_exception");
 
     private int value;
 

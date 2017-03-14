@@ -71,7 +71,7 @@ public class NbiSiteModel extends UuidModel {
     /**
      * Action State
      */
-    @AString(scope = "None,Normal,Creating,Deleting,Updating,Create_Exception,Delete_Exception,Update_Exception")
+    @AString(scope = "none,normal,creating,deleting,updating,create_exception,delete_exception,update_exception")
     private String actionState = ActionStatus.NORMAL.getName();
 
     /**

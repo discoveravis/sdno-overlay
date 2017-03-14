@@ -4,7 +4,7 @@
 	"id": "gateway_id",
 	"vpnId": "vpnId",
 	"vpcId": "test_uuid",
-	"operationStatus":"Normal",
+	"operationStatus":"normal",
 	"deployPosition": "localFirst",
 	"portList": [
 		"test_uuid"

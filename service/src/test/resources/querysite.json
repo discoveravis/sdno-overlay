@@ -3,7 +3,7 @@
 	"name": "test_name",
 	"description": null,
 	"location": null,
-	"actionState": "Normal",
+	"actionState": "normal",
 	"popId": "test_uuid",
 	"localCpeType": "AR161FGW-L",
 	"siteDescriptor": "enterprise_ipsec",
@@ -52,7 +52,7 @@
 	"subnets": [{
 		"name": "test_name",
 		"adminStatus": "none",
-		"operationStatus": "Normal",
+		"operationStatus": "normal",
 		"siteId": "test_uuid",
 		"cidrBlock": "172.33.14.0/24",
 		"cidrBlockSize": 0,
@@ -67,7 +67,7 @@
 	"vlans": [{
 		"name": "test_name",
 		"adminStatus": "none",
-		"operationStatus": "Normal",
+		"operationStatus": "normal",
 		"siteId": "test_uuid",
 		"vlanId": "test_uuid",
 		"ports": [
@@ -78,7 +78,7 @@
 	"internetGateway": {
 		"name": "test_name",
 		"adminStatus": "none",
-		"operationStatus": "Normal",
+		"operationStatus": "normal",
 		"siteId": "test_uuid",
 		"protectionType": "no-protection",
 		"enableSnat": "true",

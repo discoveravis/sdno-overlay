@@ -2,7 +2,7 @@
 	"name": "test_name",
 	"description": "create test",
 	"id": "vpnId",
-	"operationStatus":"Normal",
+	"operationStatus":"normal",
 	"vpnDescriptor": "enterprise_l2cpe"
 }
 

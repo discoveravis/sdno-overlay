@@ -40,7 +40,7 @@ public class ModelUtilsTest {
         ServiceModel destModel = new ServiceModel();
         ServiceModel srcModel = new ServiceModel();
         srcModel.setId("test_uuid");
-        srcModel.setActionState("Normal");
+        srcModel.setActionState("normal");
         srcModel.setActiveStatus("active");
         srcModel.setCreatetime(0L);
         srcModel.setDeployStatus("deploy");
