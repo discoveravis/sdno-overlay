@@ -21,10 +21,6 @@ import java.util.List;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
-import org.openo.sdno.exception.InnerErrorServiceException;
-import org.openo.sdno.exception.ParameterServiceException;
-import org.openo.sdno.overlayvpn.brs.invdao.PopInvDao;
-import org.openo.sdno.overlayvpn.brs.model.PopMO;
 import org.openo.sdno.overlayvpn.composer.ParamConsts;
 import org.openo.sdno.overlayvpn.composer.VpnModelConverter;
 import org.openo.sdno.overlayvpn.composer.inf.RouteProducer;
@@ -39,7 +35,6 @@ import org.openo.sdno.overlayvpn.servicemodel.enums.CpeRole;
 import org.openo.sdno.overlayvpn.servicemodel.sbi.NetRoute;
 import org.openo.sdno.overlayvpn.servicemodel.sbi.NetVxlanConnection;
 import org.openo.sdno.overlayvpn.util.json.JsonUtils;
-import org.openo.sdno.overlayvpn.util.toolkit.IpAddressUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -54,8 +49,6 @@ import org.springframework.stereotype.Service;
 public class EntL2InternetRouteProducer implements RouteProducer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EntL2InternetRouteProducer.class);
-
-    private static PopInvDao popInvDao = new PopInvDao();
 
     /**
      * Constructor,register the route producer between localCpe and cloudCpe to routeProducers.<br>
@@ -80,18 +73,6 @@ public class EntL2InternetRouteProducer implements RouteProducer {
 
             if((CpeRole.CLOUDCPE == srcRole && CpeRole.LOCALCPE == destRole)
                     || (CpeRole.LOCALCPE == srcRole && CpeRole.CLOUDCPE == destRole)) {
-                VpnSite srcSite = (VpnSite)neConnection.getSrcSite();
-                PopMO pop = queryPop(srcSite.getPopId());
-                String gwIp = pop.getInternetGW();
-                if(IpAddressUtil.isValidIpAddr(gwIp)) {
-                    NetRoute routeIpRoute =
-                            NetRoute.buildStaticRoute(netConnection, ParamConsts.CIDR_ZERO, gwIp, null, null, false);
-                    routeIpRoute.setSrcNeId(getCpe(netConnection, CpeRole.CLOUDCPE));
-                    routeIpRoute.setSrcNeRole(CpeRole.CLOUDCPE.getRole());
-                    routeIpRoute.setDescription(ParamConsts.BASIC_ROUTE);
-                    routes.getCreate().add(routeIpRoute);
-                }
-
                 List<IP> subnets = VpnSiteUtil.getSiteCidrs(neConnection.getDestSite());
                 String vbdIf = getVbdIf(neConnection, vxlanConnection);
                 for(IP ip : subnets) {
@@ -126,19 +107,6 @@ public class EntL2InternetRouteProducer implements RouteProducer {
         }
         LOGGER.warn("Get vbdIf failed,no match vni,siteId=" + site.getId());
         return null;
-    }
-
-    private PopMO queryPop(String popId) throws ServiceException {
-        if(StringUtils.isEmpty(popId)) {
-            LOGGER.error("Vpnpop.query.error,popId is null.");
-            throw new ParameterServiceException("Vpnpop.query.error,popId is null.");
-        }
-        PopMO pop = popInvDao.query(popId);
-        if(pop == null) {
-            LOGGER.error("Vpnpop.query.error,pop is not exist,uuid=" + popId);
-            throw new InnerErrorServiceException("Vpnpop.query.error,pop is not exist,uuid=" + popId);
-        }
-        return pop;
     }
 
     /**
