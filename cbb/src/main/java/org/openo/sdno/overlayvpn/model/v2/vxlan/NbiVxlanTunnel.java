@@ -41,7 +41,7 @@ public class NbiVxlanTunnel extends NbiBaseServiceModel {
     @AUuid(require = true)
     private String destNeId = null;
 
-    @AString(require = true, scope = " localcpe,cloudcpe,vpc,dc-r")
+    @AString(require = true, scope = "localcpe,cloudcpe,vpc,dc-r")
     private String destNeRole = null;
 
     @AString(require = false, min = 1, max = 255)
