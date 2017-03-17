@@ -50,16 +50,6 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.1.2</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-configuration</groupId>
-            <artifactId>commons-configuration</artifactId>
-            <version>1.6</version>
-        </dependency>
-        <dependency>
             <groupId>org.jmockit</groupId>
             <artifactId>jmockit</artifactId>
             <version>1.19</version>
@@ -78,6 +68,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.7.4</version>
+        </dependency>
+        <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
             <version>1.1.0.Final</version>
@@ -88,75 +83,14 @@
             <version>4.3.1.Final</version>
         </dependency>
         <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <version>1.9</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>3.1.0.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aop</artifactId>
-            <version>3.1.0.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>3.1.0.RELEASE</version>
-        </dependency>
-        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>3.1.0.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>3.1.0.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>3.1.0.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-asm</artifactId>
-            <version>3.1.0.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-expression</artifactId>
-            <version>3.1.0.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-            <version>3.1.0.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-frontend-jaxrs</artifactId>
-            <version>3.1.6</version>
-        </dependency>
-        <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-jaxrs</artifactId>
-            <version>1.9.2</version>
-        </dependency>
-        <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-annotations</artifactId>
-            <version>1.5.0</version>
         </dependency>
     </dependencies>
 
