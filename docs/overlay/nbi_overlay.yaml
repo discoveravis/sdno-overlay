@@ -40,16 +40,12 @@ paths:
         description: vpn object to be created.
         required: true
         schema:
-          type: object
-          items:
-            $ref: '#/definitions/NbiVpn'
+          $ref: '#/definitions/NbiVpn'
       responses:
         200:
           description: create vpn success.
           schema:
-            type: object
-            items:
-              $ref: '#/definitions/NbiVpn'
+            $ref: '#/definitions/NbiVpn'
         400:
           description: create vpn failure as parameters invalid.
         401:
@@ -66,9 +62,7 @@ paths:
         200:
           description: query vpn success.
           schema:
-            type: object
-            items:
-              $ref: '#/definitions/BatchQueryResultVpn'
+            $ref: '#/definitions/BatchQueryResultVpn'
         400:
           description: query vpn failure as parameters invalid.
         401:
@@ -93,9 +87,7 @@ paths:
         200:
           description: query vpn success.
           schema:
-            type: object
-            items:
-              $ref: '#/definitions/NbiVpn'
+            $ref: '#/definitions/NbiVpn'
         400:
           description: query vpn failure as parameters invalid.
         401:
@@ -120,16 +112,12 @@ paths:
         description: vpn object to be modified.
         required: true
         schema:
-          type: object
-          items:
-            $ref: '#/definitions/NbiVpn'
+          $ref: '#/definitions/NbiVpn'
       responses:
         200:
           description: update vpn success.
           schema:
-            type: object
-            items:
-              $ref: '#/definitions/NbiVpn'
+            $ref: '#/definitions/NbiVpn'
         400:
           description: update vpn failure as parameters invalid.
         401:
@@ -153,9 +141,7 @@ paths:
         200:
           description: delete vpn success.
           schema:
-            type: object
-            items:
-              $ref: '#/definitions/NbiVpn'
+            $ref: '#/definitions/NbiVpn'
         400:
           description: delete vpn failure as parameters invalid.
         401:
@@ -180,9 +166,7 @@ paths:
         200:
           description: deploy vpn success.
           schema:
-            type: object
-            items:
-              $ref: '#/definitions/NbiVpn'
+            $ref: '#/definitions/NbiVpn'
         400:
           description: deploy vpn failure as parameters invalid.
         401:
@@ -207,9 +191,7 @@ paths:
         200:
           description: undeploy vpn success.
           schema:
-            type: object
-            items:
-              $ref: '#/definitions/NbiVpn'
+            $ref: '#/definitions/NbiVpn'
         400:
           description: undeploy vpn failure as parameters invalid.
         401:
@@ -229,9 +211,7 @@ paths:
         description: vpn connection object to be created.
         required: true
         schema:
-          type: object
-          items:
-            $ref: '#/definitions/NbiVpnConnection'
+          $ref: '#/definitions/NbiVpnConnection'
       responses:
         200:
           description: create vpn connection success.
@@ -253,9 +233,7 @@ paths:
         200:
           description: query vpn connection success.
           schema:
-            type: object
-            items:
-              $ref: '#/definitions/BatchQueryResultVpnConnection'
+            $ref: '#/definitions/BatchQueryResultVpnConnection'
         400:
           description: query vpn connection failure as parameters invalid.
         401:
@@ -281,16 +259,12 @@ paths:
         description: vpn connection object to be modified.
         required: true
         schema:
-          type: object
-          items:
-            $ref: '#/definitions/NbiVpnConnection'
+          $ref: '#/definitions/NbiVpnConnection'
       responses:
         200:
           description: modify vpn connection success.
           schema:
-            type: object
-            items:
-              $ref: '#/definitions/NbiVpnConnection'
+            $ref: '#/definitions/NbiVpnConnection'
         400:
           description: modify vpn connection failure as parameters invalid.
         401:
@@ -314,9 +288,7 @@ paths:
         200:
           description: query vpn connection success.
           schema:
-            type: object
-            items:
-              $ref: '#/definitions/NbiVpnConnection'
+            $ref: '#/definitions/NbiVpnConnection'
         400:
           description: query vpn connection failure as parameters invalid.
         401:
@@ -340,9 +312,7 @@ paths:
         200:
           description: delete vpn connection success.
           schema:
-            type: object
-            items:
-              $ref: '#/definitions/NbiVpnConnection'
+            $ref: '#/definitions/NbiVpnConnection'
         400:
           description: delete vpn connection failure as parameters invalid.
         401:
@@ -367,9 +337,7 @@ paths:
         200:
           description: deploy vpn connection success.
           schema:
-            type: object
-            items:
-              $ref: '#/definitions/NbiVpnConnection'
+            $ref: '#/definitions/NbiVpnConnection'
         400:
           description: deploy vpn connection failure as parameters invalid.
         401:
@@ -394,9 +362,7 @@ paths:
         200:
           description: undeploy vpn connection success.
           schema:
-            type: object
-            items:
-              $ref: '#/definitions/NbiVpnConnection'
+            $ref: '#/definitions/NbiVpnConnection'
         400:
           description: undeploy vpn connection failure as parameters invalid.
         401:
@@ -414,9 +380,7 @@ paths:
         200:
           description: query vpn gateways success.
           schema:
-            type: object
-            items:
-              $ref: '#/definitions/BatchQueryResultVpnGateway'
+            $ref: '#/definitions/BatchQueryResultVpnGateway'
         400:
           description: query vpn gateways failure as parameters invalid.
         401:
@@ -435,16 +399,12 @@ paths:
         description: vpn gateway object to be created.
         required: true
         schema:
-          type: object
-          items:
-            $ref: '#/definitions/NbiVpnGateway'
+          $ref: '#/definitions/NbiVpnGateway'
       responses:
         200:
           description: create vpn gateway success.
           schema:
-            type: object
-            items:
-              $ref: '#/definitions/NbiVpnGateway'
+            $ref: '#/definitions/NbiVpnGateway'
         400:
           description: create vpn gateway failure as parameters invalid.
         401:
@@ -469,9 +429,7 @@ paths:
         200:
           description: query vpn gateway success.
           schema:
-            type: object
-            items:
-              $ref: '#/definitions/NbiVpnGateway'
+            $ref: '#/definitions/NbiVpnGateway'
         400:
           description: query vpn gateway failure as parameters invalid.
         401:
@@ -495,9 +453,7 @@ paths:
         200:
           description: delete vpn gateway success.
           schema:
-            type: object
-            items:
-              $ref: '#/definitions/NbiVpnGateway'
+            $ref: '#/definitions/NbiVpnGateway'
         400:
           description: delete vpn gateway failure as parameters invalid.
         401:
@@ -522,16 +478,12 @@ paths:
         description: vpn gateway object to be modified.
         required: true
         schema:
-          type: object
-          items:
-            $ref: '#/definitions/NbiVpnGateway'
+          $ref: '#/definitions/NbiVpnGateway'
       responses:
         200:
           description: modify vpn gateway success.
           schema:
-            type: object
-            items:
-              $ref: '#/definitions/NbiVpnGateway'
+            $ref: '#/definitions/NbiVpnGateway'
         400:
           description: modify vpn gateway failure as parameters invalid.
         401:
@@ -616,6 +568,7 @@ definitions:
         type: array
         items:
           $ref: "#/definitions/NbiVpnGateway"
+
   NbiVpn:
     description: vpn model
     allOf:
@@ -670,7 +623,6 @@ definitions:
           type: string
         ext:
           type: string
-
 
   NbiVpnGateway:
     description: vpn gateway model
