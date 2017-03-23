@@ -1,0 +1,970 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Northbound Interface for OverlayVPN",
+    "version" : "1.0.0",
+    "title" : "OverlayVPN Service NBI",
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host" : "nbi-overlayvpn.open-o.org",
+  "basePath" : "/openoapi/sdnooverlay/v1",
+  "schemes" : [ "http" ],
+  "consumes" : [ "application/json;charset=UTF-8" ],
+  "produces" : [ "application/json;charset=UTF-8" ],
+  "paths" : {
+    "/vpns" : {
+      "get" : {
+        "summary" : "batch query vpn.",
+        "description" : "batch query vpn info.",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "query vpn success.",
+            "schema" : {
+              "$ref" : "#/definitions/BatchQueryResultVpn"
+            }
+          },
+          "400" : {
+            "description" : "query vpn failure as parameters invalid."
+          },
+          "401" : {
+            "description" : "unauthorized."
+          },
+          "404" : {
+            "description" : "query vpn failure as can't reach server."
+          },
+          "500" : {
+            "description" : "query vpn failure as inner error."
+          }
+        }
+      },
+      "post" : {
+        "summary" : "create vpn.",
+        "description" : "create vpn.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "vpn object to be created.",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/NbiVpn"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "create vpn success.",
+            "schema" : {
+              "$ref" : "#/definitions/NbiVpn"
+            }
+          },
+          "400" : {
+            "description" : "create vpn failure as parameters invalid."
+          },
+          "401" : {
+            "description" : "unauthorized."
+          },
+          "404" : {
+            "description" : "create vpn failure as can't reach server."
+          },
+          "500" : {
+            "description" : "create vpn failure as inner error."
+          }
+        }
+      }
+    },
+    "/vpns/{uuid}" : {
+      "get" : {
+        "summary" : "query vpn.",
+        "description" : "query vpn info.",
+        "parameters" : [ {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "vpn ID.",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "query vpn success.",
+            "schema" : {
+              "$ref" : "#/definitions/NbiVpn"
+            }
+          },
+          "400" : {
+            "description" : "query vpn failure as parameters invalid."
+          },
+          "401" : {
+            "description" : "unauthorized."
+          },
+          "404" : {
+            "description" : "query vpn failure as can't reach server."
+          },
+          "500" : {
+            "description" : "query vpn failure as inner error."
+          }
+        }
+      },
+      "put" : {
+        "summary" : "modify vpn.",
+        "description" : "modify vpn info.",
+        "parameters" : [ {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "vpn ID.",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "vpn object to be modified.",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/NbiVpn"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "update vpn success.",
+            "schema" : {
+              "$ref" : "#/definitions/NbiVpn"
+            }
+          },
+          "400" : {
+            "description" : "update vpn failure as parameters invalid."
+          },
+          "401" : {
+            "description" : "unauthorized."
+          },
+          "404" : {
+            "description" : "update vpn failure as can't reach server."
+          },
+          "500" : {
+            "description" : "update vpn failure as inner error."
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "delete vpn.",
+        "description" : "delete vpn.",
+        "parameters" : [ {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "vpn ID.",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "delete vpn success.",
+            "schema" : {
+              "$ref" : "#/definitions/NbiVpn"
+            }
+          },
+          "400" : {
+            "description" : "delete vpn failure as parameters invalid."
+          },
+          "401" : {
+            "description" : "unauthorized."
+          },
+          "404" : {
+            "description" : "delete vpn failure as can't reach server."
+          },
+          "500" : {
+            "description" : "delete vpn failure as inner error."
+          }
+        }
+      }
+    },
+    "/vpns/{uuid}/action/deploy" : {
+      "post" : {
+        "summary" : "deploy vpn.",
+        "description" : "deploy all connections in the vpn.",
+        "parameters" : [ {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "vpn ID.",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "deploy vpn success.",
+            "schema" : {
+              "$ref" : "#/definitions/NbiVpn"
+            }
+          },
+          "400" : {
+            "description" : "deploy vpn failure as parameters invalid."
+          },
+          "401" : {
+            "description" : "unauthorized."
+          },
+          "404" : {
+            "description" : "deploy vpn failure as can't reach server."
+          },
+          "500" : {
+            "description" : "deploy vpn failure as inner error."
+          }
+        }
+      }
+    },
+    "/vpns/{uuid}/action/undeploy" : {
+      "post" : {
+        "summary" : "undeploy vpn.",
+        "description" : "undeploy all connections in the vpn.",
+        "parameters" : [ {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "vpn ID.",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "undeploy vpn success.",
+            "schema" : {
+              "$ref" : "#/definitions/NbiVpn"
+            }
+          },
+          "400" : {
+            "description" : "undeploy vpn failure as parameters invalid."
+          },
+          "401" : {
+            "description" : "unauthorized."
+          },
+          "404" : {
+            "description" : "undeploy vpn failure as can't reach server."
+          },
+          "500" : {
+            "description" : "undeploy vpn failure as inner error."
+          }
+        }
+      }
+    },
+    "/vpn-connections" : {
+      "get" : {
+        "summary" : "batch query vpn connection",
+        "description" : "batch query vpn connection.",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "query vpn connection success.",
+            "schema" : {
+              "$ref" : "#/definitions/BatchQueryResultVpnConnection"
+            }
+          },
+          "400" : {
+            "description" : "query vpn connection failure as parameters invalid."
+          },
+          "401" : {
+            "description" : "unauthorized."
+          },
+          "404" : {
+            "description" : "query vpn connection failure as can't reach server."
+          },
+          "500" : {
+            "description" : "query vpn connection failure as inner error."
+          }
+        }
+      },
+      "post" : {
+        "summary" : "create vpn connection",
+        "description" : "create vpn connection.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "vpn connection object to be created.",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/NbiVpnConnection"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "create vpn connection success.",
+            "schema" : {
+              "type" : "object",
+              "properties" : { }
+            }
+          },
+          "400" : {
+            "description" : "create vpn connection failure as parameters invalid."
+          },
+          "401" : {
+            "description" : "unauthorized."
+          },
+          "404" : {
+            "description" : "create vpn connection failure as can't reach server."
+          },
+          "500" : {
+            "description" : "create vpn connection failure as inner error."
+          }
+        }
+      }
+    },
+    "/vpn-connections/{uuid}" : {
+      "get" : {
+        "summary" : "query single vpn connection",
+        "description" : "query single vpn connection.",
+        "parameters" : [ {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "vpn connection ID.",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "query vpn connection success.",
+            "schema" : {
+              "$ref" : "#/definitions/NbiVpnConnection"
+            }
+          },
+          "400" : {
+            "description" : "query vpn connection failure as parameters invalid."
+          },
+          "401" : {
+            "description" : "unauthorized."
+          },
+          "404" : {
+            "description" : "query vpn connection failure as can't reach server."
+          },
+          "500" : {
+            "description" : "query vpn connection failure as inner error."
+          }
+        }
+      },
+      "put" : {
+        "summary" : "modify vpn connection",
+        "description" : "modify vpn connection.",
+        "parameters" : [ {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "vpn connection ID.",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "vpn connection object to be modified.",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/NbiVpnConnection"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "modify vpn connection success.",
+            "schema" : {
+              "$ref" : "#/definitions/NbiVpnConnection"
+            }
+          },
+          "400" : {
+            "description" : "modify vpn connection failure as parameters invalid."
+          },
+          "401" : {
+            "description" : "unauthorized."
+          },
+          "404" : {
+            "description" : "modify vpn connection failure as can't reach server."
+          },
+          "500" : {
+            "description" : "modify vpn connection failure as inner error."
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "delete vpn connection",
+        "description" : "delete vpn connection.",
+        "parameters" : [ {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "vpn connection ID.",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "delete vpn connection success.",
+            "schema" : {
+              "$ref" : "#/definitions/NbiVpnConnection"
+            }
+          },
+          "400" : {
+            "description" : "delete vpn connection failure as parameters invalid."
+          },
+          "401" : {
+            "description" : "unauthorized."
+          },
+          "404" : {
+            "description" : "delete vpn connection failure as can't reach server."
+          },
+          "500" : {
+            "description" : "delete vpn connection failure as inner error."
+          }
+        }
+      }
+    },
+    "/vpn-connections/{uuid}/action/deploy" : {
+      "post" : {
+        "summary" : "deploy vpn connection.",
+        "description" : "deploy vpn connection.",
+        "parameters" : [ {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "vpn connection ID.",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "deploy vpn connection success.",
+            "schema" : {
+              "$ref" : "#/definitions/NbiVpnConnection"
+            }
+          },
+          "400" : {
+            "description" : "deploy vpn connection failure as parameters invalid."
+          },
+          "401" : {
+            "description" : "unauthorized."
+          },
+          "404" : {
+            "description" : "deploy vpn connection failure as can't reach server."
+          },
+          "500" : {
+            "description" : "deploy vpn connection failure as inner error."
+          }
+        }
+      }
+    },
+    "/vpn-connections/{uuid}/action/undeploy" : {
+      "post" : {
+        "summary" : "undeploy vpn connection.",
+        "description" : "undeploy vpn connection.",
+        "parameters" : [ {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "vpn connection ID.",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "undeploy vpn connection success.",
+            "schema" : {
+              "$ref" : "#/definitions/NbiVpnConnection"
+            }
+          },
+          "400" : {
+            "description" : "undeploy vpn connection failure as parameters invalid."
+          },
+          "401" : {
+            "description" : "unauthorized."
+          },
+          "404" : {
+            "description" : "undeploy vpn connection failure as can't reach server."
+          },
+          "500" : {
+            "description" : "undeploy vpn connection failure as inner error."
+          }
+        }
+      }
+    },
+    "/vpn-gateways" : {
+      "get" : {
+        "summary" : "batch query vpn gateways",
+        "description" : "batch query vpn gateways.",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "query vpn gateways success.",
+            "schema" : {
+              "$ref" : "#/definitions/BatchQueryResultVpnGateway"
+            }
+          },
+          "400" : {
+            "description" : "query vpn gateways failure as parameters invalid."
+          },
+          "401" : {
+            "description" : "unauthorized."
+          },
+          "404" : {
+            "description" : "query vpn gateways failure as can't reach server."
+          },
+          "500" : {
+            "description" : "query vpn gateways failure as inner error."
+          }
+        }
+      },
+      "post" : {
+        "summary" : "create vpn gateway",
+        "description" : "create vpn gateway.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "vpn gateway object to be created.",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/NbiVpnGateway"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "create vpn gateway success.",
+            "schema" : {
+              "$ref" : "#/definitions/NbiVpnGateway"
+            }
+          },
+          "400" : {
+            "description" : "create vpn gateway failure as parameters invalid."
+          },
+          "401" : {
+            "description" : "unauthorized."
+          },
+          "404" : {
+            "description" : "create vpn gateway failure as can't reach server."
+          },
+          "500" : {
+            "description" : "create vpn gateway failure as inner error."
+          }
+        }
+      }
+    },
+    "/vpn-gateways/{uuid}" : {
+      "get" : {
+        "summary" : "query single vpn gateway",
+        "description" : "query single vpn gateway.",
+        "parameters" : [ {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "vpn gateway ID.",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "query vpn gateway success.",
+            "schema" : {
+              "$ref" : "#/definitions/NbiVpnGateway"
+            }
+          },
+          "400" : {
+            "description" : "query vpn gateway failure as parameters invalid."
+          },
+          "401" : {
+            "description" : "unauthorized."
+          },
+          "404" : {
+            "description" : "query vpn gateway failure as can't reach server."
+          },
+          "500" : {
+            "description" : "query vpn gateway failure as inner error."
+          }
+        }
+      },
+      "put" : {
+        "summary" : "modify vpn gateway",
+        "description" : "modify vpn gateway.",
+        "parameters" : [ {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "vpn gateway ID.",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "vpn gateway object to be modified.",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/NbiVpnGateway"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "modify vpn gateway success.",
+            "schema" : {
+              "$ref" : "#/definitions/NbiVpnGateway"
+            }
+          },
+          "400" : {
+            "description" : "modify vpn gateway failure as parameters invalid."
+          },
+          "401" : {
+            "description" : "unauthorized."
+          },
+          "404" : {
+            "description" : "modify vpn gateway failure as can't reach server."
+          },
+          "500" : {
+            "description" : "modify vpn gateway failure as inner error."
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "delete vpn gateway",
+        "description" : "delete vpn gateway.",
+        "parameters" : [ {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "vpn gateway ID.",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "delete vpn gateway success.",
+            "schema" : {
+              "$ref" : "#/definitions/NbiVpnGateway"
+            }
+          },
+          "400" : {
+            "description" : "delete vpn gateway failure as parameters invalid."
+          },
+          "401" : {
+            "description" : "unauthorized."
+          },
+          "404" : {
+            "description" : "delete vpn gateway failure as can't reach server."
+          },
+          "500" : {
+            "description" : "delete vpn gateway failure as inner error."
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "BatchQueryResultVpn" : {
+      "type" : "object",
+      "properties" : {
+        "total" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The total number of query result"
+        },
+        "pagesize" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The size of page"
+        },
+        "totalPageNum" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The total number of page"
+        },
+        "currentPage" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The current page number"
+        },
+        "objects" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/NbiVpn"
+          }
+        }
+      },
+      "description" : "vpn batch query result model"
+    },
+    "BatchQueryResultVpnConnection" : {
+      "type" : "object",
+      "properties" : {
+        "total" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The total number of query result"
+        },
+        "pagesize" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The size of page"
+        },
+        "totalPageNum" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The total number of page"
+        },
+        "currentPage" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The current page number"
+        },
+        "objects" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/NbiVpnConnection"
+          }
+        }
+      },
+      "description" : "vpn connection batch query result model"
+    },
+    "BatchQueryResultVpnGateway" : {
+      "type" : "object",
+      "properties" : {
+        "total" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The total number of query result"
+        },
+        "pagesize" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The size of page"
+        },
+        "totalPageNum" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The total number of page"
+        },
+        "currentPage" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The current page number"
+        },
+        "objects" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/NbiVpnGateway"
+          }
+        }
+      },
+      "description" : "vpn gateway batch query result model"
+    },
+    "NbiVpn" : {
+      "allOf" : [ {
+        "$ref" : "#/definitions/ServiceModel"
+      }, {
+        "type" : "object",
+        "properties" : {
+          "vpnConnections" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/NbiVpnConnection"
+            }
+          },
+          "vpnGateways" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/NbiVpnGateway"
+            }
+          },
+          "siteList" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "siteId list"
+            }
+          },
+          "vpcList" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "vpcId list"
+            }
+          },
+          "ext" : {
+            "type" : "string"
+          },
+          "vpnDescriptor" : {
+            "type" : "string",
+            "description" : "vpn template name"
+          }
+        }
+      } ],
+      "description" : "vpn model"
+    },
+    "NbiVpnConnection" : {
+      "allOf" : [ {
+        "$ref" : "#/definitions/NbiServiceConnection"
+      }, {
+        "type" : "object",
+        "properties" : {
+          "vpnId" : {
+            "type" : "string"
+          },
+          "routeType" : {
+            "type" : "string"
+          },
+          "aEndVpnGatewayId" : {
+            "type" : "string",
+            "format" : "uuid"
+          },
+          "zEndVpnGatewayId" : {
+            "type" : "string",
+            "format" : "uuid"
+          },
+          "aEndVpnGateway" : {
+            "$ref" : "#/definitions/NbiVpnGateway"
+          },
+          "zEndVpnGateway" : {
+            "$ref" : "#/definitions/NbiVpnGateway"
+          },
+          "vni" : {
+            "type" : "string"
+          },
+          "ext" : {
+            "type" : "string"
+          }
+        }
+      } ],
+      "description" : "vpn connection model"
+    },
+    "NbiVpnGateway" : {
+      "allOf" : [ {
+        "$ref" : "#/definitions/ServiceModel"
+      }, {
+        "type" : "object",
+        "properties" : {
+          "vpnId" : {
+            "type" : "string"
+          },
+          "siteId" : {
+            "type" : "string"
+          },
+          "vpcId" : {
+            "type" : "string"
+          },
+          "deployPosition" : {
+            "type" : "string"
+          },
+          "upstreamBandwidth" : {
+            "type" : "string"
+          },
+          "downstreamBandwidth" : {
+            "type" : "string"
+          },
+          "ext" : {
+            "type" : "string"
+          },
+          "ports" : {
+            "type" : "array",
+            "description" : "uuid list of LAN ports",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "portNames" : {
+            "type" : "array",
+            "description" : "name list of LAN ports",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "subnets" : {
+            "type" : "array",
+            "description" : "uuid list of LAN subnets",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "vpnDescriptor" : {
+            "type" : "string",
+            "description" : "vpn template name"
+          },
+          "regionId" : {
+            "type" : "string",
+            "description" : "The region uuid"
+          }
+        }
+      } ],
+      "description" : "vpn gateway model"
+    },
+    "NbiServiceConnection" : {
+      "allOf" : [ {
+        "$ref" : "#/definitions/NbiBaseConnection"
+      }, {
+        "type" : "object",
+        "properties" : {
+          "technologys" : {
+            "type" : "string"
+          },
+          "netConnections" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/NbiNetConnection"
+            }
+          }
+        }
+      } ],
+      "description" : "service connection model"
+    },
+    "NbiNetConnection" : {
+      "allOf" : [ {
+        "$ref" : "#/definitions/NbiBaseConnection"
+      }, {
+        "type" : "object",
+        "properties" : {
+          "type" : {
+            "type" : "string"
+          },
+          "srcNeId" : {
+            "type" : "string"
+          },
+          "destNeId" : {
+            "type" : "string"
+          },
+          "srcNeRole" : {
+            "type" : "string"
+          },
+          "destNeRole" : {
+            "type" : "string"
+          },
+          "connectionId" : {
+            "type" : "string"
+          },
+          "srcPortName" : {
+            "type" : "string"
+          },
+          "destPortName" : {
+            "type" : "string"
+          }
+        }
+      } ],
+      "description" : "netconnection model"
+    },
+    "NbiBaseConnection" : {
+      "allOf" : [ {
+        "$ref" : "#/definitions/ServiceModel"
+      }, {
+        "type" : "object"
+      } ],
+      "description" : "base connection model"
+    },
+    "ServiceModel" : {
+      "allOf" : [ {
+        "$ref" : "#/definitions/BaseModel"
+      }, {
+        "type" : "object"
+      } ],
+      "description" : "base model"
+    },
+    "BaseModel" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid"
+        }
+      },
+      "description" : "base model"
+    }
+  }
+}

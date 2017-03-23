@@ -14,7 +14,6 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:osgi="http://www.springframework.org/schema/osgi" xmlns:context="http://www.springframework.org/schema/context"
     xmlns:jaxrs="http://cxf.apache.org/jaxrs"
@@ -56,50 +55,51 @@
     </bean>
     <bean id="InternalVpnConnectionServiceImpl" class="org.openo.sdno.overlayvpn.site2dc.service.impl.InternalVpnConnectionServiceImpl">
     </bean>
-    
+
     <bean id="TemplateRoaResource" class="org.openo.sdno.overlayvpn.rest.TemplateRoaResource">
         <property name="service" ref="TemplateServiceImpl" />
     </bean>
     <bean id="TemplateServiceImpl" class="org.openo.sdno.overlayvpn.site2dc.service.impl.TemplateServiceImpl">
     </bean>
-    
+
     <bean id="VpnConnectionRoaResource" class="org.openo.sdno.overlayvpn.rest.VpnConnectionRoaResource">
         <property name="service" ref="VpnConnectionServiceImpl" />
     </bean>
     <bean id="VpnConnectionServiceImpl" class="org.openo.sdno.overlayvpn.site2dc.service.impl.VpnConnectionServiceImpl">
     </bean>
-    
+
     <bean id="VpnGatewayRoaResource" class="org.openo.sdno.overlayvpn.rest.VpnGatewayRoaResource">
         <property name="service" ref="VpnGatewayServiceImpl" />
     </bean>
     <bean id="VpnGatewayServiceImpl" class="org.openo.sdno.overlayvpn.site2dc.service.impl.VpnGatewayServiceImpl">
     </bean>
-    
+
     <bean id="VpnLinksRoaResource" class="org.openo.sdno.overlayvpn.rest.VpnLinksRoaResource">
         <property name="service" ref="VpnLinksServiceImpl" />
     </bean>
     <bean id="VpnLinksServiceImpl" class="org.openo.sdno.overlayvpn.site2dc.service.impl.VpnLinksServiceImpl">
     </bean>
-    
+
     <bean id="VpnRoaResource" class="org.openo.sdno.overlayvpn.rest.VpnRoaResource">
         <property name="service" ref="VpnServiceImpl" />
     </bean>
     <bean id="VpnServiceImpl" class="org.openo.sdno.overlayvpn.site2dc.service.impl.VpnServiceImpl">
     </bean>
-    
+
     <bean id="VpnRouteRoaResource" class="org.openo.sdno.overlayvpn.rest.VpnRouteRoaResource">
         <property name="service" ref="VpnRouteServiceImpl" />
     </bean>
     <bean id="VpnRouteServiceImpl" class="org.openo.sdno.overlayvpn.site2dc.service.impl.VpnRouteServiceImpl">
     </bean>
-    
+
     <bean id="siteToDcRoaResource" class="org.openo.sdno.overlayvpn.rest.SiteToDcRoaResource">
         <property name="service" ref="siteToDcService" />
     </bean>
 
     <bean id="swaggerRoa" class="org.openo.sdno.overlayvpn.rest.SwaggerRoa">
+        <property name="swaggerFilePath" value="docs/swagger.json"></property>
     </bean>
-    
+
     <bean id="overlayHealthCheckResource" class="org.openo.sdno.overlayvpn.rest.OverlayHealthCheckResource">
     </bean>
 
