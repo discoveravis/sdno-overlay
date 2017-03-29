@@ -230,7 +230,7 @@ public class InternalConnectionRoaResourceTest {
 
         @Mock
         public Template getTemplate(String templateName) throws ServiceException {
-            File file = new File("src/test/resources/enterprise_l2cpe_EthernetNetwork.json");
+            File file = new File("src/test/resources/IpSec_EthernetNetwork.json");
             TemplateObject templateObject = JsonUtil.fromJson(FileUtils.readFile(file), TemplateObject.class);
 
             Template template = new Template(templateObject);

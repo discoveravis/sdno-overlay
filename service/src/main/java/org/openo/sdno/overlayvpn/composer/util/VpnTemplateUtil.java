@@ -28,14 +28,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.exception.InnerErrorServiceException;
 import org.openo.sdno.overlayvpn.composer.TemplateManager;
-import org.openo.sdno.overlayvpn.frame.dao.BaseDao;
 import org.openo.sdno.overlayvpn.model.v2.overlay.NbiNetConnection;
-import org.openo.sdno.overlayvpn.model.v2.overlay.NbiVpn;
-import org.openo.sdno.overlayvpn.model.v2.overlay.NbiVpnConnection;
-import org.openo.sdno.overlayvpn.servicemodel.base.BaseSite;
-import org.openo.sdno.overlayvpn.servicemodel.base.VpnSite;
 import org.openo.sdno.overlayvpn.servicemodel.db.InternalVpnConnection;
-import org.openo.sdno.overlayvpn.servicemodel.enums.Reliability;
 import org.openo.sdno.overlayvpn.servicemodel.template.Sap;
 import org.openo.sdno.overlayvpn.servicemodel.template.Template;
 import org.openo.sdno.overlayvpn.servicemodel.template.TemplateConnection;
@@ -55,39 +49,6 @@ public class VpnTemplateUtil {
 
     private VpnTemplateUtil() {
         super();
-    }
-
-    /**
-     * Get template list through vpn connection and site.<br>
-     * 
-     * @param connection The vpn connection
-     * @param aEndSite The a end site
-     * @param zEndSite The z end site
-     * @return The template list
-     * @throws ServiceException when the both site is not vpn site or reliability type invalid or
-     *             query vpn failed
-     * @since SDNO 0.5
-     */
-    public static Template[] getTemplate(NbiVpnConnection connection, BaseSite aEndSite, BaseSite zEndSite)
-            throws ServiceException {
-        if((!(aEndSite instanceof VpnSite)) && (!(zEndSite instanceof VpnSite))) {
-            LOGGER.error("Connection.getTemplate.error,both site is not vpn site,model invalid.");
-            throw new InnerErrorServiceException(
-                    "Connection.getTemplate.error,both site is not vpn site,model invalid.");
-        }
-        String aEndModel = (aEndSite instanceof VpnSite) ? ((VpnSite)aEndSite).getReliability()
-                : ((VpnSite)zEndSite).getReliability();
-        String zEndModel = (zEndSite instanceof VpnSite) ? ((VpnSite)zEndSite).getReliability()
-                : ((VpnSite)aEndSite).getReliability();
-        Reliability aEndReliability = Reliability.getReliability(aEndModel);
-        Reliability zEndReliability = Reliability.getReliability(zEndModel);
-
-        NbiVpn vpn = new BaseDao<NbiVpn>().query(connection.getVpnId(), NbiVpn.class);
-        String descriptor = vpn.getVpnDescriptor();
-        Template[] templates = new Template[2];
-        templates[0] = TemplateManager.getInstance().getTemplate(aEndReliability.getTemplate(descriptor));
-        templates[1] = TemplateManager.getInstance().getTemplate(zEndReliability.getTemplate(descriptor));
-        return templates;
     }
 
     /**

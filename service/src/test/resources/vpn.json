@@ -3,6 +3,6 @@
 	"description": "create test",
 	"id": "vpnId",
 	"operationStatus":"normal",
-	"vpnDescriptor": "enterprise_l2cpe"
+	"vpnDescriptor": "IpSec"
 }
 

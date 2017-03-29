@@ -23,5 +23,5 @@ package org.openo.sdno.overlayvpn.servicemodel.enums;
  * @version SDNO 0.5 Jan 24, 2017
  */
 public enum ConnectionType {
-    SITE2SITE, SITE2DC, SITE2INTERNET
+    SITE2SITE, SITE2DC, SITE2INTERNET, DC2DC, SITE2DC_NOIPSEC
 }

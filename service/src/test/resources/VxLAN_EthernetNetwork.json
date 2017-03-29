@@ -1,6 +1,6 @@
 {
-	"name": "enterprise_l2cpe_EthernetNetwork",
-	"description": "enterprise_l2cpe_EthernetNetwork",
+	"name": "VxLAN_EthernetNetwork",
+	"description": "VxLAN_EthernetNetwork",
 	"type": "overlayvpn",
 	"createdBy": "",
 	"createDate": "",
@@ -568,7 +568,7 @@
 				"maxCardinality": 0,
 				"charOrder": 0,
 				"specList": [{
-					"name": "src_node",
+					"name": "hubNode",
 					"type": "sap",
 					"serviceID": 0,
 					"minCardinality": 0,
@@ -587,8 +587,8 @@
 					{
 						"name": "role",
 						"type": "enum",
-						"value": "src",
-						"valueRange": "[src,snk]",
+						"value": "hub",
+						"valueRange": "[spoker,hub]",
 						"serviceID": 0,
 						"minCardinality": 0,
 						"maxCardinality": 0,
@@ -605,7 +605,7 @@
 					}]
 				},
 				{
-					"name": "snk_node",
+					"name": "spokerNode",
 					"type": "sap",
 					"serviceID": 0,
 					"minCardinality": 0,
@@ -624,8 +624,8 @@
 					{
 						"name": "role",
 						"type": "enum",
-						"value": "snk",
-						"valueRange": "[src,snk]",
+						"value": "spoker",
+						"valueRange": "[spoker,hub]",
 						"serviceID": 0,
 						"minCardinality": 0,
 						"maxCardinality": 0,
@@ -636,7 +636,7 @@
 			"fieldList": [{
 				"name": "technology",
 				"type": "enum",
-				"value": "ipsec",
+				"value": "vxlan",
 				"valueRange": "[gre,ipsec,vxlan]",
 				"serviceID": 0,
 				"minCardinality": 0,
@@ -646,7 +646,7 @@
 			{
 				"name": "topology",
 				"type": "enum",
-				"value": "point_to_point",
+				"value": "hub_spoker",
 				"valueRange": "[point_to_point,full_mesh,hub_spoker]",
 				"serviceID": 0,
 				"minCardinality": 0,

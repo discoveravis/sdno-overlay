@@ -24,20 +24,24 @@ import org.apache.commons.lang.StringUtils;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.exception.InnerErrorServiceException;
 import org.openo.sdno.overlayvpn.brs.model.NetworkElementMO;
-import org.openo.sdno.overlayvpn.composer.ParamConsts;
+import org.openo.sdno.overlayvpn.composer.TemplateManager;
 import org.openo.sdno.overlayvpn.composer.model.ConnectionTopology;
 import org.openo.sdno.overlayvpn.composer.model.NeConnection;
 import org.openo.sdno.overlayvpn.frame.dao.BaseDao;
 import org.openo.sdno.overlayvpn.model.v2.overlay.NbiServiceConnection;
+import org.openo.sdno.overlayvpn.model.v2.overlay.NbiVpn;
 import org.openo.sdno.overlayvpn.model.v2.overlay.NbiVpnConnection;
 import org.openo.sdno.overlayvpn.model.v2.overlay.NbiVpnGateway;
+import org.openo.sdno.overlayvpn.model.v2.overlay.Site2DCVpnType;
 import org.openo.sdno.overlayvpn.servicemodel.base.BaseSite;
 import org.openo.sdno.overlayvpn.servicemodel.base.Vpc;
 import org.openo.sdno.overlayvpn.servicemodel.base.VpnSite;
 import org.openo.sdno.overlayvpn.servicemodel.db.InternalVpnConnection;
 import org.openo.sdno.overlayvpn.servicemodel.enums.ConnectionType;
 import org.openo.sdno.overlayvpn.servicemodel.enums.CpeRole;
+import org.openo.sdno.overlayvpn.servicemodel.enums.Reliability;
 import org.openo.sdno.overlayvpn.servicemodel.template.Template;
+import org.openo.sdno.overlayvpn.util.json.JsonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -90,15 +94,19 @@ public class SiteModelConverter {
         NbiVpnGateway zEndVpnGateway = getVpnGateway(connection.getzEndVpnGatewayId());
         BaseSite zEndSite = getBaseSite(zEndVpnGateway);
 
-        Template[] templates = VpnTemplateUtil.getTemplate(connection, aEndSite, zEndSite);
-        NeConnection res = new NeConnection(connection);
-        res.setSrc(null, null, aEndSite, aEndVpnGateway, templates[0]);
-        res.setDest(null, null, zEndSite, zEndVpnGateway, templates[1]);
+        NbiVpn vpn = new BaseDao<NbiVpn>().query(connection.getVpnId(), NbiVpn.class);
+        String descriptor = vpn.getVpnDescriptor();
 
-        ConnectionTopology connectionEnds = getTopology(aEndVpnGateway, zEndVpnGateway, templates[0]);
-        if(ConnectionType.SITE2DC.equals(connectionEnds.getType())) {
-            neConnections.addAll(buildNeConnectionDc(res, connectionEnds));
-        }
+        Reliability reliability = Reliability.getReliability("EthernetNetwork");
+        Template template = TemplateManager.getInstance().getTemplate(reliability.getTemplate(descriptor));
+
+        NeConnection res = new NeConnection(connection);
+        res.setSrc(null, null, aEndSite, aEndVpnGateway, template);
+        res.setDest(null, null, zEndSite, zEndVpnGateway, template);
+
+        ConnectionTopology connectionEnds = getTopology(aEndVpnGateway, zEndVpnGateway, template, descriptor);
+        neConnections.addAll(buildNeConnectionDc(res, connectionEnds));
+        LOGGER.info("The connections are :" + JsonUtils.toJson(neConnections));
         return neConnections;
     }
 
@@ -152,19 +160,26 @@ public class SiteModelConverter {
                         + ",neId = " + neId);
     }
 
-    private static ConnectionTopology getTopology(NbiVpnGateway aEndGw, NbiVpnGateway zEndGw, Template template)
-            throws ServiceException {
+    private static ConnectionTopology getTopology(NbiVpnGateway aEndGw, NbiVpnGateway zEndGw, Template template,
+            String descriptor) throws ServiceException {
         ConnectionTopology ce = new ConnectionTopology();
 
-        CpeRole dcGw = CpeRole.getCpeRole(template.getGwPolicy().get(ParamConsts.SITE_DC_VPNGW));
-        if(dcGw == null) {
-            dcGw = CpeRole.CLOUDCPE;
+        if(StringUtils.isNotEmpty(aEndGw.getVpcId()) && StringUtils.isNotEmpty(zEndGw.getVpcId())) {
+            ce.setSrcRole(CpeRole.VPC);
+            ce.setDestRole(CpeRole.VPC);
+            ce.setType(ConnectionType.DC2DC);
+            return ce;
         }
+
         if((StringUtils.isNotEmpty(aEndGw.getVpcId()) && StringUtils.isNotEmpty(zEndGw.getSiteId()))
                 || (StringUtils.isNotEmpty(zEndGw.getVpcId()) && StringUtils.isNotEmpty(aEndGw.getSiteId()))) {
-            ce.setSrcRole(dcGw);
+            ce.setSrcRole(CpeRole.CLOUDCPE);
             ce.setDestRole(CpeRole.VPC);
-            ce.setType(ConnectionType.SITE2DC);
+            if(Site2DCVpnType.IPSEC.getName().equals(descriptor)) {
+                ce.setType(ConnectionType.SITE2DC);
+            } else {
+                ce.setType(ConnectionType.SITE2DC_NOIPSEC);
+            }
             return ce;
         }
         LOGGER.error("vpnsite.getTopology.error,VpnGateway do not match site2dc,uuid1=" + aEndGw.getId() + ",uuid2="
@@ -188,10 +203,13 @@ public class SiteModelConverter {
 
         List<NeConnection> neConnections = new ArrayList<>();
 
-        NeConnection neConnection = new NeConnection(connection);
-        neConnection.setSrc(cpeId, connectionEnds.getSrcRole().getRole(), cpeSite, cpeGateway, template);
-        neConnection.setDest(vpcId, connectionEnds.getDestRole().getRole(), vpcSite, vpcGateway, template);
-        neConnections.add(neConnection);
+        if(connectionEnds.getType().equals(ConnectionType.DC2DC)
+                || connectionEnds.getType().equals(ConnectionType.SITE2DC)) {
+            NeConnection neConnection = new NeConnection(connection);
+            neConnection.setSrc(cpeId, connectionEnds.getSrcRole().getRole(), cpeSite, cpeGateway, template);
+            neConnection.setDest(vpcId, connectionEnds.getDestRole().getRole(), vpcSite, vpcGateway, template);
+            neConnections.add(neConnection);
+        }
 
         if(CpeRole.CLOUDCPE == connectionEnds.getSrcRole()) {
             String localCPEId = getVpnGatewayCPE(cpeSite, CpeRole.LOCALCPE);

@@ -9,7 +9,7 @@
 			"name": "test_name",
 			"description": "create test",
 			"id": "test_uuid",
-			"vpnDescriptor": "enterprise_l2cpe"
+			"vpnDescriptor": "VxLAN"
 		}
 	},
 	"response": {
