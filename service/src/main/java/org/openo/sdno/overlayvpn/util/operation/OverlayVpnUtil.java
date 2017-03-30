@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,8 +28,6 @@ import org.openo.sdno.overlayvpn.model.servicemodel.OverlayVpn;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
 import org.openo.sdno.overlayvpn.util.check.EnumsUtils;
 import org.openo.sdno.overlayvpn.util.exception.ThrowOverlayVpnExcpt;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
@@ -39,8 +37,6 @@ import org.springframework.util.StringUtils;
  * @version SDNO 0.5 06-May-2016
  */
 public class OverlayVpnUtil {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(OverlayVpnUtil.class);
 
     private OverlayVpnUtil() {
     }

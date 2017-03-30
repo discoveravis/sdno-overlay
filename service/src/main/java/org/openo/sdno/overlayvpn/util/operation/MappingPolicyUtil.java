@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,6 @@ import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.overlayvpn.consts.CommConst;
 import org.openo.sdno.overlayvpn.model.common.enums.MappingPolicyType;
 import org.openo.sdno.overlayvpn.model.servicemodel.mappingpolicy.BaseMappingPolicy;
-import org.openo.sdno.overlayvpn.model.servicemodel.mappingpolicy.GreMappingPolicy;
 import org.openo.sdno.overlayvpn.model.servicemodel.mappingpolicy.IpsecMappingPolicy;
 import org.openo.sdno.overlayvpn.model.servicemodel.mappingpolicy.VxlanMappingPolicy;
 import org.openo.sdno.overlayvpn.util.check.EnumsUtils;
@@ -167,44 +166,6 @@ public class MappingPolicyUtil {
             }
 
             mappingPolicy.setDescription(description);
-        }
-    }
-
-    private static void mergeGreMappingPolicy(GreMappingPolicy mergedGreMappingPolicy,
-            Map<String, String> updateNameValueMap) throws ServiceException {
-        // greTunnelKey
-        String greTunnelKey = updateNameValueMap.get("greTunnelKey");
-        if(StringUtils.hasLength(greTunnelKey)) {
-            try {
-                long tempGreKey = Integer.valueOf(greTunnelKey);
-                if((tempGreKey < 0) || (tempGreKey > CommConst.GRE_TUNNEL_KEY_MAX)) {
-                    ThrowOverlayVpnExcpt.throwParmaterInvalid("greTunnelKey", greTunnelKey);
-                }
-                mergedGreMappingPolicy.setGreTunnelKey(greTunnelKey);
-            } catch(NumberFormatException e) {
-                LOGGER.error("greTunnelKey is not a number, greTunnelKey = " + greTunnelKey);
-                ThrowOverlayVpnExcpt.throwParmaterInvalid("greTunnelKey", greTunnelKey);
-            }
-        }
-
-        // authMode
-        String authMode = updateNameValueMap.get("authMode");
-        if(StringUtils.hasLength(authMode)) {
-            if(!EnumsUtils.isAuthModeValid(authMode)) {
-                ThrowOverlayVpnExcpt.throwParmaterInvalid("authMode", authMode);
-            }
-
-            mergedGreMappingPolicy.setAuthMode(authMode);
-        }
-
-        // psk
-        String psk = updateNameValueMap.get("psk");
-        if(StringUtils.hasLength(psk)) {
-            if(psk.length() > CommConst.PSK_MAX_LENGTH) {
-                ThrowOverlayVpnExcpt.throwParmaterInvalid("psk", psk);
-            }
-
-            mergedGreMappingPolicy.setPsk(psk);
         }
     }
 

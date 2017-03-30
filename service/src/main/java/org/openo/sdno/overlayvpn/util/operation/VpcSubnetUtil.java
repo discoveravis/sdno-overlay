@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,8 +20,6 @@ import org.openo.sdno.overlayvpn.model.servicemodel.SiteToDc;
 import org.openo.sdno.overlayvpn.model.servicemodel.SubNet;
 import org.openo.sdno.overlayvpn.model.servicemodel.Vpc;
 import org.openo.sdno.overlayvpn.model.servicemodel.VpcSubNetMapping;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Utility class of VPC and subnet.<br>
@@ -30,8 +28,6 @@ import org.slf4j.LoggerFactory;
  * @version SDNO 0.5 August 24, 2016
  */
 public class VpcSubnetUtil {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(VpcSubnetUtil.class);
 
     private VpcSubnetUtil() {
     }

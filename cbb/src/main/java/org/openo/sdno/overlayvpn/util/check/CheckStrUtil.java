@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -61,27 +61,6 @@ public class CheckStrUtil {
 
     private static final String PARAMETER_INVALID_RANGE_REASON =
             ResourceUtil.getMessage("parameter.invalid.range.reason");
-
-    private static final String PARAMETER_INVALID_IPSEGMENT = ResourceUtil.getMessage("parameter.invalid.ipsegment");
-
-    private static final String PARAMETER_INVALID_IPSEGMENT_REASON =
-            ResourceUtil.getMessage("parameter.invalid.ipsegment.reason");
-
-    private static final String PARAMETER_INVALID_BANDWIDTH = ResourceUtil.getMessage("parameter.invalid.bandwidth");
-
-    private static final String PARAMETER_INVALID_BANDWIDTH_REASON =
-            ResourceUtil.getMessage("parameter.invalid.bandwidth.reason");
-
-    private static final String PARAMETER_INVALID_STATICROUTE =
-            ResourceUtil.getMessage("parameter.invalid.staticroute");
-
-    private static final String PARAMETER_INVALID_STATICROUTE_REASON =
-            ResourceUtil.getMessage("parameter.invalid.staticroute.reason");
-
-    private static final String PARAMETER_INVALID_BGPEER = ResourceUtil.getMessage("parameter.invalid.bgpeer");
-
-    private static final String PARAMETER_INVALID_BGPEER_REASON =
-            ResourceUtil.getMessage("parameter.invalid.bgpeer.reason");
 
     private CheckStrUtil() {
     }

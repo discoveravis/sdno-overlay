@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,6 @@ import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.overlayvpn.consts.CommConst;
 import org.openo.sdno.overlayvpn.errorcode.ErrorCode;
-import org.openo.sdno.overlayvpn.model.common.enums.TechnologyType;
 import org.openo.sdno.overlayvpn.model.common.enums.topo.TopologyRole;
 import org.openo.sdno.overlayvpn.model.servicemodel.Connection;
 import org.openo.sdno.overlayvpn.model.servicemodel.EndpointGroup;
@@ -33,8 +32,6 @@ import org.openo.sdno.overlayvpn.result.ResultRsp;
 import org.openo.sdno.overlayvpn.util.check.EnumsUtils;
 import org.openo.sdno.overlayvpn.util.check.UuidUtil;
 import org.openo.sdno.overlayvpn.util.exception.ThrowOverlayVpnExcpt;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
@@ -47,8 +44,6 @@ import org.springframework.util.StringUtils;
  * @version SDNO 0.5 06-May-2016
  */
 public class ConnectionUtil {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(ConnectionUtil.class);
 
     private ConnectionUtil() {
     }
@@ -76,98 +71,6 @@ public class ConnectionUtil {
         }
 
         return JsonUtil.toJson(filterMap);
-    }
-
-    /**
-     * First step to build Filter map.<br>
-     * 
-     * @param filterMap filter map of query
-     * @param name resource name
-     * @param description resource description
-     * @param adminStatus Administrative status
-     * @param operStatus Operation Status
-     * @throws ServiceException when data is invalid
-     * @since SDNO 0.5
-     */
-    private static void doBuildFilterMap(Map<String, Object> filterMap, String name, String description,
-            String adminStatus, String operStatus) throws ServiceException {
-        // name
-        if(StringUtils.hasLength(name) && (name.length() > CommConst.NAME_MAX_LENGTH)) {
-            ThrowOverlayVpnExcpt.throwParmaterInvalid("name", name);
-        }
-        if(StringUtils.hasLength(name)) {
-            filterMap.put("name", Arrays.asList(name));
-        }
-
-        // description
-        if(StringUtils.hasLength(description) && (description.length() > CommConst.DESCRIPTION_MAX_LENGTH)) {
-            ThrowOverlayVpnExcpt.throwParmaterInvalid("description", description);
-        }
-        if(StringUtils.hasLength(description)) {
-            filterMap.put("description", Arrays.asList(description));
-        }
-
-        // adminStatus
-        if(StringUtils.hasLength(adminStatus) && !EnumsUtils.isAdminStatusValid(adminStatus)) {
-            ThrowOverlayVpnExcpt.throwParmaterInvalid("adminStatus", adminStatus);
-        }
-        if(StringUtils.hasLength(adminStatus)) {
-            filterMap.put("adminStatus", Arrays.asList(adminStatus));
-        }
-
-        // operStatus
-        if(StringUtils.hasLength(operStatus) && !EnumsUtils.isOperStatusValid(operStatus)) {
-            ThrowOverlayVpnExcpt.throwParmaterInvalid("operStatus", operStatus);
-        }
-        if(StringUtils.hasLength(operStatus)) {
-            filterMap.put("operStatus", Arrays.asList(operStatus));
-        }
-    }
-
-    /**
-     * Second step to build Filter map.<br>
-     * 
-     * @param filterMap filter map of query
-     * @param overlayVpnId OverlayVpn id
-     * @param topology topology value
-     * @param technology technology value
-     * @param mappingPolicyId mappingPolicy id
-     * @throws ServiceException when data is invalid
-     * @since SDNO 0.5
-     */
-    private static void doBuildFilterMap2(Map<String, Object> filterMap, String overlayVpnId, String topology,
-            String technology, String mappingPolicyId) throws ServiceException {
-        // overlayVpnId
-        if(StringUtils.hasLength(overlayVpnId) && !UuidUtil.validate(overlayVpnId)) {
-            ThrowOverlayVpnExcpt.throwParmaterInvalid("overlayVpnId", overlayVpnId);
-        }
-        if(StringUtils.hasLength(overlayVpnId)) {
-            filterMap.put("overlayVpnId", Arrays.asList(overlayVpnId));
-        }
-
-        // topology
-        if(StringUtils.hasLength(topology) && !EnumsUtils.isTopologyValid(topology)) {
-            ThrowOverlayVpnExcpt.throwParmaterInvalid("topology", topology);
-        }
-        if(StringUtils.hasLength(topology)) {
-            filterMap.put("topology", Arrays.asList(topology));
-        }
-
-        // technology
-        if(StringUtils.hasLength(technology) && !TechnologyType.validateName(technology)) {
-            ThrowOverlayVpnExcpt.throwParmaterInvalid("technology", technology);
-        }
-        if(StringUtils.hasLength(technology)) {
-            filterMap.put("technology", Arrays.asList(technology));
-        }
-
-        // mappingPolicyId
-        if(StringUtils.hasLength(mappingPolicyId) && !UuidUtil.validate(mappingPolicyId)) {
-            ThrowOverlayVpnExcpt.throwParmaterInvalid("mappingPolicyId", mappingPolicyId);
-        }
-        if(StringUtils.hasLength(mappingPolicyId)) {
-            filterMap.put("mappingPolicyId", Arrays.asList(mappingPolicyId));
-        }
     }
 
     /**

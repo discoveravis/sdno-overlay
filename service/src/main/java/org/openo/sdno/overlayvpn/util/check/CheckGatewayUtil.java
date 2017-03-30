@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,13 +50,6 @@ public class CheckGatewayUtil {
 
         // Check whether resource exists in database
         checkResourceInGateway(gateway);
-    }
-
-    private static void checkModelData(Gateway gateway) throws ServiceException {
-
-        ValidationUtil.validateModel(gateway);
-
-        LOGGER.info("Check gateway model OK, name = " + gateway.getName());
     }
 
     /**

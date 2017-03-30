@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -367,7 +367,6 @@ public class PuerInvServiceNbiBean extends PuerInvSuperNbiBean {
      *             if delete resources failed.
      * @since SDNO 0.5
      */
-    @SuppressWarnings("unchecked")
     public InvRsp<List<Map<String, Object>>> batchDelete(String resType, List<String> uuidList)
             throws ServiceException {
         InvRsp<List<Map<String, Object>>> responseValue = null;
