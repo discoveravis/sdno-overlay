@@ -47,6 +47,11 @@ public class SbiIp extends UuidModel {
         super();
     }
 
+    public SbiIp(String ipv4) {
+        super();
+        this.ipv4 = ipv4;
+    }
+
     public SbiIp(String ipv4, String ipMask) {
         this();
         this.ipv4 = ipv4;
