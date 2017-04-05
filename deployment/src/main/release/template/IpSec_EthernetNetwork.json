@@ -1,824 +1,833 @@
 {
-	"name": "IpSec_EthernetNetwork",
-	"description": "IpSec_EthernetNetwork",
-	"type": "overlayvpn",
-	"createdBy": "",
-	"createDate": "",
-	"specList": [{
-		"name": "cloudCpeInfo",
-		"serviceID": 0,
-		"minCardinality": 0,
-		"maxCardinality": 0,
-		"charOrder": 0,
-		"fieldList": [{
-			"name": "deviceTypeCode",
-			"type": "string",
-			"value": "88032VRE",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		},
-		{
-			"name": "allocatePolicy",
-			"type": "enum",
-			"value": "shared",
-			"valueRange": "[private,shared,none]",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		},
-		{
-			"name": "vendor",
-			"type": "string",
-			"value": "Huawei",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		},
-		{
-			"name": "vnfdType",
-			"type": "string",
-			"value": "VNFD_VAR_201606",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		},
-		{
-			"name": "vnfdVersion",
-			"type": "string",
-			"value": "1.0",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		},
-		{
-			"name": "interfaceName_LOOPBACK",
-			"type": "string",
-			"value": "LoopBack1",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		},
-		{
-			"name": "interfaceName_WAN",
-			"type": "string",
-			"value": "GigabitEthernet0/0/1",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		}]
-	},
-	{
-		"name": "localCpeInfo",
-		"serviceID": 0,
-		"minCardinality": 0,
-		"maxCardinality": 0,
-		"charOrder": 0,
-		"specList": [{
-			"name": "AR161FGW-L",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0,
-			"fieldList": [{
-				"name": "interfaceName_WAN",
-				"type": "string",
-				"value": "GigabitEthernet0/0/4",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			},
-			{
-				"name": "interfaceName_LOOPBACK",
-				"type": "string",
-				"value": "LoopBack1",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			},
-			{
-				"name": "interfaceName_LAN",
-				"type": "string",
-				"value": "GigabitEthernet0/0/0,GigabitEthernet0/0/1,GigabitEthernet0/0/2,GigabitEthernet0/0/3",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			}]
-		},
-		{
-			"name": "AR169FGW-L",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0,
-			"fieldList": [{
-				"name": "interfaceName_WAN",
-				"type": "string",
-				"value": "GigabitEthernet0/0/4",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			},
-			{
-				"name": "interfaceName_LOOPBACK",
-				"type": "string",
-				"value": "LoopBack1",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			},
-			{
-				"name": "interfaceName_LAN",
-				"type": "string",
-				"value": "GigabitEthernet0/0/0,GigabitEthernet0/0/1,GigabitEthernet0/0/2,GigabitEthernet0/0/3",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			}]
-		},
-		{
-			"name": "AR129CVW",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0,
-			"fieldList": [{
-				"name": "interfaceName_WAN",
-				"type": "string",
-				"value": "GigabitEthernet0/0/4",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			},
-			{
-				"name": "interfaceName_LOOPBACK",
-				"type": "string",
-				"value": "LoopBack1",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			},
-			{
-				"name": "interfaceName_LAN",
-				"type": "string",
-				"value": "GigabitEthernet0/0/0,GigabitEthernet0/0/1,GigabitEthernet0/0/2,GigabitEthernet0/0/3",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			}]
-		},
-		{
-			"name": "AR1220E",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0,
-			"fieldList": [{
-				"name": "interfaceName_WAN",
-				"type": "string",
-				"value": "GigabitEthernet0/0/8",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			},
-			{
-				"name": "interfaceName_LOOPBACK",
-				"type": "string",
-				"value": "LoopBack1",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			},
-			{
-				"name": "interfaceName_LAN",
-				"type": "string",
-				"value": "GigabitEthernet0/0/0,GigabitEthernet0/0/1,GigabitEthernet0/0/2,GigabitEthernet0/0/3,GigabitEthernet0/0/4,GigabitEthernet0/0/5,GigabitEthernet0/0/6,GigabitEthernet0/0/7",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			}]
-		}]
-	},
-	{
-		"name": "gwPolicy",
-		"serviceID": 0,
-		"minCardinality": 0,
-		"maxCardinality": 0,
-		"charOrder": 0,
-		"fieldList": [{
-			"name": "gwPosition",
-			"type": "enum",
-			"value": "cloudcpe",
-			"valueRange": "[localcpe,cloudcpe]",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		},
-		{
-			"name": "site2siteGwPosition",
-			"type": "enum",
-			"value": "cloudcpe",
-			"valueRange": "[localcpe,cloudcpe]",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		},
-		{
-			"name": "site2dcGwPosition",
-			"type": "enum",
-			"value": "cloudcpe",
-			"valueRange": "[localcpe,cloudcpe]",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		},
-		{
-			"name": "dhcpServerPosition",
-			"type": "enum",
-			"value": "cloudcpe",
-			"valueRange": "[localcpe,cloudcpe]",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		},
-		{
-			"name": "snatPosition",
-			"type": "enum",
-			"value": "cloudcpe",
-			"valueRange": "[localcpe,cloudcpe,both]",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		},
-		{
-			"name": "internetGwIp",
-			"type": "string",
-			"value": "192.168.11.11",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		},
-		{
-			"name": "priorDnsServerIp",
-			"type": "string",
-			"value": "192.168.11.12",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		},
-		{
-			"name": "standbyDnsServerIp",
-			"type": "string",
-			"value": "192.168.11.13",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		}]
-	},
-	{
-		"name": "ipsecPolicy",
-		"serviceID": 0,
-		"minCardinality": 0,
-		"maxCardinality": 0,
-		"charOrder": 0,
-		"fieldList": [{
-			"name": "authAlgorithm",
-			"type": "string",
-			"value": "sha2-256",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		},
-		{
-			"name": "encryptionAlgorithm",
-			"type": "string",
-			"value": "aes-128",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		},
-		{
-			"name": "pfs",
-			"type": "string",
-			"value": "Group5",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		},
-		{
-			"name": "encapsulationMode",
-			"type": "string",
-			"value": "tunnel",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		},
-		{
-			"name": "transformProtocol",
-			"type": "string",
-			"value": "esp",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		}]
-	},
-	{
-		"name": "ikePolicy",
-		"serviceID": 0,
-		"minCardinality": 0,
-		"maxCardinality": 0,
-		"charOrder": 0,
-		"fieldList": [{
-			"name": "authAlgorithm",
-			"type": "string",
-			"value": "sha2-256",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		},
-		{
-			"name": "encryptionAlgorithm",
-			"type": "string",
-			"value": "aes-128",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		},
-		{
-			"name": "ikeVersion",
-			"type": "string",
-			"value": "v2",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		},
-		{
-			"name": "pfs",
-			"type": "string",
-			"value": "Group5",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0
-		},
-		{
-			"name": "psk",
-			"type": "string",
-			"value": "0000000100000001D101D0BA8B17B738C2B0919B0C3DEA0E4A466981436B995B059285C0184572CEBB23960560BD884A0752E6B8FDC6E8C6",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0,
-			"encrypt": "true"
-		}]
-	},
-	{
-		"name": "connections",
-		"version": "1",
-		"serviceID": 0,
-		"minCardinality": 0,
-		"maxCardinality": 0,
-		"charOrder": 0,
-		"specList": [{
-			"name": "localcpeToCloudcpeVxlan",
-			"type": "sc",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0,
-			"specList": [{
-				"name": "saps",
-				"type": "array",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0,
-				"specList": [{
-					"name": "hubNode",
-					"type": "sap",
-					"serviceID": 0,
-					"minCardinality": 0,
-					"maxCardinality": 0,
-					"charOrder": 0,
-					"fieldList": [{
-						"name": "type",
-						"type": "enum",
-						"value": "cloudcpe",
-						"valueRange": "[localcpe,cloudcpe,vpc]",
-						"serviceID": 0,
-						"minCardinality": 0,
-						"maxCardinality": 0,
-						"charOrder": 0
-					},
-					{
-						"name": "role",
-						"type": "enum",
-						"value": "hub",
-						"valueRange": "[spoker,hub]",
-						"serviceID": 0,
-						"minCardinality": 0,
-						"maxCardinality": 0,
-						"charOrder": 0
-					},
-					{
-						"name": "interFace",
-						"type": "string",
-						"value": "cloudCpeInfo.interfaceName_LOOPBACK",
-						"serviceID": 0,
-						"minCardinality": 0,
-						"maxCardinality": 0,
-						"charOrder": 0
-					}]
-				},
-				{
-					"name": "spokerNode",
-					"type": "sap",
-					"serviceID": 0,
-					"minCardinality": 0,
-					"maxCardinality": 0,
-					"charOrder": 0,
-					"fieldList": [{
-						"name": "type",
-						"type": "enum",
-						"value": "localcpe",
-						"valueRange": "[localcpe,cloudcpe,vpc]",
-						"serviceID": 0,
-						"minCardinality": 0,
-						"maxCardinality": 0,
-						"charOrder": 0
-					},
-					{
-						"name": "role",
-						"type": "enum",
-						"value": "spoker",
-						"valueRange": "[spoker,hub]",
-						"serviceID": 0,
-						"minCardinality": 0,
-						"maxCardinality": 0,
-						"charOrder": 0
-					},
-					{
-						"name": "interFace",
-						"type": "string",
-						"value": "localCpeInfo.interfaceName_LOOPBACK",
-						"serviceID": 0,
-						"minCardinality": 0,
-						"maxCardinality": 0,
-						"charOrder": 0
-					}]
-				}]
-			}],
-			"fieldList": [{
-				"name": "technology",
-				"type": "enum",
-				"value": "vxlan",
-				"valueRange": "[gre,ipsec,vxlan]",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			},
-			{
-				"name": "topology",
-				"type": "enum",
-				"value": "hub_spoker",
-				"valueRange": "[point_to_point,full_mesh,hub_spoker]",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			},
-			{
-				"name": "qosPreClassify",
-				"type": "enum",
-				"value": "true",
-				"valueRange": "[true,false]",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			},
-			{
-				"name": "accessType",
-				"type": "enum",
-				"value": "vlan",
-				"valueRange": "[port,vlan,portvlan]",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			},
-			{
-				"name": "route",
-				"type": "string",
-				"value": "enterprise_l2cpe_internet",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			}]
-		},
-		{
-			"name": "cloudCpeTovpc",
-			"type": "sc",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0,
-			"specList": [{
-				"name": "saps",
-				"type": "array",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0,
-				"specList": [{
-					"name": "src_node",
-					"type": "sap",
-					"serviceID": 0,
-					"minCardinality": 0,
-					"maxCardinality": 0,
-					"charOrder": 0,
-					"fieldList": [{
-						"name": "type",
-						"type": "enum",
-						"value": "cloudcpe",
-						"valueRange": "[localcpe,cloudcpe,vpc]",
-						"serviceID": 0,
-						"minCardinality": 0,
-						"maxCardinality": 0,
-						"charOrder": 0
-					},
-					{
-						"name": "role",
-						"type": "enum",
-						"value": "src",
-						"valueRange": "[src,snk]",
-						"serviceID": 0,
-						"minCardinality": 0,
-						"maxCardinality": 0,
-						"charOrder": 0
-					},
-					{
-						"name": "interFace",
-						"type": "string",
-						"value": "cloudCpeInfo.interfaceName_WAN",
-						"serviceID": 0,
-						"minCardinality": 0,
-						"maxCardinality": 0,
-						"charOrder": 0
-					}]
-				},
-				{
-					"name": "snk_node",
-					"type": "sap",
-					"serviceID": 0,
-					"minCardinality": 0,
-					"maxCardinality": 0,
-					"charOrder": 0,
-					"fieldList": [{
-						"name": "type",
-						"type": "enum",
-						"value": "vpc",
-						"valueRange": "[localcpe,cloudcpe,vpc]",
-						"serviceID": 0,
-						"minCardinality": 0,
-						"maxCardinality": 0,
-						"charOrder": 0
-					},
-					{
-						"name": "role",
-						"type": "enum",
-						"value": "snk",
-						"valueRange": "[src,snk]",
-						"serviceID": 0,
-						"minCardinality": 0,
-						"maxCardinality": 0,
-						"charOrder": 0
-					}]
-				}]
-			}],
-			"fieldList": [{
-				"name": "technology",
-				"type": "enum",
-				"value": "ipsec",
-				"valueRange": "[gre,ipsec,vxlan]",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			},
-			{
-				"name": "topology",
-				"type": "enum",
-				"value": "point_to_point",
-				"valueRange": "[point_to_point,full_mesh,hub_spoker]",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			},
-			{
-				"name": "protect",
-				"type": "string",
-				"value": "none",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			},
-			{
-				"name": "worktype",
-				"type": "string",
-				"value": "work",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			},
-			{
-				"name": "qosPreClassify",
-				"type": "enum",
-				"value": "true",
-				"valueRange": "[true,false]",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			},
-			{
-				"name": "route",
-				"type": "string",
-				"value": "enterprise_l2cpe_dc",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			}]
-		},
-		{
-			"name": "vpcTovpc",
-			"type": "sc",
-			"serviceID": 0,
-			"minCardinality": 0,
-			"maxCardinality": 0,
-			"charOrder": 0,
-			"specList": [{
-				"name": "saps",
-				"type": "array",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0,
-				"specList": [{
-					"name": "src_node",
-					"type": "sap",
-					"serviceID": 0,
-					"minCardinality": 0,
-					"maxCardinality": 0,
-					"charOrder": 0,
-					"fieldList": [{
-						"name": "type",
-						"type": "enum",
-						"value": "vpc",
-						"valueRange": "[localcpe,cloudcpe,vpc]",
-						"serviceID": 0,
-						"minCardinality": 0,
-						"maxCardinality": 0,
-						"charOrder": 0
-					},
-					{
-						"name": "role",
-						"type": "enum",
-						"value": "src",
-						"valueRange": "[src,snk]",
-						"serviceID": 0,
-						"minCardinality": 0,
-						"maxCardinality": 0,
-						"charOrder": 0
-					}]
-				},
-				{
-					"name": "snk_node",
-					"type": "sap",
-					"serviceID": 0,
-					"minCardinality": 0,
-					"maxCardinality": 0,
-					"charOrder": 0,
-					"fieldList": [{
-						"name": "type",
-						"type": "enum",
-						"value": "vpc",
-						"valueRange": "[localcpe,cloudcpe,vpc]",
-						"serviceID": 0,
-						"minCardinality": 0,
-						"maxCardinality": 0,
-						"charOrder": 0
-					},
-					{
-						"name": "role",
-						"type": "enum",
-						"value": "snk",
-						"valueRange": "[src,snk]",
-						"serviceID": 0,
-						"minCardinality": 0,
-						"maxCardinality": 0,
-						"charOrder": 0
-					}]
-				}]
-			}],
-			"fieldList": [{
-				"name": "technology",
-				"type": "enum",
-				"value": "ipsec",
-				"valueRange": "[gre,ipsec,vxlan]",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			},
-			{
-				"name": "topology",
-				"type": "enum",
-				"value": "point_to_point",
-				"valueRange": "[point_to_point,full_mesh,hub_spoker]",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			},
-			{
-				"name": "protect",
-				"type": "string",
-				"value": "none",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			},
-			{
-				"name": "worktype",
-				"type": "string",
-				"value": "work",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			},
-			{
-				"name": "qosPreClassify",
-				"type": "enum",
-				"value": "true",
-				"valueRange": "[true,false]",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			},
-			{
-				"name": "route",
-				"type": "string",
-				"value": "enterprise_l2cpe_dc",
-				"serviceID": 0,
-				"minCardinality": 0,
-				"maxCardinality": 0,
-				"charOrder": 0
-			}]
-		}]
-	}]
+    "name": "IpSec_EthernetNetwork",
+    "description": "IpSec_EthernetNetwork",
+    "type": "overlayvpn",
+    "createdBy": "",
+    "createDate": "",
+    "specList": [{
+        "name": "cloudCpeInfo",
+        "serviceID": 0,
+        "minCardinality": 0,
+        "maxCardinality": 0,
+        "charOrder": 0,
+        "fieldList": [{
+            "name": "deviceTypeCode",
+            "type": "string",
+            "value": "88032VRE",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        },
+        {
+            "name": "allocatePolicy",
+            "type": "enum",
+            "value": "shared",
+            "valueRange": "[private,shared,none]",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        },
+        {
+            "name": "vendor",
+            "type": "string",
+            "value": "Huawei",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        },
+        {
+            "name": "vnfdType",
+            "type": "string",
+            "value": "VNFD_VAR_201606",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        },
+        {
+            "name": "vnfdVersion",
+            "type": "string",
+            "value": "1.0",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        },
+        {
+            "name": "interfaceName_LOOPBACK",
+            "type": "string",
+            "value": "LoopBack1",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        },
+        {
+            "name": "interfaceName_LAN",
+            "type": "string",
+            "value": "GigabitEthernet0/0/1",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        },
+        {
+            "name": "interfaceName_WAN",
+            "type": "string",
+            "value": "GigabitEthernet0/0/2",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        }]
+    },
+    {
+        "name": "localCpeInfo",
+        "serviceID": 0,
+        "minCardinality": 0,
+        "maxCardinality": 0,
+        "charOrder": 0,
+        "specList": [{
+            "name": "AR161FGW-L",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0,
+            "fieldList": [{
+                "name": "interfaceName_WAN",
+                "type": "string",
+                "value": "GigabitEthernet0/0/4",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            },
+            {
+                "name": "interfaceName_LOOPBACK",
+                "type": "string",
+                "value": "LoopBack1",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            },
+            {
+                "name": "interfaceName_LAN",
+                "type": "string",
+                "value": "GigabitEthernet0/0/0,GigabitEthernet0/0/1,GigabitEthernet0/0/2,GigabitEthernet0/0/3",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            }]
+        },
+        {
+            "name": "AR169FGW-L",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0,
+            "fieldList": [{
+                "name": "interfaceName_WAN",
+                "type": "string",
+                "value": "GigabitEthernet0/0/4",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            },
+            {
+                "name": "interfaceName_LOOPBACK",
+                "type": "string",
+                "value": "LoopBack1",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            },
+            {
+                "name": "interfaceName_LAN",
+                "type": "string",
+                "value": "GigabitEthernet0/0/0,GigabitEthernet0/0/1,GigabitEthernet0/0/2,GigabitEthernet0/0/3",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            }]
+        },
+        {
+            "name": "AR129CVW",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0,
+            "fieldList": [{
+                "name": "interfaceName_WAN",
+                "type": "string",
+                "value": "GigabitEthernet0/0/4",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            },
+            {
+                "name": "interfaceName_LOOPBACK",
+                "type": "string",
+                "value": "LoopBack1",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            },
+            {
+                "name": "interfaceName_LAN",
+                "type": "string",
+                "value": "GigabitEthernet0/0/0,GigabitEthernet0/0/1,GigabitEthernet0/0/2,GigabitEthernet0/0/3",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            }]
+        },
+        {
+            "name": "AR1220E",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0,
+            "fieldList": [{
+                "name": "interfaceName_WAN",
+                "type": "string",
+                "value": "GigabitEthernet0/0/8",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            },
+            {
+                "name": "interfaceName_LOOPBACK",
+                "type": "string",
+                "value": "LoopBack1",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            },
+            {
+                "name": "interfaceName_LAN",
+                "type": "string",
+                "value": "GigabitEthernet0/0/0,GigabitEthernet0/0/1,GigabitEthernet0/0/2,GigabitEthernet0/0/3,GigabitEthernet0/0/4,GigabitEthernet0/0/5,GigabitEthernet0/0/6,GigabitEthernet0/0/7",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            }]
+        }]
+    },
+    {
+        "name": "gwPolicy",
+        "serviceID": 0,
+        "minCardinality": 0,
+        "maxCardinality": 0,
+        "charOrder": 0,
+        "fieldList": [{
+            "name": "gwPosition",
+            "type": "enum",
+            "value": "cloudcpe",
+            "valueRange": "[localcpe,cloudcpe]",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        },
+        {
+            "name": "site2siteGwPosition",
+            "type": "enum",
+            "value": "cloudcpe",
+            "valueRange": "[localcpe,cloudcpe]",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        },
+        {
+            "name": "site2dcGwPosition",
+            "type": "enum",
+            "value": "cloudcpe",
+            "valueRange": "[localcpe,cloudcpe]",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        },
+        {
+            "name": "dhcpServerPosition",
+            "type": "enum",
+            "value": "cloudcpe",
+            "valueRange": "[localcpe,cloudcpe]",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        },
+        {
+            "name": "snatPosition",
+            "type": "enum",
+            "value": "cloudcpe",
+            "valueRange": "[localcpe,cloudcpe,both]",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        },
+        {
+            "name": "internetGwIp",
+            "type": "string",
+            "value": "192.168.11.11",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        },
+        {
+            "name": "priorDnsServerIp",
+            "type": "string",
+            "value": "192.168.11.12",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        },
+        {
+            "name": "standbyDnsServerIp",
+            "type": "string",
+            "value": "192.168.11.13",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        }]
+    },
+    {
+        "name": "ipsecPolicy",
+        "serviceID": 0,
+        "minCardinality": 0,
+        "maxCardinality": 0,
+        "charOrder": 0,
+        "fieldList": [{
+            "name": "authAlgorithm",
+            "type": "string",
+            "value": "sha1",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        },
+        {
+            "name": "encryptionAlgorithm",
+            "type": "string",
+            "value": "3des",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        },
+        {
+            "name": "pfs",
+            "type": "string",
+            "value": "Group5",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        },
+        {
+            "name": "encapsulationMode",
+            "type": "string",
+            "value": "tunnel",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        },
+        {
+            "name": "transformProtocol",
+            "type": "string",
+            "value": "esp",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        }]
+    },
+    {
+        "name": "ikePolicy",
+        "serviceID": 0,
+        "minCardinality": 0,
+        "maxCardinality": 0,
+        "charOrder": 0,
+        "fieldList": [{
+            "name": "authAlgorithm",
+            "type": "string",
+            "value": "sha1",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        },
+        {
+            "name": "encryptionAlgorithm",
+            "type": "string",
+            "value": "3des",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        },
+        {
+            "name": "ikeVersion",
+            "type": "string",
+            "value": "v2",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        },
+        {
+            "name": "pfs",
+            "type": "string",
+            "value": "Group5",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0
+        },
+        {
+            "name": "psk",
+            "type": "string",
+            "value": "0ruVZi0a7UZm59MndHDrAmnixI7k+dqjQsz0M9tU92U=",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0,
+            "encrypt": "true"
+        }]
+    },
+    {
+        "name": "connections",
+        "version": "1",
+        "serviceID": 0,
+        "minCardinality": 0,
+        "maxCardinality": 0,
+        "charOrder": 0,
+        "specList": [{
+            "name": "localcpeToCloudcpeVxlan",
+            "type": "sc",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0,
+            "specList": [{
+                "name": "saps",
+                "type": "array",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0,
+                "specList": [{
+                    "name": "hubNode",
+                    "type": "sap",
+                    "serviceID": 0,
+                    "minCardinality": 0,
+                    "maxCardinality": 0,
+                    "charOrder": 0,
+                    "fieldList": [{
+                        "name": "type",
+                        "type": "enum",
+                        "value": "cloudcpe",
+                        "valueRange": "[localcpe,cloudcpe,vpc]",
+                        "serviceID": 0,
+                        "minCardinality": 0,
+                        "maxCardinality": 0,
+                        "charOrder": 0
+                    },
+                    {
+                        "name": "role",
+                        "type": "enum",
+                        "value": "hub",
+                        "valueRange": "[spoker,hub]",
+                        "serviceID": 0,
+                        "minCardinality": 0,
+                        "maxCardinality": 0,
+                        "charOrder": 0
+                    },
+                    {
+                        "name": "interFace",
+                        "type": "string",
+                        "value": "cloudCpeInfo.interfaceName_LAN",
+                        "serviceID": 0,
+                        "minCardinality": 0,
+                        "maxCardinality": 0,
+                        "charOrder": 0
+                    }]
+                },
+                {
+                    "name": "spokerNode",
+                    "type": "sap",
+                    "serviceID": 0,
+                    "minCardinality": 0,
+                    "maxCardinality": 0,
+                    "charOrder": 0,
+                    "fieldList": [{
+                        "name": "type",
+                        "type": "enum",
+                        "value": "localcpe",
+                        "valueRange": "[localcpe,cloudcpe,vpc]",
+                        "serviceID": 0,
+                        "minCardinality": 0,
+                        "maxCardinality": 0,
+                        "charOrder": 0
+                    },
+                    {
+                        "name": "role",
+                        "type": "enum",
+                        "value": "spoker",
+                        "valueRange": "[spoker,hub]",
+                        "serviceID": 0,
+                        "minCardinality": 0,
+                        "maxCardinality": 0,
+                        "charOrder": 0
+                    },
+                    {
+                        "name": "interFace",
+                        "type": "string",
+                        "value": "localCpeInfo.interfaceName_WAN",
+                        "serviceID": 0,
+                        "minCardinality": 0,
+                        "maxCardinality": 0,
+                        "charOrder": 0
+                    }]
+                }]
+            }],
+            "fieldList": [{
+                "name": "technology",
+                "type": "enum",
+                "value": "vxlan",
+                "valueRange": "[gre,ipsec,vxlan]",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            },
+            {
+                "name": "topology",
+                "type": "enum",
+                "value": "hub_spoker",
+                "valueRange": "[point_to_point,full_mesh,hub_spoker]",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            },
+            {
+                "name": "qosPreClassify",
+                "type": "enum",
+                "value": "true",
+                "valueRange": "[true,false]",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            },
+            {
+                "name": "accessType",
+                "type": "enum",
+                "value": "vlan",
+                "valueRange": "[port,vlan,portvlan]",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            },
+            {
+                "name": "route",
+                "type": "string",
+                "value": "enterprise_l2cpe_internet",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            }]
+        },
+        {
+            "name": "cloudCpeTovpc",
+            "type": "sc",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0,
+            "specList": [{
+                "name": "saps",
+                "type": "array",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0,
+                "specList": [{
+                    "name": "src_node",
+                    "type": "sap",
+                    "serviceID": 0,
+                    "minCardinality": 0,
+                    "maxCardinality": 0,
+                    "charOrder": 0,
+                    "fieldList": [{
+                        "name": "type",
+                        "type": "enum",
+                        "value": "cloudcpe",
+                        "valueRange": "[localcpe,cloudcpe,vpc]",
+                        "serviceID": 0,
+                        "minCardinality": 0,
+                        "maxCardinality": 0,
+                        "charOrder": 0
+                    },
+                    {
+                        "name": "role",
+                        "type": "enum",
+                        "value": "src",
+                        "valueRange": "[src,snk]",
+                        "serviceID": 0,
+                        "minCardinality": 0,
+                        "maxCardinality": 0,
+                        "charOrder": 0
+                    },
+                    {
+                        "name": "interFace",
+                        "type": "string",
+                        "value": "cloudCpeInfo.interfaceName_WAN",
+                        "serviceID": 0,
+                        "minCardinality": 0,
+                        "maxCardinality": 0,
+                        "charOrder": 0
+                    }]
+                },
+                {
+                    "name": "snk_node",
+                    "type": "sap",
+                    "serviceID": 0,
+                    "minCardinality": 0,
+                    "maxCardinality": 0,
+                    "charOrder": 0,
+                    "fieldList": [{
+                        "name": "type",
+                        "type": "enum",
+                        "value": "vpc",
+                        "valueRange": "[localcpe,cloudcpe,vpc]",
+                        "serviceID": 0,
+                        "minCardinality": 0,
+                        "maxCardinality": 0,
+                        "charOrder": 0
+                    },
+                    {
+                        "name": "role",
+                        "type": "enum",
+                        "value": "snk",
+                        "valueRange": "[src,snk]",
+                        "serviceID": 0,
+                        "minCardinality": 0,
+                        "maxCardinality": 0,
+                        "charOrder": 0
+                    }]
+                }]
+            }],
+            "fieldList": [{
+                "name": "technology",
+                "type": "enum",
+                "value": "ipsec",
+                "valueRange": "[gre,ipsec,vxlan]",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            },
+            {
+                "name": "topology",
+                "type": "enum",
+                "value": "point_to_point",
+                "valueRange": "[point_to_point,full_mesh,hub_spoker]",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            },
+            {
+                "name": "protect",
+                "type": "string",
+                "value": "none",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            },
+            {
+                "name": "worktype",
+                "type": "string",
+                "value": "work",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            },
+            {
+                "name": "qosPreClassify",
+                "type": "enum",
+                "value": "true",
+                "valueRange": "[true,false]",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            },
+            {
+                "name": "route",
+                "type": "string",
+                "value": "enterprise_l2cpe_dc",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            }]
+        },
+        {
+            "name": "vpcTovpc",
+            "type": "sc",
+            "serviceID": 0,
+            "minCardinality": 0,
+            "maxCardinality": 0,
+            "charOrder": 0,
+            "specList": [{
+                "name": "saps",
+                "type": "array",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0,
+                "specList": [{
+                    "name": "src_node",
+                    "type": "sap",
+                    "serviceID": 0,
+                    "minCardinality": 0,
+                    "maxCardinality": 0,
+                    "charOrder": 0,
+                    "fieldList": [{
+                        "name": "type",
+                        "type": "enum",
+                        "value": "vpc",
+                        "valueRange": "[localcpe,cloudcpe,vpc]",
+                        "serviceID": 0,
+                        "minCardinality": 0,
+                        "maxCardinality": 0,
+                        "charOrder": 0
+                    },
+                    {
+                        "name": "role",
+                        "type": "enum",
+                        "value": "src",
+                        "valueRange": "[src,snk]",
+                        "serviceID": 0,
+                        "minCardinality": 0,
+                        "maxCardinality": 0,
+                        "charOrder": 0
+                    }]
+                },
+                {
+                    "name": "snk_node",
+                    "type": "sap",
+                    "serviceID": 0,
+                    "minCardinality": 0,
+                    "maxCardinality": 0,
+                    "charOrder": 0,
+                    "fieldList": [{
+                        "name": "type",
+                        "type": "enum",
+                        "value": "vpc",
+                        "valueRange": "[localcpe,cloudcpe,vpc]",
+                        "serviceID": 0,
+                        "minCardinality": 0,
+                        "maxCardinality": 0,
+                        "charOrder": 0
+                    },
+                    {
+                        "name": "role",
+                        "type": "enum",
+                        "value": "snk",
+                        "valueRange": "[src,snk]",
+                        "serviceID": 0,
+                        "minCardinality": 0,
+                        "maxCardinality": 0,
+                        "charOrder": 0
+                    }]
+                }]
+            }],
+            "fieldList": [{
+                "name": "technology",
+                "type": "enum",
+                "value": "ipsec",
+                "valueRange": "[gre,ipsec,vxlan]",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            },
+            {
+                "name": "topology",
+                "type": "enum",
+                "value": "point_to_point",
+                "valueRange": "[point_to_point,full_mesh,hub_spoker]",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            },
+            {
+                "name": "protect",
+                "type": "string",
+                "value": "none",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            },
+            {
+                "name": "worktype",
+                "type": "string",
+                "value": "work",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            },
+            {
+                "name": "qosPreClassify",
+                "type": "enum",
+                "value": "true",
+                "valueRange": "[true,false]",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            },
+            {
+                "name": "route",
+                "type": "string",
+                "value": "enterprise_l2cpe_dc",
+                "serviceID": 0,
+                "minCardinality": 0,
+                "maxCardinality": 0,
+                "charOrder": 0
+            }]
+        }]
+    }]
 }
