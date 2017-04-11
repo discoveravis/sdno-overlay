@@ -45,6 +45,7 @@ import org.openo.sdno.overlayvpn.brs.model.NetworkElementMO;
 import org.openo.sdno.overlayvpn.brs.model.PopMO;
 import org.openo.sdno.overlayvpn.composer.TemplateManager;
 import org.openo.sdno.overlayvpn.errorcode.ErrorCode;
+import org.openo.sdno.overlayvpn.model.netmodel.vpc.Subnet;
 import org.openo.sdno.overlayvpn.model.v2.overlay.BaseModel;
 import org.openo.sdno.overlayvpn.model.v2.overlay.NbiConnectionRelation;
 import org.openo.sdno.overlayvpn.model.v2.overlay.NbiVpn;
@@ -194,6 +195,10 @@ public class VpnConnectionRoaResourceTest {
                 Map<String, Object> responseMap = new HashMap<>();
                 responseMap.put("object", connectionIpsec);
                 response.setResponseJson(JsonUtil.toJson(responseMap));
+            } else if(uri.contains("subnets")) {
+                Subnet subnet = new Subnet();
+                subnet.setCidr("10.21.3.0/24");
+                response.setResponseJson(JsonUtil.toJson(subnet));
             } else {
                 BaseModel model = new BaseModel();
                 model.setId("test_uuid");

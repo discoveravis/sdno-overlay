@@ -6,6 +6,7 @@
 	"vpcId": "test_uuid",
 	"operationStatus":"normal",
 	"deployPosition": "localFirst",
+	"subnetList":["subnetId"],
 	"portList": [
 		"test_uuid"
 	],

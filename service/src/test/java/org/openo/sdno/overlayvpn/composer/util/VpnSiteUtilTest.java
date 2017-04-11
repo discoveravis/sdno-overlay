@@ -24,6 +24,7 @@ import java.util.List;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.junit.Test;
+import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.overlayvpn.composer.model.NeConnection;
 import org.openo.sdno.overlayvpn.servicemodel.base.IP;
 import org.openo.sdno.overlayvpn.servicemodel.base.InternetGateway;
@@ -40,7 +41,7 @@ public class VpnSiteUtilTest {
     }
 
     @Test
-    public void testGetSiteCidrs1() {
+    public void testGetSiteCidrs1() throws ServiceException {
         NeConnection connection = new NeConnection();
         VpnSite site = new VpnSite();
 
@@ -55,7 +56,7 @@ public class VpnSiteUtilTest {
     }
 
     @Test
-    public void testGetSiteCidrs2() {
+    public void testGetSiteCidrs2() throws ServiceException {
         NeConnection connection = new NeConnection();
         VpnSite site = new VpnSite();
 
@@ -69,7 +70,7 @@ public class VpnSiteUtilTest {
     }
 
     @Test
-    public void testGetSiteCidrs3() {
+    public void testGetSiteCidrs3() throws ServiceException {
         NeConnection connection = new NeConnection();
         VpnSite site = new VpnSite();
 
@@ -91,7 +92,7 @@ public class VpnSiteUtilTest {
     }
 
     @Test
-    public void testGetSiteCidrs4() {
+    public void testGetSiteCidrs4() throws ServiceException {
         NeConnection connection = new NeConnection();
         connection.setSrcNeRole("vpc");
         VpnSite site = new VpnSite();
@@ -114,7 +115,7 @@ public class VpnSiteUtilTest {
     }
 
     @Test
-    public void testGetSiteCidrs5() {
+    public void testGetSiteCidrs5() throws ServiceException {
         NeConnection connection = new NeConnection();
         connection.setDestNeRole("vpc");
         VpnSite site = new VpnSite();
@@ -137,7 +138,7 @@ public class VpnSiteUtilTest {
     }
 
     @Test
-    public void testGetSiteCidrs6() {
+    public void testGetSiteCidrs6() throws ServiceException {
         NeConnection connection = new NeConnection();
         connection.setDestNeRole("vpc");
         VpnSite site = new VpnSite();
