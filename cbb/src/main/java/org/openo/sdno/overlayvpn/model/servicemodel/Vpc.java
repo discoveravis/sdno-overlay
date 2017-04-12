@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,9 @@
  */
 
 package org.openo.sdno.overlayvpn.model.servicemodel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -84,7 +87,7 @@ public class Vpc {
     @Valid
     @AUuid(require = true)
     @JsonIgnore
-    private SubNet subnet;
+    private List<SubNet> subNetList;
 
     /**
      * Constructor.<br>
@@ -92,7 +95,9 @@ public class Vpc {
      * @since SDNO 0.5
      */
     public Vpc() {
-        subnet = new SubNet();
+        subNetList = new ArrayList<>();
+        SubNet subNet = new SubNet();
+        subNetList.add(subNet);
     }
 
     public String getName() {
@@ -119,12 +124,12 @@ public class Vpc {
         this.osControllerId = osControllerId;
     }
 
-    public SubNet getSubnet() {
-        return subnet;
+    public List<SubNet> getSubNetList() {
+        return subNetList;
     }
 
-    public void setSubnet(SubNet subnet) {
-        this.subnet = subnet;
+    public void setSubNetList(List<SubNet> subNetList) {
+        this.subNetList = subNetList;
     }
 
     public String getExternalIp() {

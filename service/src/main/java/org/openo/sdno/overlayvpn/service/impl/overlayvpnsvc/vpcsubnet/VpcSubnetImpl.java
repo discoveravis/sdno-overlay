@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
 
 package org.openo.sdno.overlayvpn.service.impl.overlayvpnsvc.vpcsubnet;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -69,7 +70,7 @@ public class VpcSubnetImpl {
 
         // Create UUID
         siteToDc.getVpc().setUuid(UuidUtils.createUuid());
-        siteToDc.getVpc().getSubnet().setUuid(UuidUtils.createUuid());
+        siteToDc.getVpc().getSubNetList().get(0).setUuid(UuidUtils.createUuid());
 
         // Insert DB
         VpcSubNetMapping vpcSubNetMapping = VpcSubnetUtil.buildVpcSubnetMapping(siteToDc);
@@ -82,16 +83,19 @@ public class VpcSubnetImpl {
         }
 
         Vpc createdVpc = vpcResultRsp.getData();
-        siteToDc.getVpc().getSubnet().setVpcId(createdVpc.getUuid());
+        siteToDc.getVpc().getSubNetList().get(0).setVpcId(createdVpc.getUuid());
 
-        ResultRsp<SubNet> subnetResultRsp = VpcSubnetService.getInstance().create(req, siteToDc.getVpc().getSubnet());
+        ResultRsp<SubNet> subnetResultRsp =
+                VpcSubnetService.getInstance().create(req, siteToDc.getVpc().getSubNetList().get(0));
         if(!subnetResultRsp.isSuccess() || null == subnetResultRsp.getData()) {
             LOGGER.error("Create Subnet Service return Error!!");
             throw new ServiceException("Create Subnet Service failed!!");
         }
 
         SubNet createdSubnet = subnetResultRsp.getData();
-        createdVpc.setSubnet(createdSubnet);
+        List<SubNet> subNetList = new ArrayList<>();
+        subNetList.add(createdSubnet);
+        createdVpc.setSubNetList(subNetList);
         return createdVpc;
     }
 

@@ -42,7 +42,7 @@ public class VpcSubnetUtil {
     public static VpcSubNetMapping buildVpcSubnetMapping(SiteToDc siteToDc) {
 
         Vpc vpc = siteToDc.getVpc();
-        SubNet subnet = vpc.getSubnet();
+        SubNet subnet = vpc.getSubNetList().get(0);
         VpcSubNetMapping vpcSubNetMapping = new VpcSubNetMapping();
         vpcSubNetMapping.allocateUuid();
         vpcSubNetMapping.setSitetodcId(siteToDc.getUuid());
@@ -75,7 +75,7 @@ public class VpcSubnetUtil {
         vpc.setOsControllerId(vpcSubNetMapping.getOsControllerId());
         vpc.setExternalIp(vpcSubNetMapping.getExternalIp());
 
-        SubNet subnet = vpc.getSubnet();
+        SubNet subnet = vpc.getSubNetList().get(0);
         subnet.setUuid(vpcSubNetMapping.getSubnetId());
         subnet.setName(vpcSubNetMapping.getSubnetName());
         subnet.setDescription(vpcSubNetMapping.getSubnetDescription());

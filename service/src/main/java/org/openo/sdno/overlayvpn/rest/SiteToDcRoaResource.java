@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -263,9 +263,9 @@ public class SiteToDcRoaResource {
         }
 
         if(null != oSiteToDc.getVpc()) {
-            oSiteToDc.getVpc().getSubnet().setName(oSite2DcNbi.getVpc().getSite().getName());
-            oSiteToDc.getVpc().getSubnet().setCidr(oSite2DcNbi.getVpc().getSite().getCidr());
-            oSiteToDc.getVpc().getSubnet().setVni(oSite2DcNbi.getVpc().getSite().getVni());
+            oSiteToDc.getVpc().getSubNetList().get(0).setName(oSite2DcNbi.getVpc().getSite().getName());
+            oSiteToDc.getVpc().getSubNetList().get(0).setCidr(oSite2DcNbi.getVpc().getSite().getCidr());
+            oSiteToDc.getVpc().getSubNetList().get(0).setVni(oSite2DcNbi.getVpc().getSite().getVni());
             oSiteToDc.getVpc().setName(oSite2DcNbi.getVpc().getName());
         }
 
@@ -293,9 +293,9 @@ public class SiteToDcRoaResource {
 
         if(null != oSiteToDcNbi.getVpc()) {
             oSiteToDcNbi.getVpc().setName(oSite2Dc.getVpc().getName());
-            oSiteToDcNbi.getVpc().getSite().setCidr(oSite2Dc.getVpc().getSubnet().getCidr());
-            oSiteToDcNbi.getVpc().getSite().setName(oSite2Dc.getVpc().getSubnet().getName());
-            oSiteToDcNbi.getVpc().getSite().setVni(oSite2Dc.getVpc().getSubnet().getVni());
+            oSiteToDcNbi.getVpc().getSite().setCidr(oSite2Dc.getVpc().getSubNetList().get(0).getCidr());
+            oSiteToDcNbi.getVpc().getSite().setName(oSite2Dc.getVpc().getSubNetList().get(0).getName());
+            oSiteToDcNbi.getVpc().getSite().setVni(oSite2Dc.getVpc().getSubNetList().get(0).getVni());
         }
 
         if(null != oSiteToDcNbi.getSfp()) {
