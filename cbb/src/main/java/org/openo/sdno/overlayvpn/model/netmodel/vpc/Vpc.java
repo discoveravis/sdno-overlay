@@ -90,8 +90,8 @@ public class Vpc extends AbstUuidModel {
 
     public Vpc setName(String name) {
         this.name = name;
-        if(name.split("/").length != 2) {
-            throw new IllegalArgumentException("Name should be in the form of domain/project.");
+        if(name.split("/").length != 3) {
+            throw new IllegalArgumentException("Name should be in the form of domain/project/router.");
         }
         return this;
     }
@@ -169,18 +169,22 @@ public class Vpc extends AbstUuidModel {
     }
 
     @JsonIgnore
+    public String getDomainName() {
+        return this.getName().split("/")[0];
+    }
+
+    @JsonIgnore
     public String getProjectName() {
         return this.getName().split("/")[1];
     }
 
     @JsonIgnore
-    public String getDomainName() {
-        return this.getName().split("/")[0];
+    public String getRouterName() {
+        return this.getName().split("/")[2];
     }
-
     /**
      * VPC underlay resources.
-     * 
+     *
      * @author
      * @Since SDNO 0.5
      */
