@@ -16,7 +16,6 @@
 
 package org.openo.sdno.overlayvpn.composer.impl.connection;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -33,7 +32,6 @@ import org.openo.sdno.overlayvpn.composer.model.NeConnection;
 import org.openo.sdno.overlayvpn.composer.util.VpnCpeUtil;
 import org.openo.sdno.overlayvpn.composer.util.VpnReliabilityUtil;
 import org.openo.sdno.overlayvpn.composer.util.VpnSiteUtil;
-import org.openo.sdno.overlayvpn.composer.util.VpnTunnelUtil;
 import org.openo.sdno.overlayvpn.frame.dao.BaseDao;
 import org.openo.sdno.overlayvpn.model.v2.overlay.NbiNetConnection;
 import org.openo.sdno.overlayvpn.servicemodel.base.IP;
@@ -138,8 +136,7 @@ public class IpsecTunnelProducer implements TunnelProducer {
 
         LOGGER.info("The ipsec connection is :" + JsonUtils.toJson(netIpsecConnection));
 
-        NbiNetConnection dbConnection = VpnTunnelUtil.checkNetConnection(group, netIpsecConnection);
-        ConnectionGroup processConnection = processConnection(neConnection, netIpsecConnection, dbConnection);
+        ConnectionGroup processConnection = processConnection(neConnection, netIpsecConnection);
         initNqa(processConnection.getCreate(), neConnection, connectionTemplate);
         group.append(processConnection);
         LOGGER.info("Finish composed Neconnection,type=" + getTechnology() + ",uuid=" + netIpsecConnection.getId());
@@ -164,31 +161,13 @@ public class IpsecTunnelProducer implements TunnelProducer {
         }
     }
 
-    private ConnectionGroup processConnection(NeConnection neConnection, NetIpsecConnection netIpsecConnection,
-            NbiNetConnection dbConnection) throws ServiceException {
+    private ConnectionGroup processConnection(NeConnection neConnection, NetIpsecConnection netIpsecConnection)
+            throws ServiceException {
         LOGGER.info("Start to check netConnection,type=" + getTechnology() + ",uuid=" + netIpsecConnection.getId());
         ConnectionGroup group = new ConnectionGroup();
-        if(dbConnection == null) {
-            LOGGER.info("NetConnection is new,type=" + getTechnology() + ",uuid=" + netIpsecConnection.getId());
-            group.getCreate().add(netIpsecConnection);
-        } else {
-            LOGGER.info("NetConnection is exist,type=" + getTechnology() + ",uuid=" + dbConnection.getId());
-            group.getRelation()
-                    .addAll(VpnTunnelUtil.buildConnectionRelation(neConnection, Arrays.asList(dbConnection)));
-            if(isSiteToDc(netIpsecConnection)) {
-                NetIpsecConnection dbIpsecConnection = (NetIpsecConnection)dbConnection;
-                List<IP> srcIps = IpAddressUtil.jsonToIP(netIpsecConnection.getSourceLanCidrs());
-                List<IP> srcDbIps = IpAddressUtil.jsonToIP(dbIpsecConnection.getSourceLanCidrs());
-                List<IP> srcNewIps = checkIps(srcDbIps, srcIps);
-                if(CollectionUtils.isNotEmpty(srcNewIps)) {
-                    NetIpsecConnection updateConnection = new NetIpsecConnection();
-                    updateConnection.setUpdateAction(ActionType.CREATE);
-                    updateConnection.setSourceLanCidrs(JsonUtils.toJson(srcNewIps));
-                    copyIpsecData(updateConnection, dbIpsecConnection);
-                    group.getUpdate().add(updateConnection);
-                }
-            }
-        }
+        LOGGER.info("NetConnection is new,type=" + getTechnology() + ",uuid=" + netIpsecConnection.getId());
+        group.getCreate().add(netIpsecConnection);
+
         return group;
     }
 
@@ -256,33 +235,6 @@ public class IpsecTunnelProducer implements TunnelProducer {
             }
         }
         return update;
-    }
-
-    /**
-     * Check IP list,find all the request IP that not in DB.<br>
-     * 
-     * @param dbIps The IP list in DB
-     * @param requestIps The request IP list
-     * @return All the request IP that not in DB
-     * @since SDNO 0.5
-     */
-    private List<IP> checkIps(List<IP> dbIps, List<IP> requestIps) {
-        List<IP> result = new ArrayList<>();
-        if(CollectionUtils.isEmpty(requestIps)) {
-            return result;
-        } else if(CollectionUtils.isEmpty(dbIps)) {
-            return requestIps;
-        }
-        Set<String> srcIpKey = new HashSet<String>();
-        for(IP ip : dbIps) {
-            srcIpKey.add(ip.toString());
-        }
-        for(IP ip : requestIps) {
-            if(!srcIpKey.contains(ip.toString())) {
-                result.add(ip);
-            }
-        }
-        return result;
     }
 
     /**
