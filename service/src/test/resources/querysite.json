@@ -69,7 +69,7 @@
 		"adminStatus": "none",
 		"operationStatus": "normal",
 		"siteId": "test_uuid",
-		"vlanId": "test_uuid",
+		"vlanId": "13",
 		"ports": [
 			"test_uuid"
 		],

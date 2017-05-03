@@ -205,10 +205,18 @@ public class VxlanTunnelProducer implements TunnelProducer {
         if(!VpnSite.class.isAssignableFrom(site.getClass())) {
             return portVlans;
         }
+        VpnSite vpnSite = (VpnSite)site;
         for(String portId : gateway.getPorts()) {
             PortVlan portVlan = new PortVlan();
             portVlan.setNeId(neId);
             portVlan.setPort(portId);
+
+            int downVlanId = Integer.parseInt(vpnSite.getVlans().get(0).getVlanId());
+            int upVlanId = downVlanId + 1;
+            StringBuffer vlan = new StringBuffer();
+            vlan.append(String.valueOf(downVlanId)).append('-').append(String.valueOf(upVlanId));
+            portVlan.setVlan(vlan.toString());
+
             portVlans.add(portVlan);
         }
         return portVlans;
