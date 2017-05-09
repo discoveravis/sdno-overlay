@@ -390,7 +390,7 @@
         {
             "name": "ikeVersion",
             "type": "string",
-            "value": "v2",
+            "value": "v1",
             "serviceID": 0,
             "minCardinality": 0,
             "maxCardinality": 0,
